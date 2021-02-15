@@ -1,0 +1,92 @@
+.question:after {
+    content: "";
+    animation: abomination 6.5s linear 1; 
+    animation-fill-mode: forwards;
+    width: calc(100vw - 6em);
+    font-family: ABCGalapagosA;
+    font-size: 2.3em;
+    color: #6232FB;
+    margin: 1em;
+    line-height: 1.5em;
+}
+
+  @keyframes abomination {
+      0% {
+        content: "";
+      }
+      4% {
+        content: "h";
+      }
+      8% {
+        content: "ha";
+      }
+      12% {
+        content: "hat";
+      }
+      16% {
+        content: "hat ";
+      }
+      20% {
+        content: "hat e";
+      }
+      24% {
+        content: "hat ei";
+      }
+      28% {
+        content: "hat ein";
+      }
+      32% {
+        content: "hat ein ";
+      }
+      36% {
+        content: "hat ein b";
+      }
+      40% {
+        content: "hat ein bi";
+      }
+      44% {
+        content: "hat ein bil";
+      }
+      48% {
+        content: "hat ein bild";
+      }
+      52% {
+        content: "hat ein bild ";
+      }
+      56% {
+        content: "hat ein bild e";
+      }
+      60% {
+        content: "hat ein bild ei";
+      }  
+      64% {
+        content: "hat ein bild ein";
+      }
+      68% {
+        content: "hat ein bild eine";
+      }
+      72% {
+        content: "hat ein bild einen";
+      }
+      76% {
+        content: "hat ein bild einen ";
+      }  
+      80% {
+        content: "hat ein bild einen k";
+      }
+      84% {
+        content: "hat ein bild einen kl";
+      }
+      88% {
+        content: "hat ein bild einen kla";
+      }
+      92% {
+        content: "hat ein bild einen klan";
+      }   
+      96% {
+        content: "hat ein bild einen klang";
+      }
+      100% {
+        content: "hat ein bild einen klang?";
+      }      
+}

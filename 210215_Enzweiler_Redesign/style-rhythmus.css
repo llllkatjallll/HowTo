@@ -1,0 +1,92 @@
+.question:after {
+    content: "";
+    animation: abomination 6.5s linear 1; 
+    animation-fill-mode: forwards;
+    width: calc(100vw - 6em);
+    font-family: ABCGalapagosA;
+    font-size: 2.3em;
+    color: #6232FB;
+    margin: 1em;
+    line-height: 1.5em;
+}
+
+  @keyframes abomination {
+      0% {
+        content: "";
+      }
+      4% {
+        content: "k";
+      }
+      8% {
+        content: "ka";
+      }
+      12% {
+        content: "kan";
+      }
+      16% {
+        content: "kann";
+      }
+      20% {
+        content: "kann ";
+      }
+      24% {
+        content: "kann m";
+      }
+      28% {
+        content: "kann ma";
+      }
+      32% {
+        content: "kann man";
+      }
+      36% {
+        content: "kann man ";
+      }
+      40% {
+        content: "kann man e";
+      }
+      44% {
+        content: "kann man ei";
+      }
+      48% {
+        content: "kann man ein";
+      }
+      52% {
+        content: "kann man ein ";
+      }
+      56% {
+        content: "kann man ein b";
+      }
+      60% {
+        content: "kann man ein bi";
+      }  
+      64% {
+        content: "kann man ein bil";
+      }
+      68% {
+        content: "kann man ein bild";
+      }
+      72% {
+        content: "kann man ein bild ";
+      }
+      76% {
+        content: "kann man ein bild l";
+      }  
+      80% {
+        content: "kann man ein bild le";
+      }
+      84% {
+        content: "kann man ein bild les";
+      }
+      88% {
+        content: "kann man ein bild lese";
+      }
+      92% {
+        content: "kann man ein bild lesen";
+      }   
+      96% {
+        content: "kann man ein bild lesen?";
+      }
+      100% {
+        content: "kann man ein bild lesen?";
+      }      
+}

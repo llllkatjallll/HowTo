@@ -1,0 +1,434 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: ABCMonumentGrotesk;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1em;
+    color: rgba(0, 0, 0, 0.8);
+    -webkit-overflow-scrolling: touch;
+    text-align: center;
+    color: inherit;
+}
+
+@font-face {
+    font-family: ABCGalapagosA;
+    src: url("fonts/ABCGalapagosA-BoldGrid-Trial.otf");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: ABCMonumentGrotesk;
+    src: url("fonts/ABCMonumentGrotesk-Regular-Trial.otf");
+    font-weight: normal;
+    font-style: normal;
+    letter-spacing: 0.015em;
+}
+
+@font-face {
+    font-family: ABCMonumentGrotesk-medium;
+    src: url("fonts/ABCMonumentGrotesk-Medium-Trial.otf");
+    font-weight: medium;
+    font-style: normal;
+    letter-spacing: 0.015em;    
+}
+
+@font-face {
+    font-family: ABCMonumentGrotesk-medium;
+    src: url("fonts/ABCMonumentGrotesk-MediumItalic-Trial.otf");
+    font-weight: medium;
+    font-style: italic;
+    letter-spacing: 0.02em;    
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden; 
+}
+
+.screen-wrapper{
+    width: 300vw;
+    height: 100vh;
+    display: block;
+    float: left;
+    overflow: hidden;
+}
+
+h1 {
+    font-family: ABCGalapagosA;
+    font-size: 2.8em;
+    margin-bottom: 0.5em;
+    color: #6232FB;
+    line-height: 1.3em;
+    text-align: center;
+}
+
+h2 {
+    font-family: ABCGalapagosA;
+}
+
+h3{
+    color: inherit;
+    font-size: 1.3em;
+    font-size: 1.3em;
+}
+
+h4{
+    font-size: 1em;
+    color: #6232FB;
+}
+
+#alertBox{
+    width: calc(100vw - 8em);
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    background-color: white;
+    border-radius: 1em;
+    padding: 2em;
+    z-index: 10000;
+    box-shadow: 0px 0px 40px rgba(0,0,0,0.2);
+    animation-name: turn;
+    animation-duration: 1s;
+    animation-play-state: paused;
+    backface-visibility: hidden;
+}
+
+.turn{
+    transform: rotateY(-90deg);     
+}
+
+@keyframes turn{
+    0%{
+    transform: perspective(600px) rotateY(-90deg);
+    }
+    50%{
+    transform: perspective(600px) rotateY(20deg);
+    }
+    75%{
+    transform: perspective(600px) rotateY(-20deg);
+    }
+    100%{
+    transform: perspective(600px) rotateY(0deg);
+    }
+}
+
+#intro{
+    z-index: 3000;  
+    opacity: 1;
+    display: flex;    
+    color: #6232FB;
+    animation-name: turnBack;
+    animation-duration: 1s;
+    animation-play-state: paused;    
+}
+
+.turnBack{
+    transform: rotateY(-90deg);     
+}
+
+@keyframes turnBack{
+    0%{
+    transform: perspective(600px) rotateY(0deg);
+    }
+    50%{
+    transform: perspective(600px) rotateY(-105deg);
+    }
+    75%{
+    transform: perspective(600px) rotateY(-75deg);
+    }
+    100%{
+    transform: perspective(600px) rotateY(-90deg);
+    }
+}
+
+.text-app-big{
+    font-size: 1.3em;
+    font-family: ABCMonumentGrotesk;
+    font-weight: normal;
+    padding: 2em;
+    color: inherit;
+}
+
+.text-info-big{
+    font-size: 1.3em;
+    font-family: ABCMonumentGrotesk-medium;
+    font-weight: normal;
+    padding: 2em;
+    color: #6232FB;
+    line-height: normal;
+}
+
+.text-app-small{
+    font-size: 1em;
+    font-family: ABCMonumentGrotesk;
+    font-weight: normal;
+}
+
+.text-info-small{
+    font-size: 1em;
+    font-family: ABCMonumentGrotesk-medium;
+    font-weight: normal;
+    text-align: left;
+}
+
+figcaption{
+    text-align: left;
+    width: auto;
+    font-size: 0.9em;
+    display: flex;
+    justify-content: space-between;
+}
+
+figcaption > p{
+    text-align: left;
+}
+
+.imgCount{
+    width: 20vw;
+    text-align: right;
+    font-size: 0.9em;
+}
+
+#mehr{
+    text-decoration: underline;
+    font-family: inherit;
+}
+
+.text-info-small.mehr{
+    display: none;
+}
+
+p {
+    margin-bottom: 1.5em;
+    color: inherit;
+}
+
+button{
+    position: relative;
+    width: 30vw;
+    height: auto; 
+    font-size: 100%;
+    font-family: inherit;
+    border: 0;
+    padding: 0;
+    background-color: inherit;
+    color: inherit;
+}
+
+#button-alertBox{
+    border: solid 1px #6232FB;
+    padding: 0.2em;    
+    border-radius: 1em;
+}
+
+#button-alertBox:hover, #button-alertBox:active{
+    background-color: #6232FB;
+    color: white;
+}
+
+q{
+    font-size: 1em;
+    font-family: ABCMonumentGrotesk-medium;
+    font-weight: italic;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color: inherit !important;
+}
+
+ul{
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: #6232FB;
+}
+
+li {
+    background-color: #6232FB;
+    color: white;
+    list-style: none;
+    height: 9.28vh;
+    width: 100vw;
+    justify-content: center;
+    border-bottom: solid white 1.5px;
+    transition: 1s;
+    font-size: 1.3em;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 5vh;
+}
+
+#enzweiler{
+    top: 0;
+}
+
+#raum{
+    top: 14.28vh;
+}
+
+#rhythmus{
+    top: calc(14.28vh * 2);
+}
+
+#interaktion{
+    top: calc(14.28vh * 3);
+}
+
+#oeffentlicher-raum{
+    top: calc(14.28vh * 4);
+}
+
+#komposition{
+    top: calc(14.28vh * 5);
+}
+
+#app{
+    top: calc(14.28vh * 6);
+}
+
+.li-activated{
+    position: absolute;
+    top: 0vh !important;
+    background-color: white !important;
+    height: 95vh;
+    box-shadow: 0px 0px 40px rgba(0,0,0,0.2);
+}
+
+li:hover{
+    cursor: grab;
+}
+
+section{
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    transition: 0.5s ease-in;
+}
+
+.disappear{
+    transform: scale(0.85);
+    opacity: 0;
+}
+
+.hide{
+    z-index: 0;
+}
+    
+.content-wrapper > h1{
+    text-align: left;
+    width: calc(100vw - 2em);
+    line-height: 1em;
+}
+
+.content-wrapper{
+    width:calc(100vw - 4em);
+    padding: 2em;
+    color: inherit;
+}
+
+.content-wrapper > * {
+    margin-bottom: 1em !important;
+}
+
+#launch{
+    left: 0;
+    transition: 0.7s ease-out;
+    z-index: 4000;   
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
+}
+
+#nav{
+    z-index: 2000;    
+    transition: 1s;
+    opacity: 1;
+    display: block;
+}
+
+#hero{
+    z-index: 1000
+    transition: 1s;
+    opacity: 1;
+    display: block;
+}
+
+#question{
+    background-color: white;
+    color: #6232FB;
+    z-index: 1000;
+}
+
+#quote{
+    background-color: white;
+    color: #6232FB;
+    z-index: 1000; 
+}
+
+#introduction{
+    background-color: #6232FB;
+    color: white;
+    z-index: 1000;
+}
+
+#introduction > content-wrapper{
+    height: auto;
+    align-self: flex-start;
+}
+
+#game{
+    top: 0;
+    left: 100vw;
+    z-index: 100000;
+    background-color: #6232FB;
+    color: white;
+}
+
+#information{
+    top: 0;
+    left: 100vw;
+    color: #6232FB;
+}
+
+#information > content-wrapper{
+    height: auto;
+    align-self: flex-start;
+    transition: 1s;
+}
+
+#spiel{
+    background-color: rgba(0,0,0,0.1);
+}
+
+figure > img{
+    max-width: calc(100vw - 2em);
+    max-height: 30vh;
+}
+
+#hero, #launch{
+    background-image: url(img/spiel--4--werk--img--1--1000px.jpg);
+    background-position: center; 
+    background-size: cover;
+}
+
+@media (pointer: fine) {
+
+
+}
+
+@media (pointer:coarse) {
+
+
+
+}
