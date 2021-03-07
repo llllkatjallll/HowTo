@@ -1,0 +1,140 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+canvas {
+  display: block;
+}
+#game-canvas{
+  position: relative;
+}
+#toolbar{
+  position: fixed;
+  bottom:0px;
+  height: 10vh;
+  width: 100vw;
+  background-color: #6232fb;
+  padding: 10px;
+  z-index: 41;
+}
+
+#game-toolbar{
+  position: absolute;
+  top:80vh;
+  height: 10vh;
+  width: 100vw;
+  background-color: #2a2a2a;
+  padding: 10px;
+  z-index: 41;
+}
+
+#photo_p5{
+  position: absolute;
+  height:80vh;
+  width:100vw;
+  z-index: 21;
+}
+
+.myButton{
+  color:white;
+  width:50px;
+  height:50px;
+  background-color:#6232fb;
+  border:1px solid;
+  border-radius: 15px;
+  margin:5px;
+}
+
+.myButton:hover{
+  background-color:#9676ff;
+}
+
+.myButton:active{
+  background-color:#6232fb;
+}
+
+
+
+
+#gallery{
+  height: 95vh;
+  width: 100vw;
+  background-color: black;
+  position: absolute;
+  z-index: 32;
+  top: 0px;
+  visibility: hidden;
+  
+}
+
+.gallery-animation{
+  animation-name: showGallery;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+}
+
+.gallery-animation-reverse{
+  animation-name: hideGallery;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+
+.gallery-container{
+  height: 82vh;
+  overflow-y: scroll;
+  display: grid;
+  background-color: black;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 5px 10px;
+  justify-items:center;
+  margin-bottom: 50px;
+  padding: 20px;
+}
+
+.gallery-frame{
+  position:relative;
+  padding: 0px;
+  margin: 0;
+ 
+}
+
+.gallery-frame:focus .image-button{
+  visibility: visible;
+ 
+}
+
+.gallery-frame img{
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.gallery-frame img:focus {
+  opacity: .5;
+}
+
+.image-button{
+  position:absolute;
+  visibility: hidden;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  bottom: 40px;
+  right: 40px;
+  border:0;
+}
+
+@keyframes showGallery {
+  0%   {top:100vh;}
+ 
+  100% {top:0vh;}
+}
+
+@keyframes hideGallery {
+  0%   {top:0vh;}
+ 
+  100% {top:100vh;}
+}
