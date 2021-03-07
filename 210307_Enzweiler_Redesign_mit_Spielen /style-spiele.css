@@ -1,0 +1,148 @@
+.hide{
+    display: none;
+}
+
+#body-wrapper{
+    width: 100vw;
+    height: 100%;
+    top: 0;
+    transition: 1s;
+    overflow: hidden;
+    background-color: white;
+    position: absolute;
+    z-index: 1000;
+    transition: 1s;
+}
+
+section{
+    background-color: rgba(0,0,0,0)
+}
+
+#navbar{
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    color: #6232FB;
+    bottom: 0;
+    height: 32px;
+    width: calc(100vw - 16px);
+    padding: 8px !important;
+    z-index: 999999;
+    transition: 1s;
+    background-color: rgba(0,0,0,0);
+}
+
+#navbar > svg{
+    height: 32px;
+    width: 32px;
+    transition: 500ms;
+}
+
+#navbar > svg > path, #navbar > svg > line, #navbar > svg > circle {
+    fill:none;
+    stroke:#6232FB;
+    stroke-miterlimit:10;
+    stroke-width:2px;
+    fill-rule:evenodd; 
+}
+
+#question{
+    background-color: white;
+    color: #6232FB;
+    z-index: 1000;
+    height: calc(100% - 48px);
+}
+
+#quote{
+    background-color: white;
+    color: #6232FB;
+    z-index: 1000; 
+    height: calc(100% - 48px);
+}
+
+#introduction{
+    width: 100vw;
+    height: calc(100% - 48px);
+    color: white;
+    z-index: 1000;
+    background-color: rgba(0,0,0,0) !important;
+}
+
+#introduction > content-wrapper{
+    height: auto;
+    align-self: flex-start;
+}
+
+#game{
+    top: calc((100% - 48px)* -1);
+    height: calc(100% - 48px);
+    z-index: 1000;
+    background-color: white;
+    color: #6232FB;
+    transition: 1s;
+}
+
+#game-content{
+    transition: 500ms;
+}
+
+.down{
+    top: 0 !important;
+}
+
+#information{
+    top: 0;
+    left: 0;
+    height: calc(100% - 48px);
+    z-index: 1000;
+    color: black;
+    background-color: white;
+    text-align: left;
+    display: flex;
+    align-items: flex-start !important;
+    align-content: flex-start !important;
+    text-align: left !important;
+    transition: 1s;
+}
+
+#information > content-wrapper{
+    height: auto;
+    align-self: flex-start;
+    top: 3em;
+    transition: 1s !important;
+    display: flex;   
+}
+
+#information-content{
+    transition: 700ms !important;
+}
+
+.height{
+    height: 100% !important;
+}
+
+#audio-player{
+    height: 50px;
+    width: 50vw;
+    text-align: left !important;   
+    display: block;
+}
+
+#play, #pause{
+    position: relative;
+    top: 0;
+    left: 0;
+    fill: #6232FB;
+    height: 50px;
+    width: 50px;
+    transition: 300ms ease-in;
+}
+
+.disappear-audio{
+    transform: scale(0.9);
+    opacity: 0;
+}
+
+#text-mehr{
+    display: none;
+}

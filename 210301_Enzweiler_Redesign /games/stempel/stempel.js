@@ -36,7 +36,7 @@ function setup() {
     clientHeight = window.innerHeight;
 
     var cnv = createCanvas(clientWidth, clientHeight);
-    cnv.parent("stempelspiel");
+    cnv.parent("game-content");
 
     // add these to your setup function AFTER createCanvas() 
    // var el = document.getElementsByTagName("canvas")[0];
