@@ -116,6 +116,7 @@ canvas {
   opacity: .5;
 }
 
+
 .image-button{
   position:absolute;
   visibility: hidden;
@@ -124,7 +125,69 @@ canvas {
   border-radius: 20px;
   bottom: 40px;
   right: 40px;
-  border:0;
+
+}
+
+#contrast-container{
+  position: relative;
+
+}
+ .toggle-button{
+  width: 40px;
+  height: 40px;
+ }
+ 
+.toggle-button button{
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+
+ .toggle-button svg{
+  display: block;
+  margin: auto;
+  width: 30px;
+  height: 30px;
+  fill: aliceblue;
+}
+
+#contrast-button{
+  border: 0;
+  position: absolute;
+  top:0px;
+  left:0px;
+  z-index: 20;
+  background-color: #6232fb;
+  border-radius: 20px;
+  width: 40px;
+  height: 40px;
+  background-size: 26px 26px;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  background-image: url('img/noun_Contrast_1877935.svg');
+
+}
+
+#contrast-range{
+  position: absolute;
+  top:36px;
+  left:0px;
+}
+
+.rotatedSlider{
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+
+  -webkit-transform-origin: 0% 0%;
+  -moz-transform-origin: 0% 0%;
+  -ms-transform-origin: 0% 0%;
+  -o-transform-origin: 0% 0%;
+  transform-origin: 0% 0%;
 }
 
 
@@ -146,13 +209,17 @@ canvas {
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   input[type='range'] {
     overflow: hidden;
-    width: 80px;
+    width: 100px;
+    height: 20px;
+    border-radius: 20px;
+    padding: 10px;
+    padding-left: 40px;
     -webkit-appearance: none;
-    background-color:rgba(255, 255, 255,20);
+    background-color:rgba(255, 255, 255,0.7);
   }
   
   input[type='range']::-webkit-slider-runnable-track {
-    height: 10px;
+    height: 20px;
     -webkit-appearance: none;
     color: #6232fb;
     margin-top: -1px;
@@ -173,14 +240,14 @@ input[type="range"]::-moz-range-progress {
 background-color: #6232fb; 
 }
 input[type="range"]::-moz-range-track {  
-background-color:rgba(255, 255, 255);
+background-color:rgba(255, 255, 255,0.7);
 }
 /* IE*/
 input[type="range"]::-ms-fill-lower {
 background-color: #6232fb; 
 }
 input[type="range"]::-ms-fill-upper {  
-  background-color:rgba(255, 255, 255,20);
+  background-color:rgba(255, 255, 255,0.7);
 }
 
 /* Special styling for WebKit/Blink */

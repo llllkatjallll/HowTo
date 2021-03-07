@@ -38,12 +38,16 @@ var currentSelectedImageId = undefined;
 
 //bools
 var selectedImageMode = false;
+var contrastSliderOn = false;
+
+let invertVar =250;
+let posneg =-1;
 
 let sketch = function(p) {
 
   p.preload = function(){
     for (var i=0; i<5; i++) {
-      imgs[i] = p.loadImage("/img/zweig"+".png"); 
+      imgs[i] = p.loadImage("/img/img1"+".png"); 
     }
     
   }
@@ -113,16 +117,34 @@ let sketch = function(p) {
     selectImageBtn.mousePressed(p.selectedImageMode);
     selectImageBtn.addClass('myButton');
     selectImageBtn.id('selectImageBtn');
-    document.getElementById("selectImageBtn").style.visibility =  "hidden";   
+    document.getElementById("selectImageBtn").style.visibility =  "hidden"; 
+    
+    //CONTRAST PART
+    invertBtn = p.createButton('');
+    invertBtn.parent('contrast-container');
+    invertBtn.mousePressed(p.contrastFunction);
+    invertBtn.addClass('toggle-button');
+    invertBtn.id('contrast-button');
+    //document.getElementById("contrast-button").style.visibility =  "hidden";
 
     slider1 = p.createSlider(0, 255, 100);
     
-    slider1.id('range');
-    slider1.parent('game-toolbar');
+    slider1.id('contrast-range');
+    slider1.addClass('rotatedSlider');
+    slider1.parent('contrast-container');
+    document.getElementById("contrast-range").style.visibility =  "hidden";
 
   };
 
-  
+  p.contrastFunction = function(){
+    contrastSliderOn=!contrastSliderOn;
+    if(contrastSliderOn){
+      document.getElementById("contrast-range").style.visibility =  "visible";
+    } else{
+      document.getElementById("contrast-range").style.visibility =  "hidden";
+    }
+    
+  }
 
   p.draw = function() {
     //wenn nicht editiert wird
@@ -150,7 +172,7 @@ let sketch = function(p) {
       }
 
       //picture.resize(w, captureHeight);
-      
+      slider1.changed(p.changeContrast);
     }
 
     if(showImageTest && alpha < 255){
@@ -164,6 +186,42 @@ let sketch = function(p) {
       p.image(imgs[currentSelectedImageId],0,0,w,h);
     }   
   };
+  p.changeContrast = function(){
+    console.log("contrast");
+    editing = true;
+    editMode=true;
+    selectedImageMode = false;
+
+    picture.loadPixels();
+  //p.loadPixels();
+   for (let x = 0; x < picture.width; x++) {
+    for (let y = 0; y < picture.height; y++) {
+      // Calculate the 1D location from a 2D grid
+      let loc = (x + y * picture.width) * 4;
+      // Get the R,G,B values from image
+      let r, g, b;
+      r = picture.pixels[loc];
+      // Calculate an amount to change brightness based on proximity to the mouse
+      let maxdist = 50;
+     // let d = dist(x, y, mouseX, mouseY);
+       let adjustbrightness = slider1.value();
+     
+      r += adjustbrightness;
+      
+      // Constrain RGB to make sure they are within 0-255 color range
+      r = p.constrain(r, 0, 255);
+      // Make a new color and set pixel in the window
+      //color c = color(r, g, b);
+      let pixloc = (y * picture.width + x) * 4;
+      picture.pixels[pixloc] = invertVar +r*posneg;
+      picture.pixels[pixloc + 1] = invertVar +r*posneg;
+      picture.pixels[pixloc + 2] = invertVar+ r*posneg;
+      picture.pixels[pixloc + 3] = 255;
+    }
+  }
+  picture.updatePixels();
+  p.image(picture,0,0,w, captureHeight);
+  }
 
   p.goToPhotoView = function(){
     //start camera

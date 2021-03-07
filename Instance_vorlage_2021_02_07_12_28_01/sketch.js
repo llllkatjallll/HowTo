@@ -41,8 +41,8 @@ var selectedImageMode = false;
 let sketch = function(p) {
 
   p.preload = function(){
-    for (var i=0; i<5; i++) {
-      imgs[i] = p.loadImage("/img/zweig"+".png"); 
+    for (var i=1; i<6; i++) {
+      imgs[i] = p.loadImage("/img/img"+i+".png"); 
     }
     
   }
