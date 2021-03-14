@@ -102,9 +102,9 @@
 
   window.onresize = function () {
     // assigns new values for width and height variables
-    // w = window.innerWidth;
-    // h = window.innerHeight;
-    canvas.size(w, h);
+    clientWidth = window.innerWidth - 60;
+    clientHeight = window.innerHeight - 60;
+    canvas.size(clientWidth, clientHeight);
 
     if (window.innerWidth > 750) {
       tileNr = int(gameCanvasWidth / 85);
@@ -147,17 +147,34 @@
     }
     pop();
   }
+/*
+  function touchStarted(){
+    console.log("touchStarted");
+  }
+  
+  function touchEnded(){
+    console.log("touchEnded");
+  }
+  
+  
+  function touchMoved(){
+    console.log("touchMoved");
+  }
+*/
 
-  function mousePressed() {
-
+ 
+  function touchStarted() {
     if (!construction_mode) {
+      console.log("touchStarted 1");
       xStart = mouseX;
       yStart = mouseY;
     } else {
+      console.log("touchStarted 2");
       for (var i = 0; i < forms.length; i++) {
         if (pointRect(mouseX, mouseY, forms[i].x, forms[i].y, tileSz, tileSz)) {
           console.log("active");
           forms[i].active = true;
+
           pgraph_temp = forms[i].pimage;
           click_offsetX = mouseX - forms[i].x;
           click_offsetY = mouseY - forms[i].y;
@@ -168,7 +185,7 @@
     }
   }
 
-  function mouseDragged() {
+  function touchMoved() {
     console.log("drag");
     if (!construction_mode) {
 
@@ -182,7 +199,8 @@
     }
   }
 
-  function mouseReleased() {
+  function touchEnded() {
+    console.log("touchEnded");
     xEnd = mouseX;
     yEnd = mouseY;
     if (!construction_mode) {
@@ -259,6 +277,9 @@
       }
     }
   }
+
+
+   
 
   function switchMode(){
     construction_mode=!construction_mode;
