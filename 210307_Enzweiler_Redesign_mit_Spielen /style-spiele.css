@@ -17,6 +17,18 @@
 section{
     background-color: rgba(0,0,0,0)
 }
+#gamebar{
+position: absolute;
+bottom: 48px;
+display: flex;
+justify-content: space-between;
+background-color: #6232FB;
+height: 32px;
+width: calc(100vw - 16px);
+padding: 8px !important;
+z-index: 999998;
+transition: 1s;
+}
 
 #navbar{
     position: absolute;
@@ -38,9 +50,23 @@ section{
     transition: 500ms;
 }
 
+#gamebar > svg{
+    height: 32px;
+    width: 32px;
+    transition: 500ms;
+}
+
 #navbar > svg > path, #navbar > svg > line, #navbar > svg > circle {
     fill:none;
     stroke:#6232FB;
+    stroke-miterlimit:10;
+    stroke-width:2px;
+    fill-rule:evenodd; 
+}
+
+#gamebar > svg > path, #gamebar > svg > line, #gamebar > svg > circle {
+    fill:none;
+    stroke:#ffffff;
     stroke-miterlimit:10;
     stroke-width:2px;
     fill-rule:evenodd; 
@@ -145,4 +171,9 @@ section{
 
 #text-mehr{
     display: none;
+}
+
+/* KATJA: DELETE THIS AFTER BETTER SOLUTION*/
+#information{
+    
 }

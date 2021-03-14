@@ -19,6 +19,16 @@ $(document).ready(function (){
 
     $('#zurueck').removeClass('disappear');
     $('#weiter').removeClass('disappear');
+
+    $('#game').addClass('down');
+    $('#introduction').addClass('disappear');
+    setTimeout(function(){
+        $('#game-content').removeClass('disappear');
+        $('#info').removeClass('disappear');
+        $('#download').removeClass('disappear');
+        $('#stamp').removeClass('disappear');
+        $('#introduction').addClass('hide');
+    }, 500);
     
 // Navigation  
    
@@ -26,6 +36,9 @@ $(document).ready(function (){
         if ($('#question').hasClass('disappear') == false){
             $('#question').addClass('disappear');
             $('#quote').removeClass('hide');
+            //KATJA
+            $('#information').css('pointer-events','none');
+            //KATJA END
             setTimeout(function(){
                 $('#question').addClass('hide');
                 $('#quote').removeClass('disappear');            
@@ -56,6 +69,9 @@ $(document).ready(function (){
             else if ($('#game-content').hasClass('disappear') == false){
                 $('#game-content').addClass('disappear');
                 $('#information').removeClass('hide'); 
+                //KATJA
+                $('#information').css('pointer-events','');
+                //KATJA END
                 setTimeout(function(){      $('#information').removeClass('disappear');
                 $('#info').addClass('disappear');
                 $('#download').addClass('disappear');
@@ -116,6 +132,9 @@ $(document).ready(function (){
         }        
         else if ($('#information').hasClass('disappear') == false){
             audioElement1.pause();
+            //KATJA
+            $('#information').css('pointer-events','none');
+            //KATJA END
             $('#information').addClass('disappear');
             setTimeout(function(){
                 $('#information').addClass('hide');
