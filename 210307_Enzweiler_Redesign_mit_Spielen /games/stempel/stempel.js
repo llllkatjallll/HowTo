@@ -34,8 +34,7 @@ function setup() {
     clientWidth = window.innerWidth - 60;
     clientHeight = window.innerHeight - 60;
 
-    cnv = createCanvas(clientWidth+1, clientHeight);
-    cnv.parent("game-content");
+
     background(255);
     gameCanvasWidth = clientWidth;
 
@@ -48,6 +47,10 @@ function setup() {
     tileSz = clientWidth / tileNr;
     tileNrY = floor(clientHeight / tileSz) - 1;
     gameCanvasHeight = tileNrY * tileSz;
+
+    cnv = createCanvas(clientWidth+1, clientHeight);
+    cnv.parent("game-content");
+
     for (var i = 0; i < tileNrY; i++) {
         for (var j = 0; j < tileNr; j++) {
             x = tileSz * j;
@@ -101,12 +104,13 @@ function draw() {
     }
 
     touchabfrage();
+
+    
 }
 
 function touchabfrage() {
 
     if (touches.length != 0) {
-        console.log("touched " + touches[0].x, touches[0].y);
         for (var i = 0; i < forms.length; i++) {
             var antwort = pointRect(touches[0].x, touches[0].y, forms[i].x, forms[i].y, tileSz, tileSz);
 
@@ -124,12 +128,16 @@ function touchabfrage() {
                     forms[i].color = this_color;
                 }
             }
+            if(this_color==255){
+                document.getElementById("stamp").classList.add('pulse');
+            }
         }
     }
 }
 
 function stempelkissen() {
     this_color = 0;
+    document.getElementById("stamp").classList.remove('pulse');
 }
 
 function pointRect(px, py, rx, ry, rw, rh) {
@@ -154,7 +162,8 @@ function resetColors() {
 
 function saveArtwork() {
     var to_save = get(0, clientHeight * offY, clientWidth, clientWidth);
-    to_save.save("myComposition");
+    //to_save.save("myComposition");
+    saveCanvas(cnv, 'myCanvas', 'jpg');
 }
 
 class Forms {

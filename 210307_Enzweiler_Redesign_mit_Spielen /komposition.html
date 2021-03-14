@@ -31,7 +31,7 @@
     <body>
         
         <div id="body-wrapper">
-           <!-- <section id="question">
+            <section id="question">
             </section>
             <section id="quote" class="disappear hide">
                 <div class="content-wrapper">
@@ -44,7 +44,7 @@
                     <br>Zerreiße die Blätter durch wischen mit dem Finger. Ordne sie im Raster an und beobachte, was dabei passiert.
                     </p>
                 </div>    
-            </section> -->
+            </section> 
             <section id="game">
                 <div id="game-content" class="content-wrapper">
                     <script src="games/risse/risse.js"></script>
@@ -88,16 +88,12 @@
                 <div class="placeholder">&nbsp;</div>
                 </div>
             </section>
-            <div id="gamebar">
-                <svg></svg>
-                <svg id="stamp" class="disappear" onclick="switchMode()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><line x1="3" y1="47" x2="48" y2="47"/><path d="M32,24.78V15.33h3.93A4,4,0,0,0,40,11.49V7.84A4,4,0,0,0,35.93,4H13.07A4,4,0,0,0,9,7.84v3.65a4,4,0,0,0,4.07,3.84H18v9.45H4V38H47V24.78Z"/></svg>
-                <svg></svg>
-            </div>
+
             <div id="navbar">
                 <svg id="zurueck" class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M10,43.51h17.4c18.36,0,17.07-13.85,17.07-13.85s1.29-14.77-17.07-14.77c-10.83,0-20.3.27-20.3.27v-.32L21.94,5.17,7.12,15l15.47,9.82"/></svg>
-                <svg></svg>
+                <svg id="refresh" class="disappear" onclick="refreshImages()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M25.15,6.07c0,11,.26,34.45.26,34.45h-.32l-14.8-15,15,15,15-15.67"/><line x1="5.72" y1="45.09" x2="45.23" y2="45.09"/></svg>
                 <svg id="info" class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><circle cx="25" cy="25" r="22"/><line x1="25" y1="23" x2="25" y2="39"/><circle cx="25" cy="14.5" r="0.5"/></svg>
-                <svg id="download" class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M25.15,6.07c0,11,.26,34.45.26,34.45h-.32l-14.8-15,15,15,15-15.67"/><line x1="5.72" y1="45.09" x2="45.23" y2="45.09"/></svg>
+                <svg id="download" class="disappear" onclick="saveArtwork()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M25.15,6.07c0,11,.26,34.45.26,34.45h-.32l-14.8-15,15,15,15-15.67"/><line x1="5.72" y1="45.09" x2="45.23" y2="45.09"/></svg>
                 <svg id="weiter"  class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M5.14,25.5c11,0,39.83-.26,39.83-.26v.32L28,41.36l17-16-17.67-15"/></svg>
             </div>
         </div> 

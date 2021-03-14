@@ -22,7 +22,7 @@ position: absolute;
 bottom: 48px;
 display: flex;
 justify-content: space-between;
-background-color: #6232FB;
+background-color: #825cff;
 height: 32px;
 width: calc(100vw - 16px);
 padding: 8px !important;
@@ -154,6 +154,8 @@ transition: 1s;
     display: block;
 }
 
+
+
 #play, #pause{
     position: relative;
     top: 0;
@@ -173,7 +175,25 @@ transition: 1s;
     display: none;
 }
 
-/* KATJA: DELETE THIS AFTER BETTER SOLUTION*/
+.pulse{
+ 
+ animation: pulse 1s infinite;   
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+  }
+
+/* KATJA: DELETE THIS AFTER BETTER SOLUTION
 #information{
    pointer-events: none; 
-}
+} */

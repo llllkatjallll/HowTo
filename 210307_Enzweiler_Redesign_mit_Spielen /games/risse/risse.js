@@ -20,7 +20,6 @@
   var counterFor = 0;
 
   var forms = [];
-  var construction_mode = false;
   //graphics
   let pgraph;
   let pgraph_temp;
@@ -96,8 +95,6 @@
       }
     }
 
-    var button = createButton("Schritt 2: Konstruieren");
-    button.mousePressed(step2);
   }
 
   window.onresize = function () {
@@ -139,7 +136,7 @@
     }
 
     for (var j = 0; j < tileSz * tileNr; j = j + tileSz) {
-      for (var k = 0; k < tileSz * (tileNrY ); k = k + tileSz) {
+      for (var k = 0; k < tileSz * (tileNrY); k = k + tileSz) {
         stroke(255);
         line(j, 0, j, gameCanvasHeight);
         line(0, k, gameCanvasWidth, k);
@@ -147,144 +144,116 @@
     }
     pop();
   }
-/*
-  function touchStarted(){
-    console.log("touchStarted");
-  }
-  
-  function touchEnded(){
-    console.log("touchEnded");
-  }
-  
-  
-  function touchMoved(){
-    console.log("touchMoved");
-  }
-*/
+  /*
+    function touchStarted(){
+      console.log("touchStarted");
+    }
+    
+    function touchEnded(){
+      console.log("touchEnded");
+    }
+    
+    
+    function touchMoved(){
+      console.log("touchMoved");
+    }
+  */
 
- 
   function touchStarted() {
-    if (!construction_mode) {
-      console.log("touchStarted 1");
-      xStart = mouseX;
-      yStart = mouseY;
-    } else {
-      console.log("touchStarted 2");
-      for (var i = 0; i < forms.length; i++) {
-        if (pointRect(mouseX, mouseY, forms[i].x, forms[i].y, tileSz, tileSz)) {
-          console.log("active");
-          forms[i].active = true;
+    for (var i = 0; i < forms.length; i++) {
+       forms[i].active = false;
+       forms[i].passive = false;
+    }
 
-          pgraph_temp = forms[i].pimage;
-          click_offsetX = mouseX - forms[i].x;
-          click_offsetY = mouseY - forms[i].y;
-          dragStartX = forms[i].x;
-          dragStartY = forms[i].y;
-        }
+    xStart = mouseX;
+    yStart = mouseY;
+
+    for (var i = 0; i < forms.length; i++) {
+      if (pointRect(mouseX, mouseY, forms[i].x, forms[i].y, tileSz, tileSz)) {
+        console.log("active");
+        forms[i].active = true;
+        pgraph_temp = forms[i].pimage;
+        click_offsetX = mouseX - forms[i].x;
+        click_offsetY = mouseY - forms[i].y;
+        dragStartX = forms[i].x;
+        dragStartY = forms[i].y;
       }
     }
+
   }
 
   function touchMoved() {
-    console.log("drag");
-    if (!construction_mode) {
-
-    } else {
-      for (var i = 0; i < forms.length; i++) {
-        if (forms[i].active == true) {
-          forms[i].x = mouseX - click_offsetX;
-          forms[i].y = mouseY - click_offsetY;
-        }
+    for (var i = 0; i < forms.length; i++) {
+      if (forms[i].active == true) {
+        forms[i].x = mouseX - click_offsetX;
+        forms[i].y = mouseY - click_offsetY;
       }
     }
+
   }
 
   function touchEnded() {
+    if(!anyActive()) return;
+
     console.log("touchEnded");
     xEnd = mouseX;
     yEnd = mouseY;
-    if (!construction_mode) {
+
+    // risse machen
+    // TODO: riss machen, auch wenn der finger sich ein bisschen bewegt hat
+    if (xEnd == xStart && yEnd == yStart) {
 
       stroke(200);
       // line(xStart,yStart,xEnd,yEnd);
       for (var i = 0; i < forms.length; i++) {
         if (pointRect(xEnd, yEnd, forms[i].x, forms[i].y, tileSz, tileSz)) {
           setRandomValues();
-
           // savePoints(xStart,yStart,xEnd,yEnd);
           pgraph = createGraphics(tileSz, tileSz);
           drawFilles(xStart, yStart, xEnd, yEnd, forms[i]);
           drawLines(xStart, yStart, xEnd, yEnd, forms[i]);
           riss_sounds[int(random(0, 4))].play();
-
         }
       }
     }
 
     // Risse Bewegen
     else {
-
       for (var i = 0; i < forms.length; i++) {
         if (pointRect(xEnd, yEnd, forms[i].x, forms[i].y, tileSz, tileSz)) {
-          //Zentrum der Zelle wo losgelassen wurde
-
-          //wenn es eine andere Zelle ist    
+          // Zelle wo losgelassen wurde taggen
           if (!forms[i].active) {
-            //speichere position von der beeinflussten zelle
+            console.log("got passive");
+            forms[i].passive = true;
             dragEndX = forms[i].x;
             dragEndY = forms[i].y;
-
-            if (dragEndX != dragStartX) {
-              //positioniere diese Zelle an den anfang  
-              forms[i].x = dragStartX;
-              forms[i].y = dragStartY;
-              console.log("Problem1");
-            } else {
-              forms[i].x = dragStartX;
-              forms[i].y = dragStartY;
-              console.log("Problem2");
-              forms[i].x = dragStartX;
-              forms[i].y = dragStartY;
-            }
-
-
-
           }
-          //wenn es die zelle ist, die aktiv bewegt wurde  
-          else {
-            // 
-            if (dragEndX == dragStartX) {
-              console.log(forms[i].x);
-              //positioniere diese Zelle an den anfang  
-              forms[i].x = dragEndX;
-              forms[i].y = dragEndY;
-
-            } else {
-              console.log(forms[i].x);
-              console.log("Problem3b");
-              forms[i].x = dragStartX;
-              forms[i].y = dragStartY;
-
-            }
-
-          }
-
         }
       }
 
       for (var i = 0; i < forms.length; i++) {
-        forms[i].active = false;
+
+        if (forms[i].active) {
+          forms[i].x = dragEndX;
+          forms[i].y = dragEndY;
+          if (!anyPassive()) {
+            forms[i].x = dragStartX;
+            forms[i].y = dragStartY;
+          }
+        }
+
+        if (forms[i].passive) {
+          forms[i].x = dragStartX;
+          forms[i].y = dragStartY;
+        }
+
+        // forms[i].active = false;
+        // forms[i].passive = false;
       }
     }
+    
   }
 
-
-   
-
-  function switchMode(){
-    construction_mode=!construction_mode;
-    console.log("construction_mode " + construction_mode);
-  }
 
   function setRandomValues() {
     //noiseSeed ((int) random (100000));
@@ -303,7 +272,35 @@
     strokeAlpha = random(50, 200);
   }
 
+  function refreshImages() {
+    for (var i = 0; i < forms.length; i++) {
+      forms[i].refresh();
+    } 
+  }
 
+  function saveArtwork() {
+    var to_save = get(0, clientHeight, clientWidth, clientWidth);
+    //to_save.save("myComposition");
+    saveCanvas(canvas, 'myCanvas', 'jpg');
+}
+
+  function anyPassive() {
+    for (var i = 0; i < forms.length; i++) {
+      if (forms[i].passive) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  function anyActive() {
+    for (var i = 0; i < forms.length; i++) {
+      if (forms[i].active) {
+        return true;
+      }
+    }
+    return false;
+  }
 
   function drawFilles(s_x, s_y, e_x, e_y, form) {
 
@@ -407,10 +404,6 @@
     return false;
   }
 
-  function step2() {
-    construction_mode = !construction_mode;
-    //button.value="zurück zu Schritt1";
-  }
 
   // Forms class
   class Forms {
@@ -423,12 +416,16 @@
       emptyImage.background(229);
       //emptyImage.rect(10,10,100,100);
       this.pimage = emptyImage;
-
+      this.defaultImage = emptyImage;
       this.active = false;
+      this.passive = false;
     }
 
 
-    move() {}
+    refresh() {
+      this.pimage = this.defaultImage;
+      this.display();
+    }
 
     display() {
       if (this.pimage != null) {

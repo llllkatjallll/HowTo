@@ -20,7 +20,8 @@ $(document).ready(function (){
     $('#zurueck').removeClass('disappear');
     $('#weiter').removeClass('disappear');
 
-    $('#game').addClass('down');
+    //KATJA : go direct to game - for faster debugging
+    /*$('#game').addClass('down');
     $('#introduction').addClass('disappear');
     setTimeout(function(){
         $('#game-content').removeClass('disappear');
@@ -28,7 +29,7 @@ $(document).ready(function (){
         $('#download').removeClass('disappear');
         $('#stamp').removeClass('disappear');
         $('#introduction').addClass('hide');
-    }, 500);
+    }, 500);*/
     
 // Navigation  
    
@@ -63,6 +64,8 @@ $(document).ready(function (){
                     $('#info').removeClass('disappear');
                     $('#download').removeClass('disappear');
                     $('#stamp').removeClass('disappear');
+                    $('#gamebar').removeClass('disappear');
+                    $('#refresh').removeClass('disappear');
                     $('#introduction').addClass('hide');
                 }, 500);
             }
@@ -76,6 +79,8 @@ $(document).ready(function (){
                 $('#info').addClass('disappear');
                 $('#download').addClass('disappear');
                 $('#stamp').addClass('disappear');
+                $('#gamebar').addClass('disappear');
+                $('#refresh').addClass('disappear');
                 }, 500);
             }
             else if ($('#information').hasClass('disappear') == false){ 
@@ -126,6 +131,7 @@ $(document).ready(function (){
             $('#info').addClass('disappear');
             $('#download').addClass('disappear');
             $('#stamp').addClass('disappear');
+            $('#refresh').addClass('disappear');
             setTimeout(function(){
                 $('#introduction').removeClass('disappear');
             }, 500);
@@ -142,6 +148,8 @@ $(document).ready(function (){
                 $('#info').removeClass('disappear');
                 $('#download').removeClass('disappear');
                 $('#stamp').removeClass('disappear');
+                $('#gamebar').removeClass('disappear');
+                $('#refresh').removeClass('disappear');
             }, 500);
         }
     });
