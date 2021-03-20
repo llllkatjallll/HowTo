@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <title>How to: Spiele zur Kunst</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="cache-control" content="no-cache">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-spiele.css">
+    <link rel="stylesheet" href="style-rhythmus.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <!-- New slick-theme.css for default styling -->
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>    
+    <script type="text/javascript" src="funktionen-spiele-p5.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script src="games/p5/p5.min.js"></script>
+    <script src="games/p5/p5.dom.min.js"></script>
+    <script src="games/p5/p5.sound.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="How to – Spiele zur Kunst">
+    <meta name="keywords" content="Coding da Vinci, Jo Enzweiler, Institut für Aktuelle Kunst Saarbrücken, Konkrete Kunst">
+    <meta name="author" content="Katja Rempel, Nina Jäger, Sandra Kraemer, Catharina Grözinger">
+
+</head>
+
+    <body>
+        
+        <div id="body-wrapper">
+
+            <section id="question">
+            </section>
+
+            <section id="quote" class="disappear hide">
+                <div class="content-wrapper">
+                    <p class="text-info-big">„Drei Elemente sind in einem Vorgang erfassbar, währenddem man bei vier Elementen anfangen muß zu lesen. Einen Raster von minimal vier Elementen verwende ich also, damit der Betrachter sich nicht festsetzen kann, daß er gezwungen wird zu wandern.“<br><br>Jo Enzweiler</p>
+                </div>
+            </section>
+
+            <section id="introduction" class="disappear hide">
+                <div class="content-wrapper">
+                    <p class="text-app-big">Probiere aus, wie beim Stempeln durch die Wiederholung gleicher Formen Rhythmus entsteht.
+                    <br>Nutze deinen Finger als Stempel, tauche ihn ins Stempelkissen rechts unten und mache mehrere Abdrücke. Wiederhole es bis die Fläche vollgestempelt ist.
+                    </p>
+                </div>    
+            </section>
+
+            <!-- intro -->
+            <div id="intro-wrapper" class="alertbox-wrapper hide">
+                <div id="intro" class="alertbox turn" style="text-align:center">
+                    <p class="text-app-small" style="color: #6232FB">Probiere aus, wie beim Stempeln durch die Wiederholung gleicher Formen Rhythmus entsteht.
+                    <br>Nutze deinen Finger als Stempel, tauche ihn ins Stempelkissen rechts unten und mache mehrere Abdrücke. Wiederhole es bis die Fläche vollgestempelt ist.</p>
+                    <div class="alertbox-button-wrapper"><div class="svg-wrapper"><svg id="button-okay" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M25,1A24,24,0,1,0,49,25,24,24,0,0,0,25,1ZM21.21,37.93l-1.07-.07.66.34L7.26,24.67l2.86-2.86L20.86,32.56,38.71,14.71l2.86,2.86Z"/></svg></div></div>
+                </div>
+            </div>
+
+            <section id="game">
+                <div id="game-content" class="content-wrapper">
+                    <script src="games/stempel/stempel.js"></script>
+                </div>
+            </section>
+
+            <section id="information" class="disappear hide">
+                <div class="content-wrapper">
+                    <h2>das werk</h2>
+                        <div style="margin-bottom:20px"><img src="img/spiel--2--werk--img--1--1000px.jpg">
+                        <figcaption><p>1/1&nbsp;&nbsp;–&nbsp;&nbsp;Stempeldrucke(…)</p>
+                        </figcaption>
+                        </div>
+                    <audio>
+                        <source src="audio/raum.mp4">
+                    </audio>
+                    <div id="audio-player" style="margin-bottom:20px">
+                    <svg id="button-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M25,0A25,25,0,1,0,50,25,25,25,0,0,0,25,0ZM17.2,38.32l-.06-26.55L40.06,24.93Z"/></svg>
+                    <svg id="button-pause" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" class="disappear-audio hide"><path d="M25,0A25,25,0,1,0,50,25,25,25,0,0,0,25,0ZM20,36H14V14h6Zm17,0H31V14h6Z"/></svg>
+                    </div>
+                    <p class="text-info-small">Die Stempeldrucke von Jo Enzweiler spielen mit den Formen Kreis und Quadrat. Es sind ganz frühe Arbeiten des Künstlers. Zum ersten Mal experimentiert er hier mit den Themen Wiederholung und Variation.</p>
+                    <iframe width="100%" src="https://www.youtube.com/embed/yP2My11Cz0E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <figcaption style="margin-bottom:20px">Sequenz aus: “Jo Enzweiler. Etwas machen, was andere nicht machen…”. Ein Film von Bernd Schulz,  Saarländischer Rundfunk 1978</figcaption>
+                    <p id="button-mehr" class="text-info-small">Mehr...</p>
+                    <p class="text-info-small dont-show">Der Stempel ist dafür das ideale Werkzeug. Allerdings benutzt er keinen vorgefertigten Stempel, sondern baut sich seinen eigenen so genannten Druckstock. Grundsätzlich ist jedes Ding dazu geeignet, ein Stempel zu sein, man muss es nur in Farbe tauchen und auf eine Oberfläche drücken, so dass ein Abdruck entsteht. Später wird er dafür zum Beispiel auch mit aufgeschnittenen Kartoffeln arbeiten.<br><br>
+                        Dieser Stempel ist aus Holz und von ihm selbst zugeschnitten und gefräst. Der Druckstock ist quadratisch mit einem ausgesparten Kreis. Stempeldrucke sind niemals exakt gleicht, sondern immer abhängig vom ausgeübten Druck und der Menge der Farbe. Damit arbeitet der Künstler hier: Er taucht den Stempel nicht nach jedem Abdruck erneut in die Farbe, sondern druckt so lange, bis keine Farbe mehr am Stempel ist und wiederholt das, bis die ganze Fläche vollgestempelt ist. So erzeugt er Räumlichkeit im Bild. Er geht dabei sehr behutsam vor und hält sich an ein vom Stempel selbst erzeugtes Raster. Es entsteht der Eindruck von Licht und Schatten, von Helligkeiten, Nuancen, Höhen und Tiefen und von Rhythmus. Das Motiv, ein in ein Quadrat eingestellter Kreis, wird dir noch in einigen anderen Arbeiten begegnen, z.B. beim Schachspiel (Spiel 3)  und viel später bei der Platzgestaltung in Malstatt (Spiel 4). Der Kreis und die Wiederholung sind wiederkehrende Themen in den Kunstwerken von Jo Enzweiler, d.h. er greift in seinem Schaffen Motive und Gedanken wieder auf, bewegt sich also auch im übertragenen Sinne im Kreis:
+                    <br><br>
+                    <q>Man kann sagen, dass man sich immer im Kreis dreht. (...) Das heißt, der Künstler sucht und findet. (...) Und wenn man ehrlich ist, stellt man oft doch fest, dass man da schon einmal war, wo man sich plötzlich wieder bewegt. Aber es kann ja gerade interessant sein, wenn man an diesen Punkt wieder kommt und in der Lage ist, das, was man schon einmal gedacht hat, aufzugreifen, zu vertiefen und zu verändern, auf den Prüfstand zu stellen, vielleicht sogar zu verwerfen.</q> (Jo Enzweiler)
+                    </p>
+                    <div class="placeholder">&nbsp;</div>
+                </div>
+            </section>
+
+            <div id="gamebar" class="disappear">
+                <div class="svg-wrapper"><svg></svg></div>
+                <div class="svg-wrapper"><svg id="button-stamp" class="disappear" onclick="stempelkissen()" xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 59 59"><circle style="fill:#6232FB;stroke:none" cx="25" cy="24.75" r="24.75"/><path style="fill:white" d="M28.92,22.32V15.73h2.37a2.38,2.38,0,0,0,2.45-2.31V12.11A2.38,2.38,0,0,0,31.29,9.8H17.51a2.38,2.38,0,0,0-2.46,2.31v1.31a2.38,2.38,0,0,0,2.46,2.31h3v6.59H12V29.4H38V22.32Z"/><rect style="fill:white" x="11.59" y="34.96" width="26.81" height="4.04"/></svg></div>
+                <div class="svg-wrapper"><svg></svg></div>
+            </div>
+
+            <div id="navbar">
+                <div class="svg-wrapper"><svg id="button-zurueck" class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M10,43.51h17.4c18.36,0,17.07-13.85,17.07-13.85s1.29-14.77-17.07-14.77c-10.83,0-20.3.27-20.3.27v-.32L21.94,5.17,7.12,15l15.47,9.82"/></svg></div>
+                <div class="svg-wrapper"><svg id="button-refresh" class="disappear" onclick="resetColors()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M22.59,22.41,8.15,15.83,14.49.42,8.7,15.47H9.86C12,13.63,15.89,12,20,10.73c9.56-2.89,19.31,1.4,22.21,11A18.08,18.08,0,1,1,7.63,32.16"/></svg></div>
+                <div class="svg-wrapper"><svg id="button-intro" class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><circle cx="25" cy="25" r="22"/><line x1="25" y1="23" x2="25" y2="39"/><circle cx="25" cy="14.5" r="0.5"/></svg></div>
+                <div class="svg-wrapper"><svg id="button-download" onclick="saveArtwork()"class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M25.15,6.07c0,11,.26,34.45.26,34.45h-.32l-14.8-15,15,15,15-15.67"/><line x1="5.72" y1="45.09" x2="45.23" y2="45.09"/></svg></div>
+                <div class="svg-wrapper"><svg id="button-weiter" class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M5.14,25.5c11,0,39.83-.26,39.83-.26v.32L28,41.36l17-16-17.67-15"/></svg></div>
+            </div>
+
+        </div> 
+         
+    </body>
+
+</html>

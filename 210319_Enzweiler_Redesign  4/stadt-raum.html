@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <title>How to: Spiele zur Kunst</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="cache-control" content="no-cache">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-spiele.css">
+    <link rel="stylesheet" href="style-stadt-raum.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <!-- New slick-theme.css for default styling -->
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>    
+    <script type="text/javascript" src="funktionen-spiele-ar.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+
+    <!-- 🚨 REQUIRED: Web Components polyfill to support Edge and Firefox < 63 -->
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script>
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="https://unpkg.com/resize-observer-polyfill@1.5.0/dist/ResizeObserver.js"></script>    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="How to – Spiele zur Kunst">
+    <meta name="keywords" content="Coding da Vinci, Jo Enzweiler, Institut für Aktuelle Kunst Saarbrücken, Konkrete Kunst">
+    <meta name="author" content="Katja Rempel, Nina Jäger, Sandra Kraemer, Catharina Grözinger">
+
+</head>
+
+    <body>
+        
+        <div id="body-wrapper">
+            <section id="question">
+            </section>
+
+            <section id="quote" class="disappear hide">
+                <div class="content-wrapper">
+                    <p class="text-info-big">„Der öffentliche Raum als wichtiger Teilbereich einer Stadt ist der Ort, in dem Bürger miteinander agieren und kommunizieren können, den sie mit einer bestimmten persönlichen Bedeutung versehen können.“<br><br>Jo Enzweiler</p>
+                </div>
+            </section>
+
+            <section id="introduction" class="disappear hide">
+                <div class="content-wrapper">
+                    <p class="text-app-big">Suche dir eine große freie Fläche und scanne diese. Platziere die Bodenplastik. Du kannst Kreiselemente verändern, indem du sie anklickst.
+                        <br><br><br>
+                        <button id="" slot="ar-button">
+                            Spiel starten
+                        </button>
+                    </p>
+                </div>
+            </section>
+
+            <section id="game">
+            </section>
+
+            <section id="information" class="disappear hide">
+                <div id="information-content" class="content-wrapper">
+                    <h2>das werk</h2>
+                    <div class="slider">
+                        <div><img src="img/spiel--4--werk--img--1--1000px.jpg">
+                        <figcaption><p>1/2&nbsp;&nbsp;–&nbsp;&nbsp;o. T., Wandgestaltung, 1970, Relief, geweißte Hüttensteine, 3,5 x 20 m, Hochschule für Musik Saar, Saarbrücken</p>
+                        </figcaption></div>
+                        <div><img src="img/spiel--4--werk--img--2--1000px.jpg"><figcaption><p>2/2&nbsp;&nbsp;–&nbsp;&nbsp;o. T., Wandgestaltung, 1970, Relief, geweißte Hüttensteine, 3,5 x 20 m, Hochschule für Musik Saar, Saarbrücken</p>
+                        </figcaption></div>
+                    </div>
+                    <audio>
+                        <source src="audio/raum.mp4">
+                    </audio>
+                    <div id="audio-player" style="margin-bottom:20px">
+                    <svg id="button-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M25,0A25,25,0,1,0,50,25,25,25,0,0,0,25,0ZM17.2,38.32l-.06-26.55L40.06,24.93Z"/></svg>
+                    <svg id="button-pause" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" class="disappear-audio hide"><path d="M25,0A25,25,0,1,0,50,25,25,25,0,0,0,25,0ZM20,36H14V14h6Zm17,0H31V14h6Z"/></svg>
+                    </div>
+                    <p class="text-info-small">Für den neu gestalteten Marktplatz des Saarbrücker Stadtteils Malstatt wird 1983 ein künstlerischer Wettbewerb ausgeschrieben. Obwohl die Jury den Brunnenentwurf von Jo Enzweiler lobt, wird das Projekt nicht realisiert.</p> 
+                    <p id="button-mehr" class="text-info-small">Mehr...</p>
+                    <p class="text-info-small dont-show">Stell dir einen großen Platz vor, der an drei Seiten durch Häuser begrenzt ist, entlang der vierten Seite verläuft die stark befahrene Hauptstraße. Auf dieser Fläche breitet sich der Brunnen rechteckig auf einer Fläche von ca. 16 x 8 m aus. Auf einem Grundraster werden Quadrat- und Kreiselemente wie Plättchen in unterschiedlichen Höhen aufeinander gestapelt. Es entsteht ein sanftes Relief, das sich in der Fläche ausdehnt, wie das Profil einer hügeligen Landschaft. Der Entwurf sieht vor, dass das Wasser im Brunnen stündlich steigt und sich dann wieder stündlich absenkt, Plättchen für Plättchen, Höhenlinie für Höhenlinie. Enzweiler bezeichnet dieses Wasserspiel als “stille Lösung”, die der “Bewegtheit auf dem Platz” mit Ruhe begegnet. Du kannst dir vorstellen, wie unterschiedlich sich das Licht brechen würde und wie, je nach Wasserstand, unterschiedliche Elemente und Formen hervorragen oder unter Wasser liegen, wie Steine in einer Wasserpfütze, über die man vielleicht sogar laufen kann. Enzweiler ist es wichtig, dass Du dieses Objekt mit alle Sinne erfahren kannst, d.h. du kannst es betrachten, erfühlen, begehen und umschreiten. Mit dieser Idee schöpft Enzweiler aus dem Formenschatz früherer Reliefarbeiten und plastischer Objekte aber auch aus seiner Beobachtungsgabe für landschaftliche Prozesse und Gegebenheiten. Er würde das so sagen: “Das Bild zeigt nicht die Landschaft, es ist die Landschaft”.
+                    </p>
+                    <div class="placeholder">&nbsp;</div>
+                </div>
+            </section>
+
+            <div id="navbar">
+                <div class="svg-wrapper"><svg id="button-zurueck" class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M10,43.51h17.4c18.36,0,17.07-13.85,17.07-13.85s1.29-14.77-17.07-14.77c-10.83,0-20.3.27-20.3.27v-.32L21.94,5.17,7.12,15l15.47,9.82"/></svg></div>
+                <div class="svg-wrapper"></div>
+                <div class="svg-wrapper"></div>
+                <div class="svg-wrapper"></div>
+                <div class="svg-wrapper"><svg id="button-weiter" class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M5.14,25.5c11,0,39.83-.26,39.83-.26v.32L28,41.36l17-16-17.67-15"/></svg></div>
+            </div>
+
+        </div> 
+
+        <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+        <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>        
+    </body>
+
+</html>
