@@ -89,7 +89,7 @@ window.onresize = function () {
 
 
 function draw() {
-    background(250);
+    //background(250);
     for (var i = 0; i < forms.length; i++) {
         forms[i].display();
     }
