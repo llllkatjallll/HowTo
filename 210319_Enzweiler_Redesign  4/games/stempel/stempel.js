@@ -163,7 +163,7 @@ function resetColors() {
 function saveArtwork() {
     var to_save = get(0, clientHeight * offY, clientWidth, clientWidth);
     //to_save.save("myComposition");
-    saveCanvas(cnv, 'myRhythmus', 'jpg');
+    saveCanvas(cnv, 'howTo-meinRhythmus', 'jpg');
 }
 
 class Forms {
