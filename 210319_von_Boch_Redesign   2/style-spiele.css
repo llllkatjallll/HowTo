@@ -18,7 +18,7 @@
     position: absolute;
     display: flex;
     justify-content: space-between;
-    color: #6232FB;
+    color: #7822F0;
     bottom: 0;
     height: 32px;
     width: calc(100vw - 16px);
@@ -52,7 +52,6 @@
 #button-wrapper-shoot{
     width: 60px !important;
     height: 60px !important;
-    bottom: 8px !important;
 }
 
 #navbar > div > svg, 
@@ -215,3 +214,47 @@ button{
 #information{
    pointer-events: none; 
 } */
+
+@media (min-width:768px) {
+
+    #navbar > .svg-wrapper{
+        width: 50px;
+        height: 50px;
+    }
+    
+    #navbar, #gamebar{
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        color: #7822F0;
+        bottom: 0;
+        height: 50px;
+        width: calc(100vw - 32px);
+        padding: 16px !important;
+        z-index: 10000;
+        transition: 1s;
+        background-color: rgba(0,0,0,0);
+    }   
+
+    #gamebar{
+        bottom: 50px;
+        z-index: 10000;
+        width: calc(100vw - 32px);
+        height: 90px;
+    }
+    
+    #gamebar > .svg-wrapper{
+        width: 60px;
+        height: 60px;
+    }
+        
+    #button-wrapper-shoot{
+        width: 90px !important;
+        height: 90px !important;
+    }    
+
+#information, #introduction, #game{
+        height: calc(100% - 82px);    
+}
+
+}
