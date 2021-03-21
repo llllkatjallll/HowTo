@@ -280,8 +280,7 @@
 
   function saveArtwork() {
     var to_save = get(0, clientHeight, clientWidth, clientWidth);
-    //to_save.save("myComposition");
-    saveCanvas(canvas, 'myCanvas', 'jpg');
+    saveCanvas(canvas, 'howTo-meineKomposition', 'jpg');
 }
 
   function anyPassive() {

@@ -89,7 +89,7 @@ window.onresize = function () {
 
 
 function draw() {
-    background(250);
+    //background(250);
     for (var i = 0; i < forms.length; i++) {
         forms[i].display();
     }
@@ -129,7 +129,7 @@ function touchabfrage() {
                 }
             }
             if(this_color==255){
-                document.getElementById("stamp").classList.add('pulse');
+                document.getElementById("button-stamp").classList.add('pulse');
             }
         }
     }
@@ -137,7 +137,7 @@ function touchabfrage() {
 
 function stempelkissen() {
     this_color = 0;
-    document.getElementById("stamp").classList.remove('pulse');
+    document.getElementById("button-stamp").classList.remove('pulse');
 }
 
 function pointRect(px, py, rx, ry, rw, rh) {
@@ -163,7 +163,7 @@ function resetColors() {
 function saveArtwork() {
     var to_save = get(0, clientHeight * offY, clientWidth, clientWidth);
     //to_save.save("myComposition");
-    saveCanvas(cnv, 'myCanvas', 'jpg');
+    saveCanvas(cnv, 'howTo-meinRhythmus', 'jpg');
 }
 
 class Forms {
