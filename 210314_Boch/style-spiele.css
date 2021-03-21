@@ -96,7 +96,7 @@ transition: 1s;
 #game{
     top: calc((100% - 48px)* -1);
     height: calc(100% - 48px);
-    z-index: 1000;
+    z-index: 1010;
     background-color: white;
     color: #6232FB;
     transition: 1s;

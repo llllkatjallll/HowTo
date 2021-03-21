@@ -44,10 +44,6 @@
 
   function setup() {
 
-    // var w = window.innerWidth;
-
-    // var h = window.innerHeight;
-
     clientWidth = window.innerWidth - 60;
     clientHeight = window.innerHeight - 60;
     gameCanvasWidth = clientWidth;

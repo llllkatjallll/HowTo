@@ -108,6 +108,7 @@
   z-index: 32;
   top: 0px;
   visibility: hidden;
+  z-index: 10000;
   
 }
 
