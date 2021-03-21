@@ -37,9 +37,7 @@ $(document).ready(function (){
         if ($('#question').hasClass('disappear') == false){
             $('#question').addClass('disappear');
             $('#quote').removeClass('hide');
-            //KATJA
             $('#information').css('pointer-events','none');
-            //KATJA END
             setTimeout(function(){
                 $('#question').addClass('hide');
                 $('#quote').removeClass('disappear');            
@@ -98,9 +96,7 @@ $(document).ready(function (){
                 $('#button-download').addClass('disappear');
                 $('#button-stamp').addClass('disappear');
                 $('#game').css('background-color','white');
-                //KATJA
                 $('#information').css('pointer-events','');
-                //KATJA END
                 setTimeout(function(){      
                     $('#button-wrapper-camera').addClass('dont-show');
                     $('#button-wrapper-intro').addClass('dont-show');
@@ -180,27 +176,46 @@ $(document).ready(function (){
                 $('#button-intro').removeClass('disappear');
                 $('#button-weiter').removeClass('disappear');
             }, 1000);
-        }        
+        }   
+        else if ($('#button-camera').hasClass('disappear') == false){
+            $('#gamebar').addClass('disappear');
+            $('#button-intro').addClass('disappear');
+            $('#button-camera').addClass('disappear');
+            $('#button-download').addClass('disappear');
+            $('#button-stamp').addClass('disappear');
+            setTimeout(function(){
+                $('#button-wrapper-shoot').removeClass('dont-show');
+                $('#button-wrapper-gallery').removeClass('dont-show');
+            }, 750);
+            setTimeout(function(){
+                $('#button-wrapper-camera').addClass('dont-show');
+                $('#button-wrapper-download').addClass('dont-show');
+                $('#gamebar').addClass('hide');
+                $('#button-stamp').addClass('hide');
+                $('#button-intro').removeClass('disappear');
+                $('#button-shoot').removeClass('disappear');
+                $('#button-gallery').removeClass('disappear');
+            }, 1000);
+        }     
         else if ($('#information').hasClass('disappear') == false){
+            $('#button-wrapper-camera').removeClass('dont-show');
+            $('#button-wrapper-intro').removeClass('dont-show');
+            $('#button-wrapper-download').removeClass('dont-show');
             $('#information').addClass('disappear');
             $('#gamebar').removeClass('hide');
-            //KATJA
-            $('#information').css('pointer-events','none');
-            //KATJA END
-            setTimeout(function(){
-                $('#information').addClass('hide');
-                $('#gamebar').removeClass('disappear');
-                $('#game').css('background-color','rgba(30,30,30,1)');
-            }, 500);
-            setTimeout(function(){
+            setTimeout(function(){      
+                $('#information').addClass('hide'); 
                 $('#game-content').removeClass('disappear');
+                $('#gamebar').removeClass('disappear');
+                $('#button-camera').removeClass('disappear');
                 $('#button-intro').removeClass('disappear');
                 $('#button-download').removeClass('disappear');
                 $('#button-stamp').removeClass('disappear');
-                $('#button-refresh').removeClass('disappear');
+                $('#game').css('background-color','rgba(30, 30, 30, 1)');
+                $('#information').css('pointer-events','none');
             }, 1000);
         }
-    });
+    });    
 
     /* Intro Overlay einblenden */
             
