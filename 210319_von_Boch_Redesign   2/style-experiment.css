@@ -1,0 +1,110 @@
+#question:after {
+    content: "kann man ein bild lesen?";
+    animation: abomination 7.5s linear 1; 
+    animation-fill-mode: forwards;
+    width: calc(100vw - 4em);
+    font-family: ABCGalapagosA;
+    font-size: 2.3em;
+    color: #7822F0;
+    margin: 1em;
+    line-height: 1.5em;
+}
+
+  @keyframes abomination {
+      0% {
+        content: " ";
+      }
+      2.5% {
+        content: "k";
+      }
+      5% {
+        content: "ka";
+      }  
+      7.5% {
+        content: "kan";
+      }
+      10% {
+        content: "kann";
+      }
+      12.5% {
+        content: "kann ";
+      }
+      15% {
+        content: "kann m";
+      }   
+      17.5% {
+        content: "kann ma";
+      }
+      20% {
+        content: "kann man";
+      }
+      22.5% {
+        content: "kann man ";
+      }
+      25% {
+        content: "kann man m";
+      }  
+      27.5% {
+        content: "kann man mi";
+      }
+      30% {
+        content: "kann man mit";
+      }
+      32.5% {
+        content: "kann man mit ";
+      }
+      35% {
+        content: "kann man mit b";
+      }   
+      37.5% {
+        content: "kann man mit b";
+      }
+      40% {
+        content: "kann man mit bi";
+      }
+      42.5% {
+        content: "kann man mit bil";
+      }
+      45% {
+        content: "kann man mit bild";
+      }  
+      47.5% {
+        content: "kann man mit bilde";
+      }
+      50% {
+        content: "kann man mit bilder";
+      }
+      52.5% {
+        content: "kann man mit bildern";
+      }
+      55% {
+        content: "kann man mit bildern ";
+      }   
+      57.5% {
+        content: "kann man mit bildern f";
+      }
+      60% {
+        content: "kann man mit bildern fo";
+      }
+      62.5% {
+        content: "kann man mit bildern for";
+      }
+      65% {
+        content: "kann man mit bildern fors";
+      }  
+      67.5% {
+        content: "kann man mit bildern forsc";
+      }
+      70% {
+        content: "kann man mit bildern forsch";
+      }
+      72.5% {
+        content: "kann man mit bildern forsche";
+      }
+      75% {
+        content: "kann man mit bildern forschen";
+      }  
+      100% {
+        content: "kann man mit bildern forschen?";
+      }      
+}

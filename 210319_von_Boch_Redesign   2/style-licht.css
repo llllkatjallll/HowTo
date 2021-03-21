@@ -1,0 +1,122 @@
+#question:after {
+    content: "kann man ein bild lesen?";
+    animation: abomination 7.5s linear 1; 
+    animation-fill-mode: forwards;
+    width: calc(100vw - 4em);
+    font-family: ABCGalapagosA;
+    font-size: 2.3em;
+    color: #7822F0;
+    margin: 1em;
+    line-height: 1.5em;
+}
+
+  @keyframes abomination {
+      0% {
+        content: " ";
+      }
+      2.5% {
+        content: "w ";
+      }
+      5% {
+        content: "we";
+      }  
+      7.5% {
+        content: "wel";
+      }
+      10% {
+        content: "welc";
+      }
+      12.5% {
+        content: "welch";
+      }
+      15% {
+        content: "welche";
+      }   
+      17.5% {
+        content: "welche ";
+      }
+      20% {
+        content: "welche s";
+      }
+      22.5% {
+        content: "welche sp";
+      }
+      25% {
+        content: "welche spu";
+      }  
+      27.5% {
+        content: "welche spur";
+      }
+      30% {
+        content: "welche spur ";
+      }
+      32.5% {
+        content: "welche spur h";
+      }
+      35% {
+        content: "welche spur hi";
+      }   
+      37.5% {
+        content: "welche spur hin";
+      }
+      40% {
+        content: "welche spur hint";
+      }
+      42.5% {
+        content: "welche spur hinte";
+      }
+      45% {
+        content: "welche spur hinter";
+      }  
+      47.5% {
+        content: "welche spur hinterl";
+      }
+      50% {
+        content: "welche spur hinterlä";
+      }
+      52.5% {
+        content: "welche spur hinterläs";
+      }
+      55% {
+        content: "welche spur hinterläss";
+      }   
+      57.5% {
+        content: "welche spur hinterlässt";
+      }
+      60% {
+        content: "welche spur hinterlässt ";
+      }
+      62.5% {
+        content: "welche spur hinterlässt d";
+      }
+      65% {
+        content: "welche spur hinterlässt da";
+      }  
+      67.5% {
+        content: "welche spur hinterlässt das";
+      }
+      70% {
+        content: "welche spur hinterlässt das ";
+      }
+      72.5% {
+        content: "welche spur hinterlässt das l";
+      }
+      75% {
+        content: "welche spur hinterlässt das li?";
+      }   
+      77.5% {
+        content: "welche spur hinterlässt das lic";
+      }
+      80% {
+        content: "welche spur hinterlässt das lich";
+      }
+      82.5% {
+        content: "welche spur hinterlässt das licht";
+      }
+      85% {
+        content: "welche spur hinterlässt das licht?";
+      }  
+      100% {
+        content: "welche spur hinterlässt das licht?";
+      }      
+}
