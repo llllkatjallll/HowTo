@@ -1,6 +1,7 @@
 var capture,captureHeight,canvas;
 let cameraBtn, infoBtn, newCaptureBtn, invertBtn,galleryBtn,backBtn, nextBtn, saveBtn,contrastBtn,selectImageBtn;
 let gamebar;
+let cameraWrapper, downloadWrapper, shootWrapper,galleryWrapper,nextWrapper, selectWrapper;
 let sliderContrast,sliderCircleSize;
 var imgs = [];
 var w, h;
@@ -88,8 +89,12 @@ let sketch = function(p) {
     nextBtn = document.getElementById("button-weiter");
     infoBtn = document.getElementById("button-intro");
     gamebar = document.getElementById("gamebar");
-    
-   
+    cameraWrapper = document.getElementById("button-wrapper-camera");
+    downloadWrapper = document.getElementById("button-wrapper-download");
+    shootWrapper = document.getElementById("button-wrapper-shoot");
+    galleryWrapper = document.getElementById("button-wrapper-gallery");
+    nextWrapper = document.getElementById("button-wrapper-weiter");
+    selectWrapper = document.getElementById("button-wrapper-select");
     //GAME RELATED BUTTONS
     //game PHOTOGRAM
     invertBtn = document.getElementById("button-download");
@@ -223,6 +228,20 @@ let sketch = function(p) {
     galleryBtn.style.display =  "inline";
     cameraBtn.style.display =  "inline";
     invertBtn.style.display =  "inline";
+    galleryBtn.classList.remove("disappear");
+    infoBtn.classList.remove("disappear");
+    saveBtn.classList.remove("disappear");
+    newCaptureBtn.classList.remove("disappear");
+    cameraWrapper.classList.remove("dont-show");
+    downloadWrapper.classList.remove("dont-show");
+    shootWrapper.classList.add("dont-show");
+    galleryWrapper.classList.add("dont-show");
+    nextBtn.classList.remove("disappear");
+    nextWrapper.classList.remove("dont-show");
+    selectWrapper.classList.add("dont-show");
+
+    gamebar.classList.remove("hide");
+    gamebar.classList.remove("disappear");
     //activate image editing
 
     currentSelectedImageId = document.getElementById("gallery").title;
@@ -274,11 +293,17 @@ let sketch = function(p) {
     p.print(picture);
     capture.pause();
     flash = true;
-    shutterSound.play();
+    //shutterSound.play();
 
     cameraBtn.style.display =  "none";
     newCaptureBtn.style.display =  "inline";
-    galleryBtn.style.display =  "none";
+    newCaptureBtn.classList.remove("disappear");
+    cameraWrapper.classList.remove("dont-show");
+    downloadWrapper.classList.remove("dont-show");
+    shootWrapper.classList.add("dont-show");
+    galleryWrapper.classList.add("dont-show");
+    saveBtn.classList.remove("disappear");
+    //galleryBtn.style.display =  "none";
     saveBtn.style.display =  "inline";
     saveBtn.style.visibility =  "visible";
     gamebar.classList.remove("disappear");
@@ -303,6 +328,12 @@ let sketch = function(p) {
     galleryBtn.style.display =  "inline";
     cameraBtn.style.display =  "inline";
     newCaptureBtn.style.display =  "none";
+    galleryWrapper.classList.remove("dont-show");
+    shootWrapper.classList.remove("dont-show");
+    cameraBtn.classList.remove("disappear");
+    cameraWrapper.classList.add("dont-show");
+    downloadWrapper.classList.add("dont-show");
+    shootWrapper.classList.remove("dont-show");
 
     //SHOW GAMEBAR
     gamebar.classList.add("disappear");

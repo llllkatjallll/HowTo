@@ -69,7 +69,7 @@ $(document).ready(function (){
                     $('#button-intro').removeClass('disappear');
                  }, 1000);
         }
-        else if ($('#button-shoot').hasClass('disappear') == false){
+        /* else if ($('#button-shoot').hasClass('disappear') == false){
             $('#gamebar').removeClass('hide');
             $('#button-stamp').removeClass('hide');
             $('#button-intro').addClass('disappear');
@@ -79,19 +79,21 @@ $(document).ready(function (){
                 $('#button-wrapper-camera').removeClass('dont-show');
                 $('#button-wrapper-download').removeClass('dont-show');
                 $('#button-wrapper-shoot').addClass('dont-show');
-                $('#button-wrapper-gallery').addClass('dont-show');
+                //$('#button-wrapper-gallery').addClass('dont-show');
                 $('#gamebar').removeClass('disappear');
                 $('#button-intro').removeClass('disappear');
                 $('#button-camera').removeClass('disappear');
                 $('#button-download').removeClass('disappear');
                 $('#button-stamp').removeClass('disappear');
                 }, 1000);
-        }
-        else if ($('#button-camera').hasClass('disappear') == false){
+        } */
+        else if ($('#game').hasClass('disappear') == false){
                 $('#information').removeClass('hide'); 
                 $('#game-content').addClass('disappear');
                 $('#gamebar').addClass('disappear');
                 $('#button-camera').addClass('disappear');
+                $('#button-shoot').addClass('disappear');
+                $('#button-gallery').addClass('disappear');
                 $('#button-intro').addClass('disappear');
                 $('#button-download').addClass('disappear');
                 $('#button-stamp').addClass('disappear');
@@ -185,7 +187,7 @@ $(document).ready(function (){
             $('#button-stamp').addClass('disappear');
             setTimeout(function(){
                 $('#button-wrapper-shoot').removeClass('dont-show');
-                $('#button-wrapper-gallery').removeClass('dont-show');
+                //$('#button-wrapper-gallery').removeClass('dont-show');
             }, 750);
             setTimeout(function(){
                 $('#button-wrapper-camera').addClass('dont-show');

@@ -381,11 +381,11 @@ let sketch = function(p) {
   }
 
 
-   p.touchMoved = function() {
+    p.touchMoved = function() {
      touchX =p.mouseX;
      touchY =p.mouseY;
     p.blechserie();
-  }
+  } 
 
   p.invert = function() {
     console.log("contrast");
@@ -461,7 +461,7 @@ let sketch = function(p) {
       
       // Calculate an amount to change brightness based on proximity to the mouse
        let adjustbrightness = sliderContrast.value()/2;
-      if(r < 64){
+ /*      if(r < 64){
         r = 255;
       }  else if(r < 128){
         r = 180;
@@ -469,7 +469,14 @@ let sketch = function(p) {
         r = 85;
       } else {
         r = 0;
-      }
+      } */
+
+       if(r < 125){
+        r = 0;
+      }   else {
+        r = 255;
+      } 
+
       r = r + adjustbrightness;
       // Constrain RGB to make sure they are within 0-255 color range
       r = p.constrain(r, 0, 255);
