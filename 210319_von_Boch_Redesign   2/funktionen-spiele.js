@@ -247,7 +247,7 @@ $(document).ready(function (){
     });    
 
     $('#button-gallery').click(function (){
-        $('#game-content').addClass('disappear');
+        //$('#game-content').addClass('disappear');
         $('#gamebar').addClass('disappear');
         $('#button-zurueck').addClass('disappear');
         $('#button-gallery').addClass('disappear');

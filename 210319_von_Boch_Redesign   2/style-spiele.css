@@ -215,6 +215,234 @@ button{
    pointer-events: none; 
 } */
 
+#gallery{
+    height: 95vh;
+    width: 100vw;
+    background-color: black;
+    position: absolute;
+    z-index: 32;
+    top: 0px;
+    visibility: hidden;
+    z-index: 10000;
+    
+  }
+  
+  .gallery-animation{
+    animation-name: showGallery;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+  }
+  
+  .gallery-animation-reverse{
+    animation-name: hideGallery;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+  }
+  
+  .gallery-container{
+    height: 82vh;
+    overflow-y: scroll;
+    display: grid;
+    background-color: black;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 5px 10px;
+    justify-items:center;
+    margin-bottom: 50px;
+    padding: 20px;
+  }
+  
+  .gallery-frame{
+    position:relative;
+    padding: 0px;
+    margin: 0;
+   
+  }
+  
+  .gallery-frame:focus .image-button{
+    visibility: visible;
+   
+  }
+  
+  .gallery-frame img{
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: opacity 0.25s ease-in-out;
+  }
+  
+  .gallery-frame img:focus {
+    opacity: .5;
+  }
+  
+  
+  .image-button{
+    position:absolute;
+    visibility: hidden;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    bottom: 40px;
+    right: 40px;
+  
+  }
+
+  .gamebar-button-container{
+    position: relative;
+    width: 32px;
+    height: 32px;
+  
+  }
+  
+   .toggle-button{
+    width: 32px;
+    height: 32px;
+    border: 0;
+    z-index: 20;
+    background-color: #6232fb;
+    border-radius: 20px;
+   }
+   
+  .toggle-button button{
+    padding: 0;
+    border: 0;
+    background: none;
+  }
+  
+  
+   .toggle-button svg{
+    display: block;
+    margin: auto;
+    width: 30px;
+    height: 30px;
+    fill: aliceblue;
+  }
+  
+  #contrast-button{
+    border: 0;
+    z-index: 20;
+    background-color: #6232fb;
+    border-radius: 20px;
+  
+    background-size: 26px 26px;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+  }
+  
+  #contrast-range{
+    position: absolute;
+    top:30px;
+    left:0px;
+  }
+  
+  .rotatedSlider{
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  
+    -webkit-transform-origin: 0% 0%;
+    -moz-transform-origin: 0% 0%;
+    -ms-transform-origin: 0% 0%;
+    -o-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+  }
+  
+  
+  
+  @keyframes showGallery {
+    0%   {top:100vh;}
+   
+    100% {top:0vh;}
+  }
+  
+  @keyframes hideGallery {
+    0%   {top:0vh;}
+   
+    100% {top:100vh;}
+  }
+  
+  
+  /*Chrome*/
+  @media screen and (-webkit-min-device-pixel-ratio:0) {
+    input[type='range'] {
+      overflow: hidden;
+      width: 100px;
+      height: 12px;
+      border-radius: 20px;
+      padding: 10px;
+      padding-left: 36px;
+      -webkit-appearance: none;
+      background-color:rgba(255, 255, 255,0.7);
+    }
+    
+    input[type='range']::-webkit-slider-runnable-track {
+      height: 20px;
+      -webkit-appearance: none;
+      color: #6232fb;
+      margin-top: -1px;
+    }
+    
+    input[type='range']::-webkit-slider-thumb {
+      width: 10px;
+      -webkit-appearance: none;
+      height: 10px;
+      cursor: ew-resize;
+      background: #434343;
+      
+    }
+  
+  }
+  /** FF*/
+  input[type="range"]::-moz-range-progress {
+  background-color: #6232fb; 
+  }
+  input[type="range"]::-moz-range-track {  
+  background-color:rgba(255, 255, 255,0.7);
+  }
+  /* IE*/
+  input[type="range"]::-ms-fill-lower {
+  background-color: #6232fb; 
+  }
+  input[type="range"]::-ms-fill-upper {  
+    background-color:rgba(255, 255, 255,0.7);
+  }
+  
+  /* Special styling for WebKit/Blink */
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    
+    height: 15px;
+    width: 15px;
+    border-radius: 15px;
+    background: #6232fb;
+    cursor: pointer;
+    margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+    
+  }
+  
+  /* All the same stuff for Firefox */
+  input[type=range]::-moz-range-thumb {
+    height: 15px;
+    width: 15px;
+    border-radius: 15px;
+    background: #6232fb;
+    cursor: pointer;
+  }
+  
+  /* All the same stuff for IE */
+  input[type=range]::-ms-thumb {
+    height: 15px;
+    width: 15px;
+    border-radius: 15px;
+    background: #6232fb;
+    cursor: pointer;
+  }
+
+  
+
 @media (min-width:768px) {
 
     #navbar > .svg-wrapper{
