@@ -8,7 +8,7 @@ $(document).ready(function (){
 
 /* Random Anzeige-Bild im Launch Screen */
 
-    var img_name = new Array("img/background-1.jpg", "img/background-2.jpg", "img/background-3.jpg");
+    var img_name = new Array("img/background_1.jpg", "img/background_2.jpg", "img/background_3.jpg", "img/background_4.jpg");
     var l = img_name.length;
     var rnd_no = Math.floor(l*Math.random());
     document.getElementById("launch-background").src = img_name[rnd_no];

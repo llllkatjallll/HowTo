@@ -69,7 +69,6 @@ $(document).ready(function (){
                 }, 1000);
             }
             else if ($('#information').hasClass('disappear') == false){ 
-                audioElement1.pause();                
                 $('#information').addClass('disappear');
                 $('svg').addClass('disappear');
                 setTimeout(function(){
@@ -113,7 +112,6 @@ $(document).ready(function (){
                 }, 500);    
         }       
         else if ($('#information').hasClass('disappear') == false){
-            audioElement1.pause();
             //KATJA
             $('#information').css('pointer-events','none');
             //KATJA END
@@ -136,31 +134,5 @@ $(document).ready(function (){
         $('.dont-show').css('display','block');
     });
     
-    var audioElement1 = document.createElement('audio');
-    audioElement1.setAttribute('src', 'audio/raum.mp4');
-    
-    $('#play').click(function() {
-        audioElement1.play();
-        $(this).addClass('disappear-audio');
-        setTimeout(function(){
-            $('#pause').removeClass('hide');
-            $('#play').addClass('hide');
-        }, 300);
-        setTimeout(function(){
-            $('#pause').removeClass('disappear-audio');
-        }, 600);        
-    });
-    
-    $('#pause').click(function() {
-        audioElement1.pause();
-        $(this).addClass('disappear-audio');
-        setTimeout(function(){
-            $('#play').removeClass('hide');
-            $('#pause').addClass('hide');
-        }, 300);
-        setTimeout(function(){
-            $('#play').removeClass('disappear-audio');
-        }, 600);
-    });
     
 });

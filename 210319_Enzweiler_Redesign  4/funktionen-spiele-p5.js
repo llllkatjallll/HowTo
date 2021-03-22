@@ -85,10 +85,10 @@ $(document).ready(function (){
                 //KATJA END
                 setTimeout(function(){      
                     $('#information').removeClass('disappear');
+                    $('#gamebar').addClass('hide');
                 }, 1000);
             }
             else if ($('#information').hasClass('disappear') == false){ 
-                audioElement1.pause(); 
                 $('#information').addClass('disappear');
                 $('svg').addClass('disappear');
                 setTimeout(function(){
@@ -142,7 +142,6 @@ $(document).ready(function (){
             }, 1000);
         }        
         else if ($('#information').hasClass('disappear') == false){
-            audioElement1.pause();
             $('#information').addClass('disappear');
             //KATJA
             $('#information').css('pointer-events','none');
@@ -192,36 +191,9 @@ $('#button-intro').click(function (){
 
 // Text ausklappen
     
-$('#button-mehr').click(function (){
-    $('#button-mehr').css('display','none');
-    $('.dont-show').css('display','block');
-});
+    $('#button-mehr').click(function (){
+        $('#button-mehr').css('display','none');
+        $('.dont-show').css('display','block');
+    });
 
-    var audioElement1 = document.createElement('audio');
-    audioElement1.setAttribute('src', 'audio/raum.mp4');
-    
-    $('#play').click(function() {
-        audioElement1.play();
-        $(this).addClass('disappear-audio');
-        setTimeout(function(){
-            $('#pause').removeClass('hide');
-            $('#play').addClass('hide');
-        }, 300);
-        setTimeout(function(){
-            $('#pause').removeClass('disappear-audio');
-        }, 600);        
-    });
-    
-    $('#pause').click(function() {
-        audioElement1.pause();
-        $(this).addClass('disappear-audio');
-        setTimeout(function(){
-            $('#play').removeClass('hide');
-            $('#pause').addClass('hide');
-        }, 300);
-        setTimeout(function(){
-            $('#play').removeClass('disappear-audio');
-        }, 600);
-    });
-    
 });

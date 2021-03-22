@@ -166,14 +166,14 @@ button{
 
 
 
-#play, #pause{
+#button-play, #button-pause{
     position: relative;
     top: 0;
     left: 0;
     fill: #6232FB;
     height: 50px;
     width: 50px;
-    transition: 300ms ease-in;
+    transition: 250ms ease-in-out;
 }
 
 .disappear-audio{
@@ -187,7 +187,7 @@ button{
 
 .pulse{
  
- animation: pulse 1s infinite;   
+ animation: pulse 1s infinite linear;   
 }
 
 @keyframes pulse {
@@ -196,6 +196,9 @@ button{
     }
     25% {
         transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1);
     }
     75% {
         transform: scale(0.9);
