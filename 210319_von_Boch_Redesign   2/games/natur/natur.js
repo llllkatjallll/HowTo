@@ -190,8 +190,6 @@ let sketch = function(p) {
     document.getElementById("gallery").classList.add("gallery-animation-reverse");
     
     //show buttons
-    galleryBtn.style.visibility =  "visible";
-    cameraBtn.style.visibility =  "visible";
     document.getElementById("gallery").title="";
   }
 
@@ -202,17 +200,15 @@ let sketch = function(p) {
     
     document.getElementById("gallery").classList.remove("gallery-animation-reverse");
     //hide gallery Button
-    galleryBtn.style.display =  "none";
-    cameraBtn.style.display =  "none";
+  
     saveBtn.style.display =  "none";
-    infoBtn.style.display =  "none";
-    nextBtn.style.display =  "none";
     selectImageBtn.style.display =  "inline";
     selectImageBtn.style.visibility =  "hidden";  
     //show gallery canvas
     document.getElementById("gallery").style.visibility =  "visible";
     //document.getElementById("selectImageBtn").style.visibility =  "hidden";  
     document.getElementById("gallery").classList.add("gallery-animation");
+    document.getElementById("gallery").classList.add("active-gallery");
     //show buttons
   }
 
@@ -225,8 +221,6 @@ let sketch = function(p) {
     document.getElementById("gallery").classList.add("gallery-animation-reverse");
 
     //show buttons
-    galleryBtn.style.display =  "inline";
-    cameraBtn.style.display =  "inline";
     invertBtn.style.display =  "inline";
     galleryBtn.classList.remove("disappear");
     infoBtn.classList.remove("disappear");
@@ -264,14 +258,11 @@ let sketch = function(p) {
   p.startEditing = function() {
     //ACTIVATE BUTTONS
     
-    cameraBtn.style.display =  "inline";
+    
     saveBtn.style.display =  "inline";
     saveBtn.style.visibility =  "visible";
-    infoBtn.style.display =  "inline";
-    nextBtn.style.display =  "inline";
-    galleryBtn.style.display =  "none";
     selectImageBtn.style.display =  "none"; 
-    cameraBtn.style.display =  "none";
+   
     newCaptureBtn.style.display =  "inline";
 
     //SHOW GAMEBAR
@@ -295,7 +286,6 @@ let sketch = function(p) {
     flash = true;
     //shutterSound.play();
 
-    cameraBtn.style.display =  "none";
     newCaptureBtn.style.display =  "inline";
     newCaptureBtn.classList.remove("disappear");
     cameraWrapper.classList.remove("dont-show");
@@ -303,13 +293,17 @@ let sketch = function(p) {
     shootWrapper.classList.add("dont-show");
     galleryWrapper.classList.add("dont-show");
     saveBtn.classList.remove("disappear");
-    //galleryBtn.style.display =  "none";
     saveBtn.style.display =  "inline";
     saveBtn.style.visibility =  "visible";
     gamebar.classList.remove("disappear");
+    gamebar.classList.remove("hide");
   };
 
-
+  p.refreshCamera = function() {
+    editing = false;
+    capture.play();
+    console.log("refresh " +editing);
+  }
   p.newCapture = function() {
     picture = null;
     editMode = false;
@@ -321,12 +315,7 @@ let sketch = function(p) {
     flash = false;
     capture.play();
 
-    cameraBtn.style.display =  "inline";
     saveBtn.style.display =  "none";
-    infoBtn.style.display =  "inline";
-    nextBtn.style.display =  "inline";
-    galleryBtn.style.display =  "inline";
-    cameraBtn.style.display =  "inline";
     newCaptureBtn.style.display =  "none";
     galleryWrapper.classList.remove("dont-show");
     shootWrapper.classList.remove("dont-show");

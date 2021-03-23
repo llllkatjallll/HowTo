@@ -263,6 +263,10 @@ button{
     visibility: visible;
    
   }
+
+  .active-gallery{
+    
+  }
   
   .gallery-frame img{
     max-width: 100%;

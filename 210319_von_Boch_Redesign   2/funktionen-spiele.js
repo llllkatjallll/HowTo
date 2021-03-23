@@ -35,6 +35,7 @@ $(document).ready(function (){
    
     $('#button-weiter').click(function (){
         if ($('#question').hasClass('disappear') == false){
+            console.log("fall 1");
             $('#question').addClass('disappear');
             $('#quote').removeClass('hide');
             $('#information').css('pointer-events','none');
@@ -44,6 +45,7 @@ $(document).ready(function (){
                 }, 500);
             }
             else if ($('#quote').hasClass('disappear') == false){
+                console.log("fall 2");
                 $('#quote').addClass('disappear');
                 $('#introduction').removeClass('hide');
                 setTimeout(function(){
@@ -57,6 +59,7 @@ $(document).ready(function (){
                 }, 500);
             }
             else if ($('#introduction').hasClass('disappear') == false){
+                console.log("fall 3");
                 $('#game').addClass('down');
                 $('#introduction').addClass('disappear');
                 setTimeout(function(){
@@ -67,6 +70,10 @@ $(document).ready(function (){
                     $('#button-gallery').removeClass('disappear');
                     $('#button-shoot').removeClass('disappear');
                     $('#button-intro').removeClass('disappear');
+                    $('#button-wrapper-shoot').removeClass('dont-show');
+                    $('#button-wrapper-gallery').removeClass('dont-show');
+                    $('#button-wrapper-camera').addClass('dont-show');
+                    $('#button-wrapper-download').addClass('dont-show');
                  }, 1000);
         }
         /* else if ($('#button-shoot').hasClass('disappear') == false){
@@ -104,10 +111,12 @@ $(document).ready(function (){
                     $('#button-wrapper-intro').addClass('dont-show');
                     $('#button-wrapper-download').addClass('dont-show');
                     $('#information').removeClass('disappear');
+                    //$('#game').addClass('disappear');
                     $('#gamebar').addClass('hide');
                 }, 1000);
             } 
         else if ($('#information').hasClass('disappear') == false){ 
+                console.log("zum menu");
                 $('#information').addClass('disappear');
                 $('svg').addClass('disappear');
                 setTimeout(function(){
@@ -138,6 +147,7 @@ $(document).ready(function (){
             }, 700);            
         }
         else if ($('#introduction').hasClass('disappear') == false){
+            console.log("back 1");
                 $('#introduction').addClass('disappear');
                 $('#quote').removeClass('hide');
                 setTimeout(function(){
@@ -149,9 +159,14 @@ $(document).ready(function (){
                 }, 500);    
         }
         else if ($('#button-shoot').hasClass('disappear') == false){
+            console.log("back 2");
             $('#button-gallery').addClass('disappear');
             $('#button-shoot').addClass('disappear');
             $('#button-intro').addClass('disappear');
+
+            $('#button-camera').addClass('disappear');
+            $('#button-download').addClass('disappear');
+            $('#gamebar').addClass('disappear');
             setTimeout(function(){
                 $('#game-content').addClass('disappear');
                 $('#introduction').removeClass('hide');
@@ -161,10 +176,12 @@ $(document).ready(function (){
                 $('#introduction').removeClass('disappear');
             }, 1000);            
         }        
-        else if ($('#button-select').hasClass('disappear') == false){
+/*         else if ($('#button-select').hasClass('disappear') == false){
+            console.log("back 3");
             $('#button-zurueck').addClass('disappear');
             $('#button-select').addClass('disappear');
             $('#gamebar').removeClass('hide');
+            
             setTimeout(function(){      
                 $('#button-wrapper-weiter').removeClass('dont-show');
                 $('#button-wrapper-select').addClass('dont-show');
@@ -178,40 +195,71 @@ $(document).ready(function (){
                 $('#button-intro').removeClass('disappear');
                 $('#button-weiter').removeClass('disappear');
             }, 1000);
-        }   
-        else if ($('#button-camera').hasClass('disappear') == false){
-            $('#gamebar').addClass('disappear');
-            $('#button-intro').addClass('disappear');
-            $('#button-camera').addClass('disappear');
-            $('#button-download').addClass('disappear');
-            $('#button-stamp').addClass('disappear');
-            setTimeout(function(){
-                $('#button-wrapper-shoot').removeClass('dont-show');
-                //$('#button-wrapper-gallery').removeClass('dont-show');
-            }, 750);
-            setTimeout(function(){
-                $('#button-wrapper-camera').addClass('dont-show');
-                $('#button-wrapper-download').addClass('dont-show');
-                $('#gamebar').addClass('hide');
-                $('#button-stamp').addClass('hide');
+        }   */ 
+        else if ($('#gallery').hasClass('active-gallery') == true){
+            console.log("back 4.5");
+            $('#gallery').removeClass('gallery-animation');
+            $('#gallery').addClass('gallery-animation-reverse');
+            $('#gallery').removeClass('active-gallery');
+            
+            //$('#button-wrapper-camera').removeClass('dont-show');
+            $('#button-wrapper-intro').removeClass('dont-show');
+            $('#button-wrapper-shoot').removeClass('dont-show');
+            $('#button-wrapper-gallery').removeClass('dont-show');
+            $('#button-wrapper-weiter').removeClass('dont-show');
+            $('#button-wrapper-select').addClass('dont-show');
+            
+            $('#gamebar').addClass('hide');
+            setTimeout(function(){      
+                $('#game-content').removeClass('disappear');
+                $('#gamebar').removeClass('disappear');
+                $('#button-camera').removeClass('disappear');
                 $('#button-intro').removeClass('disappear');
+                $('#button-weiter').removeClass('disappear');
+                $('#button-download').removeClass('disappear');
                 $('#button-shoot').removeClass('disappear');
                 $('#button-gallery').removeClass('disappear');
+                $('#button-stamp').removeClass('disappear');
+                $('#game').css('background-color','rgba(30, 30, 30, 1)');
             }, 1000);
-        }     
+        }   
+        else if ($('#button-camera').hasClass('disappear') == false){
+            console.log("back 5");
+            $('#button-gallery').addClass('disappear');
+            $('#button-shoot').addClass('disappear');
+            $('#button-intro').addClass('disappear');
+
+            $('#button-camera').addClass('disappear');
+            $('#button-download').addClass('disappear');
+            $('#gamebar').addClass('disappear');
+            setTimeout(function(){
+                $('#game-content').addClass('disappear');
+                $('#introduction').removeClass('hide');
+            }, 500);
+            setTimeout(function(){
+                $('#game').removeClass('down');
+                $('#introduction').removeClass('disappear');
+            }, 1000); 
+        }   
         else if ($('#information').hasClass('disappear') == false){
-            $('#button-wrapper-camera').removeClass('dont-show');
+            console.log("back 6");
+            //$('#button-wrapper-camera').removeClass('dont-show');
             $('#button-wrapper-intro').removeClass('dont-show');
-            $('#button-wrapper-download').removeClass('dont-show');
+            $('#button-wrapper-shoot').removeClass('dont-show');
+            $('#button-wrapper-gallery').removeClass('dont-show');
+            //$('#button-wrapper-download').removeClass('dont-show');
             $('#information').addClass('disappear');
-            $('#gamebar').removeClass('hide');
+            $('#gamebar').addClass('hide');
             setTimeout(function(){      
                 $('#information').addClass('hide'); 
+                
                 $('#game-content').removeClass('disappear');
                 $('#gamebar').removeClass('disappear');
                 $('#button-camera').removeClass('disappear');
                 $('#button-intro').removeClass('disappear');
                 $('#button-download').removeClass('disappear');
+                $('#button-shoot').removeClass('disappear');
+                $('#button-gallery').removeClass('disappear');
                 $('#button-stamp').removeClass('disappear');
                 $('#game').css('background-color','rgba(30, 30, 30, 1)');
                 $('#information').css('pointer-events','none');
