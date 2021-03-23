@@ -117,6 +117,7 @@ let sketch = function(p) {
       sliderContrast = p.createSlider(-200, 200, 0);
       sliderContrast.id('contrast-range');
       sliderContrast.addClass('rotatedSlider');
+      sliderContrast.addClass('disappear');
       sliderContrast.parent('contrast-container');
       //document.getElementById("contrast-range").style.visibility =  "hidden";
 
@@ -341,12 +342,13 @@ let sketch = function(p) {
   p.contrastFunction = function(){
     contrastSliderOn=!contrastSliderOn;
     if(contrastSliderOn){
-      document.getElementById("contrast-range").style.visibility =  "visible";
+      //sliderContrast.classList.add('disappear');
+      document.getElementById("contrast-range").classList.add('disappear');
     } else{
-      document.getElementById("contrast-range").style.visibility =  "hidden";
-    }
+      //sliderContrast.classList.remove('disappear');
+      document.getElementById("contrast-range").classList.remove('disappear');
   }
-
+}
   p.circleFunction = function(){
     circleSliderOn=!circleSliderOn;
     if(circleSliderOn){
@@ -490,15 +492,11 @@ let sketch = function(p) {
       
       // Calculate an amount to change brightness based on proximity to the mouse
        let adjustbrightness = sliderContrast.value()/2;
-      if(r < 64){
-        r = 255;
-      }  else if(r < 128){
-        r = 180;
-      } else if(r < 128+64){
-        r = 85;
-      } else {
+      if(r < 125){
         r = 0;
-      }
+      }  else{
+        r = 255;
+      } 
       r = r + adjustbrightness;
       // Constrain RGB to make sure they are within 0-255 color range
       r = p.constrain(r, 0, 255);
