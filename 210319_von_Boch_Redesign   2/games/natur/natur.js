@@ -78,7 +78,7 @@ let sketch = function(p) {
     //capture = p.createCapture(p.VIDEO);
     capture = p.createCapture(options);
     capture.hide();
-
+    
      //GENERAL BUTTONS
     galleryBtn = document.getElementById("button-gallery");
     backBtn = document.getElementById("button-zurueck"); //necessary?
@@ -109,17 +109,21 @@ let sketch = function(p) {
 /*
     //GAME RELATED VISIBILITY
       // game PHOTOGRAM
-          invertBtn.style.visibility =  "hidden";
+
     
       //game NATURE
       contrastBtn.style.visibility =  "hidden";
       */
+     if(document.getElementById("contrast-container")!=null){
       sliderContrast = p.createSlider(-200, 200, 0);
       sliderContrast.id('contrast-range');
       sliderContrast.addClass('rotatedSlider');
       sliderContrast.addClass('disappear');
       sliderContrast.parent('contrast-container');
-      //document.getElementById("contrast-range").style.visibility =  "hidden";
+      }
+      //game LICHT
+    
+      
 
       //game BLECHSERIE
      /*  sliderCircleSize = p.createSlider(0, 100, 10);
@@ -131,6 +135,7 @@ let sketch = function(p) {
   };
 
   p.draw = function() {
+    console.log("started");
     //wenn nicht editiert wird
     if (!editing) {
       //p.background(0);
@@ -157,8 +162,9 @@ let sketch = function(p) {
       }
 
       //picture.resize(w, captureHeight);
-      sliderContrast.changed(p.changeContrast);
-      //sliderCircleSize.changed(p.blechserie);
+      if (sliderContrast!= null){
+        sliderContrast.changed(p.changeContrast);
+      }
     }
 
     if (startEditingStepsDone == false){
@@ -169,7 +175,7 @@ let sketch = function(p) {
     if(showImageTest && alpha < 255){
        p.background(255);
       p.tint(255, alpha);
-      p.image(picture, 0,0);
+      p.image(editedPicture, 0,0);
       alpha+=1;
     }
 
@@ -222,7 +228,7 @@ let sketch = function(p) {
     document.getElementById("gallery").classList.add("gallery-animation-reverse");
 
     //show buttons
-    invertBtn.style.display =  "inline";
+
     galleryBtn.classList.remove("disappear");
     infoBtn.classList.remove("disappear");
     saveBtn.classList.remove("disappear");
@@ -334,18 +340,21 @@ let sketch = function(p) {
   p.saveCanvas(canvas, 'howTo-mein_Naturfoto', 'jpg');
   };
 
-  p.writeSmth = function() {
-    console.log("YEAHHH");
+  p.startPhotogram = function() {
+    p.invert();
+    showImageTest = true;
+    alpha = 0;
 }  
 
 
   p.contrastFunction = function(){
     contrastSliderOn=!contrastSliderOn;
+   
     if(contrastSliderOn){
-      //sliderContrast.classList.add('disappear');
+
       document.getElementById("contrast-range").classList.add('disappear');
     } else{
-      //sliderContrast.classList.remove('disappear');
+  
       document.getElementById("contrast-range").classList.remove('disappear');
   }
 }
@@ -446,7 +455,14 @@ let sketch = function(p) {
       }
       
       // Calculate an amount to change brightness based on proximity to the mouse
-       let adjustbrightness = sliderContrast.value()/2;
+      if(sliderContrast != null){
+        let adjustbrightness = sliderContrast.value()/2;
+        console.log(1);
+      } else{
+        let adjustbrightness = 0;
+        console.log(adjustbrightness);
+      }
+      let adjustbrightness = 0;
       r = r + adjustbrightness;
       // Constrain RGB to make sure they are within 0-255 color range
       r = p.constrain(r, 0, 255);
@@ -491,7 +507,12 @@ let sketch = function(p) {
       }
       
       // Calculate an amount to change brightness based on proximity to the mouse
-       let adjustbrightness = sliderContrast.value()/2;
+      if(sliderContrast != null){
+        let adjustbrightness = sliderContrast.value()/2;
+      } else{
+        let adjustbrightness = 0;
+      }
+       
       if(r < 125){
         r = 0;
       }  else{
