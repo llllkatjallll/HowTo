@@ -18,6 +18,12 @@
     <script type="text/javascript" src="funktionen-experiment.js"></script>
     <script type="text/javascript" src="slick/slick.min.js"></script>
 
+        <!--p5 -->
+        <script src="games/p5/p5.min.js"></script>
+        <script src="games/p5/p5.sound.min.js"></script>
+        <script src="games/natur/hammer.min.js"></script>
+        <script src="games/natur/zoom.js"></script> 
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description" content="How to – Spiele zur Kunst">
@@ -56,7 +62,7 @@
 
             <section id="game">
                 <div id="game-content" class="content-wrapper">
-                    <script src="games/stempel/stempel.js"></script>
+                    
                 </div>
             </section>
 
@@ -132,7 +138,25 @@
             </div>
 
         </div> 
-         
+    
+        
+        <script>
+            var myElement = document.getElementById('game-content');
+         var hammer = new Hammer(myElement);
+
+        // hammer.get('pinch').set({ enable: true });
+        hammer.get('pan').set({ enable: true });
+       // hammer.get('rotate').set({ enable: true });  
+        //hammer.on("pinch", myp5.scaleRect());
+       //hammer.on("rotate", myp5.rotateRect());
+        //hammer.on("pan", myp5.rotateRect(ev.center.x));
+
+        hammer.on('pan', function(ev) {
+            myp5.rotateRect(ev.center.x)
+});   
+
+        </script> 
+
     </body>
 
 </html>

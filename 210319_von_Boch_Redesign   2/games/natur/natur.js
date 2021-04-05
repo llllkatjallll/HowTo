@@ -135,7 +135,7 @@ let sketch = function(p) {
   };
 
   p.draw = function() {
-    console.log("started");
+    
     //wenn nicht editiert wird
     if (!editing) {
       //p.background(0);
@@ -175,9 +175,10 @@ let sketch = function(p) {
     if(showImageTest && alpha < 255){
        p.background(255);
       p.tint(255, alpha);
-      p.image(editedPicture, 0,0);
+      p.image(editedPicture,0,0,w, captureHeight);
       alpha+=1;
     }
+
 
     if(selectedImageMode==true){
       //p.image(imgs[0],0,0,w,h);
@@ -313,6 +314,7 @@ let sketch = function(p) {
   }
   p.newCapture = function() {
     picture = null;
+    editedPicture = null;
     editMode = false;
     editing = false;
     alpha = 0;
@@ -341,7 +343,7 @@ let sketch = function(p) {
   };
 
   p.startPhotogram = function() {
-    p.invert();
+    p.photogramInvert();
     showImageTest = true;
     alpha = 0;
 }  
@@ -442,6 +444,15 @@ let sketch = function(p) {
     
     editedPicture.loadPixels();
     
+    let adjustbrightness = 0;
+      if(sliderContrast != null){
+         adjustbrightness = sliderContrast.value()/2;
+        console.log(1);
+      } else{
+         adjustbrightness = 0;
+        console.log(adjustbrightness);
+      }
+
    for (let x = 0; x < picture.width; x++) {
     for (let y = 0; y < picture.height; y++) {
       // Calculate the 1D location from a 2D grid
@@ -453,16 +464,48 @@ let sketch = function(p) {
       } else{
         r = picture.pixels[loc];
       }
-      
-      // Calculate an amount to change brightness based on proximity to the mouse
+      r = r + adjustbrightness;
+      // Constrain RGB to make sure they are within 0-255 color range
+      r = p.constrain(r, 0, 255);
+      let pixloc = (y * picture.width + x) * 4;
+       editedPicture.pixels[pixloc] = 255-r;
+       editedPicture.pixels[pixloc + 1] = 255-r;
+       editedPicture.pixels[pixloc + 2] = 255-r;
+       editedPicture.pixels[pixloc + 3] = 255;
+    }
+  }
+  editedPicture.updatePixels();
+  ongoingEditedPicture = editedPicture.get();
+  p.image(editedPicture,0,0,w, captureHeight);
+  firstEdit = true;
+  };
+
+  p.photogramInvert = function() {
+    console.log("contrast");
+    editing = true;
+    editMode=true;
+    selectedImageMode = false;
+    editedPicture = picture.get();
+    editedPicture.loadPixels();
+    picture.loadPixels();
+    let adjustbrightness = 0;
       if(sliderContrast != null){
-        let adjustbrightness = sliderContrast.value()/2;
+         adjustbrightness = sliderContrast.value()/2;
         console.log(1);
       } else{
-        let adjustbrightness = 0;
+         adjustbrightness = 0;
         console.log(adjustbrightness);
       }
-      let adjustbrightness = 0;
+
+   for (let x = 0; x < picture.width; x++) {
+    for (let y = 0; y < picture.height; y++) {
+      // Calculate the 1D location from a 2D grid
+      let loc = (x + y * picture.width) * 4;
+      // Get the R,G,B values from image
+      let r, g, b;
+      
+        r = picture.pixels[loc];
+      
       r = r + adjustbrightness;
       // Constrain RGB to make sure they are within 0-255 color range
       r = p.constrain(r, 0, 255);
