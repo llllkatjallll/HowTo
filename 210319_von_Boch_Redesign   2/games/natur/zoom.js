@@ -46,9 +46,15 @@ var selectedImageMode = false;
 var contrastSliderOn = false;
 var circleSliderOn = false;
 
-var s = 1.0;
+var s = 0;
 var r = 0;
-var currentX = 0;
+var p = 0;
+var temp_s =1;
+let start_pos = new p5.Vector(0, 0);
+let temp_pos = new p5.Vector(0, 0);
+let pos = new p5.Vector(0, 0);
+let dist_x = 0;
+let dist_y = 0;
 
 let sketch = function(p) {
 
@@ -122,6 +128,10 @@ let sketch = function(p) {
     
       p.rectMode(p.CENTER);
       currentX = p.width/2;
+
+      pos.x = p.width/2;
+      pos.y = p.height/2;
+
   };
 
   p.draw = function() {
@@ -132,28 +142,49 @@ let sketch = function(p) {
     p.ellipse(p.width/2, p.height/2, p.windowWidth*0.5, p.windowWidth*0.5);
     currentX = currentX+r;
     p.fill(255);
-    p.translate(currentX, p.height/2);
-    r = 0;
-    //p.rotate(r);
-   // p.scale(s);
+    p.translate(pos.x-dist_x, pos.y-dist_y);
+    // rotate(r);
+    p.scale(temp_s + s);
     p.rect(0, 0, p.windowWidth*0.1, p.windowWidth*0.1);
   };
 
 
-  p.rotateRect = function(x) {
-    
-    r = p.map(x,0,p.windowWidth,-p.windowWidth/2,p.windowWidth/2);
-    console.log(r);
-  };
-
-
-  p.scaleRect = function(event) {
-    
-    console.log(event);
-    s = event.scale;
-  };
-
   
+
+
+p.scaleEndRect = function(event) {
+  temp_s = temp_s + s;
+   s = 0;
+}
+
+p.endPan = function(event) {
+ pos.x = pos.x-dist_x;
+ pos.y =pos.y-dist_y;
+ dist_x = 0;
+ dist_y = 0
+}
+
+p.startPan = function (event) {
+start_pos = (event.center);
+}
+
+
+p.rotateRect = function (event) {
+// console.log(event);
+ r = radians(event.rotation);
+}
+
+p.scaleRect = function (event) {
+s = (event.scale-1)*3.4;
+}
+
+p.panRect = function  (event) {
+temp_pos = (event.center);
+console.log(temp_pos.x); 
+ dist_x = start_pos.x-temp_pos.x;
+ dist_y = start_pos.y-temp_pos.y;
+}
+
 
 };
 

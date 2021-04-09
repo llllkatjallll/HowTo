@@ -46,6 +46,17 @@ var selectedImageMode = false;
 var contrastSliderOn = false;
 var circleSliderOn = false;
 
+// pan and zoom
+var s = 0;
+var r = 0;
+var p = 0;
+var temp_s =1;
+let start_pos = new p5.Vector(0, 0);
+let temp_pos = new p5.Vector(0, 0);
+let pos = new p5.Vector(0, 0);
+let dist_x = 0;
+let dist_y = 0;
+
 
 let sketch = function(p) {
 
@@ -126,12 +137,15 @@ let sketch = function(p) {
       
 
       //game BLECHSERIE
-     /*  sliderCircleSize = p.createSlider(0, 100, 10);
+      sliderCircleSize = p.createSlider(0, 100, 10);
       sliderCircleSize.id('circle-range');
       sliderCircleSize.addClass('rotatedSlider');
-      sliderCircleSize.parent('circle-container'); */
-      //document.getElementById("circle-range").style.visibility =  "hidden"; 
+      sliderCircleSize.parent('circle-container'); 
+      document.getElementById("circle-range").style.visibility =  "hidden"; 
 
+      //pan and zoom
+      pos.x = p.width/2;
+      pos.y = p.height/2;
   };
 
   p.draw = function() {
@@ -165,6 +179,10 @@ let sketch = function(p) {
       if (sliderContrast!= null){
         sliderContrast.changed(p.changeContrast);
       }
+    }
+
+    if (sliderCircleSize!= null){
+      sliderCircleSize.changed(p.blechserie);
     }
 
     if (startEditingStepsDone == false){
@@ -373,8 +391,8 @@ let sketch = function(p) {
   let imgScale =10;
   p.blechserie = function(){
     p.background(255);
-    p.scale(5);
-    p.translate(p.map(touchX,0,w,100,-500),p.map(touchY,0,w,100,-500));
+    p.scale(temp_s + s);
+    p.translate(pos.x-dist_x, pos.y-dist_y);
     p.push();
     editing = true;
     editMode=true;
@@ -399,7 +417,7 @@ let sketch = function(p) {
           let color2 =255;
            let currentColor = 0;
           let currentAlpha = 0;
-        if(greyscale >= 110){
+        if(greyscale >= 150){
            currentColor = color1;
           currentAlpha = color2;
         } else{
@@ -407,7 +425,7 @@ let sketch = function(p) {
           currentAlpha = color1;
         }
       // Calculate an amount to change brightness based on proximity to the mouse
-       let adjustbrightness = sliderContrast.value()/2;
+       let adjustbrightness = sliderCircleSize.value()/2;
       //r = r + adjustbrightness;
       // Constrain RGB to make sure they are within 0-255 color range
       r = p.constrain(r, 0, 255);
@@ -609,6 +627,43 @@ let sketch = function(p) {
   p.image(editedPicture,0,0,w, captureHeight);
   firstEdit = true;
   }
+
+
+  p.scaleEndRect = function(event) {
+    temp_s = temp_s + s;
+     s = 0;
+  }
+  
+  p.endPan = function(event) {
+   pos.x = pos.x-dist_x;
+   pos.y =pos.y-dist_y;
+   dist_x = 0;
+   dist_y = 0
+  }
+  
+  p.startPan = function (event) {
+  start_pos = (event.center);
+  }
+  
+  
+  p.rotateRect = function (event) {
+  // console.log(event);
+   r = radians(event.rotation);
+  }
+  
+  p.scaleRect = function (event) {
+  s = (event.scale-1)*3.4;
+  p.blechserie()
+  }
+  
+  p.panRect = function  (event) {
+  temp_pos = (event.center);
+  console.log(temp_pos.x); 
+   dist_x = start_pos.x-temp_pos.x;
+   dist_y = start_pos.y-temp_pos.y;
+   p.blechserie()
+  }
+  
 
 };
 
