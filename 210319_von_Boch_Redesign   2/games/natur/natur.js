@@ -939,7 +939,7 @@ let sketch = function(p) {
         }
 
         if(blechContourBool){
-
+          p.noFill();
         } else{
           p.noFill();
         }
