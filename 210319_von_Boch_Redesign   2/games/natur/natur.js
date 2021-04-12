@@ -57,10 +57,34 @@ let pos = new p5.Vector(0, 0);
 let dist_x = 0;
 let dist_y = 0;
 
+let panActive= false;
+
+//raster blechserie
+let colWidth, rowHeight;
+let columns = 20
+let rows = 20
+let inktrapC;
+
+let counter = 0;
+let lineLength = 5;
+let lineThikness = 5;
+let endVolume = 0;
+
+//class
+let commandPoints = [];
+let diameter = 20;
+
+let easing = 0.4;
+const loopDuration = 7 * 60
+let myFont;
+let blechColorBoolSW=true;
+let blechContourBool=true;
+let img;
 
 let sketch = function(p) {
 
   p.preload = function(){
+    img = p.loadImage("games/natur/img/img3.png");
     shutterSound = p.loadSound('games/natur/src/shutter.wav');
     for (var i=1; i < 6; i++) {
       imgs[i] = p.loadImage("games/natur/img/img"+i +".png"); 
@@ -137,15 +161,71 @@ let sketch = function(p) {
       
 
       //game BLECHSERIE
-      sliderCircleSize = p.createSlider(0, 100, 10);
+      if(document.getElementById("circle-container")!=null){
+      sliderCircleSize = p.createSlider(5, 40, 20);
       sliderCircleSize.id('circle-range');
       sliderCircleSize.addClass('rotatedSlider');
       sliderCircleSize.parent('circle-container'); 
       document.getElementById("circle-range").style.visibility =  "hidden"; 
-
+    }
       //pan and zoom
+      p.rectMode(p.CENTER);
+      currentX = p.width/2;
+
       pos.x = p.width/2;
       pos.y = p.height/2;
+
+      // blechserie - kann später verschoben werden
+
+      inktrapC = p.color(238, 98, 87);
+	p.textAlign(p.CENTER, p.CENTER)
+	colWidth = p.float(p.width) / columns
+	rowHeight = colWidth
+	//rowHeight = float(height)/rows
+	diameter = colWidth;
+
+	p.fill(255)
+	p.noStroke()
+	p.textSize(250)
+
+	//p.image(img, 0, 0, 300, 400)
+	let id = 0;
+	for (let x = 0; x < columns; x++) {
+		for (let y = 0; y < rows; y++) {
+			p.noFill()
+			p.rect(x * colWidth, y * rowHeight, colWidth, rowHeight)
+			let c = p.get(x * colWidth + colWidth / 2, y * rowHeight + rowHeight / 2)
+			if (p.red(c) < 125) {
+				p.fill(inktrapC)
+				p.ellipse(x * colWidth, y * rowHeight, colWidth, rowHeight)
+				commandPoints.push(new CommandPoint(x * colWidth, y * rowHeight, id));
+				id++;
+			}
+		}
+	}
+	p.background(10)
+	p.createNewPositions()
+
+	if (blechColorBoolSW) {
+		p.fill(10, 80)
+		p.stroke(250)
+
+	} else {
+		p.fill(250)
+		p.stroke(10)
+	}
+	p.rect(0, 0, p.width, p.height)
+	p.noFill()
+	p.stroke(255)
+	for (let p of commandPoints) {
+		p.display(diameter / 2)
+		for (let other of commandPoints) {
+			if (p !== other) {
+				p.isNeighbour(other)
+			}
+		}
+  }
+  
   };
 
   p.draw = function() {
@@ -202,6 +282,12 @@ let sketch = function(p) {
       //p.image(imgs[0],0,0,w,h);
       p.image(imgs[currentSelectedImageId],0,0,w,h);
     }   
+
+ 
+
+ if(panActive){
+  p.blechserie();
+ }
   };
 
   p.goToPhotoView = function(){
@@ -391,52 +477,84 @@ let sketch = function(p) {
   let imgScale =10;
   p.blechserie = function(){
     p.background(255);
-    p.scale(temp_s + s);
+
+   
     p.translate(pos.x-dist_x, pos.y-dist_y);
+    let currentScale= 1;
+    if ((temp_s + s) < 1){
+      currentScale = 1;
+    }  else if ((temp_s + s) > 6){
+      currentScale = 6;
+    } else {
+      currentScale =temp_s + s;
+    }
+    p.scale(temp_s + s);
     p.push();
     editing = true;
     editMode=true;
     selectedImageMode = false;
     var scaledPicture = picture.get();
-    scaledPicture.resize(picture.width/imgScale,0);
-    editedPicture = picture.get();
-    scaledPicture.loadPixels();
-    picture.loadPixels();
-   for (let x = 0; x < scaledPicture.width; x++) {
-    for (let y = 0; y < scaledPicture.height; y++) {
-      // Calculate the 1D location from a 2D grid
-      let loc = (x + y * scaledPicture.width) * 4;
-      // Get the R,G,B values from image
-      let r, g, b;
-      r = scaledPicture.pixels[loc];
-      g = scaledPicture.pixels[loc+1];
-      b = scaledPicture.pixels[loc+2];
-      var greyscale = p.round(r * 0.222 + g * 0.707 + b * 0.071);
-
-      let color1 =0;
-          let color2 =255;
-           let currentColor = 0;
-          let currentAlpha = 0;
-        if(greyscale >= 150){
-           currentColor = color1;
-          currentAlpha = color2;
-        } else{
-           currentColor = color2;
-          currentAlpha = color1;
+    p.background(0)
+ 
+      for (let i = 0; i < commandPoints.length; i++) {
+        commandPoints.splice(i, commandPoints.length);
+      }
+      columns = p.int(p.map(p.mouseX,0,300,20,20))
+      columns = sliderCircleSize.value()
+      rows = columns*1.3
+      colWidth = p.float(w) / columns
+      rowHeight = colWidth
+      //rowHeight = float(height)/rows
+      diameter = colWidth;
+         
+      p.image(picture, -w/2, -h/2, w, h);
+      p.filter(p.GRAY)
+      let id = 0;
+      for (let x = 0; x < columns; x++) {
+        for (let y = 0; y < rows; y++) {
+          p.noFill()
+          //rect(x * colWidth, y * rowHeight, colWidth, rowHeight)
+          let c = p.get(x * colWidth + colWidth / 2, y * rowHeight + rowHeight / 2)
+          if (p.red(c) < 125) {
+            p.fill(inktrapC)
+            //ellipse(x * colWidth, y * rowHeight, colWidth, rowHeight)
+            commandPoints.push(new CommandPoint(-w/2 +x * colWidth, -h/2 +y * rowHeight, id));
+            id++;
+          }
         }
-      // Calculate an amount to change brightness based on proximity to the mouse
-       let adjustbrightness = sliderCircleSize.value()/2;
-      //r = r + adjustbrightness;
-      // Constrain RGB to make sure they are within 0-255 color range
-      r = p.constrain(r, 0, 255);
-      p.fill(currentColor);
-      p.noStroke();
-      let currentRandom = sliderCircleSize.value();
-      p.ellipse(x*imgScale,y*imgScale, currentRandom,currentRandom);
+      }
+
+      if (blechColorBoolSW) {
+        p.background(250)
+    
+      } else {
+        p.background(0)
+      }
       
-    }
-  }
+      p.createNewPositions()
+      
+      if (blechColorBoolSW) {
+        p.fill(250)
+    
+      } else {
+        p.fill(0)
+      }
+      
+      //p.rect(0, 0, p.width, p.height)
+      p.noFill()
+      p.stroke(255)
+      for (let p of commandPoints) {
+        p.display(diameter / 2)
+        for (let other of commandPoints) {
+          if (p !== other) {
+            p.isNeighbour(other)
+          }
+        }
+      }
   firstEdit = true;
+  p.textSize(200)
+  p.fill(250,0,0)
+ 
   p.pop();
   }
 
@@ -554,6 +672,13 @@ let sketch = function(p) {
     }
     
     editedPicture.loadPixels();
+    let adjustbrightness = sliderContrast.value()/2;
+      // Calculate an amount to change brightness based on proximity to the mouse
+      if(sliderContrast != null){
+        let adjustbrightness = sliderContrast.value()/2;
+      } else{
+        let adjustbrightness = 0;
+      }
     
    for (let x = 0; x < picture.width; x++) {
     for (let y = 0; y < picture.height; y++) {
@@ -567,13 +692,7 @@ let sketch = function(p) {
         r = picture.pixels[loc];
       }
       
-      // Calculate an amount to change brightness based on proximity to the mouse
-      if(sliderContrast != null){
-        let adjustbrightness = sliderContrast.value()/2;
-      } else{
-        let adjustbrightness = 0;
-      }
-       
+
       if(r < 125){
         r = 0;
       }  else{
@@ -639,10 +758,12 @@ let sketch = function(p) {
    pos.y =pos.y-dist_y;
    dist_x = 0;
    dist_y = 0
+   panActive =false;
   }
   
   p.startPan = function (event) {
   start_pos = (event.center);
+  panActive =true;
   }
   
   
@@ -658,11 +779,187 @@ let sketch = function(p) {
   
   p.panRect = function  (event) {
   temp_pos = (event.center);
-  console.log(temp_pos.x); 
    dist_x = start_pos.x-temp_pos.x;
    dist_y = start_pos.y-temp_pos.y;
-   p.blechserie()
+  
   }
+
+  p.drawRect = function  () {
+    p.background(0,233,0);
+    p.fill(0);
+    
+    p.ellipse(p.width/2, p.height/2, p.windowWidth*0.5, p.windowWidth*0.5);
+    currentX = currentX+r;
+    p.fill(255,0,0);
+    p.translate(pos.x-dist_x, pos.y-dist_y);
+    p.push()
+    // rotate(r);
+    p.scale(temp_s + s);
+    p.rect(0, 0, p.windowWidth*0.1, p.windowWidth*0.1);
+    p.pop()
+    }
+
+    p.blechInvert = function() {
+      blechColorBoolSW =!blechColorBoolSW
+      p.blechserie()
+    }
+
+    p.blechContour = function() {
+      blechContourBool =!blechContourBool
+      p.blechserie()
+    }
+
+    p.createNewPositions = function  () {
+      // let size = float(width /commandPoints.length/2)
+      for (let i = 0; i < commandPoints.length; i++) {
+        commandPoints[i].x2 = p.float(p.random(0 + 100, p.width - 100))
+        commandPoints[i].y2 = p.float(p.random(0 + 100, p.height - 100))
+      }
+    }
+
+    
+    p.drawForm = function  (x, y, rad) {
+      p.push()
+      p.translate(x, y)
+      p.strokeWeight(1)
+      p.noFill()
+      let sz = p.map(p.mouseX, p.width / 2, p.width, 5, 30)
+
+      if (blechColorBoolSW) {
+        p.stroke(0)
+        p.strokeWeight(2)
+        p.fill(0)
+    
+      } else {
+        p.stroke(255)
+        p.strokeWeight(2)
+        p.fill(255)
+      }
+
+      if(blechContourBool){
+
+      } else{
+        p.noFill();
+      }
+      
+      p.ellipse(0, 0, diameter, diameter)
+      p.pop()
+    }
+
+    class CommandPoint {
+      constructor(x, y, id) {
+        this.x = x;
+        this.y = y;
+        this.radius = diameter / 2;
+        this.id = id;
+      }
+    
+      // Display the Points
+      display(p_rad) {
+    
+        p_rad = this.radius;
+        p.drawForm(this.x, this.y, p_rad)
+        //this.drawCorner()
+      }
+    
+      isNeighbour(other) {
+    
+        let dx = p.dist(this.x, this.y, other.x, other.y);
+    
+        if (dx <= p.float(this.radius + other.radius + 1)) {
+    
+          let left = (this.x - other.x) > 0;
+          let top = (this.y - other.y) > 0;
+          let hor_middle = (this.y - other.y) == 0;
+          let ver_middle = (this.x - other.x) == 0;
+          if (hor_middle && !left) {
+            this.drawCorner(180, 0)
+            this.drawCorner(90, 0)
+          }
+    
+          if (hor_middle && left) {
+            this.drawCorner(0, 0)
+            this.drawCorner(-90, 0)
+          }
+    
+          if (ver_middle && top) {
+            this.drawCorner(90, 0)
+            this.drawCorner(0, 0)
+          }
+    
+          if (ver_middle && !top) {
+            this.drawCorner(-90, 0)
+            this.drawCorner(180, 0)
+          }
+    
+        }
+        let hyp = (this.radius * 2) / p.sin(p.radians(45));
+    
+        if ((dx <= hyp) && (dx > p.float(this.radius + other.radius + 1))) {
+          let left = (this.x - other.x) > 0;
+          let top = (this.y - other.y) > 0;
+    
+    
+          if (left && top) {
+            this.drawCorner(0, 0)
+            this.drawCorner(90, this.radius * 2)
+          }
+    
+          if (!left && top) {
+            this.drawCorner(0, -this.radius * 2)
+            this.drawCorner(90, 0)
+          }
+    
+          if (!left && !top) {
+            this.drawCorner(180, 0)
+            this.drawCorner(-90, -this.radius * 2)
+          }
+    
+          if (left && !top) {
+            this.drawCorner(180, this.radius * 2)
+            this.drawCorner(-90, 0)
+          }
+    
+        }
+    
+      }
+        drawCorner = function  (rad, x_trans) {
+      
+        p.push()
+        p.translate(this.x - x_trans, this.y)
+        p.rotate(p.radians(rad))
+        p.beginShape();
+        if (blechColorBoolSW) {
+          p.fill(0);
+        p.stroke(0)
+      
+        } else {
+          p.fill(255);
+        p.stroke(255)
+        }
+
+        if(blechContourBool){
+
+        } else{
+          p.noFill();
+        }
+
+        
+        p.strokeWeight(2)
+            p.vertex(0 - this.radius, 0)
+            let randomNr = p.int(p.random(4,4))
+        p.bezierVertex(
+          0 - this.radius, 0 - this.radius / 2,
+          0 - this.radius / 2, 0 - this.radius,
+          0, 0 - this.radius);
+            p.vertex(0 - this.radius, 0 - this.radius)
+        p.vertex(0 - this.radius, 0)
+        p.endShape();
+        p.pop()
+      }
+    
+    
+    }
   
 
 };

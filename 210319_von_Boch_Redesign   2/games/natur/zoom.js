@@ -136,16 +136,7 @@ let sketch = function(p) {
 
   p.draw = function() {
     
-    p.background(0,233,0);
-    p.fill(0);
-    
-    p.ellipse(p.width/2, p.height/2, p.windowWidth*0.5, p.windowWidth*0.5);
-    currentX = currentX+r;
-    p.fill(255);
-    p.translate(pos.x-dist_x, pos.y-dist_y);
-    // rotate(r);
-    p.scale(temp_s + s);
-    p.rect(0, 0, p.windowWidth*0.1, p.windowWidth*0.1);
+  
   };
 
 
@@ -183,7 +174,11 @@ temp_pos = (event.center);
 console.log(temp_pos.x); 
  dist_x = start_pos.x-temp_pos.x;
  dist_y = start_pos.y-temp_pos.y;
+
 }
+
+
+  
 
 
 };
