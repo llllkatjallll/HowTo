@@ -483,13 +483,16 @@ let sketch = function(p) {
     let currentScale= 1;
     if ((temp_s + s) < 1){
       currentScale = 1;
-    }  else if ((temp_s + s) > 6){
-      currentScale = 6;
+    }  else if ((temp_s + s) > 3){
+      currentScale = 3;
     } else {
       currentScale =temp_s + s;
     }
-    p.scale(temp_s + s);
+    //console.log(currentScale)
+    
     p.push();
+    //currentScale = p.map(p.mouseX,0,300,1,3)
+    p.scale(currentScale);
     editing = true;
     editMode=true;
     selectedImageMode = false;
@@ -773,7 +776,7 @@ let sketch = function(p) {
   }
   
   p.scaleRect = function (event) {
-  s = (event.scale-1)*3.4;
+  s = (event.scale-1)*1.4;
   p.blechserie()
   }
   
@@ -794,8 +797,8 @@ let sketch = function(p) {
     p.translate(pos.x-dist_x, pos.y-dist_y);
     p.push()
     // rotate(r);
-    p.scale(temp_s + s);
-    p.rect(0, 0, p.windowWidth*0.1, p.windowWidth*0.1);
+    //p.scale(temp_s + s);
+    //p.rect(0, 0, p.windowWidth*0.1, p.windowWidth*0.1);
     p.pop()
     }
 
@@ -836,11 +839,11 @@ let sketch = function(p) {
         p.fill(255)
       }
 
-      if(blechContourBool){
+      /*if(blechContourBool){
 
       } else{
         p.noFill();
-      }
+      }*/
       
       p.ellipse(0, 0, diameter, diameter)
       p.pop()
@@ -938,11 +941,11 @@ let sketch = function(p) {
         p.stroke(255)
         }
 
-        if(blechContourBool){
+        /*if(blechContourBool){
           p.noFill();
         } else{
           p.noFill();
-        }
+        } */
 
         
         p.strokeWeight(2)
