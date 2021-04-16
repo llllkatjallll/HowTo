@@ -301,6 +301,8 @@ let sketch = function(p) {
     document.getElementById("gallery").classList.remove("gallery-animation");
     document.getElementById("gallery").classList.add("gallery-animation-reverse");
     
+    
+    
     //show buttons
     document.getElementById("gallery").title="";
   }
@@ -468,8 +470,12 @@ let sketch = function(p) {
     circleSliderOn=!circleSliderOn;
     if(circleSliderOn){
       document.getElementById("circle-range").style.visibility =  "visible";
+      document.getElementById("circle-range").classList.remove("slider-animation-reverse");
+      document.getElementById("circle-range").classList.add("slider-animation");
     } else{
-      document.getElementById("circle-range").style.visibility =  "hidden";
+      //document.getElementById("circle-range").style.visibility =  "hidden";
+      document.getElementById("circle-range").classList.remove("slider-animation");
+      document.getElementById("circle-range").classList.add("slider-animation-reverse");
 
     }
   }
