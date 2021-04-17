@@ -416,6 +416,7 @@ button{
       -webkit-appearance: none;
       color: #7822F0;
       margin-top: -1px;
+      
     }
     
     input[type='range']::-webkit-slider-thumb {
