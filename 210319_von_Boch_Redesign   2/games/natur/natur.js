@@ -344,8 +344,7 @@ let sketch = function(p) {
     downloadWrapper.classList.remove("dont-show");
     shootWrapper.classList.add("dont-show");
     galleryWrapper.classList.add("dont-show");
-    nextBtn.classList.remove("disappear");
-    nextWrapper.classList.remove("dont-show");
+ 
     selectWrapper.classList.add("dont-show");
 
     gamebar.classList.remove("hide");
