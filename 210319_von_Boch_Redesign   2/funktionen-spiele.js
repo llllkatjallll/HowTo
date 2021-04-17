@@ -122,6 +122,10 @@ $('#button-weiter').click(function (){
           myp5.newCapture();
           $('#game').addClass('down');
                 $('#introduction').addClass('disappear');
+                $('#button-wrapper-intro').removeClass('dont-show');
+                $('#button-wrapper-shoot').removeClass('dont-show');
+                $('#button-wrapper-gallery').removeClass('dont-show');
+                
                 setTimeout(function(){
                     $('#game-content').removeClass('disappear');
                     $('#introduction').addClass('hide');
@@ -130,8 +134,6 @@ $('#button-weiter').click(function (){
                     $('#button-gallery').removeClass('disappear');
                     $('#button-shoot').removeClass('disappear');
                     $('#button-intro').removeClass('disappear');
-                    $('#button-wrapper-shoot').removeClass('dont-show');
-                    $('#button-wrapper-gallery').removeClass('dont-show');
                     $('#button-wrapper-camera').addClass('dont-show');
                     $('#button-wrapper-download').addClass('dont-show');
                  }, 1000);
@@ -223,16 +225,24 @@ $('#button-zurueck').click(function (){
           idName = "introduction";
           console.log(idName);
           myp5.refreshCamera()
-          $('#button-gallery').addClass('disappear');
+            $('#button-gallery').addClass('disappear');
             $('#button-shoot').addClass('disappear');
             $('#button-intro').addClass('disappear');
-
             $('#button-camera').addClass('disappear');
             $('#button-download').addClass('disappear');
             $('#gamebar').addClass('disappear');
             setTimeout(function(){
                 $('#game-content').addClass('disappear');
                 $('#introduction').removeClass('hide');
+
+                
+                $('#button-wrapper-gallery').addClass('dont-show');
+                $('#button-wrapper-camera').addClass('dont-show');
+                $('#button-wrapper-shoot').addClass('dont-show');
+                $('#button-wrapper-intro').addClass('dont-show');
+                $('#button-wrapper-download').addClass('dont-show');
+                
+                
             }, 500);
             setTimeout(function(){
                 $('#game').removeClass('down');

@@ -433,7 +433,7 @@ let sketch = function(p) {
     newCaptureBtn.style.display =  "none";
     galleryWrapper.classList.remove("dont-show");
     shootWrapper.classList.remove("dont-show");
-    cameraBtn.classList.remove("disappear");
+    //cameraBtn.classList.remove("disappear");
     cameraWrapper.classList.add("dont-show");
     downloadWrapper.classList.add("dont-show");
     shootWrapper.classList.remove("dont-show");
