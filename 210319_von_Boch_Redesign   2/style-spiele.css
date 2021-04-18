@@ -73,11 +73,19 @@
     transition: 500ms;
 }
 
-/* #gamebar > div > svg > path, 
-#gamebar > div > svg > line, 
-#gamebar > div > svg > circle, 
-#gamebar > div > svg > rect {
-} */
+.toggle-button > svg{
+  width: 32px;
+  height: 32px;
+}
+
+.toggle-button > svg > circle,
+.toggle-button > div > svg > path
+{
+    fill:none;
+    stroke-miterlimit:10;
+    stroke-width:2px;
+    fill-rule:evenodd; 
+}
 
 #navbar > div > svg > path, 
 #navbar > div > svg > line, 
@@ -317,8 +325,10 @@ button{
   
    .toggle-button{
      position: absolute;
+     left: 0px;
     width: 35px;
     height: 35px;
+    padding: 9px;
     border: 0;
     z-index: 20;
     background-color: #7822F0;
@@ -331,18 +341,7 @@ button{
     background: none;
   }
   
-  
-   .toggle-button svg{
-    display: block;
-    margin: auto;
-    width: 30px;
-    height: 30px;
-    fill: aliceblue;
-  }
-  
- 
-  #contrast-range{
-  }
+
   
   .rotatedSlider{
     transition: opacity 0.5s;
@@ -521,7 +520,7 @@ button{
     }    
 
     .toggle-button{
-
+     
      width: 50px;
      height: 50px;
      border-radius: 50px;

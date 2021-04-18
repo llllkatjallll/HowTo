@@ -15,7 +15,7 @@ var options = {
   video: {
 
     facingMode: {
-      // exact: "environment"
+       exact: "environment"
      // exact: "user"
     },
     // mandatory: {
@@ -252,7 +252,8 @@ let sketch = function(p) {
       if(flash && flashCounter < 6){
         flashCounter+=1;
         p.fill(0);
-        p.rect(0,0,w,h);
+        p.noStroke();
+        p.rect(w/2,h/2,w,h);
       }
 
       //picture.resize(w, captureHeight);
@@ -397,7 +398,7 @@ let sketch = function(p) {
     p.print(picture);
     capture.pause();
     flash = true;
-    //shutterSound.play();
+    shutterSound.play();
 
     newCaptureBtn.style.display =  "inline";
     newCaptureBtn.classList.remove("disappear");
