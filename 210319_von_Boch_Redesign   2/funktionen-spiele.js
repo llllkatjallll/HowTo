@@ -1,9 +1,5 @@
 function selectPhotoAction() {
-    try {
-        myp5.selectedImageMode();
-    } catch (e) {
-    }
-    
+    myp5.selectedImageMode();
     $('#button-zurueck-from-gallery').addClass('disappear');
     $('#button-wrapper-weiter').removeClass('dont-show');
     setTimeout(function(){      
@@ -20,11 +16,7 @@ function selectPhotoAction() {
     }
 
  function backFromGalleryAction(){
-    try {
-        myp5.refreshCamera();
-    } catch (e) {
-    }
-    
+    myp5.refreshCamera();
     $('#gallery').removeClass('gallery-animation');
     $('#gallery').addClass('gallery-animation-reverse');
     $('#gallery').removeClass('active-gallery');
@@ -126,13 +118,8 @@ $('#button-weiter').click(function (){
           break;
          case (4):
           idName = "game";
-          console.log(idName)
-          try {
-            myp5.newCapture();
-        } catch (e) {
-        }
-
-          
+          console.log(idName);
+          myp5.newCapture();
           $('#game').addClass('down');
                 $('#introduction').addClass('disappear');
                 $('#button-wrapper-intro').removeClass('dont-show');
@@ -237,12 +224,7 @@ $('#button-zurueck').click(function (){
          case (3):
           idName = "introduction";
           console.log(idName);
-          try {
-            myp5.refreshCamera()
-        } catch (e) {
-        }
-          
-          
+          myp5.refreshCamera()
             $('#button-gallery').addClass('disappear');
             $('#button-shoot').addClass('disappear');
             $('#button-intro').addClass('disappear');
@@ -270,7 +252,7 @@ $('#button-zurueck').click(function (){
          case (4):
           idName = "game";
           console.log(idName);
-          
+          //myp5.newCapture();
            //$('#button-wrapper-camera').removeClass('dont-show');
            $('#button-wrapper-intro').removeClass('dont-show');
            $('#button-wrapper-shoot').removeClass('dont-show');
@@ -337,9 +319,6 @@ $('#button-zurueck').click(function (){
 
     $('#button-gallery').click(function (){
         //$('#game-content').addClass('disappear');
-
-        $('#gallery').removeClass('gallery-animation-reverse');
-        $('#gallery').addClass('gallery-animation');
         $('#gamebar').addClass('disappear');
         $('#button-zurueck').addClass('disappear');
         $('#button-gallery').addClass('disappear');
