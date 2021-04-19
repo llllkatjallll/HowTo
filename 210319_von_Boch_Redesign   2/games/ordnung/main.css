@@ -1,0 +1,47 @@
+body{
+    background:grey;
+    margin:0;
+}
+
+#toolbar{
+    position: fixed;
+    bottom:0px;
+    height: 120px;
+    width: 100vw;
+    background-color: #6232fb;
+    padding: 10px;
+  }
+
+  #imagebar{
+    position: fixed;
+    bottom:140px;
+    height: 140px;
+    width: 100vw;
+    background-color: #aeadb0;
+    padding: 10px;
+    overflow: scroll;
+  }
+
+  .myButton{
+    color:white;
+    width:100px;
+    height:100px;
+    background-color:#6232fb;
+    border:1px solid;
+    border-radius: 15px;
+    margin:5px;
+  }
+  
+  .myButton:hover{
+    background-color:#9676ff;
+  }
+  
+  .myButton:active{
+    background-color:#6232fb;
+  }
+
+  .bar-image{
+      height: 100%;
+      margin: 5px;;
+  }
+  

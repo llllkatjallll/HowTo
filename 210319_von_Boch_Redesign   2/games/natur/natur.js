@@ -332,8 +332,8 @@ let sketch = function(p) {
     //hide buttons
     selectImageBtn.style.display =  "none";
    //hide gallery
-    document.getElementById("gallery").classList.remove("gallery-animation");
-    document.getElementById("gallery").classList.add("gallery-animation-reverse");
+    //document.getElementById("gallery").classList.remove("gallery-animation");
+    //document.getElementById("gallery").classList.add("gallery-animation-reverse");
 
     //show buttons
 
