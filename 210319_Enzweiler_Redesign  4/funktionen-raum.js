@@ -3,7 +3,7 @@ $(document).ready(function (){
     // Audio-Player lokal
 
     var audioElement = document.createElement('audio');
-    audioElement.setAttribute('src', 'audio/raum.mp4');
+    audioElement.setAttribute('src', 'audio/raum.mp3');
     
     $('#button-play').click(function() {
         audioElement.play();

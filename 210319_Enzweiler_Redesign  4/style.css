@@ -1,10 +1,11 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: ABCMonumentGrotesk;
+    font-family: NeueHaasUnica-Regular;
     font-style: normal;
     font-weight: normal;
     font-size: 1em;
+    line-height: 1.4;
     color: rgba(0, 0, 0, 0.8);
     -webkit-overflow-scrolling: touch;
     text-align: center;
@@ -13,33 +14,25 @@
 
 @font-face {
     font-family: ABCGalapagosA;
-    src: url("fonts/ABCGalapagosA-BoldGrid-Trial.otf");
+    src: url("fonts/ABCGalapagosA-Bold.woff");
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
-    font-family: ABCMonumentGrotesk;
-    src: url("fonts/ABCMonumentGrotesk-Regular-Trial.otf");
-    font-weight: normal;
-    font-style: normal;
-    letter-spacing: 0.015em;
+    font-family: NeueHaasUnica-Regular;
+    src: url("fonts/NeueHaasUnica-Regular.woff");
 }
 
 @font-face {
-    font-family: ABCMonumentGrotesk-medium;
-    src: url("fonts/ABCMonumentGrotesk-Medium-Trial.otf");
-    font-weight: medium;
-    font-style: normal;
-    letter-spacing: 0.015em;    
+    font-family: NeueHaasUnica-Medium;
+    src: url("fonts/NeueHaasUnica-Medium.woff");
 }
 
 @font-face {
-    font-family: ABCMonumentGrotesk-medium;
-    src: url("fonts/ABCMonumentGrotesk-MediumItalic-Trial.otf");
-    font-weight: medium;
-    font-style: italic;
-    letter-spacing: 0.02em;    
+    font-family: NeueHaasUnica-MediumItalic;
+    src: url("fonts/NeueHaasUnica-MediumItalic.woff");
+    font-weight: 500;
 }
 
 body{
@@ -102,7 +95,7 @@ section, .alertbox-wrapper{
 .content-wrapper > h1{
     text-align: left;
     width: calc(100vw - 2em);
-    line-height: 1em;
+    line-height: normal;
     margin-bottom: 0;
 }
 
@@ -140,7 +133,6 @@ h2 {
 h3{
     color: inherit;
     font-size: 1.3em;
-    font-size: 1.3em;
 }
 
 h4{
@@ -150,31 +142,26 @@ h4{
 
 .text-app-big{
     font-size: 1.3em;
-    font-family: ABCMonumentGrotesk;
-    font-weight: normal;
+    font-family: NeueHaasUnica-Regular;
     padding: 20px;
     color: inherit;
 }
 
 .text-info-big{
     font-size: 1.3em;
-    font-family: ABCMonumentGrotesk-medium;
-    font-weight: normal;
+    font-family: NeueHaasUnica-Medium;
     padding: 20px;
     color: #6232FB;
-    line-height: normal;
 }
 
 .text-app-small{
     font-size: 1em;
-    font-family: ABCMonumentGrotesk;
-    font-weight: normal;
+    font-family: NeueHaasUnica-Regular;
 }
 
 .text-info-small{
     font-size: 1em;
-    font-family: ABCMonumentGrotesk-medium;
-    font-weight: normal;
+    font-family: NeueHaasUnica-Medium;
     text-align: left;
 }
 
@@ -203,8 +190,7 @@ p {
 
 q{
     font-size: 1em;
-    font-family: ABCMonumentGrotesk-medium;
-    font-weight: italic;
+    font-family: NeueHaasUnica-MediumItalic;
 }
 
 a:link, a:visited {

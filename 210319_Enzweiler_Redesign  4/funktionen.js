@@ -15,40 +15,41 @@ $(document).ready(function (){
 
 /* Launch Screen automatisch ausblenden lassen */
           
-        setTimeout(function(){
-            $('#launch').css('top','-100vh');        
-            $('#launch-image').css('top','-100vh');        
-        }, 1000);   
-        setTimeout(function(){
-            $('#launch').css('z-index', '0');
-            $('#launch-image').css('z-index', '0');
-        }, 2600);
+setTimeout(function(){
+    $('#launch').css('top','-100vh');        
+    $('#launch-image').css('top','-100vh');        
+}, 1800);   
+
+setTimeout(function(){
+    $('#launch').css('z-index', '0');
+    $('#launch-image').css('z-index', '0');
+}, 3400);
 
 /* Intro Overlay einblenden */
-        
+
 setTimeout(function(){
     $('#intro-wrapper').removeClass('hide');
     $('#intro').addClass('turn-animation');
     $('#intro-wrapper').css('background-color','rgba(0, 0, 0, 0.2)');
- }, 2500); 
-setTimeout(function(){
+    }, 4300); 
+    setTimeout(function(){
     $('#intro').removeClass('turn');
-}, 3500);    
-setTimeout(function(){
+    }, 4800);    
+    setTimeout(function(){
     $('#intro').removeClass('turn-animation');
-}, 4000);    
- 
+}, 5300);    
+
 $('#button-okay').click(function (){
     $('#intro').addClass('turnBack-animation');
     $('#intro-wrapper').css('background-color','rgba(0, 0, 0, 0)');
     setTimeout(function(){
     }, 500);     
     setTimeout(function(){
-        $('#intro').addClass('turn');
-        $('#intro').removeClass('turnBack-animation');
-        $('#intro-wrapper').addClass('hide');
+    $('#intro').addClass('turn');
+    $('#intro').removeClass('turnBack-animation');
+    $('#intro-wrapper').addClass('hide');
     }, 1000);     
-});   
+});  
 
 /* Navigation zu Unterseiten */    
 
