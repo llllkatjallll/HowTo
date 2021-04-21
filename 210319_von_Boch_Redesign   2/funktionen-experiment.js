@@ -1,5 +1,24 @@
 $(document).ready(function (){
 
+    // Temporäre Alternative zu Typewriter Effect
+
+    $('#question-content').removeClass('opacity-zero');
+
+    // Typewriter Effect
+
+    /*
+    var i = 0;
+    var txt = 'wie macht man das unsichtbare sichtbar?';
+    var speed = 50;
+    
+    function typeWriter() {
+        if (i < txt.length) {
+            document.getElementById("question-content").innerHTML += txt.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+        }
+    }*/
+        
     var audioElement = document.createElement('audio');
     audioElement.setAttribute('src', 'audio/experiment.mp3');
     

@@ -14,7 +14,7 @@
 
 @font-face {
     font-family: ABCGalapagosA;
-    src: url("fonts/ABCGalapagosA-Bold.woff");
+    src: url("fonts/ABCGalapagosAGrid-Bold.woff");
     font-weight: bold;
     font-style: normal;
 }
@@ -41,6 +41,16 @@ body{
     overflow: hidden; 
     background-color: #6232FB;    
 }
+
+@media (pointer: fine) {
+    
+    section, div{
+        display: none;
+    }
+
+}
+
+@media (pointer: coarse) {   
 
 section, .alertbox-wrapper{
     width: 100vw;
@@ -437,10 +447,4 @@ model-viewer {
     transform: translateX(-50%);
 }
 
-/*@media (pointer: fine) {
-
 }
-
-@media (pointer:coarse) {
-
-}*/

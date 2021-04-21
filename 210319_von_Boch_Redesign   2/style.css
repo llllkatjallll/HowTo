@@ -14,7 +14,7 @@
 
 @font-face {
     font-family: ABCGalapagosA;
-    src: url("fonts/ABCGalapagosA-Bold.woff");
+    src: url("fonts/ABCGalapagosAGrid-Bold.woff");
     font-weight: bold;
     font-style: normal;
 }
@@ -39,8 +39,18 @@ body{
     height: calc(var(--vh, 1vh) * 100);
     width: 100vw;
     overflow: hidden; 
-    background-color: #7822F0;    
+    transition: 1s;
+}  
+
+@media (pointer: fine) {
+    
+    section, div{
+        display: none;
+    }
+
 }
+
+@media (pointer: coarse) {   
 
 section, .alertbox-wrapper{
     width: 100vw;
@@ -133,7 +143,6 @@ h2 {
 h3{
     color: inherit;
     font-size: 1.3em;
-    font-size: 1.3em;
 }
 
 h4{
@@ -192,6 +201,16 @@ p {
 q{
     font-size: 1em;
     font-family: NeueHaasUnica-MediumItalic;
+}
+
+#question-content{
+    width: calc(100vw - 4em);
+    font-family: ABCGalapagosA;
+    font-size: 2.3em;
+    color: #7822F0;
+    margin: 1em;
+    line-height: 1.5em;
+    transition: 1s;
 }
 
 a:link, a:visited {
@@ -418,12 +437,5 @@ div > img{
     height: auto;
     display: block;
 }
-
-
-/*@media (pointer: fine) {
-
-}*/
-
-@media (pointer:coarse) and (min-width:768px) {
 
 }
