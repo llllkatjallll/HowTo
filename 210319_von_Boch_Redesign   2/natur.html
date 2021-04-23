@@ -30,13 +30,14 @@
 
 </head>
 
-    <body>
+    <body onload="typeWriter()">
         
         <div id="body-wrapper">
 
             <section id="question">
                 <div class="content-wrapper">
-                    <p id="question-content" class="opacity-zero">wie macht man das unsichtbare sichtbar ?</p>
+                   <!-- <p id="question-content" class="opacity-zero">wie macht man das unsichtbare sichtbar ?</p> -->
+                    <p id="question-content" class="opacity-zero"></p>
                 </div>
             </section>
 
@@ -184,6 +185,12 @@
         </div> 
       
         <script>
+
+
+
+
+
+
             function toggleImage(id) {
               document.getElementById("button-select").style.visibility =  "visible"; 
               console.log("toggle"); 
