@@ -4,9 +4,9 @@ function selectPhotoAction() {
     $('#button-wrapper-weiter').removeClass('dont-show');
     setTimeout(function(){      
         $('#button-wrapper-zurueck').removeClass('dont-show');
-        
+        $('#game-content').removeClass('disappear');
         $('#button-wrapper-zurueck-from-gallery').addClass('dont-show');
-    }, 750);
+    }, 500);
     setTimeout(function(){      
         
         $('#button-zurueck').removeClass('disappear');
@@ -32,8 +32,14 @@ function selectPhotoAction() {
     
     $('#button-wrapper-zurueck').removeClass('dont-show');
     $('#gamebar').addClass('hide');
-    setTimeout(function(){      
+    setTimeout(function(){     
         $('#game-content').removeClass('disappear');
+        
+    }, 500);
+    setTimeout(function(){     
+        
+
+       // $('#game-content').removeClass('disappear');
         $('#gamebar').removeClass('disappear');
         $('#button-camera').removeClass('disappear');
         $('#button-intro').removeClass('disappear');
@@ -120,17 +126,18 @@ $('#button-weiter').click(function (){
           idName = "game";
           console.log(idName);
           myp5.newCapture();
-          $('#game').addClass('down');
+                $('#game').addClass('down');
                 $('#introduction').addClass('disappear');
                 $('#button-wrapper-intro').removeClass('dont-show');
                 $('#button-wrapper-shoot').removeClass('dont-show');
                 $('#button-wrapper-gallery').removeClass('dont-show');
                 
                 setTimeout(function(){
-                    $('#game-content').removeClass('disappear');
+                    
                     $('#introduction').addClass('hide');
                 }, 500);
                 setTimeout(function(){
+                    $('#game-content').removeClass('disappear');
                     $('#button-gallery').removeClass('disappear');
                     $('#button-shoot').removeClass('disappear');
                     $('#button-intro').removeClass('disappear');
@@ -170,7 +177,7 @@ $('#button-weiter').click(function (){
                 $('svg').addClass('disappear');
                 setTimeout(function(){
                     $('#game').removeClass('down');
-                    $('#body-wrapper').css('top','-100vh');
+                    //$('#body-wrapper').css('top','-100vh');
                 }, 1000);
                 setTimeout(function(){
                     window.location.href = 'menue.html';
@@ -231,8 +238,9 @@ $('#button-zurueck').click(function (){
             $('#button-camera').addClass('disappear');
             $('#button-download').addClass('disappear');
             $('#gamebar').addClass('disappear');
+            $('#game-content').addClass('disappear');
             setTimeout(function(){
-                $('#game-content').addClass('disappear');
+                
                 $('#introduction').removeClass('hide');
 
                 
@@ -281,7 +289,7 @@ $('#button-zurueck').click(function (){
           
           break;  
         default:
-          console.log("Sorry, we are out of " + currentSectionNr + ".");
+          
       }
 }); 
 
@@ -309,6 +317,7 @@ $('#button-zurueck').click(function (){
         $('#intro').addClass('turnBack-animation');
         $('#intro-wrapper').css('background-color','rgba(0, 0, 0, 0)');
         setTimeout(function(){
+            $('#game-content').removeClass('disappear');
         }, 500);     
         setTimeout(function(){
             $('#intro').addClass('turn');
@@ -320,6 +329,7 @@ $('#button-zurueck').click(function (){
     $('#button-gallery').click(function (){
         //$('#game-content').addClass('disappear');
         $('#gamebar').addClass('disappear');
+        $('#game-content').addClass('disappear');
         $('#button-zurueck').addClass('disappear');
         $('#button-gallery').addClass('disappear');
         $('#button-shoot').addClass('disappear');

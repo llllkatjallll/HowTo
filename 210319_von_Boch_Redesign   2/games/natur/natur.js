@@ -15,7 +15,7 @@ var options = {
   video: {
 
     facingMode: {
-       exact: "environment"
+       //exact: "environment"
      // exact: "user"
     },
     // mandatory: {

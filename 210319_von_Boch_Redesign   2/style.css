@@ -40,6 +40,7 @@ body{
     width: 100vw;
     overflow: hidden; 
     transition: 1s;
+    background-color: #7822F0;
 }  
 
 @media (pointer: fine) {
