@@ -1,7 +1,21 @@
-$(document).ready(function (){
-    
-    // Audio-Player lokal
+var i = 0;
+var txt = 'wo stehe ich hier ?';
+var speed = 150;
 
+function typeWriter() {
+    console.log("type");
+    if (i < txt.length) {
+        document.getElementById("question-content").innerHTML += txt.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+    }
+}
+
+$(document).ready(function (){
+
+    // Frage einblenden 
+
+    $('#question-content').removeClass('opacity-zero');
     var audioElement = document.createElement('audio');
     audioElement.setAttribute('src', 'audio/stadt-raum.mp3');
     

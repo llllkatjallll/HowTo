@@ -8,7 +8,6 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style-spiele.css">
-    <link rel="stylesheet" href="style-raum.css">
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
     <!-- New slick-theme.css for default styling -->
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
@@ -31,12 +30,17 @@
 
 </head>
 
-    <body>
+<body onload="typeWriter()">
         
-        <div id="body-wrapper">
-            <section id="question">
-            </section>
-            <section id="quote" class="disappear hide">
+    <div id="body-wrapper">
+
+        <section id="question">
+            <div class="content-wrapper">
+                <p id="question-content" class="opacity-zero"></p>
+            </div>
+        </section>
+        
+        <section id="quote" class="disappear hide">
                 <div class="content-wrapper">
                     <p class="text-info-big"><q>Was bedeutet der uns als Menschen umgebende Raum? Raum als Umgebungshülle, als Bezugsgröße zu Bewegung, aber auch als Medium für Fühlen und Denken.</q>><br><br>Jo Enzweiler</p>
                 </div>

@@ -53,6 +53,10 @@ body{
 
 @media (pointer: coarse) {   
 
+#desktop{
+    display: none;
+}
+
 section, .alertbox-wrapper{
     width: 100vw;
     height: 100%;
@@ -202,6 +206,10 @@ p {
 q{
     font-size: 1em;
     font-family: NeueHaasUnica-MediumItalic;
+}
+
+a{
+    text-decoration: underline !important;
 }
 
 #question-content{

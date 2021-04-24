@@ -8,7 +8,6 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style-spiele.css">
-    <link rel="stylesheet" href="style-rhythmus.css">
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
     <!-- New slick-theme.css for default styling -->
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
@@ -29,14 +28,17 @@
 
 </head>
 
-    <body>
+<body onload="typeWriter()">
         
-        <div id="body-wrapper">
+    <div id="body-wrapper">
 
-            <section id="question">
-            </section>
+        <section id="question">
+            <div class="content-wrapper">
+                <p id="question-content" class="opacity-zero"></p>
+            </div>
+        </section>
 
-            <section id="quote" class="disappear hide">
+        <section id="quote" class="disappear hide">
                 <div class="content-wrapper">
                     <p class="text-info-big"><q>Drei Elemente sind in einem Vorgang erfassbar, währenddem man bei vier Elementen anfangen muß zu lesen. Einen Raster von minimal vier Elementen verwende ich also, damit der Betrachter sich nicht festsetzen kann, daß er gezwungen wird zu wandern.</q><br><br>Jo Enzweiler</p>
                 </div>

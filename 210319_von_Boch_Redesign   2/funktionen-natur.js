@@ -13,15 +13,9 @@ function typeWriter() {
 
 $(document).ready(function (){
 
-    // Temporäre Alternative zu Typewriter Effect
+    // Frage einblenden 
 
     $('#question-content').removeClass('opacity-zero');
-
-    // Typewriter Effect
-  
-    
-    
-
 
     var audioElement = document.createElement('audio');
     audioElement.setAttribute('src', 'audio/natur.mp3');

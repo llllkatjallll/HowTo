@@ -1,23 +1,21 @@
+var i = 0;
+var txt = 'welche spur hinterlässt das licht ?';
+var speed = 150;
+
+function typeWriter() {
+    console.log("type");
+    if (i < txt.length) {
+        document.getElementById("question-content").innerHTML += txt.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+    }
+}
+
 $(document).ready(function (){
 
-    // Temporäre Alternative zu Typewriter Effect
+    // Frage einblenden 
 
     $('#question-content').removeClass('opacity-zero');
-
-    // Typewriter Effect
-
-    /*
-    var i = 0;
-    var txt = 'wie macht man das unsichtbare sichtbar?';
-    var speed = 50;
-    
-    function typeWriter() {
-        if (i < txt.length) {
-            document.getElementById("question-content").innerHTML += txt.charAt(i);
-            i++;
-            setTimeout(typeWriter, speed);
-        }
-    }*/
 
     var audioElement = document.createElement('audio');
     audioElement.setAttribute('src', 'audio/licht.mp3');

@@ -14,16 +14,21 @@ $(document).ready(function (){
     document.getElementById("launch-background").src = img_name[rnd_no];
 
 /* Launch Screen automatisch ausblenden lassen */
-          
+
+    $('#launch').removeClass('opacity-zero');
+    $('#launch-image').removeClass('opacity-zero');
+
 setTimeout(function(){
     $('#launch').css('top','-100vh');        
-    $('#launch-image').css('top','-100vh');        
-}, 1800);   
+    $('#launch-image').css('top','-100vh');   
+    $('body').css('background-color','#6232FB');
+    $('#menue').removeClass('opacity-zero');
+    }, 1800);   
 
 setTimeout(function(){
     $('#launch').css('z-index', '0');
     $('#launch-image').css('z-index', '0');
-}, 3400);
+    }, 3400);
 
 /* Intro Overlay einblenden */
 
@@ -31,13 +36,13 @@ setTimeout(function(){
     $('#intro-wrapper').removeClass('hide');
     $('#intro').addClass('turn-animation');
     $('#intro-wrapper').css('background-color','rgba(0, 0, 0, 0.2)');
-    }, 4300); 
+    }, 3400); 
     setTimeout(function(){
     $('#intro').removeClass('turn');
-    }, 4800);    
+    }, 3900);    
     setTimeout(function(){
     $('#intro').removeClass('turn-animation');
-}, 5300);    
+    }, 4400);   
 
 $('#button-okay').click(function (){
     $('#intro').addClass('turnBack-animation');
