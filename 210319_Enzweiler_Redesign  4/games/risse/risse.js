@@ -170,7 +170,7 @@
 
     for (var i = 0; i < forms.length; i++) {
       if (pointRect(mouseX, mouseY, forms[i].x, forms[i].y, tileSz, tileSz)) {
-        console.log("active");
+       
         forms[i].active = true;
         pgraph_temp = forms[i].pimage;
         click_offsetX = mouseX - forms[i].x;
@@ -194,8 +194,9 @@
 
   function touchEnded() {
     if(!anyActive()) return;
-
-    console.log("touchEnded");
+    let infoContainer = document.getElementById("information");
+    let soundSpielen = false;
+  
     xEnd = mouseX;
     yEnd = mouseY;
 
@@ -212,8 +213,11 @@
           pgraph = createGraphics(tileSz, tileSz);
           drawFilles(xStart, yStart, xEnd, yEnd, forms[i]);
           drawLines(xStart, yStart, xEnd, yEnd, forms[i]);
-          riss_sounds[int(random(0, 4))].play();
+          soundSpielen = true;
         }
+      }
+      if(infoContainer.classList.contains("disappear")){
+        riss_sounds[int(random(0, 4))].play();
       }
     }
 
@@ -223,7 +227,7 @@
         if (pointRect(xEnd, yEnd, forms[i].x, forms[i].y, tileSz, tileSz)) {
           // Zelle wo losgelassen wurde taggen
           if (!forms[i].active) {
-            console.log("got passive");
+            
             forms[i].passive = true;
             dragEndX = forms[i].x;
             dragEndY = forms[i].y;

@@ -82,6 +82,7 @@ $(document).ready(function (){
                 $('#button-refresh').addClass('disappear');
                 //KATJA
                 $('#information').css('pointer-events','');
+                $('#game-content').css('pointer-events','none');
                 //KATJA END
                 setTimeout(function(){      
                     $('#information').removeClass('disappear');
@@ -143,8 +144,10 @@ $(document).ready(function (){
         }        
         else if ($('#information').hasClass('disappear') == false){
             $('#information').addClass('disappear');
+            $('#gamebar').removeClass('hide');
             //KATJA
             $('#information').css('pointer-events','none');
+            $('#game').css('pointer-events','');
             //KATJA END
             setTimeout(function(){
                 $('#information').addClass('hide');
