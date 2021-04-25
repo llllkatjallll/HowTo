@@ -125,7 +125,11 @@ $('#button-weiter').click(function (){
          case (4):
           idName = "game";
           console.log(idName);
-          myp5.newCapture();
+          try {
+            myp5.refreshCamera();
+        } catch (e) {
+        }
+          
                 $('#game').addClass('down');
                 $('#introduction').addClass('disappear');
                 $('#button-wrapper-intro').removeClass('dont-show');
@@ -159,7 +163,10 @@ $('#button-weiter').click(function (){
                 $('#button-stamp').addClass('disappear');
                 $('#game').css('background-color','white');
                 $('#information').css('pointer-events','');
-                setTimeout(function(){      
+                setTimeout(function(){ 
+                    $('#gamebar').addClass('dont-show');  
+                    $('#button-wrapper-shoot').addClass('dont-show');  
+                    $('#button-wrapper-gallery').addClass('dont-show');    
                     $('#button-wrapper-camera').addClass('dont-show');
                     $('#button-wrapper-intro').addClass('dont-show');
                     $('#button-wrapper-download').addClass('dont-show');
@@ -261,6 +268,7 @@ $('#button-zurueck').click(function (){
           idName = "game";
           console.log(idName);
           //myp5.newCapture();
+        
            //$('#button-wrapper-camera').removeClass('dont-show');
            $('#button-wrapper-intro').removeClass('dont-show');
            $('#button-wrapper-shoot').removeClass('dont-show');
@@ -352,8 +360,9 @@ $('#button-zurueck').click(function (){
     // Text ausklappen
         
     $('#button-mehr').click(function (){
+        
+        $('.text-info-small').css('display','block');
         $('#button-mehr').css('display','none');
-        $('.dont-show').css('display','block');
     });
 
 });

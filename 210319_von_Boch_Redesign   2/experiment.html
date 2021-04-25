@@ -57,7 +57,7 @@
             <!-- intro -->
             <div id="intro-wrapper" class="alertbox-wrapper hide">
                 <div id="intro" class="alertbox turn" style="text-align:center">
-                    <p class="text-app-small" style="color: #7822F0">Suche Dir einen Baum oder mehrere Bäume und betrachte genau, wie sie gewachsen sind oder zueinander stehen. Mache ein Foto und bearbeite es.</p>
+                    <p class="text-app-small" style="color: #7822F0">Suche Dir eine Struktur, die aus vielen Linien besteht. Mache ein Foto oder wähle aus der Galerie aus. Erforsche, was sich bei der Bearbeitung verändert.</p>
                     <div class="alertbox-button-wrapper"><div class="svg-wrapper"><svg id="button-okay" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M25,1A24,24,0,1,0,49,25,24,24,0,0,0,25,1ZM21.21,37.93l-1.07-.07.66.34L7.26,24.67l2.86-2.86L20.86,32.56,38.71,14.71l2.86,2.86Z"/></svg></div></div>
                 </div>
             </div>
@@ -158,8 +158,9 @@
 
                 <div id="circle-container" class="gamebar-button-container">
                     <button class="toggle-button" id="grade-button" onclick="myp5.circleFunction()">
-                    </button>
-                </div>
+                        <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><rect width="27.19" height="27.19" style="fill:none;stroke:none;stroke-width:0px"/><circle cx="4.65" cy="4.68" r="1.63" style="fill:#fff"/><circle cx="13.57" cy="4.65" r="1.81" style="fill:#fff"/><circle cx="22.54" cy="4.65" r="1.63" style="fill:#fff"/><circle cx="4.63" cy="13.57" r="1.63" style="fill:#fff"/><circle cx="13.56" cy="13.59" r="2.36" style="fill:#fff"/><circle cx="22.56" cy="13.54" r="1.63" style="fill:#fff"/><circle cx="4.62" cy="22.5" r="1.63" style="fill:#fff"/><circle cx="13.57" cy="22.54" r="1.81" style="fill:#fff"/><circle cx="22.53" cy="22.53" r="1.63" style="fill:#fff"/></svg>
+                             </button>   
+                 </div>
 
                 <div id="color-invert-container" class="gamebar-button-container">
                     <button class="toggle-button" id="" onclick="myp5.blechInvert()">
@@ -170,6 +171,8 @@
                
                <div id="treshold-container" class="gamebar-button-container">
                     <button class="toggle-button" id="treshold-button" onclick="myp5.tresholdFunction()">
+                        <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><line x1="0.71" y1="27.45" x2="8.41" y2="19.75" style="fill:none;stroke:#fff;stroke-miterlimit:10;stroke-width:2px"/><circle cx="16.07" cy="12.09" r="11.19" style="fill:none;stroke:#fff;stroke-miterlimit:10;stroke-width:1.8081903457641602px"/></svg>
+
                     </button>
                 </div>
                 
@@ -180,7 +183,8 @@
                 <div id="button-wrapper-zurueck" class="svg-wrapper"><svg id="button-zurueck" class="disappear" onclick="myp5.refreshCamera()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M10,43.51h17.4c18.36,0,17.07-13.85,17.07-13.85s1.29-14.77-17.07-14.77c-10.83,0-20.3.27-20.3.27v-.32L21.94,5.17,7.12,15l15.47,9.82"/></svg></div>
                 <div id="button-wrapper-zurueck-from-gallery" class="svg-wrapper dont-show"><svg id="button-zurueck-from-gallery" class="disappear" onclick="backFromGalleryAction()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M10,43.51h17.4c18.36,0,17.07-13.85,17.07-13.85s1.29-14.77-17.07-14.77c-10.83,0-20.3.27-20.3.27v-.32L21.94,5.17,7.12,15l15.47,9.82"/></svg></div>
                 <div id="button-wrapper-gallery" class="svg-wrapper dont-show"><svg id="button-gallery" onclick="myp5.activateGallery()" class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><rect style="stroke:white;fill:none" x="7" y="7" width="36" height="36"/><line style="stroke:white;fill:none" x1="25" y1="6" x2="25" y2="43"/><line style="stroke:white;fill:none" x1="44" y1="25" x2="7" y2="25"/></svg></div>
-                <div id="button-wrapper-camera" class="svg-wrapper dont-show"><svg id="button-camera" onclick="myp5.newCapture()" class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><circle cx="24.87" cy="24.92" r="10.08"/><path d="M38,10.31a1.9,1.9,0,0,1-2-1.77,1.9,1.9,0,0,0-2-1.77H16a1.9,1.9,0,0,0-2,1.77,1.9,1.9,0,0,1-2,1.77H4a2,2,0,0,0-2,2V39a2,2,0,0,0,2,2H46a2,2,0,0,0,2-2V12.31a2,2,0,0,0-2-2Z"/><rect x="6.72" y="13.85" width="4.72" height="4.72" rx="2"/></svg></div>                <div id="button-wrapper-shoot" class="svg-wrapper dont-show"><svg id="button-shoot" onclick="myp5.makePhoto()" class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><circle style="stroke:none;fill:#7822F0;" cx="60" cy="60" r="58"/><circle style="stroke:white;fill:none;stroke-width:2px" cx="60" cy="60" r="57"/><circle style="stroke:white;fill:none;stroke-width:2px" cx="60" cy="60" r="45"/></svg></div>
+                <div id="button-wrapper-camera" class="svg-wrapper dont-show"><svg id="button-camera" onclick="myp5.newCapture()" class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><circle cx="24.87" cy="24.92" r="10.08"/><path d="M38,10.31a1.9,1.9,0,0,1-2-1.77,1.9,1.9,0,0,0-2-1.77H16a1.9,1.9,0,0,0-2,1.77,1.9,1.9,0,0,1-2,1.77H4a2,2,0,0,0-2,2V39a2,2,0,0,0,2,2H46a2,2,0,0,0,2-2V12.31a2,2,0,0,0-2-2Z"/><rect x="6.72" y="13.85" width="4.72" height="4.72" rx="2"/></svg></div>                
+                <div id="button-wrapper-shoot" class="svg-wrapper dont-show"><svg id="button-shoot" onclick="myp5.makePhoto()" class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><circle style="stroke:none;fill:#7822F0;" cx="60" cy="60" r="58"/><circle style="stroke:white;fill:none;stroke-width:2px" cx="60" cy="60" r="57"/><circle style="stroke:white;fill:none;stroke-width:2px" cx="60" cy="60" r="45"/></svg></div>
                 <div id="button-wrapper-intro" class="svg-wrapper dont-show"><svg id="button-intro" class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><circle cx="25" cy="25" r="22"/><line x1="25" y1="23" x2="25" y2="39"/><circle cx="25" cy="14.5" r="0.5"/></svg></div>
                 <div id="button-wrapper-download" class="svg-wrapper dont-show"><svg id="button-download" onclick="myp5.saveArtwork()" class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M25.15,6.07c0,11,.26,34.45.26,34.45h-.32l-14.8-15,15,15,15-15.67"/><line x1="5.72" y1="45.09" x2="45.23" y2="45.09"/></svg></div>
                 <div id="button-wrapper-select" class="svg-wrapper dont-show"><svg id="button-select" onclick="selectPhotoAction()" class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><polyline style="stroke:white;fill:none;stroke-width:2px" points="4.12 27.55 20.72 44.5 46 9.28"/></svg></div>
@@ -199,8 +203,8 @@
          hammer.get('pan').set({ enable: true });
 
          hammer.on('pan', function(ev) { myp5.panRect(ev)});
-         hammer.on('pinch', function(ev) { myp5.scaleRect(ev)});
-         hammer.on('pinchend', function(ev) { myp5.scaleEndRect(ev)});
+         //hammer.on('pinch', function(ev) { myp5.scaleRect(ev)});
+         //hammer.on('pinchend', function(ev) { myp5.scaleEndRect(ev)});
          //hammer.on('rotate', function(ev) { myp5.rotateRect(ev)});
          hammer.on('panstart', function(ev) { myp5.startPan(ev)});
          hammer.on('panend', function(ev) { myp5.endPan(ev)});   

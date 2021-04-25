@@ -15,7 +15,7 @@ var options = {
   video: {
 
     facingMode: {
-      //exact: "environment"
+      exact: "environment"
       // exact: "user"
     },
     // mandatory: {
@@ -81,6 +81,9 @@ let blechColorBoolSW = true;
 let blechContourBool = true;
 let img;
 
+let blendInForms=false;
+let blechCanvas = undefined;
+
 let sketch = function (p) {
 
   p.preload = function () {
@@ -106,6 +109,7 @@ let sketch = function (p) {
     h = window.innerHeight - 60;
     captureHeight = w / 3 * 4;
     canvas = p.createCanvas(w, captureHeight);
+    blechCanvas =p.createGraphics(w, captureHeight);
     p.pixelDensity(1);
     //zoom properties
     dist_x = w;
@@ -166,7 +170,7 @@ let sketch = function (p) {
 
     //game BLECHSERIE
     if (document.getElementById("circle-container") != null) {
-      sliderCircleSize = p.createSlider(5, 40, 20);
+      sliderCircleSize = p.createSlider(5, 24, 12);
       sliderCircleSize.id('circle-range');
       sliderCircleSize.addClass('rotatedSlider');
       sliderCircleSize.parent('circle-container');
@@ -175,7 +179,7 @@ let sketch = function (p) {
     }
 
     if (document.getElementById("treshold-container") != null) {
-      sliderTreshold = p.createSlider(1, 5, 1, 0);
+      sliderTreshold = p.createSlider(1, 3.5, 1, 0.1);
       sliderTreshold.id('treshold-range');
       sliderTreshold.addClass('rotatedSlider');
       sliderTreshold.parent('treshold-container');
@@ -190,7 +194,8 @@ let sketch = function (p) {
 
     pos.x = w / 2;
     pos.y = captureHeight / 2;
-
+    start_pos.x = w ;
+    start_pos.y =captureHeight;
     // blechserie - kann später verschoben werden
 
     inktrapC = p.color(238, 98, 87);
@@ -287,11 +292,16 @@ let sketch = function (p) {
     }
 
 
-    if (showImageTest && alpha < 255) {
+    if ( showImageTest && alpha < 255) {
       p.background(255);
       p.tint(255, alpha);
       p.image(editedPicture, 0, 0, w, captureHeight);
-      alpha += 1;
+      alpha += 2;
+    }
+
+    if (editMode && blechStart && alpha < 255) {
+      alpha += 10;
+      p.blechserie()
     }
 
 
@@ -299,8 +309,6 @@ let sketch = function (p) {
       //p.image(imgs[0],0,0,w,h);
       p.image(imgs[currentSelectedImageId], 0, 0, w, captureHeight);
     }
-
-
 
     if (panActive) {
       p.blechserie();
@@ -459,7 +467,7 @@ let sketch = function (p) {
     setTimeout(function () {
       cameraBtn.classList.remove("disappear");
       console.log("timeout")
-    }, 1000);
+    }, 500);
 
     //SHOW GAMEBAR
     gamebar.classList.add("disappear");
@@ -467,7 +475,7 @@ let sketch = function (p) {
 
   p.saveArtwork = function () {
     //picture.save();
-    p.saveCanvas(canvas, 'howTo-mein_Naturfoto', 'jpg');
+    p.saveCanvas(canvas, 'howTo-Monika-von_Boch-mein_Bild', 'jpg');
   };
 
   p.startPhotogram = function () {
@@ -481,15 +489,26 @@ let sketch = function (p) {
     contrastSliderOn = !contrastSliderOn;
 
     if (contrastSliderOn) {
+      document.getElementById("contrast-range").classList.add("slider-animation");
+      document.getElementById("contrast-range").classList.remove("disappear");
+      document.getElementById("contrast-range").classList.remove("slider-animation-reverse");
+      document.getElementById("contrast-range").style.visibility = "visible";
 
-      document.getElementById("contrast-range").classList.add('disappear');
+
     } else {
-
-      document.getElementById("contrast-range").classList.remove('disappear');
+      document.getElementById("contrast-range").classList.remove("slider-animation");
+      document.getElementById("contrast-range").classList.add("slider-animation-reverse");
+    
     }
   }
   p.circleFunction = function () {
     circleSliderOn = !circleSliderOn;
+  
+    tresholdSliderOn=false;
+    document.getElementById("treshold-range").classList.remove("slider-animation");
+    document.getElementById("treshold-range").classList.add("slider-animation-reverse");
+    
+
     if (circleSliderOn) {
       p.blechserie()
       document.getElementById("circle-range").style.visibility = "visible";
@@ -504,6 +523,9 @@ let sketch = function (p) {
 
   p.tresholdFunction = function () {
     tresholdSliderOn = !tresholdSliderOn;
+    circleSliderOn=false;
+    document.getElementById("circle-range").classList.remove("slider-animation");
+    document.getElementById("circle-range").classList.add("slider-animation-reverse");
     if (tresholdSliderOn) {
       p.blechserie()
       document.getElementById("treshold-range").style.visibility = "visible";
@@ -518,17 +540,18 @@ let sketch = function (p) {
 
   let imgScale = 10;
 
-
+let blechStart =false;
 
   p.blechserie = function () {
+    blechStart =true;
 
     p.background(255);
     let offsetX = (pos.x - dist_x);
     let offsetY = (pos.y - dist_y);
-    let currentScale = sliderTreshold.value();
+    let zoomResult = temp_s + s;
+    //let currentScale = sliderTreshold.value();
+    let currentScale = zoomResult;
     p.translate(-offsetX, -offsetY);
-    p.scale(currentScale);
-
     // if ((temp_s + s) < 1){
     //   currentScale = 1;
     // }  else if ((temp_s + s) > 3){
@@ -536,7 +559,10 @@ let sketch = function (p) {
     // } else {
     //   currentScale =temp_s + s;
     // }
-    //console.log(currentScale)
+    // currentScale =temp_s + s;
+     currentScale = sliderTreshold.value();
+    p.scale(currentScale);
+    console.log("scale blech " + currentScale);
 
     p.push();
     //currentScale = p.map(p.mouseX,0,300,1,3)
@@ -562,7 +588,11 @@ let sketch = function (p) {
     diameter = colWidth;
 
     p.image(picture, offsetX, offsetY, w, captureHeight);
-    //p.image(picture, -w / 2, -w / 2, w, captureHeight);
+    //p.text(currentScale,30,30)
+    //Background
+
+
+    
     p.filter(p.GRAY)
     let id = 0;
     let treshhold = 120;
@@ -574,41 +604,40 @@ let sketch = function (p) {
         if (p.red(c) < treshhold) {
           p.fill(inktrapC)
           //ellipse(x * colWidth, y * rowHeight, colWidth, rowHeight)
-          commandPoints.push(new CommandPoint(-w / 2 + (x * colWidth), -h / 2 + (y * rowHeight), id));
+          commandPoints.push(new CommandPoint(offsetX + (x * colWidth)+colWidth/2, offsetY + (y * rowHeight) +rowHeight/2, id));
           id++;
         }
       }
     }
 
-    if (blechColorBoolSW) {
-      //p.background(250)
-
-    } else {
-      //p.background(0)
-    }
+   
 
     p.createNewPositions()
 
     if (blechColorBoolSW) {
-      p.fill(250)
+      p.fill(255,alpha)
 
     } else {
-      p.fill(0)
+      p.fill(0,alpha)
     }
+    p.rect(offsetX+w/2,offsetY+captureHeight/2,w,captureHeight)
 
-    //p.rect(0, 0, p.width, p.height)
     p.noFill()
     p.stroke(255)
 
-    // UNKOMMENT LATER !!!
-    // for (let p of commandPoints) {
-    //   p.display(diameter / 2)
-    //   for (let other of commandPoints) {
-    //     if (p !== other) {
-    //       p.isNeighbour(other)
-    //     }
-    //   }
-    // }
+    
+    for (let poi of commandPoints) {
+      //p.display(diameter / 2)
+        poi.drawForm(poi.x,poi.y)
+      for (let other of commandPoints) {
+        if (poi !== other) {
+          poi.isNeighbour(other)
+        }
+      }
+    }
+    p.tint(250,alpha)
+    let bufferImage= blechCanvas.get()
+    p.image(bufferImage,offsetX,offsetY)
     firstEdit = true;
     p.textSize(200)
     p.fill(250, 0, 0)
@@ -622,7 +651,16 @@ let sketch = function (p) {
       p.blechserie();
     } */
 
+  p.blendIn = function () {
+
+  }
+
   p.invert = function () {
+
+    contrastSliderOn=false;
+    document.getElementById("contrast-range").classList.remove("slider-animation");
+    document.getElementById("contrast-range").classList.add("slider-animation-reverse");
+
     console.log("contrast");
     editing = true;
     editMode = true;
@@ -728,7 +766,10 @@ let sketch = function (p) {
   };
 
   p.bitmapEffect = function () {
-    console.log("contrast");
+    contrastSliderOn=false;
+    document.getElementById("contrast-range").classList.remove("slider-animation");
+    document.getElementById("contrast-range").classList.add("slider-animation-reverse");
+
     editing = true;
     editMode = true;
     selectedImageMode = false;
@@ -840,9 +881,11 @@ let sketch = function (p) {
     // console.log(event);
     r = radians(event.rotation);
   }
-
+  let tempScale = 1;
   p.scaleRect = function (event) {
-    s = (event.scale - 1) * 1.4;
+    s = -(event.scale - 1) * 1.4;
+     tempScale=temp_s + (s);
+    console.log("scale THIS " + (tempScale));
     p.blechserie()
   }
 
@@ -870,6 +913,13 @@ let sketch = function (p) {
 
   p.blechInvert = function () {
     blechColorBoolSW = !blechColorBoolSW
+    tresholdSliderOn=false;
+    document.getElementById("treshold-range").classList.remove("slider-animation");
+    document.getElementById("treshold-range").classList.add("slider-animation-reverse");
+    
+    circleSliderOn=false;
+    document.getElementById("circle-range").classList.remove("slider-animation");
+    document.getElementById("circle-range").classList.add("slider-animation-reverse");
     p.blechserie()
   }
 
@@ -887,33 +937,33 @@ let sketch = function (p) {
   }
 
 
-  p.drawForm = function (x, y, rad) {
-    p.push()
-    p.translate(x, y)
-    p.strokeWeight(1)
-    p.noFill()
-    let sz = p.map(p.mouseX, p.width / 2, p.width, 5, 30)
+  // p.drawForm = function (x, y, rad) {
+  //   blechCanvas.push()
+  //   blechCanvas.translate(x, y)
+  //   blechCanvas.strokeWeight(1)
+  //   blechCanvas.noFill()
+  //   let sz = p.map(p.mouseX, p.width / 2, p.width, 5, 30)
 
-    if (blechColorBoolSW) {
-      p.stroke(0)
-      p.strokeWeight(2)
-      p.fill(0)
+  //   if (blechColorBoolSW) {
+  //     blechCanvas.stroke(0)
+  //     blechCanvas.strokeWeight(2)
+  //     blechCanvas.fill(0)
 
-    } else {
-      p.stroke(255)
-      p.strokeWeight(2)
-      p.fill(255)
-    }
+  //   } else {
+  //     blechCanvas.stroke(255)
+  //     blechCanvas.strokeWeight(2)
+  //     blechCanvas.fill(255)
+  //   }
 
-    /*if(blechContourBool){
+  //   /*if(blechContourBool){
 
-    } else{
-      p.noFill();
-    }*/
-
-    p.ellipse(0, 0, diameter, diameter)
-    p.pop()
-  }
+  //   } else{
+  //     p.noFill();
+  //   }*/
+  //   blechCanvas.fill(0)
+  //   blechCanvas.ellipse(0, -100, diameter, diameter)
+  //   blechCanvas.pop()
+  // }
 
   class CommandPoint {
     constructor(x, y, id) {
@@ -927,8 +977,36 @@ let sketch = function (p) {
     display(p_rad) {
 
       p_rad = this.radius;
-      p.drawForm(this.x, this.y, p_rad)
+      //drawForm(this.x, this.y, p_rad)
       //this.drawCorner()
+    }
+
+    drawForm(x, y) {
+      p.push()
+      p.translate(x, y)
+      p.strokeWeight(1)
+      p.noFill()
+      let sz = p.map(p.mouseX, p.width / 2, p.width, 5, 30)
+  
+      if (blechColorBoolSW) {
+        p.stroke(0,alpha)
+        p.strokeWeight(2)
+        p.fill(0,alpha)
+  
+      } else {
+        p.stroke(255,alpha)
+        p.strokeWeight(2)
+        p.fill(255,alpha)
+      }
+  
+      /*if(blechContourBool){
+  
+      } else{
+        p.noFill();
+      }*/
+      
+      p.ellipse(0,0, diameter, diameter)
+      p.pop()
     }
 
     isNeighbour(other) {
@@ -1007,23 +1085,16 @@ let sketch = function (p) {
         p.stroke(255)
       }
 
-      /*if(blechContourBool){
-        p.noFill();
-      } else{
-        p.noFill();
-      } */
-
-
       p.strokeWeight(2)
-      p.vertex(0 - this.radius, 0)
+      blechCanvas.vertex(0 - this.radius, 0)
       let randomNr = p.int(p.random(4, 4))
-      p.bezierVertex(
+      blechCanvas.bezierVertex(
         0 - this.radius, 0 - this.radius / 2,
         0 - this.radius / 2, 0 - this.radius,
         0, 0 - this.radius);
-      p.vertex(0 - this.radius, 0 - this.radius)
-      p.vertex(0 - this.radius, 0)
-      p.endShape();
+        blechCanvas.vertex(0 - this.radius, 0 - this.radius)
+        blechCanvas.vertex(0 - this.radius, 0)
+        p.endShape();
       p.pop()
     }
 
