@@ -10,7 +10,7 @@ import gsap from 'gsap'
  * Base
  */
 // Debug
-const gui = new dat.GUI()
+//const gui = new dat.GUI()
 
 /**
  * Models
@@ -21,7 +21,7 @@ const gui = new dat.GUI()
 
 // Canvas
 //const canvas = document.querySelector('canvas.webgl')
-let container =   document.querySelector("#gameContainer");
+let container =   document.querySelector("#game-content");
 console.log("container " + container.clientWidth)
 
 // Scene
@@ -52,7 +52,7 @@ const group = new THREE.Group()
 scene.add(group)
 
 gltfLoader.load(
-    '/models/teller.gltf',
+    '/models/one_plate.gltf',
     (gltf) =>
     {
         
@@ -111,6 +111,16 @@ scene.add(spotLight2)
 spotLight2.target.position.x = -group.position.x
 scene.add(spotLight2.target)
 
+/*const elem = document.querySelector('#light1');
+elem.addEventListener('click', () => {
+    light1On();
+});
+
+const elem2 = document.querySelector('#light2');
+elem2.addEventListener('click', () => {
+    light2On();
+}); */
+
 
 const parameters = {
     light1: () =>
@@ -126,8 +136,8 @@ const parameters = {
         console.log("light")
     }
 }
-gui.add(parameters, 'light1')
-gui.add(parameters, 'light2')
+//gui.add(parameters, 'light1')
+//gui.add(parameters, 'light2')
  /*
 
 // Helpers
@@ -200,7 +210,8 @@ controls.enableDamping = true
  */
 const renderer = new THREE.WebGLRenderer({
     canvas: container,
-    antialias:true
+    antialias:true,
+    preserveDrawingBuffer: true 
 })
 renderer.setSize(sizes.width, sizes.height)
 console.log("renderer " + container.clientWidth)
@@ -231,8 +242,38 @@ const tick = () =>
 
 tick()
 
-function lightOn(){
-    gsap.to(spotLight, { duration: 1, delay: 2, intensity:1 })
-        gsap.to(spotLight2, { duration: 1, delay: 1, intensity:0 })
-        console.log("light")
+function light1On(){
+    gsap.to(spotLight, { duration: 1, delay: 1, intensity:1 })
+    gsap.to(spotLight2, { duration: 1, delay: 0, intensity:0 })
 }
+
+function light2On(){
+    gsap.to(spotLight2, { duration: 1, delay: 1, intensity:1 })
+    gsap.to(spotLight, { duration: 1, delay: 0, intensity:0 })
+}
+
+document.getElementById("button-shoot").addEventListener("click", function(){
+    var imgData, imgNode, imgFigure;
+    imgData = renderer.domElement.toDataURL();  
+    console.log(imgData)    
+    try {
+        imgData = renderer.domElement.toDataURL();      
+       console.log(imgData);
+    } 
+     catch(e) {
+     console.log("Browser does not support taking screenshot of 3d context");
+     // return;
+      }
+    imgFigure =  document.createElement("figure");
+    imgFigure.classList.add("gallery-frame");
+
+    imgNode = document.createElement("img");
+    //imgNode.classList.add("bar-image");
+
+    imgNode.addS
+    imgNode.src = imgData;
+     //document.body.appendChild(imgNode);
+     imgFigure.appendChild(imgNode);
+     document.getElementById("light1").appendChild(imgFigure);       
+     //document.getElementById("gallery-container").appendChild(imgNode);
+});
