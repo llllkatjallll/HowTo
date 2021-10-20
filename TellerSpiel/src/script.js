@@ -6,6 +6,9 @@ import { RectAreaLightHelper } from 'three/examples/jsm/helpers/RectAreaLightHel
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import gsap from 'gsap'
 
+/**VARIABLES */
+let ordnungGameOn = false;
+
 /**
  * Base
  */
@@ -22,7 +25,7 @@ import gsap from 'gsap'
 // Canvas
 //const canvas = document.querySelector('canvas.webgl')
 let container =   document.querySelector("#game-content");
-console.log("container " + container.clientWidth)
+
 
 // Scene
 const scene = new THREE.Scene()
@@ -52,7 +55,7 @@ const group = new THREE.Group()
 scene.add(group)
 
 gltfLoader.load(
-    '/models/one_plate.gltf',
+    '/models/smaller.gltf',
     (gltf) =>
     {
         
@@ -171,7 +174,7 @@ const sizes = {
     width: window.innerWidth,
     height: window.innerHeight
 }
-console.log("sizes " + container.clientWidth)
+
 
 
 window.addEventListener('resize', () =>
@@ -214,7 +217,7 @@ const renderer = new THREE.WebGLRenderer({
     preserveDrawingBuffer: true 
 })
 renderer.setSize(sizes.width, sizes.height)
-console.log("renderer " + container.clientWidth)
+
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
 
@@ -225,19 +228,23 @@ const clock = new THREE.Clock()
 
 const tick = () =>
 {
-    const elapsedTime = clock.getElapsedTime()
+    if(ordnungGameOn ==true){
+        const elapsedTime = clock.getElapsedTime()
 
-    // Update objects
+        // Update objects
 
 
-    // Update controls
-    controls.update()
+        // Update controls
+        controls.update()
 
-    // Render
-    renderer.render(scene, camera)
+        // Render
+        renderer.render(scene, camera)
 
-    // Call tick again on the next frame
-    window.requestAnimationFrame(tick)
+        // Call tick again on the next frame
+        window.requestAnimationFrame(tick)
+
+    }
+    
 }
 
 tick()
@@ -251,6 +258,12 @@ function light2On(){
     gsap.to(spotLight2, { duration: 1, delay: 1, intensity:1 })
     gsap.to(spotLight, { duration: 1, delay: 0, intensity:0 })
 }
+
+document.getElementById("light1").addEventListener("click", function(){
+    ordnungGameOn = !ordnungGameOn;
+    tick();
+    console.log(ordnungGameOn)
+});
 
 document.getElementById("button-shoot").addEventListener("click", function(){
     var imgData, imgNode, imgFigure;
