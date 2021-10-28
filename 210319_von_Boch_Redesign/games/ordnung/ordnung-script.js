@@ -1,32 +1,33 @@
-
 import * as THREE from 'https://unpkg.com/three@0.127.0/build/three.module.js';
 // import { Vector3, SpriteMaterial, Sprite, Clock, Color, Scene } from 'https://unpkg.com/three@latest/build/three.module.js';
-import { OrbitControls } from 'https://unpkg.com/three@0.127.0/examples/jsm/controls/OrbitControls.js';
-import { GLTFLoader } from 'https://unpkg.com/three@0.127.0/examples/jsm/loaders/GLTFLoader.js';
+import {
+    OrbitControls
+} from 'https://unpkg.com/three@0.127.0/examples/jsm/controls/OrbitControls.js';
+import {
+    GLTFLoader
+} from 'https://unpkg.com/three@0.127.0/examples/jsm/loaders/GLTFLoader.js';
 
-
-
-
-console.log(window.currentSectionNr);
+let currentSectionNr = 1;
 /**VARIABLES */
 let ordnungGameOn = false;
+let counterLight = 0;
+let galleryOn = false;
+/**HTML ELEMENTS */
+let gallery = document.getElementById("gallery");
 
-/**
- * Base
- */
 // Debug
 //const gui = new dat.GUI()
 
 /**
  * Models
  */
- const gltfLoader = new GLTFLoader()
+const gltfLoader = new GLTFLoader()
 
 
 
 // Canvas
 //const canvas = document.querySelector('canvas.webgl')
-let container =   document.querySelector("#game-content");
+let container = document.querySelector("#game-content");
 
 
 // Scene
@@ -47,26 +48,58 @@ const plane = new THREE.Mesh(
     new THREE.PlaneGeometry(50, 50),
     material
 )
-plane.rotation.x = - Math.PI * 0.5
+plane.rotation.x = -Math.PI * 0.5
 plane.position.y = 0
 
-scene.add( plane)
+scene.add(plane)
 
 const group = new THREE.Group()
 
-scene.add(group)
+//scene.add(group)
 
 gltfLoader.load(
     '../static/models/smaller.gltf',
-    (gltf) =>
-    {
-        
-        while(gltf.scene.children.length)
-        {
+    (gltf) => {
+
+        while (gltf.scene.children.length) {
             group.add(gltf.scene.children[0])
         }
     }
 )
+let loadedModel = undefined;
+let path = "../static/models/one_plate.gltf"
+
+function loadAnotherModel(modelPath) {
+    /*if (loadedModel !== undefined) {
+        // unload again
+
+        scene.remove(loadedModel);
+        loadedModel = undefined;
+        return;
+    } */
+    scene.remove(loadedModel);
+    loadedModel = undefined;
+    // load the second model
+    const modelPosition = new THREE.Vector3(0, 0, 0);
+    let uniformScale = new THREE.Vector3(1, 1, 1);
+    gltfLoader.load(
+        modelPath,
+        gltf => loadedModel =
+        onLoad(gltf)
+
+    );
+}
+
+function onLoad(gltf) {
+
+    const model = new THREE.Group();
+
+    while (gltf.scene.children.length) {
+        model.add(gltf.scene.children[0])
+    }
+    scene.add(model);
+    return model;
+};
 
 group.scale.x = 0.3
 group.scale.y = 0.3
@@ -106,8 +139,8 @@ rectAreaLight.lookAt(new THREE.Vector3())
 const spotLight = new THREE.SpotLight(0xffffff, 0, 20, Math.PI * 0.2, 0.65, 1)
 spotLight.position.set(0, 2, 3)
 scene.add(spotLight)
-spotLight.target.position.x = - 0.75
-scene.add(spotLight.target) 
+spotLight.target.position.x = -0.75
+scene.add(spotLight.target)
 
 // Spot light
 const spotLight2 = new THREE.SpotLight(0xffffff, 1, 20, Math.PI * 0.2, 0.65, 1)
@@ -128,22 +161,28 @@ elem2.addEventListener('click', () => {
 
 
 const parameters = {
-    light1: () =>
-    {
+    light1: () => {
         lightOn()
         console.log("light")
     },
 
-    light2: () =>
-    {
-        gsap.to(spotLight, { duration: 1, delay: 1, intensity:0 })
-        gsap.to(spotLight2, { duration: 1, delay: 2, intensity:1 })
+    light2: () => {
+        gsap.to(spotLight, {
+            duration: 1,
+            delay: 1,
+            intensity: 0
+        })
+        gsap.to(spotLight2, {
+            duration: 1,
+            delay: 2,
+            intensity: 1
+        })
         console.log("light")
     }
 }
 //gui.add(parameters, 'light1')
 //gui.add(parameters, 'light2')
- /*
+/*
 
 // Helpers
 const hemisphereLightHelper = new THREE.HemisphereLightHelper(hemisphereLight, 0.2)
@@ -159,8 +198,7 @@ const spotLightHelper = new THREE.SpotLightHelper(spotLight)
 const spotLightHelper2 = new THREE.SpotLightHelper(spotLight2)
 //scene.add(spotLightHelper)
 //scene.add(spotLightHelper2)
-window.requestAnimationFrame(() =>
-{
+window.requestAnimationFrame(() => {
     //spotLightHelper.update()
     //spotLightHelper2.update()
 })
@@ -179,10 +217,9 @@ const sizes = {
 
 
 
-window.addEventListener('resize', () =>
-{
-    
-        // Update sizes
+window.addEventListener('resize', () => {
+
+    // Update sizes
     sizes.width = window.innerWidth
     sizes.height = window.innerHeight
 
@@ -200,7 +237,7 @@ window.addEventListener('resize', () =>
  * Camera
  */
 // Base camera
-const camera = new THREE.PerspectiveCamera(75,  sizes.width / sizes.height, 0.1, 100)
+const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
 camera.position.x = 1
 camera.position.y = 1
 camera.position.z = 2
@@ -215,8 +252,8 @@ controls.enableDamping = true
  */
 const renderer = new THREE.WebGLRenderer({
     canvas: container,
-    antialias:true,
-    preserveDrawingBuffer: true 
+    antialias: true,
+    preserveDrawingBuffer: true
 })
 renderer.setSize(sizes.width, sizes.height)
 
@@ -228,9 +265,8 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
  */
 const clock = new THREE.Clock()
 
-const tick = () =>
-{
-    if(ordnungGameOn ==true){
+const tick = () => {
+    if (ordnungGameOn == true) {
         const elapsedTime = clock.getElapsedTime()
 
         // Update objects
@@ -246,46 +282,121 @@ const tick = () =>
         window.requestAnimationFrame(tick)
 
     }
-    
+
 }
 
 tick()
 
-function light1On(){
-    gsap.to(spotLight, { duration: 1, delay: 1, intensity:1 })
-    gsap.to(spotLight2, { duration: 1, delay: 0, intensity:0 })
+function light1On() {
+    gsap.to(spotLight, {
+        duration: 1,
+        delay: 1,
+        intensity: 1
+    })
+    gsap.to(spotLight2, {
+        duration: 1,
+        delay: 0,
+        intensity: 0
+    })
 }
 
-function light2On(){
-    gsap.to(spotLight2, { duration: 1, delay: 1, intensity:1 })
-    gsap.to(spotLight, { duration: 1, delay: 0, intensity:0 })
+function light2On() {
+    gsap.to(spotLight2, {
+        duration: 1,
+        delay: 1,
+        intensity: 1
+    })
+    gsap.to(spotLight, {
+        duration: 1,
+        delay: 0,
+        intensity: 0
+    })
 }
+var allLights = [
+    light2On,
+    light1On
+]
 
-/*document.getElementById("light").addEventListener("click", function(){
-    ordnungGameOn = !ordnungGameOn;
-    tick();
-    console.log(ordnungGameOn)
-}); */
-let test = document.getElementById("light1");
-console.log("OBJEKT" + test);
-test.addEventListener("click", function(){
- 
-    console.log("weiterdfdfdf")
+
+document.getElementById("light").addEventListener("click", function () {
+    if (counterLight < allLights.length - 1) {
+        counterLight++;
+    } else {
+        counterLight = 0;
+    }
+    allLights[counterLight]();
+
 });
 
-document.getElementById("button-shoot").addEventListener("click", function(){
+let counterModel = 0;
+let allModels = ['../static/models/one_plate.gltf', '../static/models/smaller.gltf'];
+document.getElementById("changeModel").addEventListener("click", function () {
+    if (counterModel < allModels.length - 1) {
+        counterModel++;
+    } else {
+        counterModel = 0;
+    }
+    console.log(allModels[counterModel])
+    loadAnotherModel(allModels[counterModel]);
+});
+
+/* IF GALLERY BUTTON CLICKED */
+document.getElementById("gallerie").addEventListener("click", function () {
+    galleryOn = !galleryOn;
+    if (galleryOn) {
+        showGallery()
+    } else {
+        hideGallery()
+    }
+});
+
+function showGallery() {
+    gallery.style.visibility = "visible";
+    gallery.classList.remove("gallery-animation-reverse");
+    gallery.classList.add("gallery-animation");
+}
+
+function hideGallery() {
+    gallery.classList.remove("gallery-animation");
+    gallery.classList.add("gallery-animation-reverse");
+}
+
+
+/* WHICH SECTION IS ACTIVE NOW? */
+
+document.getElementById("button-weiter").addEventListener("click", function () {
+    currentSectionNr = currentSectionNr + 1;
+    checkIfGame();
+});
+document.getElementById("button-zurueck").addEventListener("click", function () {
+    currentSectionNr = currentSectionNr - 1;
+    checkIfGame();
+});
+
+function checkIfGame() {
+    if (currentSectionNr == 4) {
+        ordnungGameOn = true;
+        tick();
+    } else {
+        ordnungGameOn = false;
+    }
+}
+
+
+/* MAKE PHOTO AND PUT IT IN THE GALLERY */
+
+document.getElementById("model").addEventListener("click", function () {
     var imgData, imgNode, imgFigure;
-    imgData = renderer.domElement.toDataURL();  
-    console.log(imgData)    
+    imgData = renderer.domElement.toDataURL();
+    console.log(imgData)
     try {
-        imgData = renderer.domElement.toDataURL();      
-       console.log(imgData);
-    } 
-     catch(e) {
-     console.log("Browser does not support taking screenshot of 3d context");
-     // return;
-      }
-    imgFigure =  document.createElement("figure");
+        imgData = renderer.domElement.toDataURL();
+        console.log(imgData);
+    } catch (e) {
+        console.log("Browser does not support taking screenshot of 3d context");
+        // return;
+    }
+    imgFigure = document.createElement("figure");
     imgFigure.classList.add("gallery-frame");
 
     imgNode = document.createElement("img");
@@ -293,8 +404,8 @@ document.getElementById("button-shoot").addEventListener("click", function(){
 
     imgNode.addS
     imgNode.src = imgData;
-     //document.body.appendChild(imgNode);
-     imgFigure.appendChild(imgNode);
-     document.getElementById("light1").appendChild(imgFigure);       
-     //document.getElementById("gallery-container").appendChild(imgNode);
+    //document.body.appendChild(imgNode);
+    imgFigure.appendChild(imgNode);
+    document.getElementById("gallery-container").appendChild(imgFigure);
+    //document.getElementById("gallery-container").appendChild(imgNode);
 });

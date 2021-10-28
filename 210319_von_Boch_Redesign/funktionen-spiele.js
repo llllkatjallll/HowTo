@@ -82,23 +82,23 @@ $(document).ready(function (){
     $('#button-zurueck').removeClass('disappear');
     $('#button-weiter').removeClass('disappear');
 
-    
+
 // Navigation  
 $('#button-weiter').click(function (){
     currentSectionNr = currentSectionNr+1;
     switch (currentSectionNr) {
         case (0):
           idName = "menu";
-          console.log(idName);
+          console.log(idName + currentSectionNr);
           break;
         case (1):
           idName = "question";
-          console.log(idName);
+          console.log(idName + currentSectionNr);
           
           break;
         case (2):
           idName = "quote";
-          console.log(idName);
+          console.log(idName + currentSectionNr);
           $('#question').addClass('disappear');
             $('#quote').removeClass('hide');
             $('#information').css('pointer-events','none');
@@ -109,7 +109,7 @@ $('#button-weiter').click(function (){
           break; 
          case (3):
           idName = "introduction";
-          console.log(idName);
+          console.log(idName + currentSectionNr);
           $('#quote').addClass('disappear');
                 $('#introduction').removeClass('hide');
                 setTimeout(function(){
