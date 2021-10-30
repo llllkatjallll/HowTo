@@ -449,15 +449,41 @@ div > img{
 
 }
 
-/*# TEST*/
+/*#ORDNUNG*/
 
-#light1{
-  background-color: green;  
-  z-index: 1000;
+
+  #affordance{
+    position:fixed;
+    top:40vh;
+    width: 20vw;
+    height: 40px;
+    
+    margin: auto;
+ }
+
+
+ #affordance img{
+    position: absolute;
+    left: 0;
+    width: 40px;
+    height: auto;
+    display: block;
+    top: 0;
+    
+    x-transition: all 2s ease-in-out;
+    animation: affordance-animation 12.7s infinite;
 }
 
-#light1:hover{
-    background-color: red;  
-    z-index: 10200;
+@keyframes affordance-animation {
+    0% {
+      left: 0;
+    }
+    50% {
+      left: 100%;
+    }
+    100% {
+      left: 0;
+    }
   }
+  
 

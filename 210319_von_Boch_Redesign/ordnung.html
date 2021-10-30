@@ -14,7 +14,7 @@
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>    
     <script type="text/javascript" src="funktionen-ordnung.js"></script>
-    <script type="text/javascript" src="funktionen-spiele.js"></script>
+    <script type="text/javascript" src="funktionen-spiele-ordnung.js"></script>
     <script type="text/javascript" src="slick/slick.min.js"></script>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
@@ -67,11 +67,12 @@
                         </p> -->
                      
                 </canvas>
+                <div id="affordance" class="hide">
+                    <img src="icons/affordance_hand.png">
+                </div>
 
                 <div id="gallery" class="" title="" >
                     <div class="gallery-container" id="gallery-container">
-                      
-
                        <figure class="gallery-frame"  onclick="toggleImage(2)" id="img2" tabindex="1">
                          <img src="games/natur/img/img2.png">
                          <button class="image-button"><svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><polyline style="stroke:white;fill:none;stroke-width:2px" points="4.12 27.55 20.72 44.5 46 9.28"/></svg></figure>
@@ -111,25 +112,62 @@
 
             <div id="gamebar" class="disappear">
                 <div class="svg-wrapper"><svg></svg></div>
+                <div id="contrast-container" class="gamebar-button-container">
+
+                    <button class="toggle-button" id="light-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                            <path style="stroke:#ffffff;fill:#ffffff;"
+                                d="M0.4,13.6c0,6.9,5.6,12.5,12.5,12.5c0,0,0,0,0,0V1.2C6,1.2,0.4,6.8,0.4,13.6C0.4,13.6,0.4,13.6,0.4,13.6z" />
+                            <circle style="stroke:#fff;fill:none;" cx="13.4" cy="13.4" r="12.4" /></svg>
+
+                    </button>
+                </div>
+
+                
                 <div class="svg-wrapper"><svg></svg></div>
-                <div class="svg-wrapper"><svg></svg></div>
-                <div class="svg-wrapper"><svg></svg></div>
+
+                <div id="bitmap-container" class="gamebar-button-container">
+                    <button class="toggle-button" id="model-button" >
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                            <rect style="stroke:#ffffff;fill:none;stroke-width:2px" x="1" y="1" width="26"
+                                height="8.7" />
+                            <rect style="stroke:#ffffff;fill:#ffffff;stroke-width:2px" x="1" y="19.5" width="26"
+                                height="7.5" />
+                            <rect style="stroke:#ffffff;fill:none;stroke-width:2px" x="1" y="9.7" width="26"
+                                height="9.8" />
+                            <line style="stroke:#ffffff;fill:none;stroke-width:2px" x1="6.4" y1="9.4" x2="6.4"
+                                y2="18.9" />
+                            <line style="stroke:#ffffff;fill:none;stroke-width:2px" x1="11.6" y1="9.4" x2="11.6"
+                                y2="18.9" />
+                            <line style="stroke:#ffffff;fill:none;stroke-width:2px" x1="16.8" y1="9.4" x2="16.8"
+                                y2="18.9" />
+                            <line style="stroke:#ffffff;fill:none;stroke-width:2px" x1="22" y1="9.4" x2="22"
+                                y2="18.9" />
+
+                        </svg>
+
+                    </button>
+                </div>
                 <div class="svg-wrapper"><svg></svg></div>
             </div>
 
             <div id="navbar">
-                <div id="button-wrapper-zurueck" class="svg-wrapper"><svg id="button-zurueck" class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M10,43.51h17.4c18.36,0,17.07-13.85,17.07-13.85s1.29-14.77-17.07-14.77c-10.83,0-20.3.27-20.3.27v-.32L21.94,5.17,7.12,15l15.47,9.82"/></svg></div>
-                <button id="light" >Licht</button>
+               <!-- <button id="light" >Licht</button>
                 <button id="model" >Model</button>
                 <button id="changeModel" >change</button>
                 <button id="gallerie" >Gallerie</button>
-                <div id="button-wrapper-gallery" class="svg-wrapper"><svg id="button-gallery-ordnung" class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><rect style="stroke:white;fill:none" x="7" y="7" width="36" height="36"/><line style="stroke:white;fill:none" x1="25" y1="6" x2="25" y2="43"/><line style="stroke:white;fill:none" x1="44" y1="25" x2="7" y2="25"/></svg></div>
-                <div id="button-wrapper-camera" class="svg-wrapper dont-show"><svg id="button-camera" onclick="" class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><circle cx="24.87" cy="24.92" r="10.08"/><path d="M38,10.31a1.9,1.9,0,0,1-2-1.77,1.9,1.9,0,0,0-2-1.77H16a1.9,1.9,0,0,0-2,1.77,1.9,1.9,0,0,1-2,1.77H4a2,2,0,0,0-2,2V39a2,2,0,0,0,2,2H46a2,2,0,0,0,2-2V12.31a2,2,0,0,0-2-2Z"/><rect x="6.72" y="13.85" width="4.72" height="4.72" rx="2"/></svg></div>                
-                <div id="button-wrapper-shoot" class="svg-wrapper"><!--<svg id="button-shoot" class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><circle style="stroke:none;fill:#7822F0;" cx="60" cy="60" r="58"/><circle style="stroke:white;fill:none;stroke-width:2px" cx="60" cy="60" r="57"/><circle style="stroke:white;fill:none;stroke-width:2px" cx="60" cy="60" r="45"/></svg>--></div>
-                <div id="button-wrapper-intro" class="svg-wrapper"><!--<svg id="button-intro" class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><circle cx="25" cy="25" r="22"/><line x1="25" y1="23" x2="25" y2="39"/><circle cx="25" cy="14.5" r="0.5"/></svg>--></div>
-                <div id="button-wrapper-download" class="svg-wrapper dont-show"><svg id="button-download" onclick=""class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M25.15,6.07c0,11,.26,34.45.26,34.45h-.32l-14.8-15,15,15,15-15.67"/><line x1="5.72" y1="45.09" x2="45.23" y2="45.09"/></svg></div>
-                <div id="button-wrapper-select" class="svg-wrapper dont-show"><svg id="button-select" class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><polyline style="stroke:white;fill:none;stroke-width:2px" points="4.12 27.55 20.72 44.5 46 9.28"/></svg></div>
-                <div id="button-wrapper-weiter" class="svg-wrapper"><svg id="button-weiter" class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M5.14,25.5c11,0,39.83-.26,39.83-.26v.32L28,41.36l17-16-17.67-15"/></svg></div>
+
+--> 
+
+                <div id="button-wrapper-zurueck" class="svg-wrapper"><svg id="button-zurueck" class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M10,43.51h17.4c18.36,0,17.07-13.85,17.07-13.85s1.29-14.77-17.07-14.77c-10.83,0-20.3.27-20.3.27v-.32L21.94,5.17,7.12,15l15.47,9.82"/></svg></div>
+                <div id="button-wrapper-zurueck-from-gallery" class="svg-wrapper dont-show"><svg id="button-zurueck-from-gallery" onclick="backFromGalleryAction()" class="disappear"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M10,43.51h17.4c18.36,0,17.07-13.85,17.07-13.85s1.29-14.77-17.07-14.77c-10.83,0-20.3.27-20.3.27v-.32L21.94,5.17,7.12,15l15.47,9.82"/></svg></div>
+                <div id="button-wrapper-gallery" class="svg-wrapper dont-show"><svg id="button-gallery"  class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><rect style="stroke:white;fill:none" x="7" y="7" width="36" height="36"/><line style="stroke:white;fill:none" x1="25" y1="6" x2="25" y2="43"/><line style="stroke:white;fill:none" x1="44" y1="25" x2="7" y2="25"/></svg></div>
+                <div id="button-wrapper-camera" class="svg-wrapper dont-show"><svg id="button-camera" class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><circle cx="24.87" cy="24.92" r="10.08"/><path d="M38,10.31a1.9,1.9,0,0,1-2-1.77,1.9,1.9,0,0,0-2-1.77H16a1.9,1.9,0,0,0-2,1.77,1.9,1.9,0,0,1-2,1.77H4a2,2,0,0,0-2,2V39a2,2,0,0,0,2,2H46a2,2,0,0,0,2-2V12.31a2,2,0,0,0-2-2Z"/><rect x="6.72" y="13.85" width="4.72" height="4.72" rx="2"/></svg></div>
+                <div id="button-wrapper-shoot" class="svg-wrapper dont-show"><svg id="button-shoot"  class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><circle style="stroke:none;fill:#7822F0;" cx="60" cy="60" r="58"/><circle style="stroke:white;fill:none;stroke-width:2px" cx="60" cy="60" r="57"/><circle style="stroke:white;fill:none;stroke-width:2px" cx="60" cy="60" r="45"/></svg></div>
+                <div id="button-wrapper-intro" class="svg-wrapper dont-show"><svg id="button-intro" class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><circle cx="25" cy="25" r="22"/><line x1="25" y1="23" x2="25" y2="39"/><circle cx="25" cy="14.5" r="0.5"/></svg></div>
+                <div id="button-wrapper-download" class="svg-wrapper dont-show"><svg id="button-download"  class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M25.15,6.07c0,11,.26,34.45.26,34.45h-.32l-14.8-15,15,15,15-15.67"/><line x1="5.72" y1="45.09" x2="45.23" y2="45.09"/></svg></div>
+                <div id="button-wrapper-select" class="svg-wrapper dont-show"><svg id="button-select"  class="disappear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><polyline style="stroke:white;fill:none;stroke-width:2px" points="4.12 27.55 20.72 44.5 46 9.28"/></svg></div>
+                <div id="button-wrapper-weiter" class="svg-wrapper"><svg id="button-weiter" class="disappear"   xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M5.14,25.5c11,0,39.83-.26,39.83-.26v.32L28,41.36l17-16-17.67-15"/></svg></div>
             </div>
 
         </div> 

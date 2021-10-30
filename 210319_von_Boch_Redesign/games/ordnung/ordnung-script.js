@@ -12,9 +12,13 @@ let currentSectionNr = 1;
 let ordnungGameOn = false;
 let counterLight = 0;
 let galleryOn = false;
+let counterModel = 0;
+let modelPaths = ['../static/models/one_plate.gltf', '../static/models/smaller.gltf'];
 /**HTML ELEMENTS */
+let galleryButton = document.getElementById("button-gallery");
 let gallery = document.getElementById("gallery");
-
+let affordance = document.getElementById("affordance");
+let backFromGalleryButton =document.getElementById("button-zurueck-from-gallery");
 // Debug
 //const gui = new dat.GUI()
 
@@ -97,6 +101,7 @@ function onLoad(gltf) {
     while (gltf.scene.children.length) {
         model.add(gltf.scene.children[0])
     }
+    model.scale.set(0.3, 0.3, 0.3)
     scene.add(model);
     return model;
 };
@@ -149,39 +154,6 @@ scene.add(spotLight2)
 spotLight2.target.position.x = -group.position.x
 scene.add(spotLight2.target)
 
-/*const elem = document.querySelector('#light1');
-elem.addEventListener('click', () => {
-    light1On();
-});
-
-const elem2 = document.querySelector('#light2');
-elem2.addEventListener('click', () => {
-    light2On();
-}); */
-
-
-const parameters = {
-    light1: () => {
-        lightOn()
-        console.log("light")
-    },
-
-    light2: () => {
-        gsap.to(spotLight, {
-            duration: 1,
-            delay: 1,
-            intensity: 0
-        })
-        gsap.to(spotLight2, {
-            duration: 1,
-            delay: 2,
-            intensity: 1
-        })
-        console.log("light")
-    }
-}
-//gui.add(parameters, 'light1')
-//gui.add(parameters, 'light2')
 /*
 
 // Helpers
@@ -246,6 +218,7 @@ scene.add(camera)
 // Controls
 const controls = new OrbitControls(camera, container)
 controls.enableDamping = true
+
 
 /**
  * Renderer
@@ -318,36 +291,53 @@ var allLights = [
 ]
 
 
-document.getElementById("light").addEventListener("click", function () {
+document.getElementById("light-button").addEventListener("click", function () {
     if (counterLight < allLights.length - 1) {
         counterLight++;
     } else {
         counterLight = 0;
     }
+    console.log("light pressed")
     allLights[counterLight]();
 
 });
 
-let counterModel = 0;
-let allModels = ['../static/models/one_plate.gltf', '../static/models/smaller.gltf'];
-document.getElementById("changeModel").addEventListener("click", function () {
-    if (counterModel < allModels.length - 1) {
+
+document.getElementById("model-button").addEventListener("click", function () {
+    if (counterModel < modelPaths.length - 1) {
         counterModel++;
     } else {
         counterModel = 0;
     }
-    console.log(allModels[counterModel])
-    loadAnotherModel(allModels[counterModel]);
+    console.log(modelPaths[counterModel])
+    loadAnotherModel(modelPaths[counterModel]);
+});
+
+/* MANAGE BUTTONS */
+
+//UNTIL INTERACTION STARTS
+controls.addEventListener('start', function () {
+    hideAffordance();
+});
+
+//HIDE AFFORDANCE IF A BUTTON WAS PRESSED
+document.getElementById("gamebar").addEventListener('click', hideAffordance);
+document.getElementById("navbar").addEventListener('click', hideAffordance);
+
+// RETURN FROM GALLERY
+backFromGalleryButton.addEventListener("click", function () {
+  // hideGallery();
 });
 
 /* IF GALLERY BUTTON CLICKED */
-document.getElementById("gallerie").addEventListener("click", function () {
-    galleryOn = !galleryOn;
+galleryButton.addEventListener("click", function () {
+    showGallery()
+   /* galleryOn = !galleryOn;
     if (galleryOn) {
         showGallery()
     } else {
         hideGallery()
-    }
+    }*/
 });
 
 function showGallery() {
@@ -376,16 +366,29 @@ document.getElementById("button-zurueck").addEventListener("click", function () 
 function checkIfGame() {
     if (currentSectionNr == 4) {
         ordnungGameOn = true;
+        setTimeout(function () {
+            showAffordance();
+        }, 2000);
+
+        loadAnotherModel(modelPaths[0]);
         tick();
+        light2On()
     } else {
         ordnungGameOn = false;
     }
 }
 
+function showAffordance() {
+    affordance.classList.remove("hide");
+}
+
+function hideAffordance() {
+    affordance.classList.add("hide");
+}
 
 /* MAKE PHOTO AND PUT IT IN THE GALLERY */
 
-document.getElementById("model").addEventListener("click", function () {
+document.getElementById("button-shoot").addEventListener("click", function () {
     var imgData, imgNode, imgFigure;
     imgData = renderer.domElement.toDataURL();
     console.log(imgData)
