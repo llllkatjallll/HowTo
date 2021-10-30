@@ -20,6 +20,10 @@ function selectPhotoAction() {
     $('#gallery').removeClass('gallery-animation');
     $('#gallery').addClass('gallery-animation-reverse');
     $('#gallery').removeClass('active-gallery');
+    $('#gamebar').removeClass('dont-show');
+    $('#button-shoot').removeClass('dont-show');
+    $('#button-intro').removeClass('dont-show');
+    $('#button-gallery').removeClass('dont-show');
     
     //$('#button-wrapper-camera').removeClass('dont-show');
     $('#button-wrapper-intro').removeClass('dont-show');
@@ -31,7 +35,7 @@ function selectPhotoAction() {
     $('#button-wrapper-zurueck-from-gallery').addClass('dont-show');
     
     $('#button-wrapper-zurueck').removeClass('dont-show');
-    $('#gamebar').addClass('hide');
+    $('#gamebar').removeClass('hide');
     setTimeout(function(){     
         $('#game-content').removeClass('disappear');
         
@@ -266,15 +270,14 @@ $('#button-zurueck').click(function (){
          case (4):
           idName = "game";
           console.log(idName);
-          //myp5.newCapture();
-        
            //$('#button-wrapper-camera').removeClass('dont-show');
            $('#button-wrapper-intro').removeClass('dont-show');
            $('#button-wrapper-shoot').removeClass('dont-show');
            $('#button-wrapper-gallery').removeClass('dont-show');
            //$('#button-wrapper-download').removeClass('dont-show');
            $('#information').addClass('disappear');
-           $('#gamebar').addClass('hide');
+           $('#gamebar').removeClass('hide');
+           $('#gamebar').removeClass('dont-show');
            setTimeout(function(){      
                $('#information').addClass('hide'); 
                console.log("trying to work");
@@ -353,6 +356,10 @@ $('#button-zurueck').click(function (){
             $('#button-zurueck-from-gallery').removeClass('disappear');
             $('#button-select').removeClass('disappear');
             $('#gamebar').addClass('hide');
+            $('#gamebar').addClass('dont-show');
+            $('#button-shoot').addClass('dont-show');
+            $('#button-intro').addClass('dont-show');
+            $('#button-gallery').addClass('dont-show');
         }, 1000);
     }); 
 

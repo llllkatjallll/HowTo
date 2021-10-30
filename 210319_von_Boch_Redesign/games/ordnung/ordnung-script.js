@@ -326,18 +326,15 @@ document.getElementById("navbar").addEventListener('click', hideAffordance);
 
 // RETURN FROM GALLERY
 backFromGalleryButton.addEventListener("click", function () {
-  // hideGallery();
+    ordnungGameOn = true;
+    tick();
 });
 
 /* IF GALLERY BUTTON CLICKED */
 galleryButton.addEventListener("click", function () {
-    showGallery()
-   /* galleryOn = !galleryOn;
-    if (galleryOn) {
-        showGallery()
-    } else {
-        hideGallery()
-    }*/
+    showGallery();
+    ordnungGameOn = false;
+    
 });
 
 function showGallery() {

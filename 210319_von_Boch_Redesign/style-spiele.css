@@ -55,8 +55,13 @@
 }
 
 #gamebar > .svg-wrapper{
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
+}
+
+.middle{
+  width: 60px!important;
+  height: 60px;
 }
 
 #navbar > .svg-wrapper{
@@ -342,6 +347,9 @@ button{
     background: none;
   }
   
+  #game-content{
+    padding: 0 !important;
+  }
 
   
   .rotatedSlider{
