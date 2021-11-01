@@ -339,6 +339,15 @@ button{
     border-radius: 20px;
    }
 
+   #light-container  .toggle-button{
+     padding-top: 6px;
+     padding-left: 10px;
+   }
+
+   #model-container  .toggle-button{
+    padding-top: 10px;
+  
+  }
  
    
   .toggle-button button{

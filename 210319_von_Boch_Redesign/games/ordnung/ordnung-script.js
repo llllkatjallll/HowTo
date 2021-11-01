@@ -7,13 +7,14 @@ import {
     GLTFLoader
 } from 'https://unpkg.com/three@0.127.0/examples/jsm/loaders/GLTFLoader.js';
 
+
 let currentSectionNr = 1;
 /**VARIABLES */
 let ordnungGameOn = false;
 let counterLight = 0;
 let galleryOn = false;
 let counterModel = 0;
-let modelPaths = ['../static/models/one_plate.gltf', '../static/models/smaller.gltf'];
+let modelPaths = [ '../../monika-von-boch/models/smaller.gltf', '../../monika-von-boch/static/models/cups.gltf'];
 /**HTML ELEMENTS */
 let galleryButton = document.getElementById("button-gallery");
 let gallery = document.getElementById("gallery");
@@ -62,7 +63,7 @@ const group = new THREE.Group()
 //scene.add(group)
 
 gltfLoader.load(
-    '../static/models/smaller.gltf',
+    modelPaths[0],
     (gltf) => {
 
         while (gltf.scene.children.length) {
@@ -71,7 +72,7 @@ gltfLoader.load(
     }
 )
 let loadedModel = undefined;
-let path = "../static/models/one_plate.gltf"
+
 
 function loadAnotherModel(modelPath) {
     /*if (loadedModel !== undefined) {
@@ -84,7 +85,7 @@ function loadAnotherModel(modelPath) {
     scene.remove(loadedModel);
     loadedModel = undefined;
     // load the second model
-    const modelPosition = new THREE.Vector3(0, 0, 0);
+    const modelPosition = new THREE.Vector3(0, 0, 1);
     let uniformScale = new THREE.Vector3(1, 1, 1);
     gltfLoader.load(
         modelPath,
@@ -101,6 +102,7 @@ function onLoad(gltf) {
     while (gltf.scene.children.length) {
         model.add(gltf.scene.children[0])
     }
+    model.position.set(0, 0, 0)
     model.scale.set(0.3, 0.3, 0.3)
     scene.add(model);
     return model;
@@ -154,6 +156,13 @@ scene.add(spotLight2)
 spotLight2.target.position.x = -group.position.x
 scene.add(spotLight2.target)
 
+
+const spotLight3 = new THREE.SpotLight(0xffffff, 1, 20, Math.PI * 0.2, 0.65, 1)
+//spotLight3.position.set(0, 1, -7)
+spotLight3.position.set(0, 6, -4)
+scene.add(spotLight3)
+spotLight3.target.position.x = -group.position.x
+scene.add(spotLight3.target)
 /*
 
 // Helpers
@@ -210,9 +219,9 @@ window.addEventListener('resize', () => {
  */
 // Base camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-camera.position.x = 1
-camera.position.y = 1
-camera.position.z = 2
+camera.position.x = 0
+camera.position.y = 2
+camera.position.z = 1
 scene.add(camera)
 
 // Controls
@@ -271,6 +280,11 @@ function light1On() {
         delay: 0,
         intensity: 0
     })
+    gsap.to(spotLight3, {
+        duration: 1,
+        delay: 0,
+        intensity: 0
+    })
 }
 
 function light2On() {
@@ -284,10 +298,35 @@ function light2On() {
         delay: 0,
         intensity: 0
     })
+    gsap.to(spotLight3, {
+        duration: 1,
+        delay: 0,
+        intensity: 0
+    })
 }
+
+function light3On() {
+    gsap.to(spotLight3, {
+        duration: 1,
+        delay: 1,
+        intensity: 1
+    })
+    gsap.to(spotLight, {
+        duration: 1,
+        delay: 0,
+        intensity: 0
+    })
+    gsap.to(spotLight2, {
+        duration: 1,
+        delay: 0,
+        intensity: 0
+    })
+}
+
 var allLights = [
     light2On,
-    light1On
+    light1On,
+    light3On
 ]
 
 
