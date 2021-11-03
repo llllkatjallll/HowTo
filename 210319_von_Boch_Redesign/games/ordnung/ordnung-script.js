@@ -14,8 +14,8 @@ let ordnungGameOn = false;
 let counterLight = 0;
 let galleryOn = false;
 let counterModel = 0;
-let modelPaths = [ '../../monika-von-boch/models/smaller.gltf', '../../monika-von-boch/static/models/cups.gltf'];
-//let modelPaths = [ '../../models/smaller.gltf', '../../static/models/cups.gltf'];
+//let modelPaths = [ '../../monika-von-boch/models/smaller.gltf', '../../monika-von-boch/static/models/cups.gltf'];
+let modelPaths = [ '../../models/smaller.gltf', '../../static/models/cups.gltf'];
 /**HTML ELEMENTS */
 let galleryButton = document.getElementById("button-gallery");
 let gallery = document.getElementById("gallery");
@@ -47,8 +47,8 @@ const zoomRatio = 1.5;
  * Objects
  */
 // Material
-const material = new THREE.MeshStandardMaterial()
-material.roughness = 0.4
+const material = new THREE.MeshStandardMaterial({ color: 0x444444, dithering:false } )
+material.roughness = 0.8
 
 // Objects
 const plane = new THREE.Mesh(
@@ -56,6 +56,7 @@ const plane = new THREE.Mesh(
     material
 )
 plane.rotation.x = -Math.PI * 0.5
+plane.receiveShadow =true;
 plane.position.y = 0
 
 scene.add(plane)
@@ -106,6 +107,13 @@ function onLoad(gltf) {
     }
     model.position.set(0, 0, 0)
     model.scale.set(0.3, 0.3, 0.3)
+    model.traverse(n =>{
+        if(n.isMesh){
+            n.castShadow = true;
+            n.receiveShadow = true;
+            if(n.material.map) n.material.map.anisotropy = 16;
+        }
+    });
     scene.add(model);
     return model;
 };
@@ -145,17 +153,27 @@ rectAreaLight.lookAt(new THREE.Vector3())
 //scene.add(rectAreaLight) */
 
 // Spot light
-const spotLight = new THREE.SpotLight(0xffffff, 0, 20, Math.PI * 0.2, 0.65, 1)
+const spotLight = new THREE.SpotLight(0xffffff, 1, 20, Math.PI * 0.2, 0.65, 1)
 spotLight.position.set(0, 2, 3)
 scene.add(spotLight)
 spotLight.target.position.x = -0.75
+spotLight.castShadow = true;
+spotLight.shadow.bias = -0.0001;
+spotLight.shadow.mapSize.width = 1024*4;
+spotLight.shadow.mapSize.height = 1024*4;
+
 scene.add(spotLight.target)
 
 // Spot light
-const spotLight2 = new THREE.SpotLight(0xffffff, 1, 20, Math.PI * 0.2, 0.65, 1)
+const spotLight2 = new THREE.SpotLight(0xffffff, 1, 20, Math.PI * 0.2, 1, 1)
 spotLight2.position.set(0, 0, 7)
 scene.add(spotLight2)
 spotLight2.target.position.x = -group.position.x
+spotLight2.castShadow = true;
+spotLight2.shadow.bias = -0.0001;
+spotLight2.shadow.mapSize.width = 1024*4;
+spotLight2.shadow.mapSize.height = 1024*4;
+
 scene.add(spotLight2.target)
 
 
@@ -164,6 +182,11 @@ const spotLight3 = new THREE.SpotLight(0xffffff, 1, 20, Math.PI * 0.2, 0.65, 1)
 spotLight3.position.set(0, 6, -4)
 scene.add(spotLight3)
 spotLight3.target.position.x = -group.position.x
+spotLight3.castShadow = true;
+spotLight3.shadow.bias = -0.0001;
+spotLight3.shadow.mapSize.width = 1024*4;
+spotLight3.shadow.mapSize.height = 1024*4;
+
 scene.add(spotLight3.target)
 /*
 
@@ -242,8 +265,10 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(sizes.width, sizes.height)
 
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-
-
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.shadowMap.enabled = true;
+//renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.shadowMap.type = THREE.VSMShadowMap;
 /**
  * Animate
  */
