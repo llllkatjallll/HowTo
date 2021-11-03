@@ -150,6 +150,27 @@
     overflow: hidden;
 }
 
+#flash{
+  position:fixed;
+  background-color: white;
+  width: 100%;
+  height: calc(100% - 48px);
+  opacity: 0%;
+  pointer-events: none;
+}
+
+.flash-animation{
+  animation-name: showFlash;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes showFlash {
+  0%   {opacity: 0%;}
+  50% {opacity: 50%;}
+  100% {opacity: 0%;}
+}
+
 .down{
     top: 0 !important;
 }

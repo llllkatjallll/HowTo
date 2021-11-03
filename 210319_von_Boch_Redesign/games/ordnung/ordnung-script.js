@@ -15,11 +15,13 @@ let counterLight = 0;
 let galleryOn = false;
 let counterModel = 0;
 let modelPaths = [ '../../monika-von-boch/models/smaller.gltf', '../../monika-von-boch/static/models/cups.gltf'];
+//let modelPaths = [ '../../models/smaller.gltf', '../../static/models/cups.gltf'];
 /**HTML ELEMENTS */
 let galleryButton = document.getElementById("button-gallery");
 let gallery = document.getElementById("gallery");
 let affordance = document.getElementById("affordance");
 let backFromGalleryButton =document.getElementById("button-zurueck-from-gallery");
+let flash =document.getElementById("flash");
 // Debug
 //const gui = new dat.GUI()
 
@@ -447,4 +449,11 @@ document.getElementById("button-shoot").addEventListener("click", function () {
     imgFigure.appendChild(imgNode);
     document.getElementById("gallery-container").appendChild(imgFigure);
     //document.getElementById("gallery-container").appendChild(imgNode);
+
+    //show flash
+    
+    flash.classList.add("flash-animation")
+    setTimeout(function () {
+        flash.classList.remove("flash-animation")
+    }, 1200);
 });
