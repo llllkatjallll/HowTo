@@ -153,40 +153,43 @@ rectAreaLight.lookAt(new THREE.Vector3())
 //scene.add(rectAreaLight) */
 
 // Spot light
-const spotLight = new THREE.SpotLight(0xffffff, 1, 20, Math.PI * 0.2, 0.65, 1)
+const spotLight = new THREE.SpotLight(0xffffff, 0.1, 20, Math.PI * 0.2, 0.65, 2)
 spotLight.position.set(0, 2, 3)
 scene.add(spotLight)
 spotLight.target.position.x = -0.75
 spotLight.castShadow = true;
-spotLight.shadow.bias = -0.0001;
-spotLight.shadow.mapSize.width = 1024*4;
-spotLight.shadow.mapSize.height = 1024*4;
-
+spotLight.shadow.bias = -0.001;
+spotLight.shadow.mapSize.width = 1024*2;
+spotLight.shadow.mapSize.height = 1024*2;
+spotLight.shadow.focus = 1;
+spotLight.intensity =0.1;
 scene.add(spotLight.target)
 
 // Spot light
-const spotLight2 = new THREE.SpotLight(0xffffff, 1, 20, Math.PI * 0.2, 1, 1)
+const spotLight2 = new THREE.SpotLight(0xffffff, 0.1, 20, Math.PI * 0.2, 1, 2)
 spotLight2.position.set(0, 0, 7)
 scene.add(spotLight2)
 spotLight2.target.position.x = -group.position.x
 spotLight2.castShadow = true;
-spotLight2.shadow.bias = -0.0001;
-spotLight2.shadow.mapSize.width = 1024*4;
-spotLight2.shadow.mapSize.height = 1024*4;
-
+spotLight2.shadow.bias = -0.001;
+spotLight2.shadow.mapSize.width = 1024*2;
+spotLight2.shadow.mapSize.height = 1024*2;
+spotLight2.shadow.focus = 1;
+spotLight2.intensity =0.1;
 scene.add(spotLight2.target)
 
 
-const spotLight3 = new THREE.SpotLight(0xffffff, 1, 20, Math.PI * 0.2, 0.65, 1)
+const spotLight3 = new THREE.SpotLight(0xffffff, 0.1, 20, Math.PI * 0.2, 0.65, 2)
 //spotLight3.position.set(0, 1, -7)
 spotLight3.position.set(0, 6, -4)
 scene.add(spotLight3)
 spotLight3.target.position.x = -group.position.x
 spotLight3.castShadow = true;
-spotLight3.shadow.bias = -0.0001;
-spotLight3.shadow.mapSize.width = 1024*4;
-spotLight3.shadow.mapSize.height = 1024*4;
-
+spotLight3.shadow.bias = -0.001;
+spotLight3.shadow.mapSize.width = 1024*2;
+spotLight3.shadow.mapSize.height = 1024*2;
+spotLight3.shadow.focus = 1;
+spotLight3.intensity =0.1;
 scene.add(spotLight3.target)
 /*
 
@@ -267,8 +270,8 @@ renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.shadowMap.enabled = true;
-//renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-renderer.shadowMap.type = THREE.VSMShadowMap;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+//renderer.shadowMap.type = THREE.VSMShadowMap;
 /**
  * Animate
  */
