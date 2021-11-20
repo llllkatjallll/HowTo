@@ -376,6 +376,19 @@ button{
     border: 0;
     background: none;
   }
+
+  #image-count{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 0px;
+    background-color: white;
+    margin-left: 20px;
+    border-radius: 20px;
+    font-size: small;
+    text-align: center;
+    padding-top: 1px;
+  }
   
   #game-content{
     padding: 0 !important;

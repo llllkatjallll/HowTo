@@ -22,6 +22,7 @@ let gallery = document.getElementById("gallery");
 let affordance = document.getElementById("affordance");
 let backFromGalleryButton =document.getElementById("button-zurueck-from-gallery");
 let flash =document.getElementById("flash");
+let imageCount = 0;
 // Debug
 //const gui = new dat.GUI()
 
@@ -269,7 +270,7 @@ renderer.setSize(sizes.width, sizes.height)
 
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.shadowMap.enabled = true;
+//renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 //renderer.shadowMap.type = THREE.VSMShadowMap;
 /**
@@ -410,11 +411,13 @@ function showGallery() {
     gallery.style.visibility = "visible";
     gallery.classList.remove("gallery-animation-reverse");
     gallery.classList.add("gallery-animation");
+    document.getElementById("image-count").classList.add("disappear");
 }
 
 function hideGallery() {
     gallery.classList.remove("gallery-animation");
     gallery.classList.add("gallery-animation-reverse");
+    document.getElementById("image-count").classList.remove("disappear");
 }
 
 
@@ -457,7 +460,7 @@ function hideAffordance() {
 document.getElementById("button-shoot").addEventListener("click", function () {
     var imgData, imgNode, imgFigure;
     imgData = renderer.domElement.toDataURL();
-    console.log(imgData)
+    
     try {
         imgData = renderer.domElement.toDataURL();
         console.log(imgData);
@@ -479,9 +482,17 @@ document.getElementById("button-shoot").addEventListener("click", function () {
     //document.getElementById("gallery-container").appendChild(imgNode);
 
     //show flash
-    
     flash.classList.add("flash-animation")
     setTimeout(function () {
         flash.classList.remove("flash-animation")
     }, 1200);
+
+    // change image count
+    if(imageCount==0){
+        document.getElementById("image-count").classList.remove("disappear");
+    }
+    imageCount = imageCount+1;
+    document.getElementById("image-count").innerHTML =imageCount;
+
+
 });

@@ -51,6 +51,7 @@ function selectPhotoAction() {
         $('#button-download').removeClass('disappear');
         $('#button-shoot').removeClass('disappear');
         $('#button-gallery').removeClass('disappear');
+        $("#image-count").removeClass("disappear");
         $('#button-stamp').removeClass('disappear');
         $('#button-zurueck').removeClass('disappear');
         $('#game').css('background-color','rgba(30, 30, 30, 1)');
@@ -146,6 +147,7 @@ $('#button-weiter').click(function (){
                     $('#game-content').removeClass('disappear');
                     $('#gamebar').removeClass('disappear');
                     $('#button-gallery').removeClass('disappear');
+                    $("#image-count").removeClass("disappear");
                     $('#button-shoot').removeClass('disappear');
                     $('#button-intro').removeClass('disappear');
                     $('#button-wrapper-camera').addClass('dont-show');
@@ -161,6 +163,7 @@ $('#button-weiter').click(function (){
                 $('#button-camera').addClass('disappear');
                 $('#button-shoot').addClass('disappear');
                 $('#button-gallery').addClass('disappear');
+                $("#image-count").addClass("disappear");
                 $('#button-intro').addClass('disappear');
                 $('#button-download').addClass('disappear');
                 $('#button-stamp').addClass('disappear');
@@ -243,6 +246,7 @@ $('#button-zurueck').click(function (){
           console.log(idName);
          
             $('#button-gallery').addClass('disappear');
+            $("#image-count").addClass("disappear");
             $('#button-shoot').addClass('disappear');
             $('#button-intro').addClass('disappear');
             $('#button-camera').addClass('disappear');
@@ -288,6 +292,7 @@ $('#button-zurueck').click(function (){
                $('#button-download').removeClass('disappear');
                $('#button-shoot').removeClass('disappear');
                $('#button-gallery').removeClass('disappear');
+               $("#image-count").removeClass("disappear");
                $('#button-stamp').removeClass('disappear');
                $('#game').css('background-color','rgba(30, 30, 30, 1)');
                $('#information').css('pointer-events','none');
