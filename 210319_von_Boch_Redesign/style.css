@@ -474,6 +474,23 @@ div > img{
     animation: affordance-animation 12.7s infinite;
 }
 
+#selectedImage{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index:100;
+
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+opacity: 1; 
+    width: 80%;
+    max-width: 700px;
+  } 
+
 @keyframes affordance-animation {
     0% {
       left: 0;

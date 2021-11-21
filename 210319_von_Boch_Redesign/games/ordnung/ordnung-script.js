@@ -402,6 +402,7 @@ backFromGalleryButton.addEventListener("click", function () {
 
 /* IF GALLERY BUTTON CLICKED */
 galleryButton.addEventListener("click", function () {
+    updateGallery();
     showGallery();
     ordnungGameOn = false;
     
@@ -463,7 +464,7 @@ document.getElementById("button-shoot").addEventListener("click", function () {
     
     try {
         imgData = renderer.domElement.toDataURL();
-        console.log(imgData);
+        
     } catch (e) {
         console.log("Browser does not support taking screenshot of 3d context");
         // return;
@@ -494,5 +495,46 @@ document.getElementById("button-shoot").addEventListener("click", function () {
     imageCount = imageCount+1;
     document.getElementById("image-count").innerHTML =imageCount;
 
+    // create object in array
+
+   // var newItem = new Photo(imgFigure,imageCount);
+    
+    //allPhotosJs.push(newItem);
+    //imgFigure.addEventListener("click", newItem.selectPhoto(),false);
 
 });
+
+
+let allPhotos = undefined;
+let allPhotosJs = undefined;
+// collect all images
+function updateGallery(){
+    allPhotos = document.getElementsByClassName("gallery-frame");
+    for(i=0;i<allPhotos.length;i++){
+        allPhotos[i].addEventListener("click", event => {
+            doPhotos(event.target);
+          });
+        
+    }
+    
+}
+var modal = document.getElementById("selectedImage");
+var modalImg = document.getElementById("selectedImage-data");
+
+function doPhotos(ev){
+    //this.classList.add("dont-show")
+    var img = ev;
+   modal.classList.remove("dont-show");
+   modalImg.src = ev.src;
+    console.log(ev.src);
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementById("closeImageSelection");
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.classList.add("dont-show");
+}
+
+  

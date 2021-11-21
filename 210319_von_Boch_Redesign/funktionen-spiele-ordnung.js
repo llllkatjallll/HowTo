@@ -147,7 +147,10 @@ $('#button-weiter').click(function (){
                     $('#game-content').removeClass('disappear');
                     $('#gamebar').removeClass('disappear');
                     $('#button-gallery').removeClass('disappear');
-                    $("#image-count").removeClass("disappear");
+                    if($("#image-count").html() != "0"){
+                        $("#image-count").removeClass("disappear");
+                    }
+                    console.log($("#image-count").html());
                     $('#button-shoot').removeClass('disappear');
                     $('#button-intro').removeClass('disappear');
                     $('#button-wrapper-camera').addClass('dont-show');
