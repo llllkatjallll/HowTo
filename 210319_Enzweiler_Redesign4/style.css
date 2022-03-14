@@ -40,13 +40,45 @@ body{
     width: 100vw;
     overflow: hidden; 
     background-color: #6232FB;    
+    transition: 1s;
 }
 
 @media (pointer: fine) {
-    
+        
     section, div{
         display: none;
     }
+
+    #desktop{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    #desktop > p{
+        font-size: 1.3em;
+        padding: 2em;
+    }
+
+    #desktop > div > img{
+        height: 15vw;
+        padding:10px;
+        background-color:white;
+    }
+
+    #desktop > div{
+        display: block !important;
+        transition: 1s;
+    }
+
+    .opacity-zero{
+        opacity: 0;    
+    }
+    
 
 }
 

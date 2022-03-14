@@ -23,6 +23,7 @@ setTimeout(function(){
     $('#launch-image').css('top','-100vh');   
     $('body').css('background-color','#7822F0');
     $('#menue').removeClass('opacity-zero');
+    $('#qr-code').removeClass('opacity-zero');
 }, 1800);   
 
 setTimeout(function(){
