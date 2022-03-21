@@ -14,8 +14,8 @@ let ordnungGameOn = false;
 let counterLight = 0;
 let galleryOn = false;
 let counterModel = 0;
-//let modelPaths = [ '../../monika-von-boch/models/smaller.gltf', '../../monika-von-boch/static/models/cups.gltf'];
-let modelPaths = [ '../../models/smaller.gltf', '../../static/models/cups.gltf'];
+let modelPaths = [ '../../monika-von-boch/models/smaller.gltf', '../../monika-von-boch/static/models/cups.gltf'];
+//let modelPaths = [ '../../models/smaller.gltf', '../../static/models/cups.gltf'];
 /**HTML ELEMENTS */
 let galleryButton = document.getElementById("button-gallery");
 let gallery = document.getElementById("gallery");

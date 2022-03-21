@@ -170,7 +170,7 @@ let sketch = function (p) {
 
     //game BLECHSERIE
     if (document.getElementById("circle-container") != null) {
-      sliderCircleSize = p.createSlider(5, 24, 12);
+      sliderCircleSize = p.createSlider(5, 24, 24);
       sliderCircleSize.id('circle-range');
       sliderCircleSize.addClass('rotatedSlider');
       sliderCircleSize.parent('circle-container');

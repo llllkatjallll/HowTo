@@ -321,7 +321,23 @@ button{
     transition: opacity 0.25s ease-in-out;
   }
   
-
+.close{
+  position: absolute;
+  bottom: 20px;
+  left: calc(50% - 18px);
+  font-size: 20px;
+  width: 36px;
+  height: 36px;
+  background-color: #7822F0;
+  color: white;
+  border-radius: 40px;
+  vertical-align: middle;
+  display: table-cell;
+  text-align: center;
+  align-items: center;
+  padding-top: 4px;
+  box-sizing: border-box;
+}
   
   
   .image-button{
@@ -387,6 +403,8 @@ button{
     border-radius: 20px;
     font-size: small;
     text-align: center;
+    align-items: center;
+    vertical-align: middle;
     padding-top: 1px;
   }
   
@@ -550,8 +568,13 @@ button{
         z-index: 10000;
         width: calc(100vw - 32px);
         height: 90px;
-        padding-left: 1px !important
+        
     }
+    .gamebar-button-container {
+      
+      width: 60px;
+      height: 60px;
+  }
     
     #gamebar > .svg-wrapper{
         width: 60px;
@@ -608,6 +631,23 @@ button{
 
 #information, #introduction, #game{
         height: calc(100% - 82px);    
+}
+
+#image-count{
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  top: 0px;
+  background-color: white;
+  margin-left: 36px;
+  margin-top: 6px;
+  border-radius: 30px;
+  font-size: 17px;
+  text-align: center;
+  align-items: center;
+  vertical-align: middle;
+
+  padding-top: 1px;
 }
 
 }
