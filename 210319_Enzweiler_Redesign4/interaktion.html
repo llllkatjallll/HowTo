@@ -50,10 +50,10 @@
                 <div class="content-wrapper">
                     <p class="text-app-big">Richte dein Handy oder Tablet auf eine große ebene Fläche und warte bis die Spielfiguren erscheinen. Du kannst sie durch Anklicken einzeln bewegen und ihre Größe verändern indem Du zoomst.
                         <br><br><br>
-                        <model-viewer src="" ios-src="games/schach_spiel.reality" ar background-color="" alt="" exposure="1" shadow-intensity="1" camera-controls autoplay quick-look-browsers="safari chrome">
-                            <button id="" slot="ar-button" >
+                        <model-viewer src="games/cube.glb" ios-src="games/schach_spiel.reality" ar ar-modes="webxr scene-viewer quick-look" background-color="" alt="" exposure="1" shadow-intensity="1"  autoplay camera-target="1000m 1000m 0m">
+                           <button id="" slot="ar-button" >
                                 Spiel starten
-                            </button>
+                            </button> 
                         </model-viewer>
                        
                         
@@ -108,8 +108,9 @@
 
         </div> 
 
-        <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-        <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>        
+        
+        <script type="module" src="https://unpkg.com/@google/model-viewer@1.10.1/dist/model-viewer.min.js"></script>
+   
     </body>
 
 </html>
