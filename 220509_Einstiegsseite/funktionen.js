@@ -52,10 +52,13 @@ $(document).ready(function(){
         });
 
         //Slider element should have height with aspect ratio of 2.163
-        if ($(window).width() < 768) {
           var sliderImgWidth = $('.slick-slide > div > img').width();
           var sliderImgHeight = sliderImgWidth * 2.163;
           $('.slick-slide > div > img').height(sliderImgHeight);
-          }      
+
+
+/*          var tableCellWidth = $('table:first-child > tbody > tr:first-child > td:first-child').width();
+          $('.date').width(tableCellWidth);*/
+
 
 })

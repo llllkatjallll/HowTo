@@ -113,21 +113,12 @@ h1, h2{
 h3{
     text-align: left;
     font-weight: initial;
-}
-
-h3{
     font-family: NeueHaas;
     font-weight: initial;
     margin: 0;
 }
 
-h3{
-    font-family: NeueHaasMedium;
-    font-weight: initial;
-    margin: 0;
-}
-
-h3{
+h4{
     font-family: NeueHaas;
     font-weight: initial;
     margin: 0;
@@ -170,11 +161,6 @@ tr{
 
 td{
     margin: 0;
-    padding: 0;   
-}
-
-td:first-child{
-    width: calc(var(--distance--xxl) + 5vw);
 }
 
 /* background colors */
@@ -271,7 +257,7 @@ nav{
 #curtain-menu{
     position: fixed;
     top: 0;
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     padding: var(--distance--xl);
     z-index: 999999;
 
@@ -313,7 +299,7 @@ li{
 
 html,body{
     width: 100vw;
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     margin: 0;
     padding: 0;
     color: black;
@@ -817,7 +803,7 @@ li > a, .main-menu > a, li > a:visited, .main-menu > a:visited{
         letter-spacing: var(--letter-spacing);
     }
     
-    h3, h3{
+    h4{
         font-size: 22px;
         line-height: 28.6px;
         letter-spacing: var(--letter-spacing);
@@ -856,13 +842,13 @@ li > a, .main-menu > a, li > a:visited, .main-menu > a:visited{
 
     main{
         width: 100vw;
-        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
         overflow: hidden;
     }    
 
     .wrapper--rows{
         width: 100vw;
-        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
         scroll-snap-type: none;
         overflow: hidden;
     }
@@ -920,12 +906,12 @@ li > a, .main-menu > a, li > a:visited, .main-menu > a:visited{
     }
 
     .wrapper--game{
-        height: 100vh;
+        height: auto;
         flex-direction: column;
     }
 
     .wrapper--game > div{
-        padding: 15vw;
+        padding: 20vw;
     }
 
     .column > .image{
@@ -947,7 +933,10 @@ li > a, .main-menu > a, li > a:visited, .main-menu > a:visited{
         max-height: 60px;
     }
 
-    
+    .date{
+        width: 25vw;
+    }    
+
 
 }
 
@@ -995,7 +984,7 @@ li > a, .main-menu > a, li > a:visited, .main-menu > a:visited{
         letter-spacing: var(--letter-spacing);
     }
     
-    h3, h3{
+    h4{
         font-size: var(--font-size--l);
         line-height: var(--line-height--l);
         letter-spacing: var(--letter-spacing);
@@ -1030,14 +1019,14 @@ li > a, .main-menu > a, li > a:visited, .main-menu > a:visited{
 
     main{
         width: 100vw;
-        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
         overflow-y: scroll;
         overflow-x: hidden;
     }    
 
     .wrapper--rows{
         width: 100vw;
-        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
         scroll-snap-type: none;
     }
 
@@ -1117,12 +1106,12 @@ li > a, .main-menu > a, li > a:visited, .main-menu > a:visited{
     }
 
     .wrapper--game{
-        height: 100vh;
+        height: auto;
         flex-direction: column;
     }
 
     .wrapper--game > div{
-        padding: 15vw;
+        padding: 20vw;
     }
 
     #links{
@@ -1133,6 +1122,10 @@ li > a, .main-menu > a, li > a:visited, .main-menu > a:visited{
         width: calc(100vw / 3) !important;
         height: 100% !important;
     }
+
+    .date{
+        width: 15vw;
+    }    
 
 
 }
@@ -1176,6 +1169,12 @@ li > a, .main-menu > a, li > a:visited, .main-menu > a:visited{
         letter-spacing: var(--letter-spacing);
     }
     
+    h4{
+        font-size: var(--font-size--l);
+        line-height: var(--line-height--l);
+        letter-spacing: var(--letter-spacing);
+    }
+
     /* Navgation */
 
     #icon--hamburger-menu{
@@ -1225,29 +1224,29 @@ li > a, .main-menu > a, li > a:visited, .main-menu > a:visited{
 
     main{
         width: 100vw;
-        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
         overflow-y: scroll;
         overflow-x: hidden;
     }    
 
     .wrapper--rows{
         width: 100vw;
-        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
         scroll-snap-type: y mandatory;
     }
 
     .row{
-        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
         scroll-snap-align: start;
     }
 
     .wrapper--content{ 
         width: 100vw;
-        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
     }
 
     .wrapper--content--header > .column{
-        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
     }
 
     #claim{
@@ -1275,7 +1274,7 @@ li > a, .main-menu > a, li > a:visited, .main-menu > a:visited{
 
     .row--footer{
         width: 100vw !important;
-        height: 100vh !important;
+        height: calc(var(--vh, 1vh) * 100) !important;
     }
 
     .wrapper--footer{
@@ -1318,11 +1317,15 @@ li > a, .main-menu > a, li > a:visited, .main-menu > a:visited{
     }
 
     #image--how-to--header{
-        height: 100vh !important;
+        height: calc(var(--vh, 1vh) * 100) !important;
     }
 
     .wrapper--sponsors > img{
         max-height: 80px;
+    }    
+
+    .date{
+        width: 10vw;
     }    
 
 }
