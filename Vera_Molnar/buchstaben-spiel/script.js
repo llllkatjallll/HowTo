@@ -1,17 +1,19 @@
-var letterArray = [];
-var letterModule = (function(){
+
+
   // setup
 
   var grid = document.querySelector('.letter-grid');
   var gridWidth;
   var gridHeight;
+  var gridSize;
   var letterWidth = 30; // @todo: make this dynamic
   var letterHeight = 30; // @todo: make this dynamic
   var totalLetters;
-
+  var initials = [];
+  var letterArray = [];
   var currentLetters = 0;
   var resizeCount = 0;
-  var lettersInitialien = ["K","R"];
+  var lettersInitialien = ["A","R"];
   var inBool =true;
 
   // the unicode values that we want to loop through (A-Z)
@@ -54,6 +56,12 @@ var letterModule = (function(){
     }
     console.log('letterArray: '+letterArray, '\nletterArray.length: '+letterArray.length);
   }
+
+  function deleteLetters() {
+    letterArray = [];
+    console.log('letterArray: '+letterArray, '\nletterArray.length: '+letterArray.length);
+  }
+
 
   // a function to loop a given number of times (value), each time
   // appending a letter from the letter array to the grid
@@ -130,13 +138,16 @@ var letterModule = (function(){
   // ensure that resize isn't going nuts firing all this code constantly
 
   window.addEventListener('resize', _.debounce(onResize, 100));
-})();
+
 
 
 var slider = document.getElementById("myRange");
 var sliderRotation = document.getElementById("myRotation");
 var sliderSize = document.getElementById("mySize");
-var output = document.getElementById("demo");
+
+var sliderGrid = document.getElementById("gridSize");
+var colorLetter = document.getElementById("colorLetter");
+var colorBackground = document.getElementById("colorBackground");
 
 
 
@@ -147,6 +158,18 @@ slider.oninput = function() {
 
 }
 
+sliderGrid.oninput = function() {
+  
+  var spans = document.getElementById("myGrid").getElementsByTagName("span");
+
+  for(i=0;i<spans.length;i++)
+  {
+    spans[i].style.width=this.value +"px";
+    spans[i].style.height=this.value +"px";
+    spans[i].style.lineHeight=this.value +"px";
+  }
+}
+
 sliderSize.oninput = function() {
   var spans = document.getElementById("myGrid").getElementsByTagName("span");
 
@@ -154,8 +177,8 @@ sliderSize.oninput = function() {
   {
     spans[i].style.fontSize=this.value +"px"
   }
-
 }
+
 
 sliderRotation.oninput = function() {
 
@@ -168,7 +191,28 @@ for(i=0;i<spans.length;i++)
 
 }
 
+colorBackground.oninput = function() {
+  let input = document.getElementById("colorBackground").value;
+  document.getElementById("myGrid").style.backgroundColor=input;
+  }
+
+  colorLetter.oninput = function() {
+    let input = document.getElementById("colorLetter").value;
+    document.getElementById("myGrid").style.color=input;
+    }
+
 function readText() {
-  document.getElementById("initialien").value = "VM";
-  console.log(letterArray);
+  let input = document.getElementById("initialien").value;
+  lettersInitialien[0] = input[0];
+  lettersInitialien[1] = input[1];
+  console.log(lettersInitialien);
+  const myNode = document.getElementById("myGrid");
+  while (myNode.firstChild) {
+    myNode.removeChild(myNode.lastChild);
+  }
+  if (!myNode.firstChild){
+    letterArray = [];
+    init();
+  }
+  
 }
