@@ -22,15 +22,18 @@
     display: block;
     float: left;
     opacity: 1;
-    padding: 10px;
     text-transform: uppercase;
     transition: background-color .75s, color .75s, opacity .75s, transform .5s;
     user-select: none;
     visibility: visible;
-    width: 10px;
-    height: 10px;
+
     text-align: center;
     vertical-align: middle;
     line-height: 90px; 
     z-index: 10;
+  }
+
+  .letter-ops{
+    width: 40px;
+    height: 40px;
   }

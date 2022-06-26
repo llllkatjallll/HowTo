@@ -60,15 +60,16 @@ text-align: center;
 }
 
 .function-selection{
-  width:80px;
-  height:80px;
+  width:60px;
+  height:60px;
   text-align: center;
-  line-height: 80px;
+  line-height: 60px;
   background-color: white;
   border-color: #ffdddd;
   border-width: 2px;
   border-style: solid;
   border-radius: 10px;
+  font-size:11px;
 }
 
 .function{

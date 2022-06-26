@@ -42,7 +42,6 @@
   display: block;
   float: left;
   opacity: 0;
-  padding: 10px;
   text-transform: uppercase;
   transition: background-color .75s, color .75s, opacity .75s, transform .5s;
   user-select: none;
