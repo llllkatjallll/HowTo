@@ -219,6 +219,14 @@ function updateSize(){
   }
 }
 
+function updateRotation(){
+  collectInputData();
+  for (i = 0; i < spans.length; i++) {
+    sspans[i].style.transform = "rotate(" + rotationValue+ "deg)";
+  }
+}
+
+
 //Slider Letter size
 sliderSize.oninput = function () {
   updateSize();
