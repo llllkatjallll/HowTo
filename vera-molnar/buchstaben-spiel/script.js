@@ -23,6 +23,8 @@ var sliderGrid = document.getElementById("gridSize");
 var colorLetter = document.getElementById("colorLetter");
 var colorBackground = document.getElementById("colorBackground");
 var spans = document.getElementById("myGrid").getElementsByTagName("span");
+var saveButton = document.getElementById("saveButton");
+var containerGallery = document.getElementById("containerGallery");
 
 // the unicode values that we want to loop through (A-Z)
 // http://www.codingforums.com/showpost.php?s=ca38992f8716f43d325c12be6fc0198b&p=843844&postcount=3
@@ -103,6 +105,11 @@ function drawLetters(value) {
     span = document.createElement('span');
     span.appendChild(text);
     span.classList.add("letter-ops");
+
+    span.addEventListener('click', function () { 
+      console.log(this.innerHTML);
+      rotateLetter(this);
+    });
     grid.appendChild(span);
     count++;
 
@@ -181,14 +188,6 @@ slider.oninput = function () {
 //Slider Grid size
 sliderGrid.oninput = function () {
 
-  /*readText();
-  var spans = document.getElementById("myGrid").getElementsByTagName("span");
-  for (i = 0; i < spans.length; i++) {
-    spans[i].style.width = this.value + "px";
-    spans[i].style.height = this.value + "px";
-    spans[i].style.lineHeight = this.value + "px";
-  }*/
-
   deleteLetters();
   const myNode = document.getElementById("myGrid");
   while (myNode.firstChild) {
@@ -199,7 +198,10 @@ sliderGrid.oninput = function () {
     letterArray = [];
     init();
   }
+
+  updateEverything();
 }
+
 var gridValue = undefined;
 var rotationValue =  undefined;
 var sizeValue = undefined;
@@ -212,32 +214,26 @@ function collectInputData(){
    thiknessValue = slider.value;
 }
 
-function updateSize(){
-  collectInputData();
-  for (i = 0; i < spans.length; i++) {
-    spans[i].style.fontSize = sizeValue + "px"
-  }
+function rotateLetter(thisSpan){
+  thisSpan.style.transform += "rotate(" + 30 + "deg)";
 }
 
-function updateRotation(){
+function updateEverything(){
   collectInputData();
   for (i = 0; i < spans.length; i++) {
-    sspans[i].style.transform = "rotate(" + rotationValue+ "deg)";
+    spans[i].style.transform = "scale(" + sizeValue + ")";
+    spans[i].style.transform += "rotate(" + rotationValue+ "deg)";
   }
 }
-
 
 //Slider Letter size
 sliderSize.oninput = function () {
-  updateSize();
+  updateEverything();
 }
 
 //slider Rotation
 sliderRotation.oninput = function () {
- 
-  for (i = 0; i < spans.length; i++) {
-    spans[i].style.transform = "rotate(" + this.value + "deg)";
-  }
+  updateEverything();
 }
 
 // Slider color
@@ -250,6 +246,7 @@ colorBackground.oninput = function () {
 colorLetter.oninput = function () {
   let input = document.getElementById("colorLetter").value;
   document.getElementById("myGrid").style.color = input;
+ 
 }
 
 //is it being used?
@@ -270,4 +267,23 @@ function readText() {
     init();
   }
 
+  updateEverything();
+
 }
+
+saveButton.onclick = function () {
+
+  saveImage();
+}
+//Save Image
+function saveImage() {
+  html2canvas(document.querySelector("#myGrid")).then(canvas => {
+    canvas.classList.add("gallery-item");
+    containerGallery.appendChild(canvas);
+    //DOWNLOAD IMAGE
+    /*canvas.toBlob(function(blob) {
+      window.saveAs(blob, 'my_image.jpg');
+    }); */
+});
+}
+

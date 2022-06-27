@@ -4,6 +4,8 @@ let buttonSize = document.getElementById("buttonSize");
 let buttonGrid = document.getElementById("buttonGrid");
 let buttonInitials = document.getElementById("buttonInitials");
 let buttonColor = document.getElementById("buttonColor");
+let buttonEditor = document.getElementById("buttonEditor");
+let buttonGallery = document.getElementById("buttonGallery");
 
 buttonThikness.addEventListener("click", showFunction);
 buttonRotation.addEventListener("click", showFunction);
@@ -11,6 +13,8 @@ buttonSize.addEventListener("click", showFunction);
 buttonGrid.addEventListener("click", showFunction);
 buttonInitials.addEventListener("click", showFunction);
 buttonColor.addEventListener("click", showFunction);
+buttonEditor.addEventListener("click", changeMode);
+buttonGallery.addEventListener("click", changeMode);
 
 function showFunction() {
 let name = this.id.replace("button", "");
@@ -27,4 +31,18 @@ for (let i = 0; i < children.length; i++) {
         children[i].classList.remove("hidden");
     }
 } //end for
+}
+
+function changeMode(){
+    let name = this.id.replace("button", "");
+    let children = document.getElementById("all-content").children;
+
+    for (let i = 0; i < children.length; i++) {
+        let nameMode = children[i].id.replace("container", "");
+        children[i].classList.remove("hidden");
+        children[i].classList.add("hidden");
+        if (nameMode == name) {
+            children[i].classList.remove("hidden");
+        }
+    }
 }
