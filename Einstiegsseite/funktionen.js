@@ -30,7 +30,7 @@ $(document).ready(function(){
                     arrows: true,
                     focusOnSelect: true,
                     infinite: true,      
-                    slidesToShow: 2,
+                    slidesToShow: 1,
                     slidesToScroll: 1,
                 }
               }

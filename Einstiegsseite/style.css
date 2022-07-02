@@ -415,6 +415,11 @@ html,body{
 li > a, .main-menu > a, li > a:visited, .main-menu > a:visited{
     color: black;
     text-decoration: none;
+    transition: 250ms;
+}
+
+li > a:hover, .main-menu > a:hover{
+    color: grey;
 }
 
 .wrapper--slider{
@@ -458,8 +463,8 @@ li > a, .main-menu > a, li > a:visited, .main-menu > a:visited{
 
 .quote{
     color: white;
-    font-size: var(--font-size--l);
-    line-height: var(--line-height--l);
+    font-size: var(--font-size--m);
+    line-height: var(--line-height--m);
     padding: var(--distance--m);
     width: 100%;
     height: 100%;
@@ -563,6 +568,12 @@ li > a, .main-menu > a, li > a:visited, .main-menu > a:visited{
     padding: var(--distance--s) var(--distance--xl);
 }
 
+.impressum{
+    background-color: #3c3c3b;
+    color: white;
+    padding: var(--distance--l);
+}
+
 
 /* Behaviour*/
 
@@ -601,7 +612,7 @@ li > a, .main-menu > a, li > a:visited, .main-menu > a:visited{
 }
 
 #image--header--mvb{
-    background-image: url(img/1_0_header.png);
+    background-image: url(img/2_0_header.png);
 }
 
 #image--events{
@@ -687,7 +698,7 @@ li > a, .main-menu > a, li > a:visited, .main-menu > a:visited{
 }
 
 #image--spiel--rhythmus{
-    background-image: url(img/1_2_rendering.png);
+    background-image: url(img/1_1_rendering.png);
 }
 
 #image--spiel--interaktion{
@@ -761,8 +772,12 @@ li > a, .main-menu > a, li > a:visited, .main-menu > a:visited{
 
 .wrapper--sponsors > img{
     margin: 0 var(--distance--m) var(--distance--m) 0 ;    
-
 }    
+
+.logo-institut{
+    height: 120px !important; 
+    width: 72px !important;
+}
 
 
 
