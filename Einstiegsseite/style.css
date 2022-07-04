@@ -616,7 +616,9 @@ li > a:hover, .main-menu > a:hover{
 }
 
 #image--events{
-    background-image: url(img/0_events.png);
+    background-image: url(img/0_events.jpeg);
+    background-position: bottom !important;
+
 }
 
 #mockup--experiment{
