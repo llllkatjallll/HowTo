@@ -279,11 +279,16 @@ saveButton.onclick = function () {
 function saveImage() {
   html2canvas(document.querySelector("#myGrid")).then(canvas => {
     canvas.classList.add("gallery-item");
-    containerGallery.appendChild(canvas);
+    //containerGallery.appendChild(canvas);
+    containerGallery.insertBefore(canvas, containerGallery.firstChild);
+    let dataUrl = canvas.toDataURL("image/png");
+    setItem("s1", dataUrl);
     //DOWNLOAD IMAGE
     /*canvas.toBlob(function(blob) {
       window.saveAs(blob, 'my_image.jpg');
     }); */
 });
+
+  
 }
 
