@@ -24,7 +24,7 @@ var colorLetter = document.getElementById("colorLetter");
 var colorBackground = document.getElementById("colorBackground");
 var spans = document.getElementById("myGrid").getElementsByTagName("span");
 var saveButton = document.getElementById("saveButton");
-var containerGallery = document.getElementById("containerGallery");
+
 
 // the unicode values that we want to loop through (A-Z)
 // http://www.codingforums.com/showpost.php?s=ca38992f8716f43d325c12be6fc0198b&p=843844&postcount=3
@@ -271,24 +271,5 @@ function readText() {
 
 }
 
-saveButton.onclick = function () {
 
-  saveImage();
-}
-//Save Image
-function saveImage() {
-  html2canvas(document.querySelector("#myGrid")).then(canvas => {
-    canvas.classList.add("gallery-item");
-    //containerGallery.appendChild(canvas);
-    containerGallery.insertBefore(canvas, containerGallery.firstChild);
-    let dataUrl = canvas.toDataURL("image/png");
-    setItem("s1", dataUrl);
-    //DOWNLOAD IMAGE
-    /*canvas.toBlob(function(blob) {
-      window.saveAs(blob, 'my_image.jpg');
-    }); */
-});
-
-  
-}
 
