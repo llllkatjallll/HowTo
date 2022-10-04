@@ -188,22 +188,3 @@ let myp5 = new p5(sketch, 'game-content');
 
 
 
-saveButton.onclick = function () {
-
-    saveImage();
-  }
-  //Save Image
-  function saveImage() {
-    html2canvas(document.querySelector("#game-content")).then(canvas => {
-      canvas.classList.add("gallery-item");
-      //containerGallery.appendChild(canvas);
-      containerGallery.insertBefore(canvas, containerGallery.firstChild);
-      let dataUrl = canvas.toDataURL("image/png");
-      setItem("s1", dataUrl);
-      //DOWNLOAD IMAGE
-      /*canvas.toBlob(function(blob) {
-        window.saveAs(blob, 'my_image.jpg');
-      }); */
-  });
-  }
-
