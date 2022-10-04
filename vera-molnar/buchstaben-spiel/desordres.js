@@ -1,11 +1,20 @@
 var gameCanvas = document.getElementById("game-content");
+var colorToggle = document.getElementById("colorToggle");
+var rotationToggle = document.getElementById("rotationToggle");
+var exceptionToggle = document.getElementById("exceptionToggle");
+var strokeToggle = document.getElementById("strokeToggle");
+var sliderSize = document.getElementById("gridSize");
+var sliderDensity = document.getElementById("densitySize");
+var sliderSpacing = document.getElementById("spacingDensity");
 var canvas;
 let quads = [];
 let amount = 2;
 let length = undefined;
 let midLength = undefined;
 let spacing = 10;
-let density = 10;
+let density = 4;
+let exeption = 10;
+let quadSpacing = 12;
 let currentGameId = "desordires";
 let sketch = function (p) {
 
@@ -18,9 +27,13 @@ let sketch = function (p) {
     gameWidth = gameCanvas.clientWidth;
     gameHeight = gameCanvas.clientHeight;
     canvas = p.createCanvas(gameWidth, gameWidth);
-    p.background(240, 240, 240);
 
     p.drawGrid();
+    colorToggle.addEventListener('change', (event) => { p.inputEvent() });
+    rotationToggle.addEventListener('change', (event) => { p.inputEvent() });
+    strokeToggle.addEventListener('change', (event) => { p.inputEvent() });
+    exceptionToggle.addEventListener('change', (event) => { p.inputEvent() });
+
   }
 
 
@@ -29,9 +42,31 @@ let sketch = function (p) {
 
   }
 
+  p.inputEvent = function () {
+
+    p.drawGrid();
+  }
+
+  sliderSize.oninput = function () {
+    amount = sliderSize.value;
+    p.inputEvent();
+  }
+
+  sliderSpacing.oninput = function () {
+    quadSpacing = sliderSpacing.value;
+    p.inputEvent();
+  }
+
+  sliderDensity.oninput = function () {
+    density = sliderDensity.value;
+    p.inputEvent();
+  }
 
 
   p.drawGrid = function () {
+    //delete previous quads
+    quads = [];
+    p.background(240, 240, 240);
     //calculate quad size
     length = (gameWidth - 2 * spacing) / amount;
     midLength = length / 2;
@@ -39,7 +74,7 @@ let sketch = function (p) {
       for (var gridX = 0; gridX < amount; gridX++) {
         var posX = length * gridX + midLength + spacing;
         var posY = length * gridY + midLength + spacing;
-        quads.push(new Quad(posX, posY, 10));
+        quads.push(new Quad(posX, posY, exeption));
       }
     }
 
@@ -64,8 +99,14 @@ let sketch = function (p) {
 
     // Display the Points
     drawQuad() {
+
+      if(exceptionToggle.checked == false){
+        this.lineChangeProbability = 10000000000;
+      } else{
+        this.lineChangeProbability = 10;
+      }
       let quadSize = midLength - spacing;
-      let quadSpacing = 8;
+
       p.noFill();
       for (let i = 0; i < density; i++) {
         let lineRandomness = p.int(p.random(0, this.lineChangeProbability));
@@ -78,13 +119,17 @@ let sketch = function (p) {
           p.push();
           p.translate(this.pos.x, this.pos.y);
           let lineRandomness2 = p.int(p.random(0, this.lineChangeProbability));
-          
-          if (lineRandomness2 == 1) {
-            p.rotate(p.radians(p.int(p.random(-5, 5))))
+          if (rotationToggle.checked == true) {
+            if (lineRandomness2 == 1) {
+              p.rotate(p.radians(p.int(p.random(-15, 15))))
+            }
           }
-         // p.stroke(p.int(p.random(0, 255),p.int(p.random(0, 255)),p.int(p.random(0, 255))));
-         p.stroke(p.random(255,0), p.random(255,0), p.random(255,0));
-          p.strokeWeight(p.int(p.random(1, 5)));
+          if (colorToggle.checked == true) {
+            p.stroke(p.random(255, 0), p.random(255, 0), p.random(255, 0));
+          }
+          if (strokeToggle.checked == true) {
+            p.strokeWeight(p.int(p.random(1, 5)));
+          }
           p.quad(0 - quadHalf, 0 - quadHalf, 0 + quadHalf, 0 - quadHalf, 0 + quadHalf, 0 + quadHalf, 0 - quadHalf, 0 + quadHalf);
           p.pop();
 

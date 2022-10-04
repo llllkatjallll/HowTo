@@ -7,11 +7,11 @@ buttonGallery.addEventListener("click", changeMode);
 
 
 window.onload = function(){displayImagesfromStorage(currentGameId);
-//console.log("displayImagesfromStorage");};
+
 }
 
 function changeMode(){
-    console.log("click");
+    
     let name = this.id.replace("button", "");
     let children = document.getElementById("all-content").children;
 
@@ -108,10 +108,10 @@ function displayImagesfromStorage(gameId){
     
     for ( var i = 0, len = localStorage.length; i < len; ++i ) {
         let keyName = localStorage.key( i );
-        console.log("lokStorage Key:  " + keyName + "   GameID:  " + gameId);
+        //console.log("lokStorage Key:  " + keyName + "   GameID:  " + gameId);
         if (gameId.substring(0,3) == keyName.substring(0,3)) {
             //place to the gallery
-            console.log("Match");
+           
             var element = new Image();
             element.src = getItem(keyName);
             element.classList.add("gallery-item");
