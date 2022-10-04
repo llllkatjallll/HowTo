@@ -6,6 +6,7 @@ let length = undefined;
 let midLength = undefined;
 let spacing = 10;
 let density = 10;
+let currentGameId = "desordires";
 let sketch = function (p) {
 
   // p.preload = function () {

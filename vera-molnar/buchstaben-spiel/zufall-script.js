@@ -1,6 +1,6 @@
 var gameCanvas = document.getElementById("game-content");
 var canvas;
-
+let currentGameId = "zufall";
 let balls = [];
 
 let threshold = 5;

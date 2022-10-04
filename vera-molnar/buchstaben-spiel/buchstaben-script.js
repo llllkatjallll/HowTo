@@ -13,7 +13,7 @@ var currentLetters = 0;
 var resizeCount = 0;
 var lettersInitialien = ["A", "R"];
 var inBool = true;
-
+let currentGameId = "buchstaben";
 
 var slider = document.getElementById("myRange");
 var sliderRotation = document.getElementById("myRotation");
@@ -22,7 +22,7 @@ var sliderSize = document.getElementById("mySize");
 var sliderGrid = document.getElementById("gridSize");
 var colorLetter = document.getElementById("colorLetter");
 var colorBackground = document.getElementById("colorBackground");
-var spans = document.getElementById("myGrid").getElementsByTagName("span");
+var spans = document.getElementById("game-content").getElementsByTagName("span");
 var saveButton = document.getElementById("saveButton");
 
 
@@ -182,14 +182,14 @@ window.addEventListener('resize', _.debounce(onResize, 100));
 
 //Slider Thikness
 slider.oninput = function () {
-  document.getElementById("myGrid").style.fontWeight = this.value;
+  document.getElementById("game-content").style.fontWeight = this.value;
 }
 
 //Slider Grid size
 sliderGrid.oninput = function () {
 
   deleteLetters();
-  const myNode = document.getElementById("myGrid");
+  const myNode = document.getElementById("game-content");
   while (myNode.firstChild) {
     myNode.removeChild(myNode.lastChild);
   }
@@ -239,13 +239,13 @@ sliderRotation.oninput = function () {
 // Slider color
 colorBackground.oninput = function () {
   let input = document.getElementById("colorBackground").value;
-  document.getElementById("myGrid").style.backgroundColor = input;
+  document.getElementById("game-content").style.backgroundColor = input;
 }
 
 //Slider Letter
 colorLetter.oninput = function () {
   let input = document.getElementById("colorLetter").value;
-  document.getElementById("myGrid").style.color = input;
+  document.getElementById("game-content").style.color = input;
  
 }
 
@@ -257,7 +257,7 @@ function readText() {
   console.log("lettersInitialien" + lettersInitialien);
 
 
-  const myNode = document.getElementById("myGrid");
+  const myNode = document.getElementById("game-content");
   while (myNode.firstChild) {
     myNode.removeChild(myNode.lastChild);
   }

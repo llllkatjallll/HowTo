@@ -6,7 +6,7 @@ buttonEditor.addEventListener("click", changeMode);
 buttonGallery.addEventListener("click", changeMode);
 
 
-window.onload = function(){displayImagesfromStorage("s1");
+window.onload = function(){displayImagesfromStorage(currentGameId);
 //console.log("displayImagesfromStorage");};
 }
 
@@ -34,10 +34,10 @@ function setItem(gameKey, itemValue) {
         let jsonData = JSON.stringify({time: now, data: itemValue});
         let timestamp = Date.now() / 1000 | 0;
         let itemKey = gameKey + "-" + timestamp;
-        console.log(itemKey);
+        //console.log(itemKey);
         window.localStorage.setItem(itemKey, jsonData);
         let totalStorageItems = window.localStorage.length;
-        console.log(itemValue);
+       // console.log(itemValue);
 
         //check local storage memory
         var _lsTotal=0,_xLen,_x;for(_x in localStorage){ if(!localStorage.hasOwnProperty(_x)){continue;} _xLen= ((localStorage[_x].length + _x.length)* 2);_lsTotal+=_xLen; console.log(_x.substr(0,50)+" = "+ (_xLen/1024).toFixed(2)+" KB")};console.log("Total = " + (_lsTotal / 1024).toFixed(2) + " KB");
@@ -105,12 +105,13 @@ function countImagesGame(gameName){
 
 
 function displayImagesfromStorage(gameId){
-
+    
     for ( var i = 0, len = localStorage.length; i < len; ++i ) {
-        let keyName =localStorage.key( i );
-        if (gameId == keyName.substring(0,2)) {
+        let keyName = localStorage.key( i );
+        console.log("lokStorage Key:  " + keyName + "   GameID:  " + gameId);
+        if (gameId.substring(0,3) == keyName.substring(0,3)) {
             //place to the gallery
-            
+            console.log("Match");
             var element = new Image();
             element.src = getItem(keyName);
             element.classList.add("gallery-item");
@@ -133,7 +134,8 @@ saveButton.onclick = function () {
       //containerGallery.appendChild(canvas);
       containerGallery.insertBefore(canvas, containerGallery.firstChild);
       let dataUrl = canvas.toDataURL("image/png");
-      setItem("s1", dataUrl);
+      setItem(currentGameId, dataUrl);
+      
       //DOWNLOAD IMAGE
       /*canvas.toBlob(function(blob) {
         window.saveAs(blob, 'my_image.jpg');
