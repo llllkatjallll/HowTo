@@ -69,8 +69,9 @@ let sketch = function (p) {
 
     p.drawLine = function () {
 
-      p.background(235);
+     // p.background(235);
       p.noFill();
+      p.strokeWeight(0.7);
       p.beginShape();
       for (let i = 0; i < shapePoints.length; i++) {
         p.vertex(shapePoints[i].x, shapePoints[i].y);
@@ -82,10 +83,10 @@ let sketch = function (p) {
 let k = 1;
     p.createArt = function () {
     
-      if (p.millis() >= 2600+timer) {
+      if (p.frameCount%2 == 0) {
         k = k+1;
-        timer = p.millis();
-      }
+       
+      
 
 
       
@@ -95,12 +96,17 @@ let k = 1;
           //shapePoints[i].x + p.random(0 * k, 0 * k),
           //shapePoints[i].y + p.random(0 * k, 0 * k)
           shapePoints[i].x + 0,
-          shapePoints[i].y +  p.random(1 * k, 30 * k) 
+          shapePoints[i].y +  p.random(2.2*k ) 
         );
       }
         p.endShape();
+
+        if(k>= 200){
+          stop = true;
+        }
     
-    stop = true;
+      }
+    //
 
     }
 
@@ -109,6 +115,7 @@ let k = 1;
       stop = !true;
       shapePoints = [];
       p.background(235);
+      k=0;
     }
 
 
