@@ -18,10 +18,12 @@
     <script type="text/javascript" src="funktionen.js"></script>
     <script type="text/javascript" src="slick/slick.min.js"></script>
 
-    <!--p5 -->
-    <script src="games/p5/p5.min.js"></script>
-    <script src="games/p5/p5.sound.min.js"></script>
-    <script src="games/natur/natur.js"></script> 
+     <!--Game Specific-->
+     <script src="spiele/html2canvas.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
+     <!--p5 -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -30,12 +32,12 @@
     <meta name="author" content="Institut für Aktuelle Kunst Saarbrücken">
 
 </head>
+    <!-- <body onload="typeWriter()" > -->
+    <body>
 
-    <body onload="typeWriter()">
+        <div id="placeholder-wrapper" id="placeholder-wrapper">
 
-        <div id="placeholder-wrapper">
-
-            <div class="section-wrapper">
+            <div class="section-wrapper" id="section-wrapper">
 
                 <!-- Question -->
 
@@ -46,7 +48,7 @@
                             </div>
                         </div>
                         <div class="content-wrapper">
-                            <p id="question-content"></p>
+                            <p id="question-content">wie macht man das unsichtbare sichtbar ?</p>
                         </div>
                         <div class="button-icon" id="icon-down-dark">
                         </div>
@@ -82,15 +84,18 @@
                             </div>
                         </div>
                         <div id="game-wrapper" class="content-wrapper">
+                           
                         </div>
-                        <div class="game-buttons">
+                        <!--<div class="game-buttons">
+                            
+
                             <div class="game-button"><div class="button-icon" id="icon-glyphs-light"></div>Initialen</div>
                             <div class="game-button"><div class="button-icon" id="icon-grid-light"></div>Raster</div>
                             <div class="game-button"><div class="button-icon" id="icon-glyph-rotation-light"></div>Drehung</div>
                             <div class="game-button"><div class="button-icon" id="icon-contour-light"></div>Kontur</div>
                             <div class="game-button"><div class="button-icon" id="icon-colour-light"></div>Farbe</div>
                             <div class="game-button"><div class="button-icon" id="icon-mirror-light"></div>Spiegeln</div>
-                        </div>
+                        </div> -->
                         <div class="text-buttons">
                             <div class="text-button dark" style="background-color:black" id="button-neu"><div class="text-button-icon" id="icon-new-dark"></div>neu</div>
                             <div class="text-button dark" style="background-color:black" id="button-speichern"><div class="text-button-icon" id="icon-check-dark"></div>speichern</div>    
@@ -110,14 +115,8 @@
                             </div>
                         </div>
                         <div id="gallery-wrapper" class="content-wrapper">
-                            <div class="gallery-image"><div class="checkbox"></div></div>
-                            <div class="gallery-image"><div class="checkbox"></div></div>
-                            <div class="gallery-image"><div class="checkbox"></div></div>
-                            <div class="gallery-image"><div class="checkbox"></div></div>
-                            <div class="gallery-image"><div class="checkbox"></div></div>
-                            <div class="gallery-image"><div class="checkbox"></div></div>
-                            <div class="gallery-image"><div class="checkbox"></div></div>
-                            <div class="gallery-image"><div class="checkbox"></div></div>
+                           <!-- <div class="gallery-image"><div class="checkbox"></div></div> -->
+                    
                         </div>
                     </div>
                 </section>
@@ -191,6 +190,11 @@
             </ul>
         </nav>
     </div>
+
+
+     <!--Game Specific-->
+     <script src="spiele/landschaft.js"></script>
+     <script src="spiele/functions-all-games.js"></script>
 
     </body>
 

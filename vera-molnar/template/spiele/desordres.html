@@ -1,0 +1,124 @@
+<htmt>
+
+    <head>
+        <title>How To: Vera Molnar</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/template-style.css">
+        <!--<link rel="stylesheet" href="css/desordres-style.css">-->
+
+        <!--Game Specific-->
+        <script src="html2canvas.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
+        <!--p5 -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+
+
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div class="mode-container">
+                <div class="mode" id="buttonEditor">
+                    Editor
+                </div>
+                <div class="mode" id="buttonGallery">
+                    Gallery
+                </div>
+            </div>
+
+            <div id="all-content">
+
+                <div id="containerEditor">
+
+                    <div class="art-canvas">
+                        <div id="game-content" class="">
+                        </div>
+
+                    </div>
+
+                    <div class="game-toolbar">
+                        <div class="functions-container" id="functions-container">
+                            <div class="function " id="functionSize">
+                                <div class="label"> Größe</div>
+                                <input type="range" min="1" max="5" value="4" class="" id="gridSize">
+                            </div>
+
+                            <div class="function " id="functionSize">
+                                <div class="label"> Menge</div>
+                                <input type="range" min="1" max="20" value="4" class="" id="densitySize">
+                            </div>
+                            <div class="function " id="functionSize">
+                                <div class="label"> Abstand</div>
+                                <input type="range" min="1" max="20" value="3" class="" id="spacingDensity">
+                            </div>
+                        </div>
+                        <!-- Rounded switch -->
+                        <p style="display: inline-block; height:40px; vertical-align: middle;line-height: 40px; margin:0;">Farbe</p>
+                        <label class="switch">
+                            <input type="checkbox" id="colorToggle">
+                            <span class="slider round"></span>
+                        </label>
+
+                        <p style="display: inline-block; height:40px; vertical-align: middle;line-height: 40px; margin:0;">Rotation</p>
+                        <label class="switch">
+                            <input type="checkbox" id="rotationToggle">
+                            <span class="slider round"></span>
+                        </label>
+
+                        <p style="display: inline-block; height:40px; vertical-align: middle;line-height: 40px; margin:0;">Strichstärke</p>
+                        <label class="switch">
+                            <input type="checkbox" id="strokeToggle">
+                            <span class="slider round"></span>
+                        </label>
+
+                        <p style="display: inline-block; height:40px; vertical-align: middle;line-height: 40px; margin:0;">Abweichung</p>
+                        <label class="switch">
+                            <input type="checkbox" id="exceptionToggle">
+                            <span class="slider round"></span>
+                        </label>
+
+                    </div>
+
+                </div>
+
+                <div class="hidden" id="containerGallery">
+
+                </div>
+
+            </div>
+
+
+
+            <div class="toolbar">
+                <dix class="toolbar-button-container">
+
+                </dix>
+
+                <dix class="toolbar-button-container">
+
+                </dix>
+
+                <dix class="toolbar-button-container" id="saveButton">
+                    save
+                </dix>
+
+                <dix class="toolbar-button-container">
+
+                </dix>
+
+                <dix class="toolbar-button-container">
+
+                </dix>
+
+
+            </div>
+        </div>
+
+        <!--Game Specific-->
+        <script src="desordres.js"></script>
+        <script src="functions-all-games.js"></script>
+
+    </body>
+</htmt>

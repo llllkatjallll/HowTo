@@ -11,7 +11,8 @@
     height: 100vh;
     overflow: scroll;
     -webkit-overflow-scrolling: touch;
-    scroll-snap-type: y mandatory;
+    scroll-snap-type:  none;
+    /* scroll-snap-type: y mandatory; */
 }
 
 section{
@@ -112,9 +113,14 @@ section{
     height: calc(96vh - 6em);
 }
 
+#game-section > .section-content> .text-buttons{
+   margin-bottom:40px;
+}
+
 #game-wrapper{
-    height: 55vh;
-    background-color: grey;
+    
+    background-color: #ebebeb;
+    margin-bottom: 20vh;
 }
 
 /* Gallery */
@@ -144,8 +150,9 @@ section{
 }
 
 .gallery-image{
-    width: calc(50% - 0.5em);
-    aspect-ratio: 1 / 1 ;
+    position: relative;
+    width: calc(43.4vw - 0.5em)!important;
+    height: calc(43.4vw - 0.5em)!important;
 
     display: flex;
     justify-content: flex-end;
@@ -159,6 +166,8 @@ section{
 }
 
 .checkbox{
+    position: relative;
+    top:20px;
     height: 1.5em;
     width: 1.5em;
     margin: 0.75em;
@@ -187,4 +196,8 @@ section{
 #information-section > .section-content{
     min-height: calc(92vh - 6em);
     justify-content: flex-start !important;
+}
+
+.hideOverflow{
+    overflow:hidden!important;
 }
