@@ -1,0 +1,479 @@
+@font-face {
+    font-family: ABCGalapagosA;
+    src: url("fonts/ABCGalapagosAGrid-Bold.woff");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: NeueHaasUnica-Regular;
+    src: url("fonts/NeueHaasUnica-Regular.woff");
+}
+
+@font-face {
+    font-family: NeueHaasUnica-Medium;
+    src: url("fonts/NeueHaasUnica-Medium.woff");
+}
+
+@font-face {
+    font-family: NeueHaasUnica-MediumItalic;
+    src: url("fonts/NeueHaasUnica-MediumItalic.woff");
+    font-weight: 500;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: NeueHaasUnica-Regular;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1.4;
+    color: rgba(0, 0, 0, 0.8);
+    -webkit-overflow-scrolling: touch;
+    text-align: center;
+
+    --color-vm: #E6584D;
+}
+
+body{
+    height: calc(var(--vh, 1vh) * 100);
+    width: 100vw;
+    font-size: calc(1.5vw + 1vh);
+    overflow: hidden;
+
+    transition: 600ms;
+    background-color: var(--color-vm);
+}
+
+/* Startseite */
+
+#launch{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    transition: 600ms;
+
+    width: calc(100vw - 4em);
+    height: calc(100vh - 6em);
+    padding: 2em 2em 4em 2em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+
+    background-image: url('img/background-1.png');
+    background-size: cover;
+}
+
+#introduction{
+    width: calc(100vw - 8em);
+    height: calc(100vh - 8em);
+    padding: 4em;
+
+    top: 0;
+    transition: 600ms;
+    z-index: -100;
+    position: fixed;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    gap: 2em;
+
+    background-color: lightgrey;
+}
+
+#menu{
+    width: 100vw;
+    height: 100vh;
+
+    position: fixed;
+    overflow: scroll;
+    transition: 800ms;
+    z-index: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    background-color: #E6584D;
+}
+
+/* allgemeines Styling */
+
+.content-wrapper{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.fade{
+    opacity: 0;
+}
+
+.dont-show{
+    display: none !important;
+}
+
+
+/* Typografie */
+
+h1 {
+    font-family: ABCGalapagosA;
+    font-size: 2.8em;
+    margin-bottom: 20px !important;
+    line-height: 1.3em;
+    text-align: center;
+}
+
+h2{
+    font-size: 1.5em;
+    line-height: 1.25;
+}
+
+.text-big{
+    font-size: 1.3em;
+    font-family: NeueHaasUnica-Regular;
+}
+
+.text-small{
+    font-size: 1.1em;
+    font-family: NeueHaasUnica-Regular;
+    text-align: left;
+}
+
+figcaption{
+    text-align: left;
+    width: 100%;
+    font-size: 1em; 
+    display: flex;
+    justify-content: space-between;
+    margin: 1em 0 0 0;
+}
+
+figcaption > p{
+    text-align: left;
+    margin: 0 !important;
+}
+
+.quote{
+    font-size: 1.5em;
+    line-height: 1.25;
+}
+
+a{
+    text-decoration: underline !important;
+}
+
+.bold{
+    font-family: NeueHaasUnica-Medium !important;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color: inherit !important;
+}
+
+
+/* Menü */
+
+nav > ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 100%;
+    width: 100vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+nav > ul > li{
+    position: absolute;
+    z-index: 0;
+
+    height: calc(16.6666% - 3px);
+    width: 100vw;
+    font-size: 1.3em;
+    
+    display: inline-flex;
+    align-items: center;
+    text-align: left;
+    flex-direction: row;
+    justify-content: left;
+    border-bottom: solid 2px white;
+
+    color: white;
+    list-style: none;
+}
+
+#molnar{
+    top: 0;
+}
+
+#magic{
+    top: calc(16.6666% * 1);
+}
+
+#character{
+    top: calc(16.6666% * 2);
+}
+
+#red{
+    top: calc(16.6666% * 3);
+}
+
+#disorder{
+    top: calc(16.6666% * 4);
+}
+
+#trace{
+    top: calc(16.6667% * 5);
+}
+
+
+/* Buttons */
+
+.menu-icon{
+    height: 10vh;
+    width: 10vh;
+    margin: 0 1em 0 1.5em;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 99999;
+    transition: 300ms;
+}
+
+.button-bar{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.game-buttons{
+    display: flex;
+    flex-direction: row;
+    width: calc(100vw - 4em);
+    overflow: scroll;
+}
+
+.game-button{
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+}
+
+.text-buttons{
+    display: flex;
+    justify-content: center;
+    align-self: center !important ;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 1em;
+}
+
+.text-button{
+    display: flex;
+    flex-direction: row;
+    height: auto; 
+    width: auto;
+    font-size: 100%;
+    padding: 0.4em 0.6em 0.2em 0.6em;
+    background-color: rgb(0,0,0,0);
+    text-transform: uppercase;
+    border-radius: 0.4em;
+    transition: 300ms;
+}
+
+.text-button.light{
+    color: black;
+    border: black solid 0.09em;
+}
+
+.text-button.dark{
+    color: white;
+    border: white solid 0.09em;
+}
+
+.text-button-icon{
+    height: 1.3em;
+    width: 1.3em;
+    margin-right: 0.4em;
+}
+
+.button-icon{
+    height: 2.6em;
+    width: 2.6em;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 9999999;
+}
+
+
+/* ausstehend */
+
+.supporter-logos{
+    padding-bottom:1.5em;
+
+    width: auto;
+    height: auto;
+}
+
+div > img{
+    width: calc(100vw - 4em);
+    height: auto;
+    align-self: center;
+    
+}
+
+
+/* Zuweisung SVG zu Button */
+
+#icon-home-light{
+    background-image: url(svg/icon-home-light.svg);
+}
+
+#icon-home-dark{
+    background-image: url(svg/icon-home-dark.svg);
+}
+
+#icon-bulb-dark{
+    background-image: url(svg/icon-bulb-dark.svg);
+}
+
+#icon-bulb-light{
+    background-image: url(svg/icon-bulb-light.svg);
+}
+
+#icon-check-dark{
+    background-image: url(svg/icon-check-dark.svg);
+}
+
+#icon-check-light{
+    background-image: url(svg/icon-check-light.svg);
+}
+
+#icon-colour-light{
+    background-image: url(svg/icon-colour-light.svg);
+}
+
+#icon-contour-light{
+    background-image: url(svg/icon-contour-light.svg);
+}
+
+#icon-cross-dark{
+    background-image: url(svg/icon-cross-dark.svg);
+}
+
+#icon-cross-light{
+    background-image: url(svg/icon-cross-light.svg);
+}
+
+#icon-down-dark{
+    background-image: url(svg/icon-down-dark.svg);
+}
+
+#icon-down-light{
+    background-image: url(svg/icon-down-light.svg);
+}
+
+#icon-download-dark{
+    background-image: url(svg/icon-download-dark.svg);
+}
+
+#icon-download-light{
+    background-image: url(svg/icon-download-light.svg);
+}
+
+#icon-glyph-rotation-light{
+    background-image: url(svg/icon-glyph-rotation-light.svg);
+}
+
+#icon-glyphs-light{
+    background-image: url(svg/icon-glyphs-light.svg);
+}
+
+#icon-grid-amount-light{
+    background-image: url(svg/icon-grid-amount-lightk.svg);
+}
+
+#icon-grid-coincidence-light{
+    background-image: url(svg/icon-grid-coincidence-light.svg);
+}
+
+#icon-grid-gap-light{
+    background-image: url(svg/icon-grid-gap-light.svg);
+}
+
+#icon-grid-light{
+    background-image: url(svg/icon-grid-light.svg);
+}
+
+#icon-grid-size-light{
+    background-image: url(svg/icon-grid-size-light.svg);
+}
+
+#icon-mirror-light{
+    background-image: url(svg/icon-mirror-light.svg);
+}
+
+#icon-new-dark{
+    background-image: url(svg/icon-new-dark.svg);
+}
+
+#icon-new-light{
+    background-image: url(svg/icon-new-light.svg);
+}
+
+#icon-play-dark{
+    background-image: url(svg/icon-play-dark.svg);
+}
+
+#icon-play-light{
+    background-image: url(svg/icon-play-light.svg);
+}
+
+#icon-pause-dark{
+    background-image: url(svg/icon-pause-dark.svg);
+}
+
+#icon-pause-light{
+    background-image: url(svg/icon-pause-light.svg);
+}
+
+#icon-magic-dark{
+    background-image: url(svg/icon-magic-dark.svg);
+}
+
+#icon-character-dark{
+    background-image: url(svg/icon-character-dark.svg);
+}
+
+#icon-disorder-dark{
+    background-image: url(svg/icon-disorder-dark.svg);
+}
+
+#icon-trace-dark{
+    background-image: url(svg/icon-trace-dark.svg);
+}
+
+#icon-red-dark{
+    background-image: url(svg/icon-red-dark.svg);
+}
