@@ -18,7 +18,8 @@ $(document).ready(function (){
     // Audioplayer
 
     var audioElement = document.createElement('audio');
-    audioElement.setAttribute('src', 'audio/trace.mp3');
+    //KATJA: Habe es auskommentiert, damit es keine fehler wirft, bis wir audio eingebaut haben
+    //audioElement.setAttribute('src', 'audio/trace.mp3');
     
     $('#button-play').click(function() {
         audioElement.play();
