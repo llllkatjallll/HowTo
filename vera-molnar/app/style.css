@@ -226,7 +226,7 @@ nav > ul > li{
 }
 
 #magic{
-    top: calc(16.6666% * 1);
+    top: calc(16.6667% * 5); 
 }
 
 #character{
@@ -242,7 +242,7 @@ nav > ul > li{
 }
 
 #trace{
-    top: calc(16.6667% * 5);
+    top: calc(16.6666% * 1);
 }
 
 

@@ -111,7 +111,7 @@ let k = 1;
       }
         p.endShape();
 
-        if(k>= 200){
+        if(k>= 400){
           stop = true;
         }
     

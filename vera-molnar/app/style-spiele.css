@@ -121,6 +121,7 @@ section{
     
     background-color: #ebebeb;
     /*margin-bottom: 20vh;*/
+    overflow-y:hidden;
 }
 
 /* Gallery */
