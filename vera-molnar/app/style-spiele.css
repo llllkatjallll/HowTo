@@ -10,7 +10,7 @@
 
 .section-wrapper{
     position: relative;
-    height: 100vh;
+    height: 100%;
     overflow: scroll;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type:  none;
@@ -41,7 +41,7 @@ section{
 
 #placeholder{
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     background-color: rgba(0,0,0,0);
     right: 0;
 }
@@ -68,13 +68,13 @@ section{
 
 #question-section{
     top: 0;
-    height: 100vh;
+    height: 100%;
     background-color: var(--color-vm);
     color: white !important;
 }
 
 #question-section > .section-content{
-    height: calc(100vh - 6em);
+    height: calc(100% - 6em);
 }
 
 #question-content{
@@ -90,29 +90,29 @@ section{
 /* Quote */
 
 #quote-section{
-    height: 98vh;
-    top: 2vh;
+    height: 98%;
+    top: 2%;
 
     background-color: #F7E5E2;
     color: black !important;
 }
 
 #quote-section > .section-content{
-    height: calc(98vh - 6em);
+    height: calc(98% - 6em);
 }
 
 /* Game */
 
 #game-section{
-    top: 4vh;
-    height: 96vh;
+    top: 4%;
+    height: 96%;
 
     background-color: white !important;
     color: black;
 }
 
 #game-section > .section-content{
-    height: calc(96vh - 6em);
+    height: calc(96% - 6em);
 }
 
 #game-section > .section-content> .text-buttons{
@@ -122,26 +122,25 @@ section{
 #game-wrapper{
     
     background-color: #ebebeb;
-    /*margin-bottom: 20vh;*/
     overflow-y:hidden;
 }
 
 /* Gallery */
 
 #gallery-section{
-    top: 6vh;
-    height: 94vh;
+    top: 6%;
+    height: 94%;
 
     background-color:#434343;
     color: white;
 }
 
 #gallery-section > .section-content{
-    height: calc(94vh - 6em);
+    height: calc(94% - 6em);
 }
 
 #gallery-wrapper{
-    height: calc(94vh - 4em);
+    height: calc(94% - 4em);
 
     flex-wrap: wrap;
     flex-direction: row !important;
@@ -187,7 +186,7 @@ section{
 /* Information */
 
 #information-section{
-    top: 8vh;
+    top: 8%;
     min-height: auto;
 
     justify-content: flex-start !important;
@@ -197,7 +196,7 @@ section{
 }
 
 #information-section > .section-content{
-    min-height: calc(92vh - 6em);
+    min-height: calc(92% - 6em);
     justify-content: flex-start !important;
 }
 
