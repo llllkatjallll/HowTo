@@ -91,7 +91,7 @@ body{
 
 #menu{
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     height: calc(var(--vh, 1vh) * 100);
 
     position: fixed;
@@ -227,8 +227,8 @@ nav > ul > li{
     top: 0;
 }
 
-#magic{
-    top: calc(16.6667% * 5); 
+#trace{
+    top: calc(16.6666% * 1);
 }
 
 #character{
@@ -243,8 +243,8 @@ nav > ul > li{
     top: calc(16.6666% * 4);
 }
 
-#trace{
-    top: calc(16.6666% * 1);
+#magic{
+    top: calc(16.6667% * 5); 
 }
 
 
