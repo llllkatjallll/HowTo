@@ -36,6 +36,7 @@
 }
 
 body{
+    height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
     width: 100vw;
     font-size: calc(1.5vw + 1vh);
@@ -91,6 +92,7 @@ body{
 #menu{
     width: 100vw;
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
 
     position: fixed;
     overflow: scroll;

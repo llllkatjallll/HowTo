@@ -1,7 +1,7 @@
 // Frage einblenden mit Type Effect
 
 var i = 0;
-var txt = 'wie macht man das unsichtbare sichtbar ?';
+var txt = 'was siehst du? ?';
 var speed = 150;
 
 function typeWriter() {
