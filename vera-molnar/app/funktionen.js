@@ -66,7 +66,7 @@ $('#button-close').click(function() {
     $('#red').click(function (){   
         $('#menu').addClass('fade');
         setTimeout(function() {
-            window.location.href = 'trace.html';
+            window.location.href = 'red.html';
         }, 1200);
       });
     
