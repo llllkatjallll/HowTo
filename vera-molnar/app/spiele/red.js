@@ -1,5 +1,6 @@
 var gameCanvas = document.getElementById("game-wrapper");
 var restartButton = document.getElementById("button-neu");
+var iosButton = document.getElementById("button-ios");
 var canvas;
 let currentGameId = "red";
 let balls = [];
@@ -32,6 +33,8 @@ let sketch = function (p) {
           console.log("Restart");
           p.restart();
         });
+
+        
       }
 
         //IOS GYRO
@@ -43,9 +46,14 @@ let sketch = function (p) {
                 .catch(() => {
                     // show permission dialog only the first time
                     let button = p.createButton("click to allow access to sensors");
-                    button.style("font-size", "24px");
+                    button.style("z-index", "70000");
                     button.center();
                     button.mousePressed(p.requestAccess);
+
+                    iosButton.addEventListener('click', function () { 
+                      
+                      p.requestAccess();
+                    });
                     
                     //throw p.error;
                 })
@@ -79,7 +87,7 @@ let sketch = function (p) {
         for (let i = 0; i < balls.length; i++) {
           balls[i].x = balls[i].xStart;
           balls[i].y = balls[i].yStart;
-          balls[i].rotation = p.random(-0.1,0.1);
+          balls[i].rotation = p.random(-0,0);
     }
   }
 
@@ -133,7 +141,7 @@ let sketch = function (p) {
           this.yspeed = p.random(0);
           this.oxspeed = this.xspeed;
           this.oyspeed = this.yspeed;
-          this.rotation = p.random(-0.1,0.1);
+          this.rotation = p.random(-0,0);
           this.direction = 0.7;
         }
       
