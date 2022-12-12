@@ -73,7 +73,7 @@ $('#button-close').click(function() {
     $('#disorder').click(function (){   
         $('#menu').addClass('fade');
         setTimeout(function() {
-            window.location.href = 'trace.html';
+            window.location.href = 'disorder.html';
         }, 1200);
       });
     

@@ -1,4 +1,13 @@
-var gameCanvas = document.getElementById("game-content");
+var gameCanvas = document.getElementById("game-wrapper");
+var restartButton = document.getElementById("button-neu");
+
+//funtions UI zum ein/ausblenden
+var buttonGrid = document.getElementById("button-grid");
+var buttonCount = document.getElementById("button-count");
+var buttonDensity = document.getElementById("button-density");
+var buttonRandom = document.getElementById("button-random");
+var containerFunctions =document.getElementById("functions-container");
+
 var colorToggle = document.getElementById("colorToggle");
 var rotationToggle = document.getElementById("rotationToggle");
 var exceptionToggle = document.getElementById("exceptionToggle");
@@ -15,7 +24,7 @@ let spacing = 10;
 let density = 4;
 let exeption = 10;
 let quadSpacing = 12;
-let currentGameId = "desordires";
+let currentGameId = "desordres";
 let sketch = function (p) {
 
   // p.preload = function () {
@@ -34,6 +43,12 @@ let sketch = function (p) {
     strokeToggle.addEventListener('change', (event) => { p.inputEvent() });
     exceptionToggle.addEventListener('change', (event) => { p.inputEvent() });
 
+console.log(buttonGrid);
+    //add listeners for showing/hiding sliders and other ui
+    buttonGrid.addEventListener('click', (event) => { p.showSelectedFunction(buttonGrid) });
+    buttonCount.addEventListener('click', (event) => { p.showSelectedFunction(buttonCount) });
+    buttonDensity.addEventListener('click', (event) => { p.showSelectedFunction(buttonDensity) });
+    buttonRandom.addEventListener('click', (event) => { p.showSelectedFunction(buttonRandom) });
   }
 
 
@@ -45,6 +60,46 @@ let sketch = function (p) {
   p.inputEvent = function () {
 
     p.drawGrid();
+  }
+
+  p.showSelectedFunction = function (pressedButton) {
+    
+    let functionName = pressedButton.id.substring(7);
+    
+    var children = containerFunctions.children;
+        for (var i = 0; i < children.length; i++) {
+          var functionChild = children[i];
+          functionChild.classList.add("dont-show");
+          if (functionName == functionChild.id.substring(9)) {
+            functionChild.classList.remove("dont-show");
+          }
+          // klasse hinzufühen, die sichtbarkeit ausschaltet
+        }
+
+    switch (functionName) {
+      case 'grid':
+        console.log('grid');
+        //vorherige objekte ausschalten
+        
+        //objekt mit dem gleichen namen einblenden
+        break;
+       
+      case 'count':
+          console.log('count');
+          break;
+      
+      case 'density':
+        console.log('density');
+        // expected output: "Mangoes and papayas are $2.79 a pound."
+        break;
+      case 'random':
+          console.log('random');
+          break;  
+      default:
+        console.log(`Kein Button mit passender ID!`);
+    }
+
+    
   }
 
   sliderSize.oninput = function () {
@@ -143,5 +198,5 @@ let sketch = function (p) {
 
 }
 
-let myp5 = new p5(sketch, 'game-content');
+let myp5 = new p5(sketch, 'game-wrapper');
 
