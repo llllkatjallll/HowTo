@@ -10,11 +10,12 @@ var containerFunctions =document.getElementById("functions-container");
 
 var colorToggle = document.getElementById("colorToggle");
 var rotationToggle = document.getElementById("rotationToggle");
-var exceptionToggle = document.getElementById("exceptionToggle");
+var exceptionSlider = document.getElementById("exceptionSlider");
 var strokeToggle = document.getElementById("strokeToggle");
 var sliderSize = document.getElementById("gridSize");
 var sliderDensity = document.getElementById("densitySize");
 var sliderSpacing = document.getElementById("spacingDensity");
+var gameButtons = document.getElementById("game-buttons");
 var canvas;
 let quads = [];
 let amount = 2;
@@ -25,8 +26,9 @@ let density = 4;
 let exeption = 10;
 let quadSpacing = 12;
 let currentGameId = "desordres";
+let exceptionAmount = 0;
 let sketch = function (p) {
-
+let canvasSize = 0;
   // p.preload = function () {
 
   // }
@@ -35,20 +37,29 @@ let sketch = function (p) {
 
     gameWidth = gameCanvas.clientWidth;
     gameHeight = gameCanvas.clientHeight;
-    canvas = p.createCanvas(gameWidth, gameWidth);
+    
+    if(gameWidth >= gameHeight){
+      canvas = p.createCanvas(gameHeight, gameHeight);
+      canvasSize = gameHeight;
+    } else {
+      canvas = p.createCanvas(gameWidth, gameWidth);
+      canvasSize = gameWidth;
+    }
+    gameCanvas.setAttribute("style","height:100px!important");
 
     p.drawGrid();
-    colorToggle.addEventListener('change', (event) => { p.inputEvent() });
+   // colorToggle.addEventListener('change', (event) => { p.inputEvent() });
     rotationToggle.addEventListener('change', (event) => { p.inputEvent() });
     strokeToggle.addEventListener('change', (event) => { p.inputEvent() });
-    exceptionToggle.addEventListener('change', (event) => { p.inputEvent() });
+    
 
-console.log(buttonGrid);
+
     //add listeners for showing/hiding sliders and other ui
     buttonGrid.addEventListener('click', (event) => { p.showSelectedFunction(buttonGrid) });
     buttonCount.addEventListener('click', (event) => { p.showSelectedFunction(buttonCount) });
     buttonDensity.addEventListener('click', (event) => { p.showSelectedFunction(buttonDensity) });
     buttonRandom.addEventListener('click', (event) => { p.showSelectedFunction(buttonRandom) });
+    restartButton.addEventListener('click', (event) => { p.restart() });
   }
 
 
@@ -57,13 +68,55 @@ console.log(buttonGrid);
 
   }
 
+  p.restart = function () {
+
+    // reset raster
+    sliderSize.value = 2;
+    amount = 2;
+    sliderSize.style.setProperty('--value', 2);
+
+    // reset anzahl
+    sliderDensity.value = 4;
+    density = 4;
+    sliderDensity.style.setProperty('--value', 4);
+
+    // reset dichte
+    sliderSpacing.value = 8;
+    quadSpacing = 8;
+    sliderSpacing.style.setProperty('--value', 8);
+
+    //reset zufall
+    exceptionSlider.value = 1;
+    exceptionAmount = 30;
+    exceptionSlider.style.setProperty('--value', 1);
+    document.getElementById("strokeToggle").checked = false;
+    document.getElementById("rotationToggle").checked = false;
+
+    p.drawGrid();
+  }
+
   p.inputEvent = function () {
 
     p.drawGrid();
   }
 
   p.showSelectedFunction = function (pressedButton) {
-    
+    // set all buttons to inactive
+    var allButtons = gameButtons.children;
+    for (var i = 0; i < allButtons.length; i++) {
+      var button = allButtons[i];
+      button.classList.remove("selected-text");
+      button.classList.add("not-selected-text");
+      //change icon color
+      button.children[0].classList.remove("selected-icon");
+      button.children[0].classList.add("not-selected-icon");
+    }
+    pressedButton.classList.remove("not-selected-text");
+    pressedButton.classList.add("selected-text");
+    pressedButton.children[0].classList.remove("not-selected-icon");
+    pressedButton.children[0].classList.add("selected-icon");
+
+    //set pressedButton to active
     let functionName = pressedButton.id.substring(7);
     
     var children = containerFunctions.children;
@@ -107,6 +160,11 @@ console.log(buttonGrid);
     p.inputEvent();
   }
 
+  exceptionSlider.oninput = function () {
+    exceptionAmount = 31- exceptionSlider.value;
+    p.inputEvent();
+  }
+
   sliderSpacing.oninput = function () {
     quadSpacing = sliderSpacing.value;
     p.inputEvent();
@@ -119,11 +177,12 @@ console.log(buttonGrid);
 
 
   p.drawGrid = function () {
+    console.log("drawGrid");
     //delete previous quads
     quads = [];
     p.background(240, 240, 240);
     //calculate quad size
-    length = (gameWidth - 2 * spacing) / amount;
+    length = (canvasSize - 2 * spacing) / amount;
     midLength = length / 2;
     for (var gridY = 0; gridY < amount; gridY++) {
       for (var gridX = 0; gridX < amount; gridX++) {
@@ -155,11 +214,14 @@ console.log(buttonGrid);
     // Display the Points
     drawQuad() {
 
-      if(exceptionToggle.checked == false){
+      /*if(exceptionToggle.checked == false){
         this.lineChangeProbability = 10000000000;
       } else{
         this.lineChangeProbability = 10;
-      }
+      } */
+
+      this.lineChangeProbability = exceptionAmount;
+      
       let quadSize = midLength - spacing;
 
       p.noFill();
@@ -173,18 +235,22 @@ console.log(buttonGrid);
           }
           p.push();
           p.translate(this.pos.x, this.pos.y);
-          let lineRandomness2 = p.int(p.random(0, this.lineChangeProbability));
-          if (rotationToggle.checked == true) {
+
+          let lineRandomness2 = p.int(p.random(1, exceptionAmount));
+          
             if (lineRandomness2 == 1) {
-              p.rotate(p.radians(p.int(p.random(-15, 15))))
+              if (rotationToggle.checked == true) {
+              p.rotate(p.radians(p.int(p.random(-15, 15))));
+              }
+              if (strokeToggle.checked == true) {
+                p.strokeWeight(p.int(p.random(1,5)));
+              }
             }
-          }
-          if (colorToggle.checked == true) {
+          
+         /* if (colorToggle.checked == true) {
             p.stroke(p.random(255, 0), p.random(255, 0), p.random(255, 0));
-          }
-          if (strokeToggle.checked == true) {
-            p.strokeWeight(p.int(p.random(1, 5)));
-          }
+          } */
+          
           p.quad(0 - quadHalf, 0 - quadHalf, 0 + quadHalf, 0 - quadHalf, 0 + quadHalf, 0 + quadHalf, 0 - quadHalf, 0 + quadHalf);
           p.pop();
 

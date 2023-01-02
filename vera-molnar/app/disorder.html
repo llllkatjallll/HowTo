@@ -76,24 +76,25 @@
                 <!-- Game -->
 
                 <section id="game-section">
-                    <div class="section-content">
+                    <div class="section-content-game">
                         <div class="button-bar">
                             <div class="button-icon" id="icon-home-light">
                             </div>
                             <div class="button-icon" id="icon-bulb-light">
                             </div>
                         </div>
-                        <div id="game-wrapper" class="content-wrapper">
+                        <div id="game-wrapper" class="">
                            
                         </div>
 
+                       
 
-                        <div class="game-buttons">
+                        <div class="game-buttons" id="game-buttons">
                             
-                            <div class="game-button"  id="button-grid"><div class="button-icon" id="icon-grid-light"></div>Raster</div>
-                            <div class="game-button"  id="button-count"><div class="button-icon" id="icon-grid-size-light"></div>Anzahl</div>
-                             <div class="game-button" id="button-density"><div class="button-icon" id="icon-grid-gap-light"></div>Dichte</div>
-                             <div class="game-button" id="button-random"><div class="button-icon" id="icon-grid-coincidence-light"></div>Zufall</div>
+                            <div class="game-button selected-text"  id="button-grid"><div class="button-game-icon selected-icon" id="icon-grid-light"></div>Raster</div>
+                            <div class="game-button"  id="button-count"><div class="button-game-icon" id="icon-grid-size-light"></div>Anzahl</div>
+                             <div class="game-button" id="button-density"><div class="button-game-icon" id="icon-grid-gap-light"></div>Dichte</div>
+                             <div class="game-button" id="button-random"><div class="button-game-icon" id="icon-grid-coincidence-light"></div>Zufall</div>
                              <!--<div class="game-button"><div class="button-icon" id="icon-colour-light"></div>Farbe</div>
                              <div class="game-button"><div class="button-icon" id="icon-mirror-light"></div>Spiegeln</div> --> 
                         </div> 
@@ -101,55 +102,82 @@
                         <div class="game-functions">
                             <div class="functions-container" id="functions-container">
                                 <div class="function " id="function-grid">
-                                    <div class="label"> Größe</div>
-                                    <input type="range" min="1" max="5" value="4" class="" id="gridSize">
+                                    <input type="range" min="1" max="5" value="2" class="range-slider slider-progress" id="gridSize">
+                                    <div class="game-checkboxes" style="display: flex; justify-content: space-around; opacity: 0;">
+                                        <div style="text-align: center;">
+                                            <label for="checkbox"></label><br>
+                                            <input type="checkbox" class="checkbox-round" id="">
+                                        </div>
+                                    </div>
                                 </div>
     
-                                <div class="function " id="function-count">
-                                    <div class="label"> Menge</div>
-                                    <input type="range" min="1" max="20" value="4" class="" id="densitySize">
+                                <div class="function dont-show" id="function-count">
+                                    <input type="range" min="1" max="20" value="4" class="range-slider slider-progress" id="densitySize">
+                                    <div class="game-checkboxes" style="display: flex; justify-content: space-around; opacity: 0;">
+                                        <div style="text-align: center;">
+                                            <label for="checkbox"></label><br>
+                                            <input type="checkbox" class="checkbox-round" id="">
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="function " id="function-density">
-                                    <div class="label"> Abstand</div>
-                                    <input type="range" min="1" max="20" value="3" class="" id="spacingDensity">
+                                <div class="function dont-show" id="function-density">
+                                    <input type="range" min="1" max="20" value="3" class="range-slider slider-progress" id="spacingDensity">
+                                    <div class="game-checkboxes" style="display: flex; justify-content: space-around; opacity: 0;">
+                                        <div style="text-align: center;">
+                                            <label for="checkbox"></label><br>
+                                            <input type="checkbox" class="checkbox-round" id="">
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div class="function " id="function-random">
-                                    <p style="display: inline-block; height:40px; vertical-align: middle;line-height: 40px; margin:0;">Farbe</p>
-                            <label class="switch">
-                                <input type="checkbox" id="colorToggle">
+                                <div class="function dont-show" id="function-random">
+
+                                    <div class="function " >
+                                        <input type="range" min="1" max="30" value="4" class="range-slider slider-progress" id="exceptionSlider">
+                                       <!-- <div class="label"> Raster</div>-->
+                                    </div> 
                                 
-                            </label>
+                                    <div class="game-checkboxes" style="display: flex; justify-content: space-around;">
+                                        <div style="text-align: center;">
+                                            <label for="checkbox">ROTATION</label><br>
+                                            <input type="checkbox" class="checkbox-round" id="rotationToggle" checked>
+                                        </div>
+                                
+                                        <div style="text-align: center;">
+                                            <label for="checkbox">STRICHSTÄRKE</label><br>
+                                            <input type="checkbox" class="checkbox-round" id="strokeToggle">
+                                        </div>
+                                
+                                    </div>
+
+                                 <!--   <p style="display: inline-block; height:40px; vertical-align: middle;line-height: 40px; margin:0;">Farbe</p>
+                                         <label class="switch">
+                                         <input type="checkbox" id="colorToggle">
+                                
+                                        </label>  -->
     
-                            <p style="display: inline-block; height:40px; vertical-align: middle;line-height: 40px; margin:0;">Rotation</p>
-                            <label class="switch">
-                                <input type="checkbox" id="rotationToggle">
-                                
-                            </label>
+                                                  
     
-                            <p style="display: inline-block; height:40px; vertical-align: middle;line-height: 40px; margin:0;">Strichstärke</p>
+                           <!--<p style="display: inline-block; height:40px; vertical-align: middle;line-height: 40px; margin:0;">Abweichung</p>
                             <label class="switch">
-                                <input type="checkbox" id="strokeToggle">
-                                
-                            </label>
-    
-                            <p style="display: inline-block; height:40px; vertical-align: middle;line-height: 40px; margin:0;">Abweichung</p>
-                            <label class="switch">
-                                <input type="checkbox" id="exceptionToggle">
-                                
-                            </label> 
+                                <input type="checkbox" id="exceptionToggle">  
+                            </label>  -->
+
+
                                 </div>
                             </div >
-                            <!-- Rounded switch -->
+                            
                             
                             
                         </div>
-                        
 
                         <div class="text-buttons">
                             <div class="text-button dark" style="background-color:black" id="button-neu"><div class="text-button-icon" id="icon-new-dark"></div>neu</div>
                             <div class="text-button dark" style="background-color:black" id="button-speichern"><div class="text-button-icon" id="icon-check-dark"></div>speichern</div>    
                         </div>
+                        
+
+                       
                     </div>
                 </section>
 
@@ -261,6 +289,7 @@
 
 
      <!--Game Specific-->
+     <script src="spiele/range-input.js"></script>
      <script src="spiele/disorder.js"></script>
      <script src="spiele/functions-all-games.js"></script>
 
