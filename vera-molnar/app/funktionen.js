@@ -52,14 +52,14 @@ $('#button-close').click(function() {
     $('#magic').click(function (){   
         $('#menu').addClass('fade');
         setTimeout(function() {
-            window.location.href = 'trace.html';
+            window.location.href = 'magic.html';
         }, 1200);
       });
     
     $('#character').click(function (){   
         $('#menu').addClass('fade');
         setTimeout(function() {
-            window.location.href = 'trace.html';
+            window.location.href = 'character.html';
         }, 1200);
       });
     
