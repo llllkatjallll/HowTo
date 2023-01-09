@@ -1,6 +1,6 @@
 var gameCanvas = document.getElementById("game-wrapper");
 var restartButton = document.getElementById("button-neu");
-var sectionWrapper = document.getElementById("section-wrapper");
+var sectionWrapper = document.getElementById("section-wrapper-touch");
 var placeholderWrapper = document.getElementById("placeholder-wrapper");
 var canvas;
 let balls = [];
@@ -54,6 +54,7 @@ let sketch = function (p) {
 
     p.process_touchstart = function () {
       sectionWrapper.classList.add("hideOverflow");
+     //  sectionWrapper.classList.add("scroll-snap");
       placeholderWrapper.classList.add("hideOverflow");
       p.restart();
       if(startMode){
@@ -73,6 +74,7 @@ let sketch = function (p) {
 
     p.process_touchend = function () {
      sectionWrapper.classList.remove("hideOverflow");
+    // sectionWrapper.classList.remove("scroll-snap");
      placeholderWrapper.classList.remove("hideOverflow");
       startMode = !startMode;
     }
