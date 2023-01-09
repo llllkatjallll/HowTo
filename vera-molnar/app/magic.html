@@ -13,9 +13,8 @@
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>    
-    <script type="text/javascript" src="funktionen-trace.js"></script>
-    <script type="text/javascript" src="funktionen-spiele.js"></script>
-    <script type="text/javascript" src="funktionen.js"></script>
+    <script type="text/javascript" src="functions-games.js"></script>
+    <script type="text/javascript" src="functions-magic.js"></script>
     <script type="text/javascript" src="slick/slick.min.js"></script>
 
      <!--Game Specific-->
@@ -34,185 +33,191 @@
 </head>
     <!-- <body onload="typeWriter()" > -->
    
-    <body>  
-        <div id="placeholder-wrapper" id="placeholder-wrapper">
+    <body>    
+        
+        <div class="section-wrapper">
 
-            <div class="section-wrapper" id="section-wrapper">
+            <!-- Question -->
 
-                <!-- Question -->
-
-                <section id="question-section" class="fade">
-                    <div class="section-content">
-                        <div class="button-bar">
-                            <div class="button-icon" id="icon-home-dark">
+            <section id="question-section" style="background-color: #c3302a; z-index:60;">
+                <div class="section-content section-dark">
+                    <div class="header">
+                        <div class="button-icon" id="icon-magic-dark">
                             </div>
-                        </div>
-                        <div class="content-wrapper">
-                            <p id="question-content">was siehst du ?</p>
-                        </div>
-                        <div class="button-icon" id="icon-down-dark">
+                        <h2>Magie</h2>
+                        <div class="dropdown-menu">
+                            <div class="button-icon" id="icon-menu-dark">
+                                </div>
                         </div>
                     </div>
-                </section>
+                    <div class="content-wrapper">
+                        <p id="question-content">gibt es<br>regeln für<br>magie ?</p>
+                    </div>
+                </div>
+            </section>    
 
-                <!-- Quote -->
 
-                <section id="quote-section">
-                    <div class="section-content">
-                        <div class="button-bar">
-                            <div class="button-icon" id="icon-home-light">
+            <!-- Quote -->
+
+            <section id="quote-section" style="background-color: #fc6454; z-index:61;">
+                <div class="section-content section-dark">
+                    <div class="header">
+                        <div class="button-icon">
                             </div>
-                        </div>
-                        <div class="content-wrapper">
-                            <div class="quote">»Eine Linie wie ein Lebenslauf.«</div>
-                            <img src="img/Vera_Molnar_portrait.png" style="border-radius: 3em; height: 6em; width: 6em;"> 
-                            <p>Vera Molnar in:<br>»Solo d’un trait noir<br>(Solo für eine schwarze Linie)«<br>6. November 1994 im Zug</p>
-                        </div>
-                        <div class="button-icon" id="icon-down-light">
+                        <div class="dropdown-menu">
+                            <div class="button-icon" id="icon-menu-dark">
+                                </div>
                         </div>
                     </div>
-                </section>
-
-                <!-- Game -->
-
-                <section id="game-section">
-                    <div class="section-content">
-                        <div class="button-bar">
-                            <div class="button-icon" id="icon-home-light">
-                            </div>
-                            <div class="button-icon" id="icon-bulb-light">
-                            </div>
-                        </div>
-                        <div id="game-wrapper" class="content-wrapper">
-                           
-                        </div>
-                        <div class="game-buttons">
-                            
-
-                            <!-- <div class="game-button"><div class="button-icon" id="icon-glyphs-light"></div>Anhalten</div>
-                           <div class="game-button"><div class="button-icon" id="icon-grid-light"></div>Raster</div>
-                            <div class="game-button"><div class="button-icon" id="icon-glyph-rotation-light"></div>Drehung</div>
-                            <div class="game-button"><div class="button-icon" id="icon-contour-light"></div>Kontur</div>
-                            <div class="game-button"><div class="button-icon" id="icon-colour-light"></div>Farbe</div>
-                            <div class="game-button"><div class="button-icon" id="icon-mirror-light"></div>Spiegeln</div>  -->
-                        </div> 
-                        <div class="text-buttons">
-                            <div class="text-button dark" style="background-color:black" id="button-neu"><div class="text-button-icon" id="icon-new-dark"></div>neu</div>
-                            <div class="text-button dark" style="background-color:black" id="button-speichern"><div class="text-button-icon" id="icon-check-dark"></div>speichern</div>    
-                        </div>
+                    <div class="content-wrapper">
+                        <p>ZITAT</p>
+                        <div class="quote">»Der Prozess dieser Arbeit von 1948 bis heute zeigt ein langsames Abgleiten in meiner Entwicklung als Künstlerin: Ich komme aus einer fast religiösen Welt und finde mich wieder in einer fast wissenschaftlichen Welt.«</div>
+                        <p>Vera Molnar in einem Interview mit Vincent Baby. Paris 2022</p>
                     </div>
-                </section>
-
-                <!-- Gallery -->
-
-                <section id="gallery-section">
-                    <div class="section-content">
-                        <div class="button-bar">
-                            <div class="button-icon" id="icon-home-dark">
-                            </div>
-                            <div class="text-buttons" style="padding-right: 0.5em">
-                                <div class="text-button dark" id="button-download"><div class="text-button-icon" id="icon-download-dark"></div>herunterladen</div>
-                            </div>
-                        </div>
-                        <div id="gallery-wrapper" class="content-wrapper">
-                           <!-- <div class="gallery-image"><div class="checkbox"></div></div> -->
-                    
-                        </div>
-                    </div>
-                </section>
-
-                 <!-- Information -->
-
-                <section id="information-section">
-                    <div class="section-content">
-                        <div class="button-bar">
-                            <div class="button-icon" id="icon-home-light">
-                            </div>
-                            <h2>Das Werk</h2>
-                        </div>
-                        <div class="content-wrapper" style="height: auto">
-                            <div class="slider">
-                                <div><img src="img/spur_1_1.jpg">
-                                    <figcaption><p>1/5&nbsp;&nbsp;–&nbsp;&nbsp;Vera Molnar, Serie Mont Sainte-Victoire, Laserdruck, Edition 7, 1989-96, Courtesy the artist and DAM.org (<a href="https://www.flickr.com/photos/_dam/13892290225/in/dateposted/">Quelle</a>)</p></figcaption>
-                                </div>
-                                <div><img src="img/spur_1_2.jpg">
-                                    <figcaption><p>2/5&nbsp;&nbsp;–&nbsp;&nbsp;Vera Molnar, Variations Sainte-Victoire, 1989 - 1996, Editon 7, Serie N° 1, Digitaldruck (<a href="https://dam.org/museum/artists_ui/artists/molnar-vera/sainte-victoire/">Quelle</a>)</p></figcaption>
-                                </div>
-                                <div><img src="img/spur_1_3.jpg">
-                                    <figcaption><p>3/5&nbsp;&nbsp;–&nbsp;&nbsp;Vera Molnar, Variations Sainte-Victoire, 1989 - 1996, Editon 7, Serie N° 4, Digitaldruck (<a href="https://dam.org/museum/artists_ui/artists/molnar-vera/sainte-victoire/">Quelle</a>)</p></figcaption>
-                                </div>
-                                <div><img src="img/spur_1_5.jpg">
-                                    <figcaption><p>4/5&nbsp;&nbsp;–&nbsp;&nbsp;Vera Molnar, Variations Sainte-Victoire, 1989 - 1996, Editon 7, Serie N° 8, Digitaldruck (<a href="https://dam.org/museum/artists_ui/artists/molnar-vera/sainte-victoire/">Quelle</a>)</p></figcaption>
-                                </div>
-                                <div><img src="img/spur_1_6.jpg">
-                                    <figcaption><p>5/5&nbsp;&nbsp;–&nbsp;&nbsp;Vera Molnar, Variations Sainte-Victoire, 1989 - 1996, Editon 7, Serie N° 10, Digitaldruck (<a href="https://dam.org/museum/artists_ui/artists/molnar-vera/sainte-victoire/">Quelle</a>)</p></figcaption>
-                                </div>
-                            </div>
-                            <p class="text-small bold dont-show">Platzhaltertext</p>
-                            <audio><source src=""> </audio>
-                            <div class="text-buttons" style="align-self: center !important;">
-                                <div class="text-button dark" style="background-color: black" id="button-play"><div class="text-button-icon" id="icon-play-dark"></div>Vorlesen</div>
-                                <div class="text-button dark dont-show fade" style="background-color: black" id="button-pause"><div class="text-button-icon" id="icon-pause-dark"></div>Anhalten</div>
-                                <div class="text-button light dont-show" id="button-continue">Weiterlesen</div>
-                            </div>
-                        </div>
-                        <div id="further-text" class="content-wrapper" style="margin-bottom: 4em">
-                            <div class="quote" style="margin-top: 1em">»Das erste Mal, dass ich einen Mont Sainte-Victoire von Cézanne sah, war es auf einer Reproduktion in Budapest. Viel später, in den Vereinigten Staaten entdeckte ich in einem Buch die Kurve, die von Gauß, dem berühmten Mathematiker, beschrieben worden war. Ich machte ganz viele Zeichnungen davon, die mir gestohlen wurden. Ich war empört. Ich wollte nichts mehr von Gauß wissen. 10 oder 15 Jahre später war ich eines Morgens in Aix und was sah ich, als ich aus dem Fenster blickte? Die Kurve von Gauß: Es war der Mont Sainte-Victoire.«</div>
-                            <div>
-                                <img src="img/spur_1_7.jpg"> 
-                                <figcaption style="margin-top: 0.2em"><p>Normalverteilungskurve nach Carl Friedrich Gauß (1777-1855)</p></figcaption>
-                            </div>
-                            <div>
-                                <img src="img/spur_1_8.jpg"> 
-                                <figcaption style="margin-top: 0.2em"><p>Paul Cézanne, Montagne Saint-Victoire, 1887/88, Öl auf Leinwand, 81 x 100,5 cm</p></figcaption>
-                            </div>
-                            <p class="text-small">Der Maler Paul Cézanne (1839-1906), von dem Vera Molnar hier spricht, stammte aus Aix en Provence und malte den Mont Sainte Victoire über viele Jahre hinweg immer wieder.  In der Wiederholung des immer gleichen Motivs versucht er der „Logik des Sehens“, die für ihn in der Gleichzeitigkeit von Sinneseindruck, Empfindung und Gedanken begründet liegt, auf die Spur zu kommen. Vera Molnar zitiert Cézanne, der viel über seine Malerei nachgedacht und geschrieben hat und über den sie als Studentin ihre Abschlussarbeit schreibt, gern mit dem Satz „Der Künstler ist kein Dummkopf“. Auch für sie ist das Sehen eine Form des Denkens, das seiner eigenen Logik folgt. Und obwohl die Kurve von Gauß (Carl Friedrich Gauß 1777-1855) und der Mont Sainte-Victoire eigentlich nichts miteinander zu tun haben, sind sie über das Sehen, ihre formale Ähnlichkeit miteinander verknüpft. 
-                                <br><br>
-                                Der Mont Sainte-Victoire erscheint Vera Molnar an diesem Morgen wie die Kurve von Gauß, aber mit Einsprengseln von Unordnung. Weil sie keinen Bleistift zur Hand hat, reißt sie ein Stück Papier, um die Form festzuhalten. „Ich habe den Mont Sainte-Victoire auf alle möglichen Arten gemacht, gerissen, geschnitten, mit allen möglichen Sorten von Papier.“ Sie hat ihn auch gezeichnet, gefaltet und gestickt. Besonders interessant ist eine Serie von Computerzeichnungen, die den Bezug zu Gauß nochmal ganz direkt herstellt. Ein Graph in der Mathematik wird durch Koordinaten bestimmt. Dabei ist jedem Punkt auf einer Linie ein bestimmter Wert zugeordnet. Auch die Silhouette des Mont Sainte-Victoire, die Vera Molnar nach ihrem Erlebnis in Aix mit dem Computer umsetzt, wird durch die Koordinaten von 28 einzeln festgelegten Punkten erzeugt, die durch Linien miteinander verbunden sind. Blatt für Blatt variiert sie die Lage der Punkte zunächst nur ganz leicht, dann nach dem Zufallsprinzip  immer stärker nach unten. Aus unzähligen sich überlagernden Linien entsteht schließlich eine undurchdringliche schwarze Fläche, eine Anhäufung aus Linien und Punkten, ein Berg, ein Massiv. Für eine Linie gibt es in der Sprache Vera Molnars viele Wörter, wie etwa Zug, Riss oder Spur – eine Spur, die jemand oder etwas hinterlässt, die vielleicht auf etwas hinführt oder hinweist oder einfach nur sie selbst ist. Vera Molnar sagt auf ihre unvergleichlich humorvolle Art, sie könne nicht wissen, was andere Leute sehen, sie sehe den Mont Sainte-Victoire überall. Was siehst Du?</p>
-                        </div>
-                        <div class="text-button light" style="border:none; position: absolute; bottom: 2.5em;"><div class="text-button-icon" id="icon-down-light"></div>Zur Spiele-Übersicht</div>
-                        </div>         
-                    </div>
-                </section>
+                </div>
+                <div class="bar"></div>
+            </section>       
+            
 
             <!-- Introduction -->
 
-            <div id="introduction" class="fade">
-                <div class="content-wrapper">
-                    <p class="text-small" style="text-align: center;">Suche Dir einen Baum oder mehrere Bäume und betrachte genau, wie sie gewachsen sind oder zueinander stehen. Mache ein Foto und bearbeite es.</p>
+            <section id="introduction-section" style="background-color: #ff9681; z-index:62;">
+                <div class="section-content section-light">
+                    <div class="header">
+                        <div class="button-icon">
+                            </div>
+                        <div class="dropdown-menu">
+                            <div class="button-icon" id="icon-menu-light">
+                                </div>
+                        </div>
+                    </div>
+                    <div class="content-wrapper">
+                        <p>SPIELANLEITUNG</p>
+                        <div class="quote">Zeichne mit dem Finger eine Zickzack-Linie von links nach rechts und speichere dir die Ergebnisse. Du kannst ein Bild auch während des Prozess speichern.</div>
+                    </div>
                 </div>
-                <div class="text-buttons">
-                    <div class="text-button dark" style="background-color: black; border: none" id="button-close"><div class="text-button-icon" id="icon-check-dark"></div>verstanden</div>
-                </div>
-            </div>
-    
-        <!-- Placeholder -->
+                <div class="bar"></div>
+            </section>                      
 
-        <div id="placeholder">
+
+            <!-- Game -->
+
+            <section id="game-section" style="background-color:white; z-index:63;">
+                <div class="section-content section-light">
+                    <div class="header">
+                        <div class="button-icon">
+                            </div>
+                        <div class="dropdown-menu">
+                            <div class="button-icon" id="icon-menu-light">
+                                </div>
+                        </div>
+                    </div>
+                    <div id="game-wrapper" class="content-wrapper">
+                            
+                    </div>
+                    <div class="game-buttons">
+                        
+                        <!-- <div class="game-button"><div class="button-icon" id="icon-glyphs-light"></div>Anhalten</div>
+                    <div class="game-button"><div class="button-icon" id="icon-grid-light"></div>Raster</div>
+                        <div class="game-button"><div class="button-icon" id="icon-glyph-rotation-light"></div>Drehung</div>
+                        <div class="game-button"><div class="button-icon" id="icon-contour-light"></div>Kontur</div>
+                        <div class="game-button"><div class="button-icon" id="icon-colour-light"></div>Farbe</div>
+                        <div class="game-button"><div class="button-icon" id="icon-mirror-light"></div>Spiegeln</div>  -->
+                    </div> 
+                    <div class="text-buttons">
+                        <div class="text-button dark" style="background-color:black" id="button-neu"><div class="text-button-icon" id="icon-new-dark"></div>neu</div>
+                        <div class="text-button dark" style="background-color:black" id="button-speichern"><div class="text-button-icon" id="icon-check-dark"></div>speichern</div>    
+                    </div>
+                </div>
+                <div class="bar"></div>
+            </section>    
+            
+
+            <!-- Gallery -->
+
+            <section id="gallery-section" style="background-color: #434343; z-index:64;">
+                <div class="section-content section-dark">
+                    <div class="header">
+                        <div class="button-icon">
+                            </div>
+                        <div class="text-buttons" style="padding-right: 0.5em">
+                            <div class="text-button dark" id="button-download"><div class="text-button-icon" id="icon-download-dark"></div>herunterladen</div>
+                        </div>
+                        <div class="dropdown-menu">
+                            <div class="button-icon" id="icon-menu-dark">
+                                </div>
+                        </div>
+                    </div>
+                    <div id="gallery-wrapper" class="content-wrapper">
+                        <!-- <div class="gallery-image"><div class="checkbox"></div></div> -->
+                    </div>
+                </div>
+                <div class="bar"></div>
+            </section>             
+
+
+                    <!-- Information -->
+
+                    <section id="information-section" style="background-color: white; z-index:65;">
+                        <div class="section-content section-light">
+                            <div class="header">
+                                <div class="button-icon">
+                                </div>
+                                <h2>Hommage à Dürer</h2>
+                                <div class="dropdown-menu">
+                                    <div class="button-icon" id="icon-menu-light">
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="content-wrapper" style="justify-content: flex-start;">
+                                <div class="slider">
+                                    <div><img src="img/magic_5_1.jpg">
+                                        <figcaption><p>1/4&nbsp;&nbsp;–&nbsp;&nbsp;Vera Molnar, <span class="italic">Hommage à Dürer</span>, 1948, Chinatusche auf Karton, 8,5 x 8,5 cm</p></figcaption>
+                                    </div>
+                                    <div><img src="img/magic_5_2.jpg">
+                                        <figcaption><p>2/4&nbsp;&nbsp;–&nbsp;&nbsp;Vera Molnar, <span class="italic">Hommage à Dürer</span>, 400 Variationen, 1990, Computergraphik, 30 x 30 cm (<a href="https://digitalartmuseum.org/gallery/image/8748.html">Quelle</a>)</p></figcaption>
+                                    </div>
+                                    <div><img src="img/magic_5_3.jpg">
+                                        <figcaption><p>3/4&nbsp;&nbsp;–&nbsp;&nbsp;Vera Molnar, <span class="italic">Hommage à Dürer</span>, 400 Nadeln, mit einem Faden verbunden, 1989/2004 , Acryl auf unbehandeltem Baumwollstoff, Stecknadeln, etwa 40 m Garn 1 mal verknotet, 84 x 84 cm (<a href="https://digitalartmuseum.org/gallery/image/8748.html">Quelle</a>)</p></figcaption>
+                                    </div>
+                                    <div><img src="img/magic_5_4.jpg">
+                                        <figcaption><p>4/4&nbsp;&nbsp;–&nbsp;&nbsp;Vera Molnar, <span class="italic">Hommage à Dürer</span>, 1992, Plotterzeichnung, Tusche auf Papier, 31 × 9 cm</p></figcaption>
+                                    </div>
+                                    </div>
+                                <audio><source src=""> </audio>
+                                <div class="text-buttons" style="align-self: center !important;">
+                                    <div class="text-button dark" style="background-color: black" id="button-play"><div class="text-button-icon" id="icon-play-dark"></div>Vorlesen</div>
+                                    <div class="text-button dark dont-show fade" style="background-color: black" id="button-pause"><div class="text-button-icon" id="icon-pause-dark"></div>Anhalten</div>
+                                </div>
+                                <p class="text-small">Ein Jahr, nachdem sie ihr Studium der klassischen Malerei in Budapest beendet hat, macht Vera Molnar eine Zeichnung, die sie ihr ganzes Leben lang beschäftigen wird.</p>
+                                <div class="quote">»1948, als ich noch am Anfang meines nicht-figurativen, geometrischen Malabenteuers war, bemerkte ich an einem Kupferstich Albrecht Dürers, an <span class="italic">Melencolia I</span> rechts oben in der Ecke eine Zifferntabelle, ein magisches Quadrat. In diesem Quadrat aus 4 x 4 Feldern werden die Zahlen von 1 bis 16 so eingetragen, dass ihre Summe in den Senkrechten, den Waagerechten oder den Diagonalen stets 34 ist. Und interessanterweise stehen in der Mitte der untersten Zeile die Zahlen 15 und 14. 1514, das Jahr, in dem Dürer <span class="italic">Melencolia I</span> geschaffen hat. Diese Konfiguration hat mich sehr angezogen, ich vermutete darin ein verborgenes Gesetz, eine geheime Regel, die man auf die Kunst anwenden könnte.«</div>
+                                <div>
+                                    <img src="img/magic_5_5.jpg"> 
+                                    <figcaption style="margin-top: 0.2em"><p>Albrecht Dürer, <span class="italic">Melencolia I</span>, 1514, Kupferstich, 24,2 × 19,1 cm</p></figcaption>
+                                </div>
+                                <div>
+                                    <img src="img/magic_5_6.jpg"> 
+                                    <figcaption style="margin-top: 0.2em"><p>Albrecht Dürer, Detail aus <span class="italic">Melencolia I</span>, 1514</p></figcaption>
+                                </div>
+                                <p class="text-small">Vera Molnar verbindet die Zahlen des Quadrats ihrer Reihenfolge nach von 1 bis 16 mit einer Tuschezeichnung. In seiner eigentümlichen Symmetrie erscheint ihr das Ergebnis so perfekt und schön, dass sie das Bild sofort mit einem Passepartout versieht und rahmt, was sie sonst nie tut. Sie nennt es <span class="italic">Hommage à Dürer</span> (Huldigung an Dürer). In <span class="italic">Melencolia I</span> geht es um die Vieldeutigkeit des Sichtbaren, Formen der Erkenntnis und die Verflechtung von Wissenschaft und Kunst. Es gibt darin zahlreiche Verweise auf Mathematik und Geometrie, aber auch auf Phänomene wie Zeit, Licht, Horizont und Perspektive. Auch Vera Molnar versteht sich als Künstler-Wissenschaftlerin. </p>
+                                <div class="quote">»Es dauerte aber jahrelang, bis ich allmählich akzeptierte, dass die Schönheit eines visuellen Kunstwerkes nicht von dem streng-mechanisch angewandten, geometrisch-logischen Aufbau kommt«.</div>
+                                <p class="text-small">Jahre später, als sie das inzwischen vergilbte Bild im Keller wiederentdeckt, nimmt sie sich vor, die Zeichnung weiter zu erforschen und zu befragen. Diese Magie, denkt sie, ist einfach zu stark, um nur eine einzige Zeichnung hervorzubringen. Vera Molnar sagt, sie habe viele magische Quadrate ausprobiert, aber keines erschien ihr je so schön, wie das von Dürer. So beginnt sie zunächst von Hand die Zahlen nach anderen Regeln zu verbinden, um schließlich diese Ordnung ganz aufzugeben und mit Hilfe des Computers unzählige zufällige Varianten durchzuspielen. Die Ergebnisse faszinieren sie, weil sie oft vollkommen unerwartet sind. Trotz der Unregelmäßigkeit, der Unordnung und der oft wilden Anmutung dieser Zeichnungen meint sie, die Schönheit der Dürer Zeichnung darin enthalten zu sehen, nur versteckt, unterschwellig, kaum wahrnehmbar. Sie entwickelt aus den Motiven unter anderem riesige Wandzeichnungen mit Nägeln und Faden. In den 1990er Jahren kommt sie auf ihre Ursprungszeichnung zurück und variiert die Position der Punkte, was zu einer spannenden Überlagerung von Linien und proportionalen Verzerrungen führt. </p>
+                                <div class="quote">»Die Ordnung«, sagt Vera Molnar, »ist ja nur ein ganz spezieller Fall der Unordnung«.</div>
+                                <p class="text-small">In der Serie Hommage à Dürer zeigt sich, wie aus Ordnung Unordnung und aus Unordnung Ordnung entsteht. Und es zeigt sich, dass Magie über alle Regeln hinaus wirksam ist.<br><br>
+                                VERWENDETE UND ZITIERTE LITERATUR<br>
+                                <a href="https://de.wikipedia.org/wiki/Melencolia_I" target="_blank">https://de.wikipedia.org/wiki/Melencolia_I</a><br>
+                                <a href="https://de.wikipedia.org/wiki/Magisches_Quadrat" target="_blank">https://de.wikipedia.org/wiki/Magisches_Quadrat</a><br>
+                                Vera Molnár. Entretien avec Vincent Baby. Paris 2022<br>
+                                Vera Molnar: <span class="italic">Hommage à Dürer</span> (1948-1992). In: Vera Molnár. <span class="italic">Entretien avec Vincent Baby.</span> Paris 2022<br>
+                                </p>
+                                <div class="text-buttons">
+                                    <div id="back-to-menu" class="text-button light">Hauptmenü</div>
+                                </div>         
+                            </div>
+                        </div>
+                        <div class="bar"></div>
+                    </section>
         </div>
-
-    </div>
-
-    <!-- Menu -->
-
-    <div id="menu-game" class="fade">
-        <nav>
-            <ul>
-                <li id="molnar"><div class="menu-icon"></div>VERA MOLNAR</li>
-                <li id="trace" ><div class="menu-icon" id="icon-trace-dark"></div>SPUR</li> 
-                <li id="character"><div class="menu-icon" id="icon-character-dark"></div>SCHRIFTZEICHEN</li>
-                <li id="red"><div class="menu-icon" id="icon-red-dark"></div>ROT</li>
-                <li id="disorder" ><div class="menu-icon" id="icon-disorder-dark"></div>(UN)ORDNUNG</li>
-                <li id="magic" style="border-bottom: none !important;"><div class="menu-icon" id="icon-magic-dark"></div>MAGISCHES QUADRAT</li>                              
-                              
-            </ul>
-        </nav>
-    </div>
-
-
-     <!--Game Specific-->
-     <script src="spiele/magic.js"></script>
-     <script src="spiele/functions-all-games.js"></script>
 
     </body>
 

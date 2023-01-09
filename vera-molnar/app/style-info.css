@@ -1,0 +1,381 @@
+/* Layout */
+
+.section-wrapper{
+  transition: 1s ease-in-out;
+  position: relative;
+  height: 100vh;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scroll-snap{
+  scroll-snap-type: y mandatory;
+}
+
+section{
+  position: sticky;
+  overflow: scroll;
+
+  scroll-snap-align: start;
+/*  scroll-snap-stop: normal;*/
+
+  transition: 600ms ease-in-out;
+}
+
+/*.remove-sticky{
+  position: absolute !important;
+}*/
+
+/* Question -> mehr unter style.css, da bereits Anzeige in menu.html*/
+
+#question-section{
+  top: 2em;
+}
+
+/* Quote */
+
+#quote-section{
+  top: 2.8em;
+}
+
+#quote-section > .section-content{
+    height: calc(98% - 6em);
+}
+
+/* Introduction */
+
+#introduction-section{
+  top: 3.6em;
+}
+
+
+/* Game */
+
+#game-section{
+    top: 4.4em;
+
+    background-color: white !important;
+    color: black;
+}
+
+#game-section > .section-content{
+    height: calc(96% - 6em);
+}
+
+#game-section > .section-content-game{
+    height: calc(96% - 6em);
+}
+#game-section > .section-content> .text-buttons{
+   margin-bottom:40px;
+}
+
+#game-wrapper{
+    flex: 1;
+    aspect-ratio : 1 / 1;
+    /* The above is shorthand for:
+    flex-grow: 0,
+    flex-shrink: 1,
+    flex-basis: auto
+    */
+    
+    /*overflow-y:hidden;*/
+    
+    align-items: center;
+        width: 100%;
+    
+        display: flex;
+        flex-direction: column;
+       
+    
+        overflow-y:hidden;
+        overflow-x: hidden;
+    
+}
+
+.game-functions{
+    width: 80%;
+    margin-bottom: 2em;
+}
+
+.selected-text{
+    color: #e86960 !important;
+}
+
+.not-selected-text{
+    color:rgba(0, 0, 0, 0.8)!important;
+}
+
+.selected-icon{
+    background-color:#E86960!important;
+}
+
+.not-selected-icon{
+    background-color:rgba(0, 0, 0, 0.8)!important;
+}
+
+
+.checkbox-round {
+    margin-top: 5px;
+    accent-color:#E86960 ;
+}
+
+.game-checkboxes{
+    margin-top: 0.5em;
+}
+
+
+  /* Add a track that shows the progress of the slider */
+
+/* Gallery */
+
+#gallery-section{
+  top: 5.2em;
+}
+
+#gallery-section > .section-content{
+    height: calc(94% - 6em);
+}
+
+#gallery-wrapper{
+    height: calc(94% - 4em);
+
+    flex-wrap: wrap;
+    flex-direction: row !important;
+
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    align-content: flex-start !important;
+    gap: 0.5em;
+}
+
+.gallery-image{
+    position: relative;
+    width: calc(43.4vw - 0.5em)!important;
+    height: calc(43.4vw - 0.5em)!important;
+
+    display: flex;
+    justify-content: flex-end;
+
+    background-color: grey;
+    transition: 600ms;
+}
+
+.gallery-image:active{
+    background-color: rgb(0,0,0,0.5);
+}
+
+.checkbox{
+    position: relative;
+    top:20px;
+    height: 1.5em;
+    width: 1.5em;
+    margin: 0.75em;
+
+    border-radius: 0.75em;
+    border: white solid 0.09em;
+}
+
+.checkbox:active{
+    background-color: white;
+    background-image: url('svg/icon-check-light.svg');
+}
+
+/* Information */
+
+#information-section{
+    top: 6em;
+    scroll-margin-top: 6em !important;
+    margin: 0 0 2em 0;
+
+    justify-content: flex-start !important;
+    background-color: white;
+    color: black !important;
+}
+
+#information-section > .section-content{
+  height: calc(100% - 8em) !important;
+}
+
+.hideOverflow{
+    overflow:hidden!important;
+}
+
+
+/*Slider*/
+/*generated with Input range slider CSS style generator (version 20211225)
+https://toughengineer.github.io/demo/slider-styler*/
+input[type=range].range-slider {
+    height: 2.2em;
+    -webkit-appearance: none;
+    width: 100%;
+  }
+  
+  /*progress support*/
+  input[type=range].range-slider.slider-progress {
+    --range: calc(var(--max) - var(--min));
+    --ratio: calc((var(--value) - var(--min)) / var(--range));
+    --sx: calc(0.5 * 2.5em + var(--ratio) * (100% - 2.5em));
+  }
+  
+  input[type=range].range-slider:focus {
+    outline: none;
+  }
+  
+  /*webkit*/
+  input[type=range].range-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 3em;
+    background: #E6584D;
+    border: 4px solid #FFFFFF;
+    box-shadow: none;
+    margin-top: calc(0.3em * 0.5 - max(2.5em * 0.5,4px));
+  }
+  
+  input[type=range].range-slider::-webkit-slider-runnable-track {
+    height: 0.3em;
+    border: none;
+    border-radius: 0.6em;
+    background: #efefef;
+    box-shadow: none;
+  }
+  
+  input[type=range].range-slider::-webkit-slider-thumb:hover {
+    background: #E6584D;
+  }
+  
+  input[type=range].range-slider:hover::-webkit-slider-runnable-track {
+    background: #E5E5E5;
+  }
+  
+  input[type=range].range-slider::-webkit-slider-thumb:active {
+    background: #E86960;
+  }
+  
+  input[type=range].range-slider:active::-webkit-slider-runnable-track {
+    background: #E5E5E5;
+  }
+  
+  input[type=range].range-slider.slider-progress::-webkit-slider-runnable-track {
+    background: linear-gradient(#E6584D,#E6584D) 0/var(--sx) 100% no-repeat, #efefef;
+  }
+  
+  input[type=range].range-slider.slider-progress:hover::-webkit-slider-runnable-track {
+    background: linear-gradient(#E6584D,#E6584D) 0/var(--sx) 100% no-repeat, #E5E5E5;
+  }
+  
+  input[type=range].range-slider.slider-progress:active::-webkit-slider-runnable-track {
+    background: linear-gradient(#E6584D,#E6584D) 0/var(--sx) 100% no-repeat, #E5E5E5;
+  }
+  
+  /*mozilla*/
+  input[type=range].range-slider::-moz-range-thumb {
+    width: max(calc(2.5em - 4px - 4px),0px);
+    height: max(calc(2.5em - 4px - 4px),0px);
+    border-radius: 3em;
+    background: #E6584D;
+    border: 4px solid #FFFFFF;
+    box-shadow: none;
+  }
+  
+  input[type=range].range-slider::-moz-range-track {
+    height: 0.3em;
+    border: none;
+    border-radius: 0.6em;
+    background: #efefef;
+    box-shadow: none;
+  }
+  
+  input[type=range].range-slider::-moz-range-thumb:hover {
+    background: #E6584D;
+  }
+  
+  input[type=range].range-slider:hover::-moz-range-track {
+    background: #E5E5E5;
+  }
+  
+  input[type=range].range-slider::-moz-range-thumb:active {
+    background: #E86960;
+  }
+  
+  input[type=range].range-slider:active::-moz-range-track {
+    background: #E5E5E5;
+  }
+  
+  input[type=range].range-slider.slider-progress::-moz-range-track {
+    background: linear-gradient(#E6584D,#E6584D) 0/var(--sx) 100% no-repeat, #efefef;
+  }
+  
+  input[type=range].range-slider.slider-progress:hover::-moz-range-track {
+    background: linear-gradient(#E6584D,#E6584D) 0/var(--sx) 100% no-repeat, #E5E5E5;
+  }
+  
+  input[type=range].range-slider.slider-progress:active::-moz-range-track {
+    background: linear-gradient(#E6584D,#E6584D) 0/var(--sx) 100% no-repeat, #E5E5E5;
+  }
+  
+  /*ms*/
+  input[type=range].range-slider::-ms-fill-upper {
+    background: transparent;
+    border-color: transparent;
+  }
+  
+  input[type=range].range-slider::-ms-fill-lower {
+    background: transparent;
+    border-color: transparent;
+  }
+  
+  input[type=range].range-slider::-ms-thumb {
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 3em;
+    background: #E6584D;
+    border: 4px solid #FFFFFF;
+    box-shadow: none;
+    margin-top: 0;
+    box-sizing: border-box;
+  }
+  
+  input[type=range].range-slider::-ms-track {
+    height: 0.3em;
+    border-radius: 0.6em;
+    background: #efefef;
+    border: none;
+    box-shadow: none;
+    box-sizing: border-box;
+  }
+  
+  input[type=range].range-slider::-ms-thumb:hover {
+    background: #E6584D;
+  }
+  
+  input[type=range].range-slider:hover::-ms-track {
+    background: #E5E5E5;
+  }
+  
+  input[type=range].range-slider::-ms-thumb:active {
+    background: #E86960;
+  }
+  
+  input[type=range].range-slider:active::-ms-track {
+    background: #E5E5E5;
+  }
+  
+  input[type=range].range-slider.slider-progress::-ms-fill-lower {
+    height: 0.3em;
+    border-radius: 0.6em 0 0 0.6em;
+    margin: -undefined 0 -undefined -undefined;
+    background: #E6584D;
+    border: none;
+    border-right-width: 0;
+  }
+  
+  input[type=range].range-slider.slider-progress:hover::-ms-fill-lower {
+    background: #E6584D;
+  }
+  
+  input[type=range].range-slider.slider-progress:active::-ms-fill-lower {
+    background: #E6584D;
+  }
+  

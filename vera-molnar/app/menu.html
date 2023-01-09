@@ -12,36 +12,267 @@
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" src="funktionen-menue.js"></script>
-    <script type="text/javascript" src="funktionen.js"></script>
+    <script type="text/javascript" src="functions-menu.js"></script>
     <script type="text/javascript" src="slick/slick.min.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description" content="How to – Spiele zur Kunst">
-    <meta name="keywords" content="Coding da Vinci, Monika von Boch, Institut für Aktuelle Kunst Saarbrücken, Konkrete Kunst">
+    <meta name="keywords" content="Vera Molnar, Institut für Aktuelle Kunst Saarbrücken, Konkrete Kunst">
     <meta name="author" content="Katja Rempel, Nina Jäger, Sandra Kraemer, Catharina Grözinger">
-
 
 </head>
 
 <body>
+                <!-- Vera Molnar -->
+                <section id="molnar" class="section-first hidden" style="background-color: white; z-index:10; height: auto !important;">
+                    <div class="section-content section-light">
+                        <div class="header">
+                            <div class="button-icon">
+                            </div>
+                            <h2>Vera Molnar</h2>
+                            <div class="dropdown-menu">
+                                <div class="button-icon" id="icon-menu-light">
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="content-wrapper" style="justify-content: flex-start; height: auto !important">
+                            <div>
+                                <img src="img/molnar_0_1.jpg">
+                                <figcaption style="margin-top: 0.2em"><p>Vera Molnar in ihrem Atelier, Paris, 23. Mai 2011  © Catherine Panchout - Corbis</p></figcaption>
+                            </div>
+                            <p class="text-small">Vera Molnar wird 1924 in Budapest geboren. Schon als Kind entwickelt sie eine sehr klare, auf das Wesentliche reduzierte Bildsprache. Ihre kindliche Darstellung des Plattensees bei Sonnenuntergang beschreibt sie so:</p>
+                            <div class="quote">»Es waren vier pastellfarbene Querstreifen. Grün die Wiese, die zum See abfiel, blaugrün der See, grüngrau die Hügel auf der anderen Seite, blau der Himmel. Über dem grün-grauen Band ein rundes, rotes Gebilde: die untergehende Sonne.« </div>
+                            <p class="text-small">Den Rat ihrer Mutter, ein paar Bäume in den Vordergrund zu malen, weist sie empört zurück. 1947, nachdem sie ihr Studium der Malerei, Kunstgeschichte und Ästhetik an der Budapester Kunstakademie beendet hat, geht sie mit ihrem Mann François nach Paris, wo sie bis heute lebt. Vera Molnar gilt als Pionierin der Computerkunst. 1959, noch bevor sie auf einen Computer zurückgreifen kann, entwickelt sie eine Technik, die Sie Machine imaginaire nennt: </p>
+                        </div>
+                    </div>
+                </section> 
 
-    <!-- menu -->
+            <!-- Spur -->
+            <section id="trace" class="section-first hidden" style="background-color: #C94747; color: white!important; z-index:20;">
+                <div class="section-content">
+                    <div class="header">
+                        <div class="button-icon" id="icon-trace-dark">
+                            </div>
+                        <h2 style="color: white!important">Spur</h2>
+                        <div id="dropdown-menu">
+                            <div class="button-icon" id="icon-menu-dark">
+                                </div>
+                        </div>
+                    </div>
+                    <div class="content-wrapper" style="color: white!important">
+                        <p id="question-content">was siehst<br>du ?</p>
+                    </div>
+                </div>
+            </section>      
+
+                    <section id="trace-quote" class="section-second hidden" style="background-color: #E27575; z-index:21;">
+                        <div class="section-content section-dark">
+                            <div class="header">
+                                <div class="button-icon">
+                                    </div>
+                                <div class="dropdown-menu">
+                                    <div class="button-icon" id="icon-menu-dark">
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="content-wrapper">
+                                <p>ZITAT</p>
+                                <div class="quote">»Der Computer hilft dem Maler Formkombinationen zu finden, die man nie zuvor gesehen hat, weder in der Natur, noch im Museum: er hilft, unvorstellbare Bilder herzustellen. Der Computer hilft, aber er ›macht‹, er ›gestaltet‹, er ›erfindet‹ nichts.«</div>
+                                <p>Vera Molnar in: <span class="italic">Un moment éphémère de certitude</span>, 1980</p>
+                    </div>
+                        </div>
+                        <div class="bar"></div>
+                    </section>    
+    
+
+
+            <!-- Buchstaben -->
+            <section id="character" class="section-first hidden" style="background-color: #98002F; color: white!important; z-index:30;">
+                <div class="section-content">
+                    <div class="header">
+                        <div class="button-icon" id="icon-character-dark">
+                            </div>
+                        <h2 style="color: white!important">Buchstaben</h2>
+                        <div class="button-icon" id="icon-menu-dark">
+                            </div>
+                    </div>
+                    <div class="content-wrapper" style="color: white!important">
+                        <p id="question-content">was ist<br>ein zeichen ?</p>
+                    </div>
+                </div>
+            </section>     
+
+                <section id="character-quote" class="section-second hidden" style="background-color: #cf4458; z-index:31;">
+                    <div class="section-content section-dark">
+                        <div class="header">
+                            <div class="button-icon">
+                                </div>
+                            <div class="dropdown-menu">
+                                <div class="button-icon" id="icon-menu-dark">
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="content-wrapper">
+                            <p>ZITAT</p>
+                            <div class="quote">»In meiner Arbeit gibt es Linien, die Buchstaben bilden: ›M‹ wie Malewitsch, ›F‹ wie Fannie, ›I‹ wie die Geschichte des ›I‹, ›A‹ und ›D‹ wie Albrecht Dürer. Und andere, die ich vergesse.«</div>
+                            <p>Vera Molnar in: <span class="italic">Inventaire, Le Hôme-sur-Mer, été 1994</span></p>
+                        </div>
+                    </div>
+                    <div class="bar"></div>
+                </section>    
+
+            <!-- Zufall -->
+            <section id="coincidence" class="section-first hidden" style="background-color: #C3302A; z-index:40;">
+                <div class="section-content section-dark">
+                    <div class="header">
+                        <div class="button-icon" id="icon-coincidence-dark">
+                            </div>
+                        <h2>Zufall</h2>
+                        <div class="dropdown-menu">
+                            <div class="button-icon" id="icon-menu-dark">
+                                </div>
+                        </div>
+                    </div>
+                    <div class="content-wrapper">
+                        <p id="question-content">wie würfelt<br>der wind ?</p>
+                    </div>
+                </div>
+            </section>     
+            
+                <section id="coincidence-quote" class="section-second hidden" style="background-color: #cf4458; z-index:41;">
+                    <div class="section-content section-dark">
+                        <div class="header">
+                            <div class="button-icon">
+                                </div>
+                            <div class="dropdown-menu">
+                                <div class="button-icon" id="icon-menu-dark">
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="content-wrapper">
+                            <p>ZITAT</p>
+                            <div class="quote">»Ich benutze den Zufall, der Zufall benutzt mich – hoffentlich – nicht.«</div>
+                            <p>Vera Molnar im Interview mit Francois Molnar und Sigurd Rompza. Paris 1992</p>
+                        </div>
+                    </div>
+                    <div class="bar"></div>
+                </section>   
+            
+            <!-- (Un)Ordnung -->
+            <section id="disorder" class="section-first hidden" style="background-color: #81003C; color: white!important; z-index:50;">
+                <div class="section-content">
+                    <div class="header">
+                        <div class="button-icon" id="icon-disorder-dark">
+                            </div>
+                        <h2 style="color: white!important">(Un)Ordnung</h2>
+                        <div class="button-icon" id="icon-menu-dark">
+                            </div>
+                    </div>
+                    <div class="content-wrapper" style="color: white!important">
+                        <p id="question-content">ist kunst eine möglichkeit ?</p>
+                    </div>
+                </div>
+            </section> 
+
+                <section id="disorder-quote" class="section-second hidden" style="background-color: #b53f66; z-index:51;">
+                    <div class="section-content section-dark">
+                        <div class="header">
+                            <div class="button-icon">
+                                </div>
+                            <div class="dropdown-menu">
+                                <div class="button-icon" id="icon-menu-dark">
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="content-wrapper">
+                            <p>ZITAT</p>
+                            <div class="quote">»Der Computer hilft dem Maler Formkombinationen zu finden, die man nie zuvor gesehen hat, weder in der Natur, noch im Museum: er hilft, unvorstellbare Bilder herzustellen. Der Computer hilft, aber er ›macht‹, er ›gestaltet‹, er ›erfindet‹ nichts.«</div>
+                            <p>Vera Molnar in: <span class="italic">Un moment éphémère de certitude</span>, 1980</p>
+                        </div>
+                    </div>
+                    <div class="bar"></div>
+                </section>
+            
+            <!-- Magie -->
+            <section id="magic" class="section-first hidden" style="background-color: #c3302a; color: white!important; z-index:60;">
+                <div class="section-content">
+                    <div class="header">
+                        <div class="button-icon" id="icon-magic-dark">
+                            </div>
+                        <h2 style="color: white!important">Magie</h2>
+                        <div class="button-icon" id="icon-menu-dark">
+                            </div>
+                    </div>
+                    <div class="content-wrapper" style="color: white!important">
+                        <p id="question-content">gibt es<br>regeln für<br>magie ?</p>
+                    </div>
+                </div>
+            </section>   
+
+                <section id="magic-quote" class="section-second hidden" style="background-color: #fc6454; z-index:61;">
+                    <div class="section-content section-dark">
+                        <div class="header">
+                            <div class="button-icon">
+                                </div>
+                            <div class="dropdown-menu">
+                                <div class="button-icon" id="icon-menu-dark">
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="content-wrapper">
+                            <p>ZITAT</p>
+                            <div class="quote">»Der Prozess dieser Arbeit von 1948 bis heute zeigt ein langsames Abgleiten in meiner Entwicklung als Künstlerin: Ich komme aus einer fast religiösen Welt und finde mich wieder in einer fast wissenschaftlichen Welt.«</div>
+                            <p>Vera Molnar in einem Interview mit Vincent Baby. Paris 2022</p>
+                        </div>
+                    </div>
+                    <div class="bar"></div>
+                </section>  
+        
+            <!-- Impressum -->
+            <section id="app" class="section-first hidden" style="background-color: #4E0000; color: white!important; z-index:70;">
+                <div class="section-content">
+                    <div class="header" style="margin-bottom:2em">
+                        <div class="button-icon">
+                            </div>
+                        <h2 style="color: white!important">Über diese App</h2>
+                        <div class="button-icon" id="icon-menu-dark">
+                            </div>
+                    </div>
+                    <div class="content-wrapper" style="color: white!important; justify-content: flex-start; height: auto !important; overflow:visible;">
+                        <p class="text-small" style="margin-bottom: 1em">Du möchtest wissen, was die Pionierin der Computerkunst Vera Molnar in ihrer Kunst beschäftigt und wie sie arbeitet? Dann probiere selbst aus, wie eine Linie zum Massiv wird, wie 9 rote Quadrate sich immer wieder neu auf einer Fläche verteilen, wann Ordnung zu Unordnung wird, was ein Zeichen ist und was Kunst mit Magie zu tun hat. Du wirst sehen, dass nicht immer alles so einfach ist, wie es aussieht. Und vielleicht wirst Du feststellen, wie schön es ist, wenn aus etwas Einfachem etwas Komplexes entsteht oder etwas sehr Komplexes sich in etwas Einfachem auflöst.</p>
+                        <h2>Impressum</h2>
+                        <p class="text-small" style="margin-bottom:20px">
+                                    HERAUSGEBER<br>
+                                    Laboratorium
+                                    Institut für aktuelle Kunst im Saarland an der Hochschule der Bildenden Künste Saar mit Forschungszentrum für Künstlernachlässe
+                                    Choisyring 10
+                                    66740 Saarlouis
+                                    +49 (0) 6831 - 460 530
+                            <a href="mailto:info@institut-aktuelle-kunst.de"></a>
+                            <a href="www.how-to-app.de" target="_blank">www.institut-aktuelle-kunst.de</a>
+                            <a href="www.how-to-app.de" target="_blank">www.how-to-app.de</a>
+                            <br><br>    
+                        </p>
+                    </div>
+                </div>
+            </section>             
+
+    <!-- menu 
     <div id="menu" class="">
         <nav>
             <ul>
-                
-                <li id="molnar"><div class="menu-icon"></div>VERA MOLNAR</li>
+                <li id="molnar"><div class="menu-icon"></div>Vera Molnar</li>
                 <li id="trace" ><div class="menu-icon" id="icon-trace-dark"></div>SPUR</li> 
-                <li id="character"><div class="menu-icon" id="icon-character-dark"></div>SCHRIFTZEICHEN</li>
-                <li id="red"><div class="menu-icon" id="icon-red-dark"></div>ROT</li>
+                <li id="character"><div class="menu-icon" id="icon-character-dark"></div>BUCHSTABEN</li>
+                <li id="red"><div class="menu-icon" id="icon-red-dark"></div>ZUFALL</li>
                 <li id="disorder" ><div class="menu-icon" id="icon-disorder-dark"></div>(UN)ORDNUNG</li>
-                <li id="magic" style="border-bottom: none !important;"><div class="menu-icon" id="icon-magic-dark"></div>MAGISCHES QUADRAT</li>                              
+                <li id="magic"><div class="menu-icon" id="icon-magic-dark"></div>MAGIE</li>         
+                <li id="app" style="border-bottom: none !important;"><div class="menu-icon"></div>Über diese App</li>                     
             </ul>
         </nav>
     </div>
-    
+    -->
 </body>
 
 </html>
