@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" src="funktionen.js"></script>
+    <script type="text/javascript" src="functions-index.js"></script>
     <script type="text/javascript" src="slick/slick.min.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,34 +24,26 @@
 
 </head>
 
-<body>
+<body style="overflow: hidden">
 
-    <div id="launch">
-        <h1 style="color: #E6584D !important">how to:<br>spiele zur<br>kunst</h1>
-        <p class="text-big" style="color: #E6584D !important">Vera Molnar</p>
+    <div id="launchscreen-wrapper">
+        <p id="logo">how to:<br>spiele zur<br>kunst</p>
+        <p id="subtitle">Vera Molnar</p>
+    </div>
+    <div class="animation-wrapper">
+        <div class="square" id="square-1"></div>
+        <div class="square" id="square-2"></div>
+        <div class="square" id="square-3"></div>
+        <div class="square" id="square-4"></div>
+        <div class="square" id="square-5"></div>
+        <div class="square" id="square-6"></div>
+        <div class="square" id="square-7"></div>
     </div>
 
-    <div id="introduction" style="z-index:100">
-        <div class="content-wrapper">
-            <p class="text-small" style="text-align: center;">Mit dieser App kannst du spielend etwas über die Kunst von Vera Molnar erfahren. Wenn du im Anschluss an das Spiel mehr über ihr Werk erfahren möchtest, hast du am Besten ein paar Kopfhörer parat.</p>
-        </div>
-        <div class="text-buttons">
-            <div class="text-button dark" style="background-color: black; border: none" id="button-close"><div class="text-button-icon" id="icon-check-dark"></div>verstanden</div>
-        </div>
-    </div>
-    
-    <div id="menu">
-        <nav>
-            <ul>
-                <li id="molnar"><div class="menu-icon"></div>Vera Molnar</li>
-                <li id="trace" ><div class="menu-icon" id="icon-trace-dark"></div>SPUR</li> 
-                <li id="character"><div class="menu-icon" id="icon-character-dark"></div>BUCHSTABEN</li>
-                <li id="red"><div class="menu-icon" id="icon-red-dark"></div>ZUFALL</li>
-                <li id="disorder" ><div class="menu-icon" id="icon-disorder-dark"></div>(UN)ORDNUNG</li>
-                <li id="magic"><div class="menu-icon" id="icon-magic-dark"></div>MAGIE</li>         
-                <li id="app" style="border-bottom: none !important;"><div class="menu-icon"></div>Über diese App</li>                     
-            </ul>
-        </nav>
+    <div id="start-info" style="opacity:0">
+        <div class="button-icon" id="icon-headphones-red" style="height:3.9em; width:3.9em"></div>
+        <p>Mit dieser App kannst du spielend etwas über die Kunst von Vera Molnar erfahren. Wenn du im Anschluss an das Spiel mehr über ihr Werk erfahren möchtest, hast du am Besten ein paar Kopfhörer parat.</p>
+        <div class="text-button dark" style="background-color:#c94747" id="button-start"><div class="text-button-icon" id="icon-check-dark"></div>Verstanden</div>
     </div>
 
 </body>

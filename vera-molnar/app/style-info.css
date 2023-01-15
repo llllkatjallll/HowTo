@@ -3,7 +3,7 @@
 .section-wrapper{
   transition: 1s ease-in-out;
   position: relative;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
 }
@@ -39,7 +39,7 @@ section{
 }
 
 #quote-section > .section-content{
-    height: calc(98% - 6em);
+    height: calc(100% - 6em);
 }
 
 /* Introduction */

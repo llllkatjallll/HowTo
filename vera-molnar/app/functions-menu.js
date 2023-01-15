@@ -1,5 +1,11 @@
 $(document).ready(function (){
 
+    // Get innerHeight für vh  
+  
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    
+    
     // Transition Start
     $('.section-first').removeClass('hidden');
 
@@ -18,9 +24,9 @@ $(document).ready(function (){
         setTimeout(function() {
             $('#trace-quote').removeClass('hidden');
         }, 300);
-/*        setTimeout(function() {
+        setTimeout(function() {
             window.location.href = 'trace.html';
-        }, 1500);*/
+        }, 1500);
     });  
 
     $('#character').click(function (){   
