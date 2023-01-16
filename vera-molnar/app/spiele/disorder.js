@@ -21,7 +21,7 @@ let quads = [];
 let amount = 2;
 let length = undefined;
 let midLength = undefined;
-let spacing = 10;
+let spacing = 6;
 let density = 4;
 let exeption = 10;
 let quadSpacing = 12;
@@ -60,6 +60,7 @@ let canvasSize = 0;
     buttonDensity.addEventListener('click', (event) => { p.showSelectedFunction(buttonDensity) });
     buttonRandom.addEventListener('click', (event) => { p.showSelectedFunction(buttonRandom) });
     restartButton.addEventListener('click', (event) => { p.restart() });
+    p.restart();
   }
 
 
@@ -81,9 +82,9 @@ let canvasSize = 0;
     sliderDensity.style.setProperty('--value', 4);
 
     // reset dichte
-    sliderSpacing.value = 8;
-    quadSpacing = 8;
-    sliderSpacing.style.setProperty('--value', 8);
+    sliderSpacing.value = 5;
+    quadSpacing = 5;
+    sliderSpacing.style.setProperty('--value', 5);
 
     //reset zufall
     exceptionSlider.value = 1;
@@ -265,4 +266,6 @@ let canvasSize = 0;
 }
 
 let myp5 = new p5(sketch, 'game-wrapper');
+
+
 

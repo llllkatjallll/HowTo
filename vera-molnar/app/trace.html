@@ -33,9 +33,9 @@
 </head>
     <!-- <body onload="typeWriter()" > -->
    
-    <body>    
+    <body id="placeholder-wrapper">    
         
-        <div class="section-wrapper">
+        <div class="section-wrapper"  id="section-wrapper-touch">
 
             <!-- Question -->
 
@@ -103,7 +103,7 @@
             <!-- Game -->
 
             <section id="game-section" style="background-color:white; z-index:23;">
-                <div class="section-content section-light">
+                <div class="section-content-game section-light">
                     <div class="header">
                         <div class="button-icon">
                             </div>
@@ -112,11 +112,12 @@
                                 </div>
                         </div>
                     </div>
-                    <div id="game-wrapper" class="content-wrapper">
+                    <div id="game-wrapper" >
                             
                     </div>
                     <div class="game-buttons">
-                        
+                        <div class="hint">Zeichne mit deinem Finger eine Linie.</div>
+                          
                         <!-- <div class="game-button"><div class="button-icon" id="icon-glyphs-light"></div>Anhalten</div>
                     <div class="game-button"><div class="button-icon" id="icon-grid-light"></div>Raster</div>
                         <div class="game-button"><div class="button-icon" id="icon-glyph-rotation-light"></div>Drehung</div>
@@ -125,6 +126,8 @@
                         <div class="game-button"><div class="button-icon" id="icon-mirror-light"></div>Spiegeln</div>  -->
                     </div> 
                     <div class="text-buttons">
+                        <div class="text-button dark" style="background-color:black" id="button-stop">Anhalten</div>
+                       
                         <div class="text-button dark" style="background-color:black" id="button-neu"><div class="text-button-icon" id="icon-new-dark"></div>neu</div>
                         <div class="text-button dark" style="background-color:black" id="button-speichern"><div class="text-button-icon" id="icon-check-dark"></div>speichern</div>    
                     </div>
@@ -220,6 +223,11 @@
                         <div class="bar"></div>
                     </section>
         </div>
+
+                     <!--Game Specific-->
+     <script src="spiele/landschaft.js"></script>
+     <script src="spiele/functions-all-games.js"></script>
+
 
     </body>
 

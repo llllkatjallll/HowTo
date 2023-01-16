@@ -115,7 +115,7 @@ function displayImagesfromStorage(gameId){
   } */
   //Save Image
   function saveImage() {
-    html2canvas(document.querySelector("#game-wrapper")).then(canvas => {
+    html2canvas(document.querySelector("#defaultCanvas0")).then(canvas => {
       canvas.classList.add("gallery-image");
       //containerGallery.appendChild(canvas);
       /*let div = document.createElement('div');

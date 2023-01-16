@@ -10,6 +10,10 @@ let accChangeX = 0;
 let accChangeY = 0;
 let accChangeT = 0;
 let gameWidth,gameHeight = 0;
+let length = undefined;
+let midLength = undefined;
+let spacing = 30;
+let amount = 3;
 
 let sketch = function (p) {
 
@@ -18,15 +22,30 @@ let sketch = function (p) {
    // }
   
     p.setup = function () {
-        console.log(gameCanvas);
-        gameWidth = gameCanvas.clientWidth;
-        gameHeight = gameCanvas.clientHeight;
-        canvas = p.createCanvas(gameWidth, gameWidth+50);
+      gameWidth = gameCanvas.clientWidth;
+      gameHeight = gameCanvas.clientHeight;
+      
+      if(gameWidth >= gameHeight){
+        canvas = p.createCanvas(gameHeight, gameHeight);
+        canvasSize = gameHeight;
+      } else {
+        canvas = p.createCanvas(gameWidth, gameWidth);
+        canvasSize = gameWidth;
+      }
+      gameCanvas.setAttribute("style","height:100px!important");
+
+      //quad size
+      size  = gameCanvas.clientWidth/4;
         p.background(245);
         p.rectMode(p.CENTER);
-        for (let i = 0; i < 3; i++) {
-          for (let j = 0; j < 3; j++) {
-          balls.push(new Ball(gameWidth/3.5*i+gameWidth/4.6, gameWidth/3.5*j +gameWidth/3.5));
+
+        length = (canvasSize - 2 * spacing) / amount;
+        midLength = length / 2;
+        for (let i = 0; i < amount; i++) {
+          for (let j = 0; j < amount; j++) {
+           var posX = length * i + midLength + spacing;
+           var posY = length * j + midLength + spacing;
+          balls.push(new Ball(posX, posY));
         }
 
         restartButton.addEventListener('click', function () { 
@@ -34,7 +53,7 @@ let sketch = function (p) {
           p.restart();
         });
 
-        
+        p.restart();
       }
 
         //IOS GYRO
@@ -45,33 +64,39 @@ let sketch = function (p) {
             DeviceOrientationEvent.requestPermission()
                 .catch(() => {
                     // show permission dialog only the first time
-                    let button = p.createButton("click to allow access to sensors");
+                    let button = p.createButton("SPIEL STARTEN");;
+                    
                     button.style("z-index", "70000");
+                    button.style("padding", "0.4em 0.6em 0.2em 0.6em");
+                    button.style("background-color", "black");
+                    button.style("color", "white");
+                    button.style("border-radius", "0.4em");
+                    button.style("font-size", "1em");
+                    button.position(gameWidth/2, -gameHeight);
                     button.center();
                     button.mousePressed(p.requestAccess);
-
-                    iosButton.addEventListener('click', function () { 
-                      
-                      p.requestAccess();
-                    });
+                    button.id(iosAccessButton);
+                    
                     
                     //throw p.error;
                 })
                 .then(() => {
                     // on any subsequent visits
                     permissionGranted = true;
+                    p.restart();
                 })
         } else {
             // non ios 13 device
             p.textSize(48);
             // text("non ios 13 device", 100, 100);
             permissionGranted = true;
+            p.restart();
         }
           
     }
 
     p.draw = function () {
-        if (!permissionGranted) return;
+       
         p.background(245);
 
         for (let i = 0; i < balls.length; i++) {
@@ -79,7 +104,8 @@ let sketch = function (p) {
           balls[i].display();
         }
         
-        p.checkForShake();  
+        p.checkForShake(); 
+      
     }
 
     p.restart = function () {
@@ -92,10 +118,12 @@ let sketch = function (p) {
   }
 
     p.checkForShake = function () {
+      
         // Calculate total change in accelerationX and accelerationY
         accChangeX = p.abs(p.accelerationX - p.pAccelerationX);
         accChangeY = p.abs(p.accelerationY - p.pAccelerationY);
         accChangeT = accChangeX + accChangeY;
+        console.log("change " + accChangeT);
         // If shake
         if (accChangeT >= threshold) {
             for (let i = 0; i < balls.length; i++) {
@@ -119,6 +147,7 @@ let sketch = function (p) {
             .then(response => {
                 if (response == 'granted') {
                     permissionGranted = true;
+                    p.restart();
                 } else {
                     permissionGranted = false;
                 }
@@ -136,7 +165,7 @@ let sketch = function (p) {
           this.y = yPos;
           this.xStart = xPos;
           this.yStart = yPos;
-          this.diameter = gameCanvas.clientWidth/4;
+          this.diameter = size;
           this.xspeed = p.random(0);
           this.yspeed = p.random(0);
           this.oxspeed = this.xspeed;
@@ -148,26 +177,27 @@ let sketch = function (p) {
         move() {
           this.x += this.xspeed * this.direction;
           this.y += this.yspeed * this.direction;
+          
         }
       
         // Bounce when touch the edge of the canvas
         turn() {
-          if (this.x < 0) {
-            this.x = 0;
-            this.rotation =this.rotation+20;
+          if (this.x < size/2) {
+            this.x = size/2;
+            this.rotation =this.rotation+size/2;
             this.direction = -this.direction;
-          } else if (this.y < 0) {
-            this.y = 0;
+          } else if (this.y < size/2) {
+            this.y = size/2;
             this.direction = -this.direction;
-            this.rotation =this.rotation+20;
-          } else if (this.x > p.width - 20) {
-            this.x = p.width - 20;
+            this.rotation =this.rotation+size/2;
+          } else if (this.x > p.width - size/2) {
+            this.x = p.width - size/2;
             this.direction = -this.direction;
-            this.rotation =this.rotation+20;
-          } else if (this.y > p.height - 20) {
-            this.y = p.height - 20;
+            this.rotation =this.rotation+size/2;
+          } else if (this.y > p.height - size/2) {
+            this.y = p.height - size/2;
             this.direction = -this.direction;
-            this.rotation =this.rotation+20;
+            this.rotation =this.rotation+size/2;
           }
           
           
@@ -178,6 +208,7 @@ let sketch = function (p) {
         shake() {
           this.xspeed += p.random(0, accChangeX / 20);
           this.yspeed += p.random(0, accChangeX / 20);
+          this.rotation =this.rotation+ p.random(-0.1,0.1);
         }
       
         // Gradually slows down

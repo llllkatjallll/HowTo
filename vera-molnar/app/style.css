@@ -406,9 +406,9 @@ a:link, a:visited {
 .game-buttons{
     display: flex;
     flex-direction: row;
-    width: calc(100vw - 4em);
+    width: calc(100% - 1em);
     overflow: scroll;
-    justify-content:center;
+    justify-content:flex-start;
 }
 
 .game-button{
@@ -416,8 +416,10 @@ a:link, a:visited {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1em;
+    padding: 0.5em;
+    font-size: 0.9em;
     transition: all 0.5s;
+    
     
 }
 
@@ -596,6 +598,16 @@ iframe{
 #icon-grid-light{
     -webkit-mask-image: url(svg/icon-grid-light.svg);
     mask-image: url(svg/icon-grid-light.svg);
+}
+
+#icon-grid-inside-light{
+    -webkit-mask-image: url(svg/icon-grid-inside-light.svg);
+    mask-image: url(svg/icon-grid-inside-light.svg);
+}
+
+#icon-grid-distance-light{
+    -webkit-mask-image: url(svg/icon-grid-distance-light.svg);
+    mask-image: url(svg/icon-grid-distance-light.svg);
 }
 
 #icon-grid-size-light{
