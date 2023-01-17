@@ -1,17 +1,3 @@
-// Frage einblenden mit Type Effect
-
-var i = 0;
-var txt = 'was siehst du? ?';
-var speed = 150;
-
-function typeWriter() {
-    console.log("type");
-    if (i < txt.length) {
-        document.getElementById("question-content").innerHTML += txt.charAt(i);
-        i++;
-        setTimeout(typeWriter, speed);
-    }
-}
 
 $(document).ready(function (){
 

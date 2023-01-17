@@ -5,6 +5,9 @@ $(document).ready(function (){
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
 
+    $('.section-wrapper').on('scroll', function() {
+        console.log( $(this).scrollTop() );
+    });
 
     // Redirect
 
