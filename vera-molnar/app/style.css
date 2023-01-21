@@ -188,9 +188,9 @@ section{
 .bar{
     position: absolute;
     top: 0.8em;
-    left: calc(50% - 2em);
-    height: 0.4em;
-    width: 4em;
+    left: calc(50% - 1.5em);
+    height: 0.3em;
+    width: 3em;
     background-color: lightgrey;
     border-radius: 0.2em;
 }
@@ -269,7 +269,8 @@ h2{
 figcaption{
     text-align: left;
     width: 100%;
-    font-size: 1em; 
+    font-size: 0.9em;
+    line-height: 1.25; 
     display: flex;
     justify-content: space-between;
     margin: 1em 0 0 0;
