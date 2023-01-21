@@ -33,11 +33,11 @@ section{
 }
 
 #quote-section > .section-content{
-    height: calc(100% - 6em);
+    height: calc(100% - 8em);
 }
 
 #quote-section > .section-content > .content-wrapper{
-    width: calc(100% - 3em);
+    width: calc(100% - 4em);
 }
 
 
@@ -48,11 +48,11 @@ section{
 }
 
 #introduction-section > .section-content{
-  height: calc(100% - 6em);
+  height: calc(100% - 8em);
 }
 
 #introduction-section > .section-content > .content-wrapper{
-  width: calc(100% - 3em);
+  width: calc(100% - 4em);
 }
 
 
