@@ -191,8 +191,15 @@ section{
     left: calc(50% - 1.5em);
     height: 0.3em;
     width: 3em;
-    background-color: lightgrey;
     border-radius: 0.2em;
+}
+
+.bar.dark{
+    background-color: rgba(255,255,255,0.7);
+}
+
+.bar.light{
+    background-color: rgba(0,0,0,0.3);
 }
 
 .section-content{
@@ -420,8 +427,6 @@ a:link, a:visited {
     padding: 0.5em;
     font-size: 0.9em;
     transition: all 0.5s;
-    
-    
 }
 
 .text-buttons{
@@ -430,7 +435,7 @@ a:link, a:visited {
     align-self: center !important ;
     flex-wrap: wrap;
     flex-direction: row;
-    gap: 1em;
+    gap: 0.5em;
 }
 
 .text-button{
@@ -439,11 +444,13 @@ a:link, a:visited {
     height: auto; 
     width: auto;
     font-size: 100%;
-    padding: 0.4em 0.6em 0.2em 0.6em;
+    padding: 0.5em 0.9em 0.3em 0.9em;
     background-color: rgb(0,0,0,0);
     text-transform: uppercase;
-    border-radius: 0.4em;
+    letter-spacing: 0.03em;
+    border-radius: 2em;
     transition: 300ms;
+/*    box-shadow: #210404 0 1px 3px;*/
 }
 
 .text-button.light{
@@ -459,7 +466,7 @@ a:link, a:visited {
 .text-button-icon{
     height: 1.3em;
     width: 1.3em;
-    margin-right: 0.4em;
+    margin-right: 0.2em;
 }
 
 .button-icon{

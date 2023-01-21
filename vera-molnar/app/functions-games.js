@@ -36,7 +36,7 @@ $(document).ready(function (){
         slidesToShow: 1,
         adaptiveHeight: true
     });
-
+    
     
     // Bug beheben bei stacking cards / 2nd child position
 
