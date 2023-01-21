@@ -159,11 +159,11 @@ body{
 
 section{
     border-radius: 2em;
-    width: calc(100vw - 3em);
-    height: calc((var(--vh, 1vh) * 100) - 1.5em);
+    width: calc(100vw - 2em);
+    height: calc((var(--vh, 1vh) * 100) - 1em);
 
     position: absolute;
-    left: 1.5em;
+    left: 1em;
 
     transition: 1000ms ease-in-out;
     box-shadow: rgba(0,0,0,0.2) 0 -5px 10px;
@@ -178,7 +178,7 @@ section{
 }
 
 .section-second{
-    top: calc(100% - 1.5em);
+    top: calc(100% - 1em);
 }
 
 .hidden{
@@ -196,9 +196,9 @@ section{
 }
 
 .section-content{
-    width: calc(100% - 4em);
-    height: calc(100% - 6em);
-    padding: 2em 2em 4em 2em;
+    width: calc(100% - 3em);
+    height: calc(100% - 5em);
+    padding: 1.5em 1.5em 4em 1.5em;
 
     display: flex;
     flex-direction: column;
@@ -269,7 +269,8 @@ h2{
 figcaption{
     text-align: left;
     width: 100%;
-    font-size: 1em; 
+    font-size: 0.9em; 
+    line-height: 1.25;
     display: flex;
     justify-content: space-between;
     margin: 1em 0 0 0;
@@ -489,14 +490,14 @@ a:link, a:visited {
 }
 
 div > img{
-    width: calc(100vw - 7em);
+    width: 100%;
     height: auto;
     align-self: center;
     
 }
 
 iframe{
-    width: calc(100vw - 7em);
+    width: 100%;
     height: auto;
 }
 
