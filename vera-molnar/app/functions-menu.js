@@ -11,7 +11,7 @@ $(document).ready(function (){
 
     //Navigation zu Unterseiten
     $('#molnar').click(function (){   
-        $('#molnar').css('top','1.5em');
+        $('#molnar').addClass('top-position');
         $('.section-first').not('#molnar').addClass('hidden');
         setTimeout(function() {
             window.location.href = 'molnar.html';
@@ -19,7 +19,7 @@ $(document).ready(function (){
     });  
 
     $('#trace').click(function (){   
-        $('#trace').css('top','1.5em');
+        $('#trace').addClass('top-position');
         $('.section-first').not('#trace').addClass('hidden');
         setTimeout(function() {
             $('#trace-quote').removeClass('hidden');
@@ -30,7 +30,7 @@ $(document).ready(function (){
     });  
 
     $('#character').click(function (){   
-        $('#character').css('top','1.5em');
+        $('#character').addClass('top-position');
         $('.section-first').not('#character').addClass('hidden');
         setTimeout(function() {
             $('#character-quote').removeClass('hidden');
@@ -41,7 +41,7 @@ $(document).ready(function (){
     });  
 
     $('#coincidence').click(function (){   
-        $('#coincidence').css('top','1.5em');
+        $('#coincidence').addClass('top-position');
         $('.section-first').not('#coincidence').addClass('hidden');
         setTimeout(function() {
             $('#coincidence-quote').removeClass('hidden');
@@ -52,7 +52,7 @@ $(document).ready(function (){
     });  
 
     $('#disorder').click(function (){   
-        $('#disorder').css('top','1.5em');
+        $('#disorder').addClass('top-position');
         $('.section-first').not('#disorder').addClass('hidden');
         setTimeout(function() {
             $('#disorder-quote').removeClass('hidden');
@@ -63,7 +63,7 @@ $(document).ready(function (){
     });  
 
     $('#magic').click(function (){   
-        $('#magic').css('top','1.5em');
+        $('#magic').addClass('top-position');
         $('.section-first').not('#magic').addClass('hidden');
         setTimeout(function() {
             $('#magic-quote').removeClass('hidden');
@@ -74,7 +74,7 @@ $(document).ready(function (){
     });  
 
     $('#app').click(function (){   
-        $('#app').css('top','1.5em');
+        $('#app').addClass('top-position');
         $('.section-first').not('#app').addClass('hidden');
         setTimeout(function() {
             window.location.href = 'app.html';

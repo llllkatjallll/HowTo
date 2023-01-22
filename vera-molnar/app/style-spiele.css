@@ -22,18 +22,78 @@ section{
 
 /* Question -> mehr unter style.css, da bereits Anzeige in menu.html*/
 
-#question-section{
-  top: 1.5em;
+/* Top positions */
+
+@media only screen and (max-width: 480px) {
+  #question-section{
+    top: 1.5em;
+  }
+  
+  #quote-section{
+    top: 2.3em;
+  }
+  
+  #introduction-section{
+    top: 3.1em;
+  }
+  
+  #game-section{
+    top: 3.9em;
+  }
+  
+  #information-section{
+    scroll-margin-top: 5.5em !important;
+    top: 5.5em;
+  }
+  
+  #gallery-section{
+    top: 4.7em;
+  }
 }
+
+@media only screen and (min-width: 481px) {
+  #question-section{
+    top: 3em;
+  }
+  
+  #quote-section{
+    top: 3.8em;
+  }
+  
+  #introduction-section{
+    top: 4.6em;
+  }
+  
+  #game-section{
+    top: 5.4em;
+  }
+  
+  #gallery-section{
+    top: 6.2em;
+  }
+
+  #information-section{
+    scroll-margin-top: 7em !important;
+    top: 7em;
+  }
+  
+}
+
+
 
 /* Quote */
 
-#quote-section{
-  top: 2.3em;
+
+@media only screen and (max-width: 480px) {
+  #quote-section > .section-content{
+      height: calc(100% - 6em);
+    }
 }
 
-#quote-section > .section-content{
-    height: calc(100% - 6em);
+@media only screen and (min-width: 481px) {
+  #quote-section > .section-content{
+      height: calc(100% - 9em);
+    }
 }
 
 #quote-section > .section-content > .content-wrapper{
@@ -43,12 +103,16 @@ section{
 
 /* Introduction */
 
-#introduction-section{
-  top: 3.1em;
+@media only screen and (max-width: 480px) {
+  #introduction-section > .section-content{
+      height: calc(100% - 6em);
+    }
 }
 
-#introduction-section > .section-content{
-  height: calc(100% - 6em);
+@media only screen and (min-width: 481px) {
+  #introduction-section > .section-content{
+      height: calc(100% - 9em);
+    }
 }
 
 #introduction-section > .section-content > .content-wrapper{
@@ -59,8 +123,6 @@ section{
 /* Game */
 
 #game-section{
-    top: 3.9em;
-
     background-color: white !important;
     color: black;
 }
@@ -162,7 +224,6 @@ section{
 
 #gallery-section{
   background-color: #434343;
-  top: 4.7em;
 }
 
 #gallery-section > .section-content{
@@ -245,17 +306,24 @@ section{
 /* Information */
 
 #information-section{
-    top: 5.5em;
-    scroll-margin-top: 5.5em !important;
     margin: 0 0 1.5em 0;
 
     justify-content: flex-start !important;
     background-color: white;
     color: black !important;
+    overflow: hidden !important;
 }
 
-#information-section > .section-content{
-  height: calc(100% - 6em) !important;
+@media only screen and (max-width: 480px) {
+  #information-section > .section-content{
+      height: calc(100% - 6em);
+    }
+}
+
+@media only screen and (min-width: 481px) {
+  #information-section > .section-content{
+      height: calc(100% - 5em);
+    }
 }
 
 #information-section > .section-content > .content-wrapper{

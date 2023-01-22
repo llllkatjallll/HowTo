@@ -172,21 +172,33 @@ body{
 /*Layout*/
 
 @media only screen and (max-width: 480px) {
-    section {
+    section{
         border-radius: 2em;
         left: 1.5em;
         width: calc(100vw - 3em);
         height: calc((var(--vh, 1vh) * 100) - 1.5em);
         }
+    .top-position{
+        top: 1.5em !important;
+    }
+    .section-second{
+        top: calc(100% - 1.5em);
+    }    
 }
 
 @media only screen and (min-width: 481px) {
-    section {
-        border-radius: 2.5em;
+    section{
+        border-radius: 2em;
         left: 3em;
         width: calc(100vw - 6em);
-        height: calc((var(--vh, 1vh) * 100) - 3em);
+        height: calc((var(--vh, 1vh) * 100) - 2em);
         }
+    .top-position{
+        top: 3em !important;
+    }    
+    .section-second{
+        top: calc(100% - 2em);
+    }    
 }
 
 section{
@@ -202,10 +214,6 @@ section{
 
 .section-dark > * {
     color: white !important;
-}
-
-.section-second{
-    top: calc(100% - 1.5em);
 }
 
 .hidden{
@@ -240,22 +248,20 @@ section{
 @media only screen and (min-width: 481px) {
     .section-content{
         width: calc(100% - 5em);
-        height: calc(100% - 7.5em);
+        height: calc(100% - 10em);
         padding: 2.5em 2.5em 5em 2.5em;
         }
 }
 
 .section-content{
-    width: calc(100% - 4em);
-    height: calc(100% - 6em);
-    padding: 2em 2em 4em 2em;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     gap: 1em;
 }
+
+
 
 .content-wrapper{
     width: 100%;
@@ -593,20 +599,38 @@ a:link, a:visited {
 }
 
 div > img{
-    width: calc(100vw - 7em);
     height: auto;
     align-self: center;
-    
 }
 
-iframe{
-    width: calc(100vw - 7em);
-    height: auto;
+
+@media only screen and (max-width: 480px) {
+    div > img, iframe{
+        width: calc(100vw - 7em);
+        }
 }
 
-#question-section > .section-content{
-    height: calc(100% - 6em);
-  }
+@media only screen and (min-width: 481px) {
+    div > img, iframe{
+        width: calc(100vw - 11em);
+        }
+    iframe{
+        height: 420px;
+    }    
+}
+
+@media only screen and (max-width: 480px) {
+    #question-section > .section-content{
+        height: calc(100% - 6em);
+      }
+}
+
+@media only screen and (min-width: 481px) {
+    #question-section > .section-content{
+        height: calc(100% - 9em);
+      }
+}
+
 
   
 #question-content{
