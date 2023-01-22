@@ -30,7 +30,8 @@
     line-height: 1.4;
 /*    -webkit-overflow-scrolling: touch;*/
     text-align: center;
-    --color1: #60132d;
+    --color1: #ea2626;
+    --color2: #60132d;
 }
 
 body{
@@ -78,7 +79,7 @@ body{
     width: calc(100% - 8em);
     padding: 4em;
     position: absolute;
-    transition: 1s;
+    transition: 600ms;
     
     display: flex;
     flex-direction: column;
@@ -90,7 +91,7 @@ body{
     overflow-x: hidden;
 
     z-index: 2;
-    color: #c94747; 
+    color: var(--color1); 
 }
 
 /* Animation*/
@@ -106,7 +107,7 @@ body{
 .square{
     width: 60vw;
     height: 60vw;
-    background-color: #fa072b;
+    background-color: var(--color1);
     mix-blend-mode: multiply;
     position: absolute;
     display: inline-block;
@@ -454,11 +455,16 @@ a:link, a:visited {
 }
 
 .text-button.light{
-    color: var(--color1);
-    border: var(--color1) solid 0.09em;
+    color: var(--color2);
+    border: var(--color2) solid 0.09em;
 }
 
 .text-button.dark{
+    color: white;
+    background-color: var(--color2);
+}
+
+.text-button.start{
     color: white;
     background-color: var(--color1);
 }
@@ -467,6 +473,10 @@ a:link, a:visited {
     color: white;
     background-color: transparent;
     border: solid white 0.09em;
+}
+
+.text-button:active{
+    opacity: 0;
 }
 
 .text-button-icon{
