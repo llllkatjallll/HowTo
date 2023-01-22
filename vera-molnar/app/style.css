@@ -37,11 +37,23 @@
 body{
     height: calc(var(--vh, 1vh) * 100);
     width: 100vw;
-    font-size: calc(1.5vw + 1.2vh);
     background-color: #FBF6F0;
     scroll-behavior: smooth;
     transition: 600ms;
 }
+
+@media only screen and (max-width: 480px) {
+    body {
+        font-size: calc(1.5vw + 1.2vh);
+    }
+}
+
+@media only screen and (min-width: 481px) {
+    body {
+        font-size: calc(1.1vw + 1.1vh);
+    }
+}
+
 
 /* Launchscreen */
 
@@ -159,17 +171,30 @@ body{
 
 /*Layout*/
 
+@media only screen and (max-width: 480px) {
+    section {
+        border-radius: 2em;
+        left: 1.5em;
+        width: calc(100vw - 3em);
+        height: calc((var(--vh, 1vh) * 100) - 1.5em);
+        }
+}
+
+@media only screen and (min-width: 481px) {
+    section {
+        border-radius: 2.5em;
+        left: 3em;
+        width: calc(100vw - 6em);
+        height: calc((var(--vh, 1vh) * 100) - 3em);
+        }
+}
+
 section{
-    border-radius: 2em;
-    width: calc(100vw - 3em);
-    height: calc((var(--vh, 1vh) * 100) - 1.5em);
-
     position: absolute;
-    left: 1.5em;
-
     transition: 1000ms ease-in-out;
     box-shadow: rgba(0,0,0,0.2) 0 -5px 10px;
 }
+
 
 .section-light > * {
     color: black !important;
@@ -202,6 +227,22 @@ section{
 
 .bar.light{
     background-color: rgba(0,0,0,0.3);
+}
+
+@media only screen and (max-width: 480px) {
+    .section-content{
+        width: calc(100% - 4em);
+        height: calc(100% - 6em);
+        padding: 2em 2em 4em 2em;
+        }
+}
+
+@media only screen and (min-width: 481px) {
+    .section-content{
+        width: calc(100% - 5em);
+        height: calc(100% - 7.5em);
+        padding: 2.5em 2.5em 5em 2.5em;
+        }
 }
 
 .section-content{
@@ -310,33 +351,64 @@ a:link, a:visited {
 
 /* Menü */
 
-#molnar{
-    top: 1.5em;
-}
+@media only screen and (max-width: 480px) {
+    #molnar{
+        top: 1.5em;
+    }
+    
+    #trace{
+        top: calc((100% - 2em) / 7 * 1 + 1.5em);
+    }
+    
+    #character{
+        top: calc((100% - 2em) / 7 * 2 + 1.5em);
+    }
+    
+    #coincidence{
+        top: calc((100% - 2em) / 7 * 3 + 1.5em);
+    }
+    
+    #disorder{
+        top: calc((100% - 2em) / 7 * 4 + 1.5em);
+    }
+    
+    #magic{
+        top: calc((100% - 2em) / 7 * 5 + 1.5em);
+    }
+    
+    #app{
+        top: calc((100% - 2em) / 7 * 6 + 1.5em);
+    }}
 
-#trace{
-    top: calc((100% - 2em) / 7 * 1 + 1.5em);
-}
+@media only screen and (min-width: 481px) {
+    #molnar{
+        top: 3em;
+    }
+    
+    #trace{
+        top: calc((100% - 3em) / 7 * 1 + 3em);
+    }
+    
+    #character{
+        top: calc((100% - 3em) / 7 * 2 + 3em);
+    }
+    
+    #coincidence{
+        top: calc((100% - 3em) / 7 * 3 + 3em);
+    }
+    
+    #disorder{
+        top: calc((100% - 3em) / 7 * 4 + 3em);
+    }
+    
+    #magic{
+        top: calc((100% - 3em) / 7 * 5 + 3em);
+    }
+    
+    #app{
+        top: calc((100% - 3em) / 7 * 6 + 3em);
+    }}
 
-#character{
-    top: calc((100% - 2em) / 7 * 2 + 1.5em);
-}
-
-#coincidence{
-    top: calc((100% - 2em) / 7 * 3 + 1.5em);
-}
-
-#disorder{
-    top: calc((100% - 2em) / 7 * 4 + 1.5em);
-}
-
-#magic{
-    top: calc((100% - 2em) / 7 * 5 + 1.5em);
-}
-
-#app{
-    top: calc((100% - 2em) / 7 * 6 + 1.5em);
-}
   
 .dropdown-list > li{
     list-style: none;
@@ -380,9 +452,6 @@ a:link, a:visited {
     transform: translateY(-20px) !important;
   }
 
-/*  .quote-inactive{
-    top: calc(100vh - 2em);
-  }*/
 
 /* Buttons */
 
@@ -402,7 +471,18 @@ a:link, a:visited {
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
-    margin-bottom: 1em;
+}
+
+@media only screen and (max-width: 480px) {
+    .header{
+        margin-bottom: 1em;
+    }
+}
+
+@media only screen and (min-width: 481px) {
+    .header{
+        margin-bottom: 2em;
+    }
 }
 
 .footer{
@@ -537,6 +617,31 @@ iframe{
   
     font-family: ABCGalapagosA;
 }
+
+@media only screen and (max-width: 480px) {
+    #information-section-molnar, #information-section-app{
+        margin: 1.5em 0;
+        height: auto !important; 
+    }
+}
+
+@media only screen and (min-width: 481px) {
+    #information-section-molnar, #information-section-app{
+        margin: 3em 0;
+        height: auto !important; 
+    }
+}
+
+#information-section-molnar{
+    background-color: white; 
+    z-index:10; 
+}
+
+#information-section-app{
+    background-color: var(--color2); 
+    z-index:70; 
+}
+
 
 /* Zuweisung SVG zu Button */
 
