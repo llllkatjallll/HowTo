@@ -102,7 +102,7 @@
 
             <!-- Game -->
 
-            <section id="game-section" style="background-color: white; z-index:53;">
+            <section id="game-section" style="z-index:53;">
                 <div class="section-content-game">
                     <div class="header">
                         <div class="button-icon">
@@ -200,8 +200,8 @@
                     </div>
 
                     <div class="text-buttons">
-                        <div class="text-button dark" style="background-color:black" id="button-neu"><div class="text-button-icon" id="icon-new-dark"></div>neu</div>
-                        <div class="text-button dark" style="background-color:black" id="button-speichern"><div class="text-button-icon" id="icon-check-dark"></div>speichern</div>    
+                        <div class="text-button dark" id="button-neu"><div class="text-button-icon" id="icon-new-dark"></div>neu</div>
+                        <div class="text-button dark" id="button-speichern"><div class="text-button-icon" id="icon-check-dark"></div>speichern</div>    
                     </div>
                     
 
@@ -212,14 +212,11 @@
 
             <!-- Gallery -->
 
-            <section id="gallery-section" style="background-color: #434343; z-index:54;">
+            <section id="gallery-section" style="z-index:54;">
                 <div class="section-content section-dark">
                     <div class="header">
                         <div class="button-icon">
                             </div>
-                        <div class="text-buttons" style="padding-right: 0.5em">
-                            <div class="text-button dark" id="button-download"><div class="text-button-icon" id="icon-download-dark"></div>herunterladen</div>
-                        </div>
                         <div class="dropdown-menu">
                             <div class="button-icon" id="icon-menu-dark">
                                 </div>
@@ -228,14 +225,17 @@
                     <div id="gallery-wrapper" class="content-wrapper">
                         <!-- <div class="gallery-image"><div class="checkbox"></div></div> -->
                     </div>
-                </div>
+                    <div class="text-buttons">
+                        <div class="text-button dark" id="button-download"><div class="text-button-icon" id="icon-download-dark"></div>herunterladen</div>
+                    </div>
+            </div>
                 <div class="bar dark"></div>
             </section>             
 
 
                     <!-- Information -->
 
-                    <section id="information-section" style="background-color: white; z-index:55;">
+                    <section id="information-section" style="z-index:55;">
                         <div class="section-content section-light">
                             <div class="header">
                                 <div class="button-icon">
@@ -260,8 +260,8 @@
                                 </div>
                                 <audio><source src=""> </audio>
                                 <div class="text-buttons" style="align-self: center !important;">
-                                    <div class="text-button dark" style="background-color: black" id="button-play"><div class="text-button-icon" id="icon-play-dark"></div>Vorlesen</div>
-                                    <div class="text-button dark dont-show fade" style="background-color: black" id="button-pause"><div class="text-button-icon" id="icon-pause-dark"></div>Anhalten</div>
+                                    <div class="text-button dark" id="button-play"><div class="text-button-icon" id="icon-play-dark"></div>Vorlesen</div>
+                                    <div class="text-button dark dont-show fade" id="button-pause"><div class="text-button-icon" id="icon-pause-dark"></div>Anhalten</div>
                                 </div>
                                 <p class="text-small">1974 entwickelt Vera Molnar zusammen mit ihrem Mann François das Computerprogramm Molnart. Sie möchte ihre Versuchsreihen systematisch anlegen und nimmt sich vor, ihre Lieblingsform, das Quadrat, zu erforschen. So legt sie in diesem Programm beispielsweise ein Quadratraster an. In jedes der Quadrate sind wiederum kleinere Quadrate eingeschrieben, deren Seiten regelmäßig abnehmen und die symmetrisch um den Mittelpunkt, also konzentrisch, angeordnet sind. Die Größe und die Anzahl der Quadrate pro Zeile lassen sich beliebig variieren. Die so entstehenden Bilder bezeichnet Vera Molnar zunächst als redundant, d.h. beliebig wiederholbar, weil sie keinen ästhetischen Zustand erzeugen. Sie sind nichts weiter als aus Algorithmen, also festgelegten Regeln, erzeugte Muster. Was aber ist ein ästhetischer Zustand? Vera Molnar sagt, um einen ästhetischen Zustand zu erkennen, also um zu erkennen, ob etwas spannend genug ist, um Kunst zu sein, braucht es Intuition. Sie beginnt, in die von ihr selbst festgelegten Regeln einzugreifen, indem sie einzelne Variablen systematisch manipuliert. Die Eingriffe sind oft nur ganz klein und trotzdem entsteht auf diese Weise eine Vielzahl von Ergebnissen. Mal werden einzelne Quadrate ausgelassen, mal wird der Mittelpunkt oder die Eckpunkte verschoben. Später kommen Farben hinzu, denen bestimmte Werte oder Größen zugeordnet sind. Sie versucht, verwirft, versucht neu, wählt aus. Die Möglichkeiten sind zahllos und doch wählt sie immer nur einige, wenige Bildergebnisse aus, um sie auszudrucken. In den 1970er Jahren verwendet sie dafür einen sogenannten Benson Plotter, in den ein Stift eingespannt wird, der wie mit einer automatischen Hand Linie für Linie so zeichnet, wie Vera Molnar sie im Programm festgelegt hat. Obwohl es maschinell erzeugte Linien sind, haben sie eine ganz eigene malerische Qualität, etwa an den Stellen, wo der Stift etwas länger aufsetzt und die Farbe ausläuft oder dort, wo sich Linien überlagern.
                                     <br><br>
@@ -274,7 +274,7 @@
                                     Vera Molnár. <span class="italic">Entretien avec Vincent Baby</span>. Paris 2022<br>
                                     Vera Molnar: <span class="italic">Description du programme «Molnár» (1974-1976)</span>. In: Vera Molnár. Entretien avec Vincent Baby. Paris 2022</p>   
                                 <div class="text-buttons">
-                                    <div id="back-to-menu" class="text-button light" style="margin-bottom:3em">Hauptmenü</div>
+                                    <div id="back-to-menu" class="text-button light">Hauptmenü</div>
                                 </div>         
                             </div>
                         </div>

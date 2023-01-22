@@ -31,7 +31,6 @@
     <meta name="author" content="Institut für Aktuelle Kunst Saarbrücken">
 
 </head>
-    <!-- <body onload="typeWriter()" > -->
    
     <body style="transition: 0s !important">    
         
@@ -102,7 +101,7 @@
 
             <!-- Game -->
 
-            <section id="game-section" style="background-color:white; z-index:63;">
+            <section id="game-section" style="z-index:63;">
                 <div class="section-content section-light">
                     <div class="header">
                         <div class="button-icon">
@@ -125,8 +124,8 @@
                         <div class="game-button"><div class="button-icon" id="icon-mirror-light"></div>Spiegeln</div>  -->
                     </div> 
                     <div class="text-buttons">
-                        <div class="text-button dark" style="background-color:black" id="button-neu"><div class="text-button-icon" id="icon-new-dark"></div>neu</div>
-                        <div class="text-button dark" style="background-color:black" id="button-speichern"><div class="text-button-icon" id="icon-check-dark"></div>speichern</div>    
+                        <div class="text-button dark" id="button-neu"><div class="text-button-icon" id="icon-new-dark"></div>neu</div>
+                        <div class="text-button dark" id="button-speichern"><div class="text-button-icon" id="icon-check-dark"></div>speichern</div>    
                     </div>
                 </div>
                 <div class="bar light"></div>
@@ -135,14 +134,11 @@
 
             <!-- Gallery -->
 
-            <section id="gallery-section" style="background-color: #434343; z-index:64;">
+            <section id="gallery-section" style="z-index:64;">
                 <div class="section-content section-dark">
                     <div class="header">
                         <div class="button-icon">
                             </div>
-                        <div class="text-buttons" style="padding-right: 0.5em">
-                            <div class="text-button dark" id="button-download"><div class="text-button-icon" id="icon-download-dark"></div>herunterladen</div>
-                        </div>
                         <div class="dropdown-menu">
                             <div class="button-icon" id="icon-menu-dark">
                                 </div>
@@ -151,6 +147,9 @@
                     <div id="gallery-wrapper" class="content-wrapper">
                         <!-- <div class="gallery-image"><div class="checkbox"></div></div> -->
                     </div>
+                    <div class="text-buttons">
+                        <div class="text-button dark" id="button-download"><div class="text-button-icon" id="icon-download-dark"></div>herunterladen</div>
+                    </div>
                 </div>
                 <div class="bar dark"></div>
             </section>             
@@ -158,7 +157,7 @@
 
                     <!-- Information -->
 
-                    <section id="information-section" style="background-color: white; z-index:65;">
+                    <section id="information-section" style="z-index:65;">
                         <div class="section-content section-light">
                             <div class="header">
                                 <div class="button-icon">
@@ -186,8 +185,8 @@
                                     </div>
                                 <audio><source src=""> </audio>
                                 <div class="text-buttons" style="align-self: center !important;">
-                                    <div class="text-button dark" style="background-color: black" id="button-play"><div class="text-button-icon" id="icon-play-dark"></div>Vorlesen</div>
-                                    <div class="text-button dark dont-show fade" style="background-color: black" id="button-pause"><div class="text-button-icon" id="icon-pause-dark"></div>Anhalten</div>
+                                    <div class="text-button dark" id="button-play"><div class="text-button-icon" id="icon-play-dark"></div>Vorlesen</div>
+                                    <div class="text-button dark dont-show fade" id="button-pause"><div class="text-button-icon" id="icon-pause-dark"></div>Anhalten</div>
                                 </div>
                                 <p class="text-small">Ein Jahr, nachdem sie ihr Studium der klassischen Malerei in Budapest beendet hat, macht Vera Molnar eine Zeichnung, die sie ihr ganzes Leben lang beschäftigen wird.</p>
                                 <div class="quote">»1948, als ich noch am Anfang meines nicht-figurativen, geometrischen Malabenteuers war, bemerkte ich an einem Kupferstich Albrecht Dürers, an <span class="italic">Melencolia I</span> rechts oben in der Ecke eine Zifferntabelle, ein magisches Quadrat. In diesem Quadrat aus 4 x 4 Feldern werden die Zahlen von 1 bis 16 so eingetragen, dass ihre Summe in den Senkrechten, den Waagerechten oder den Diagonalen stets 34 ist. Und interessanterweise stehen in der Mitte der untersten Zeile die Zahlen 15 und 14. 1514, das Jahr, in dem Dürer <span class="italic">Melencolia I</span> geschaffen hat. Diese Konfiguration hat mich sehr angezogen, ich vermutete darin ein verborgenes Gesetz, eine geheime Regel, die man auf die Kunst anwenden könnte.«</div>
@@ -211,7 +210,7 @@
                                 Vera Molnar: <span class="italic">Hommage à Dürer</span> (1948-1992). In: Vera Molnár. <span class="italic">Entretien avec Vincent Baby.</span> Paris 2022<br>
                                 </p>
                                 <div class="text-buttons">
-                                    <div id="back-to-menu" class="text-button light" style="margin-bottom:3em">Hauptmenü</div>
+                                    <div id="back-to-menu" class="text-button light">Hauptmenü</div>
                                 </div>         
                             </div>
                         </div>

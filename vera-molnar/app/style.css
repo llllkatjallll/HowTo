@@ -30,6 +30,7 @@
     line-height: 1.4;
 /*    -webkit-overflow-scrolling: touch;*/
     text-align: center;
+    --color1: #60132d;
 }
 
 body{
@@ -450,17 +451,22 @@ a:link, a:visited {
     letter-spacing: 0.03em;
     border-radius: 2em;
     transition: 300ms;
-/*    box-shadow: #210404 0 1px 3px;*/
 }
 
 .text-button.light{
-    color: black;
-    border: black solid 0.09em;
+    color: var(--color1);
+    border: var(--color1) solid 0.09em;
 }
 
 .text-button.dark{
     color: white;
-    border: white solid 0.09em;
+    background-color: var(--color1);
+}
+
+.text-button.dark.neutral{
+    color: white;
+    background-color: transparent;
+    border: solid white 0.09em;
 }
 
 .text-button-icon{
@@ -682,55 +688,3 @@ iframe{
 #icon-menu-light{
     background-image: url(svg/icon-menu-light.svg);
 }
-
-
-/* Startseite 
-
-#start{
-    width: calc(100vw - 8em);
-    height: calc(100vh - 8em);
-    padding: 4em;
-
-    top: 0;
-    transition: 600ms;
-    z-index: -100;
-    position: fixed;
-    overflow: hidden;
-
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items: center;
-    gap: 2em;
-
-    background-color: lightgrey;
-}
-
-#menu{
-    width: 100vw;
-    height: 100%;
-    height: calc(var(--vh, 1vh) * 100);
-
-    position: fixed;
-    overflow: scroll;
-    transition: 800ms;
-    z-index: 0;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-
-    background-color: #E6584D;
-}*/
-
-/* Dropdown-Menü 
-
-.dropdown-list{
-    position: absolute;
-    top: 5em;
-    right: 2em;
-   align-self: flex-end  !important;
-    justify-self: flex-end !important;
-  }
-*/
