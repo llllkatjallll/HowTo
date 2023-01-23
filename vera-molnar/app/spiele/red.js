@@ -123,7 +123,7 @@ let sketch = function (p) {
         accChangeX = p.abs(p.accelerationX - p.pAccelerationX);
         accChangeY = p.abs(p.accelerationY - p.pAccelerationY);
         accChangeT = accChangeX + accChangeY;
-        console.log("change " + accChangeT);
+        //console.log("change " + accChangeT);
         // If shake
         if (accChangeT >= threshold) {
             for (let i = 0; i < balls.length; i++) {

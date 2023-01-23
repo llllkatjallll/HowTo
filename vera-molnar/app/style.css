@@ -726,11 +726,15 @@ div > img{
 }
 
 #icon-glyph-rotation-light{
-    background-image: url(svg/icon-glyph-rotation-light.svg);
+   
+    -webkit-mask-image: url(svg/icon-glyph-rotation-light.svg);
+    mask-image: url(svg/icon-glyph-rotation-light.svg);
 }
 
 #icon-glyphs-light{
-    background-image: url(svg/icon-glyphs-light.svg);
+    
+    -webkit-mask-image: url(svg/icon-glyphs-light.svg);
+    mask-image: url(svg/icon-glyphs-light.svg);
 }
 
 #icon-grid-amount-light{

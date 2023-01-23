@@ -1,6 +1,6 @@
 // setup
 
-var grid = document.querySelector('.letter-grid');
+var grid = document.getElementById("defaultCanvas0");
 var gridWidth;
 var gridHeight;
 var gridSize;
@@ -15,16 +15,25 @@ var lettersInitialien = ["A", "R"];
 var inBool = true;
 let currentGameId = "buchstaben";
 
-var slider = document.getElementById("myRange");
-var sliderRotation = document.getElementById("myRotation");
-var sliderSize = document.getElementById("mySize");
+var sliderThikness = document.getElementById("thiknessSlider");
+var sliderRotation = document.getElementById("rotationSlider");
+var sliderSize = document.getElementById("sizeSlider");
 
-var sliderGrid = document.getElementById("gridSize");
-var colorLetter = document.getElementById("colorLetter");
-var colorBackground = document.getElementById("colorBackground");
-var spans = document.getElementById("game-content").getElementsByTagName("span");
-var saveButton = document.getElementById("saveButton");
+var sliderGrid = document.getElementById("gridSlider");
+var colorLetter = document.getElementById("textColotInput");
+var colorBackground = document.getElementById("backgroundInput");
+var spans = document.getElementById("defaultCanvas0").getElementsByTagName("span");
 
+
+
+//230123
+//funtions UI zum ein/ausblenden
+var buttonGrid = document.getElementById("button-grid");
+var buttonThikness = document.getElementById("button-thikness");
+var buttonSize = document.getElementById("button-size");
+var buttonRotation = document.getElementById("button-rotation");
+var containerFunctions = document.getElementById("functions-container");
+var gameButtons = document.getElementById("game-buttons");
 
 // the unicode values that we want to loop through (A-Z)
 // http://www.codingforums.com/showpost.php?s=ca38992f8716f43d325c12be6fc0198b&p=843844&postcount=3
@@ -38,8 +47,9 @@ var charCodeRange = {
 
 function getDimensions() {
   var gridRect = grid.getBoundingClientRect();
+  grid.style.height=gridRect.width + "px";
   gridWidth = gridRect.width;
-  gridHeight = gridRect.height;
+  gridHeight = gridRect.width;
 }
 
 // get the total possible letters needed to fill the grid
@@ -148,6 +158,16 @@ function init() {
   drawLetters(totalLetters);
   getCurrentLetters();
   calculateGrid();
+
+   //add listeners for showing/hiding sliders and other ui
+   buttonThikness.addEventListener('click', (event) => { showSelectedFunction(buttonThikness) });
+   buttonRotation.addEventListener('click', (event) => { showSelectedFunction(buttonRotation) });
+   buttonSize.addEventListener('click', (event) => { showSelectedFunction(buttonSize) });
+   buttonGrid.addEventListener('click', (event) => { showSelectedFunction(buttonGrid);  });
+
+   //document.getElementById("overlay-layer").addEventListener('click', (event) => { console.log("log"); event.stopPropagation(); });
+   //restartButton.addEventListener('click', (event) => { p.restart() });
+
 }
 
 function onResize() {
@@ -175,21 +195,53 @@ init();
 // do everything we've done so far, except on window resize using debounce to 
 // ensure that resize isn't going nuts firing all this code constantly
 
-window.addEventListener('resize', _.debounce(onResize, 100));
+//window.addEventListener('resize', _.debounce(onResize, 100));
 
+showSelectedFunction = function (pressedButton) {
+  // set all buttons to inactive
+  var allButtons = gameButtons.children;
+  for (var i = 0; i < allButtons.length; i++) {
+    var button = allButtons[i];
+    button.classList.remove("selected-text");
+    button.classList.add("not-selected-text");
+    //change icon color
+    button.children[0].classList.remove("selected-icon");
+    button.children[0].classList.add("not-selected-icon");
+  }
+  pressedButton.classList.remove("not-selected-text");
+  pressedButton.classList.add("selected-text");
+  pressedButton.children[0].classList.remove("not-selected-icon");
+  pressedButton.children[0].classList.add("selected-icon");
 
+  //set pressedButton to active
+  let functionName = pressedButton.id.substring(7);
+
+  var children = containerFunctions.children;
+  for (var i = 0; i < children.length; i++) {
+    var functionChild = children[i];
+    functionChild.classList.add("dont-show");
+    if (functionName == functionChild.id.substring(9)) {
+      functionChild.classList.remove("dont-show");
+    }
+    
+  }
+}
 
 
 //Slider Thikness
-slider.oninput = function () {
-  document.getElementById("game-content").style.fontWeight = this.value;
+sliderThikness.oninput = function () {
+  document.getElementById("defaultCanvas0").style.fontWeight = this.value;
+  const collection = document.getElementsByClassName("letter-ops");
+for (let i = 0; i < collection.length; i++) {
+  collection[i].style.fontWeight = this.value;
+}
 }
 
 //Slider Grid size
 sliderGrid.oninput = function () {
 
   deleteLetters();
-  const myNode = document.getElementById("game-content");
+  const myNode = document.getElementById("defaultCanvas0");
   while (myNode.firstChild) {
     myNode.removeChild(myNode.lastChild);
   }
@@ -211,7 +263,7 @@ function collectInputData(){
    gridValue = sliderGrid.value;
    rotationValue =  sliderRotation.value;
    sizeValue = sliderSize.value;
-   thiknessValue = slider.value;
+   thiknessValue = sliderThikness.value;
 }
 
 function rotateLetter(thisSpan){
@@ -238,16 +290,18 @@ sliderRotation.oninput = function () {
 
 // Slider color
 colorBackground.oninput = function () {
-  let input = document.getElementById("colorBackground").value;
-  document.getElementById("game-content").style.backgroundColor = input;
+  let input = document.getElementById("backgroundInput").value;
+  document.getElementById("defaultCanvas0").style.backgroundColor = input;
 }
 
 //Slider Letter
 colorLetter.oninput = function () {
-  let input = document.getElementById("colorLetter").value;
-  document.getElementById("game-content").style.color = input;
+  let input = document.getElementById("textColotInput").value;
+  document.getElementById("defaultCanvas0").style.color = input;
  
 }
+
+
 
 //is it being used?
 function readText() {

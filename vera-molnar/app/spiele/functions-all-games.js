@@ -26,7 +26,11 @@ function setItem(gameKey, itemValue) {
        // console.log(itemValue);
 
         //check local storage memory
-        var _lsTotal=0,_xLen,_x;for(_x in localStorage){ if(!localStorage.hasOwnProperty(_x)){continue;} _xLen= ((localStorage[_x].length + _x.length)* 2);_lsTotal+=_xLen; console.log(_x.substr(0,50)+" = "+ (_xLen/1024).toFixed(2)+" KB")};console.log("Total = " + (_lsTotal / 1024).toFixed(2) + " KB");
+        var _lsTotal = 0, _xLen, _x;
+        for (_x in localStorage) { if (!localStorage.hasOwnProperty(_x)) { continue; } _xLen = ((localStorage[_x].length + _x.length) * 2); _lsTotal += _xLen; 
+        //console.log(_x.substr(0, 50) + " = " + (_xLen / 1024).toFixed(2) + " KB") 
+    }; 
+        console.log("Total = " + (_lsTotal / 1024).toFixed(2) + " KB");
 
         return true;
     } catch(e) {
@@ -91,6 +95,10 @@ function countImagesGame(gameName){
 
 
 function displayImagesfromStorage(gameId){
+
+    while (containerGallery.firstChild) {
+        containerGallery.removeChild(containerGallery.firstChild);
+    }
     
     for ( var i = 0, len = localStorage.length; i < len; ++i ) {
         let keyName = localStorage.key( i );
@@ -114,20 +122,25 @@ function displayImagesfromStorage(gameId){
     saveImage();
   } */
   //Save Image
-  function saveImage() {
+  function saveImage(event) {
+   // let wrapper = document.getElementById("section-wrapper-touch");
+    //wrapper.classList.remove("scroll-snap");
     html2canvas(document.querySelector("#defaultCanvas0")).then(canvas => {
       canvas.classList.add("gallery-image");
+
       //containerGallery.appendChild(canvas);
       /*let div = document.createElement('div');
       div.classList.add('checkbox');
        canvas.appendChild(div);*/
-      containerGallery.insertBefore(canvas, containerGallery.firstChild);
+      //containerGallery.insertBefore(canvas, containerGallery.firstChild);
       let dataUrl = canvas.toDataURL("image/png");
       setItem(currentGameId, dataUrl);
-      
+     displayImagesfromStorage(currentGameId);
       //DOWNLOAD IMAGE
       /*canvas.toBlob(function(blob) {
         window.saveAs(blob, 'my_image.jpg');
       }); */
   });
+
+ 
   }

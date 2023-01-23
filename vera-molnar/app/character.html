@@ -19,7 +19,11 @@
 
      <!--Game Specific-->
      <script src="spiele/html2canvas.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
+     <link rel="stylesheet" type="text/css" href="spiele/coloris.min.css">
      <!--p5 -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 
@@ -102,7 +106,7 @@
             <!-- Game -->
 
             <section id="game-section" style="z-index:33;">
-                <div class="section-content section-light">
+                <div class="section-content-game">
                     <div class="header">
                         <div class="button-icon">
                             </div>
@@ -111,19 +115,82 @@
                                 </div>
                         </div>
                     </div>
-                    <div id="game-wrapper" class="content-wrapper">
-                            
-                    </div>
-                    <div class="game-buttons">
+                    <div id="game-wrapper" class="character-wrapper">
+                        <div id="defaultCanvas0" >
                         
+                        </div>
+                    </div>
 
-                            <!-- <div class="game-button"><div class="button-icon" id="icon-glyphs-light"></div>Anhalten</div>
-                           <div class="game-button"><div class="button-icon" id="icon-grid-light"></div>Raster</div>
-                            <div class="game-button"><div class="button-icon" id="icon-glyph-rotation-light"></div>Drehung</div>
-                            <div class="game-button"><div class="button-icon" id="icon-contour-light"></div>Kontur</div>
-                            <div class="game-button"><div class="button-icon" id="icon-colour-light"></div>Farbe</div>
-                            <div class="game-button"><div class="button-icon" id="icon-mirror-light"></div>Spiegeln</div>  -->
+
+                    <div class="game-buttons" id="game-buttons">
+                        
+                        <div class="game-button selected-text"  id="button-grid"><div class="button-game-icon selected-icon" id="icon-grid-light"></div>Raster</div>
+                        <div class="game-button"  id="button-rotation"><div class="button-game-icon" id="icon-glyph-rotation-light"></div>Drehung</div>
+                         <div class="game-button" id="button-thikness"><div class="button-game-icon" id="icon-grid-distance-light"></div>Dicke</div>
+                         <div class="game-button" id="button-size"><div class="button-game-icon" id="icon-glyphs-light"></div>Größe</div>
+                         <!--<div class="game-button"><div class="button-icon" id="icon-colour-light"></div>Farbe</div>
+                         <div class="game-button"><div class="button-icon" id="icon-mirror-light"></div>Spiegeln</div> --> 
                     </div> 
+
+                    <div class="game-functions">
+                        <div class="functions-container" id="functions-container">
+                            <div class="function " id="function-grid">
+                                <input type="range" min="2" max="8" value="4" class="range-slider slider-progress" id="gridSlider">
+                                
+                            </div>
+
+                            <div class="function dont-show" id="function-rotation">
+                                <input type="range" min="0" max="360" value="180" class="range-slider slider-progress" id="rotationSlider">
+                                
+                            </div>
+                            <div class="function dont-show" id="function-thikness">
+                                <input type="range" min="50" max="1200" value="200" class="range-slider slider-progress" id="thiknessSlider">
+                                
+                            </div>
+
+                            <div class="function dont-show" id="function-size">
+
+                                <div class="function " >
+                                    <input type="range" min="1" max="10" value="5" class="range-slider slider-progress" id="sizeSlider">
+                                   <!-- <div class="label"> Raster</div>-->
+                                </div> 
+                            
+                               
+
+                             <!--   <p style="display: inline-block; height:40px; vertical-align: middle;line-height: 40px; margin:0;">Farbe</p>
+                                     <label class="switch">
+                                     <input type="checkbox" id="colorToggle">
+                            
+                                    </label>  -->
+
+                                              
+
+                       <!--<p style="display: inline-block; height:40px; vertical-align: middle;line-height: 40px; margin:0;">Abweichung</p>
+                        <label class="switch">
+                            <input type="checkbox" id="exceptionToggle">  
+                        </label>  -->
+
+
+                            </div>
+                        </div >
+                        
+                        
+                        
+                    </div>
+
+                    <div class="game-checkboxes" style="display: flex; justify-content: space-around;">
+                        <div class="example full">
+                            <p>Hintergrund</p>
+                            <input type="color" id="backgroundInput" name="head" value="#ffffff">
+                           <!-- <input type="text" data-coloris id="backgroundInput" value="#ffcc00">-->
+                          </div>
+                          <div class="example full">
+                            <p>Textfarbe</p>
+                             <input type="color" id="textColotInput" name="head" value="#ffffff">
+                           <!--<input type="text" data-coloris id="textColotInput" value="#000000">-->
+                          </div>
+                    </div>
+
                     <div class="text-buttons">
                         <div class="text-button dark" id="button-neu"><div class="text-button-icon" id="icon-new-dark"></div>neu</div>
                         <div class="text-button dark" id="button-speichern"><div class="text-button-icon" id="icon-check-dark"></div>speichern</div>    
@@ -149,7 +216,7 @@
                         <!-- <div class="gallery-image"><div class="checkbox"></div></div> -->
                     </div>
                     <div class="text-buttons">
-                        <div class="text-button dark neutral" id="button-download"><div class="text-button-icon" id="icon-download-dark"></div>dowwnload</div>
+                        <div class="text-button dark neutral" id="button-download"><div class="text-button-icon" id="icon-download-dark"></div>download</div>
                     </div>
                 </div>
                 <div class="bar dark"></div>
@@ -210,6 +277,38 @@
                     </section>
         </div>
 
+       <!-- <div id="overlay-layer"></div>-->
+
+
+      <!--Game Specific-->
+      <script src="spiele/range-input.js"></script>
+      <script type="text/javascript" src="spiele/coloris.js"></script>
+      <script src="spiele/buchstaben-script.js"></script>
+      <script src="spiele/functions-all-games.js"></script>       
+        <script>
+            Coloris({
+      parent: '#overlay-layer',
+      el: '.coloris',
+      swatches: [
+        '#264653',
+        '#2a9d8f',
+        '#e9c46a',
+        '#f4a261',
+        '#e76f51',
+        '#d62828',
+        '#023e8a',
+        '#0077b6',
+        '#0096c7',
+        '#00b4d8',
+        '#48cae4'
+      ]
+    });
+Coloris.setInstance('.instance3', {
+      theme: 'polaroid',
+      swatchesOnly: true
+    });
+
+        </script>
     </body>
 
 </html>
