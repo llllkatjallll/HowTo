@@ -6,7 +6,7 @@ var buttonGrid = document.getElementById("button-grid");
 var buttonCount = document.getElementById("button-count");
 var buttonDensity = document.getElementById("button-density");
 var buttonRandom = document.getElementById("button-random");
-var containerFunctions =document.getElementById("functions-container");
+var containerFunctions = document.getElementById("functions-container");
 
 var colorToggle = document.getElementById("colorToggle");
 var rotationToggle = document.getElementById("rotationToggle");
@@ -28,7 +28,7 @@ let quadSpacing = 12;
 let currentGameId = "desordres";
 let exceptionAmount = 0;
 let sketch = function (p) {
-let canvasSize = 0;
+  let canvasSize = 0;
   // p.preload = function () {
 
   // }
@@ -37,21 +37,21 @@ let canvasSize = 0;
 
     gameWidth = gameCanvas.clientWidth;
     gameHeight = gameCanvas.clientHeight;
-    
-    if(gameWidth >= gameHeight){
+
+    if (gameWidth >= gameHeight) {
       canvas = p.createCanvas(gameHeight, gameHeight);
       canvasSize = gameHeight;
     } else {
       canvas = p.createCanvas(gameWidth, gameWidth);
       canvasSize = gameWidth;
     }
-    gameCanvas.setAttribute("style","height:100px!important");
+    gameCanvas.setAttribute("style", "height:100px!important");
 
     p.drawGrid();
-   // colorToggle.addEventListener('change', (event) => { p.inputEvent() });
+    // colorToggle.addEventListener('change', (event) => { p.inputEvent() });
     rotationToggle.addEventListener('change', (event) => { p.inputEvent() });
     strokeToggle.addEventListener('change', (event) => { p.inputEvent() });
-    
+
 
 
     //add listeners for showing/hiding sliders and other ui
@@ -119,41 +119,41 @@ let canvasSize = 0;
 
     //set pressedButton to active
     let functionName = pressedButton.id.substring(7);
-    
+
     var children = containerFunctions.children;
-        for (var i = 0; i < children.length; i++) {
-          var functionChild = children[i];
-          functionChild.classList.add("dont-show");
-          if (functionName == functionChild.id.substring(9)) {
-            functionChild.classList.remove("dont-show");
-          }
-          // klasse hinzufühen, die sichtbarkeit ausschaltet
-        }
+    for (var i = 0; i < children.length; i++) {
+      var functionChild = children[i];
+      functionChild.classList.add("dont-show");
+      if (functionName == functionChild.id.substring(9)) {
+        functionChild.classList.remove("dont-show");
+      }
+      // klasse hinzufühen, die sichtbarkeit ausschaltet
+    }
 
     switch (functionName) {
       case 'grid':
         console.log('grid');
         //vorherige objekte ausschalten
-        
+
         //objekt mit dem gleichen namen einblenden
         break;
-       
+
       case 'count':
-          console.log('count');
-          break;
-      
+        console.log('count');
+        break;
+
       case 'density':
         console.log('density');
         // expected output: "Mangoes and papayas are $2.79 a pound."
         break;
       case 'random':
-          console.log('random');
-          break;  
+        console.log('random');
+        break;
       default:
         console.log(`Kein Button mit passender ID!`);
     }
 
-    
+
   }
 
   sliderSize.oninput = function () {
@@ -162,7 +162,7 @@ let canvasSize = 0;
   }
 
   exceptionSlider.oninput = function () {
-    exceptionAmount = 31- exceptionSlider.value;
+    exceptionAmount = 32 - exceptionSlider.value;
     p.inputEvent();
   }
 
@@ -222,13 +222,20 @@ let canvasSize = 0;
       } */
 
       this.lineChangeProbability = exceptionAmount;
-      
+
       let quadSize = midLength - spacing;
 
       p.noFill();
       for (let i = 0; i < density; i++) {
-        let lineRandomness = p.int(p.random(0, this.lineChangeProbability));
-        if (lineRandomness !== 1) {
+        let lineRandomness = 0;
+        if(exceptionSlider.value == 1){
+           lineRandomness = 0;
+          
+        } else{
+           lineRandomness = p.int(p.random(1, this.lineChangeProbability));
+        }
+        
+       if (lineRandomness !== 1) {
 
           let quadHalf = quadSize - (quadSpacing * i);
           if (quadHalf < 0) {
@@ -238,20 +245,19 @@ let canvasSize = 0;
           p.translate(this.pos.x, this.pos.y);
 
           let lineRandomness2 = p.int(p.random(1, exceptionAmount));
-          
-            if (lineRandomness2 == 1) {
-              if (rotationToggle.checked == true) {
+          if (lineRandomness2 == 1 && lineRandomness !== 0 ) {
+            if (rotationToggle.checked == true) {
               p.rotate(p.radians(p.int(p.random(-15, 15))));
-              }
-              if (strokeToggle.checked == true) {
-                p.strokeWeight(p.int(p.random(1,5)));
-              }
             }
-          
-         /* if (colorToggle.checked == true) {
-            p.stroke(p.random(255, 0), p.random(255, 0), p.random(255, 0));
-          } */
-          
+            if (strokeToggle.checked == true) {
+              p.strokeWeight(p.int(p.random(1, 5)));
+            }
+          }
+
+          /* if (colorToggle.checked == true) {
+             p.stroke(p.random(255, 0), p.random(255, 0), p.random(255, 0));
+           } */
+
           p.quad(0 - quadHalf, 0 - quadHalf, 0 + quadHalf, 0 - quadHalf, 0 + quadHalf, 0 + quadHalf, 0 - quadHalf, 0 + quadHalf);
           p.pop();
 
