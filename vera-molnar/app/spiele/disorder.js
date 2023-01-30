@@ -181,7 +181,7 @@ let sketch = function (p) {
     console.log("drawGrid");
     //delete previous quads
     quads = [];
-    p.background(240, 240, 240);
+    p.background(	242,236,231);
     //calculate quad size
     length = (canvasSize - 2 * spacing) / amount;
     midLength = length / 2;

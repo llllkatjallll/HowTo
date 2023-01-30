@@ -3,7 +3,7 @@ var restartButton = document.getElementById("button-neu");
 var holdButton = document.getElementById("button-stop");
 
 var sectionWrapper = document.getElementById("section-wrapper-touch");
-var placeholderWrapper = document.getElementById("placeholder-wrapper");
+var placeholderWrapper = document.getElementById("body-wrapper");
 var canvas;
 let balls = [];
 
@@ -27,7 +27,7 @@ let sketch = function (p) {
       gameWidth = gameCanvas.clientWidth;
       gameHeight = gameCanvas.clientHeight;
       canvas = p.createCanvas(gameWidth, gameWidth);
-      p.background(235);
+      p.background(	242,236,231);
 
       gameCanvas.addEventListener('touchstart', p.process_touchstart, false);
       gameCanvas.addEventListener('touchmove', p.process_touchmove, false);
@@ -65,8 +65,8 @@ let sketch = function (p) {
 
 
     p.process_touchstart = function () {
-     // sectionWrapper.classList.add("hideOverflow");
-     // placeholderWrapper.classList.add("hideOverflow");
+      sectionWrapper.classList.add("hideOverflow");
+      placeholderWrapper.classList.add("hideOverflow");
       p.restart();
       if(startMode){
         let newPos = p.createVector(p.mouseX, p.mouseY);
@@ -84,8 +84,8 @@ let sketch = function (p) {
   }
 
     p.process_touchend = function () {
-     //sectionWrapper.classList.remove("hideOverflow");
-     //placeholderWrapper.classList.remove("hideOverflow");
+     sectionWrapper.classList.remove("hideOverflow");
+     placeholderWrapper.classList.remove("hideOverflow");
       startMode = !startMode;
     }
 
@@ -136,7 +136,7 @@ let k = 1;
       startMode = true;
       stop = !true;
       shapePoints = [];
-      p.background(235);
+      p.background(	242,236,231);
       k=0;
       holdButton.innerHTML="Anhalten";
     }

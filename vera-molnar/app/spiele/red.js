@@ -36,7 +36,7 @@ let sketch = function (p) {
 
       //quad size
       size  = gameCanvas.clientWidth/4;
-        p.background(245);
+      p.background(	242,236,231);
         p.rectMode(p.CENTER);
 
         length = (canvasSize - 2 * spacing) / amount;
@@ -97,7 +97,7 @@ let sketch = function (p) {
 
     p.draw = function () {
        
-        p.background(245);
+      p.background(	242,236,231);
 
         for (let i = 0; i < balls.length; i++) {
           balls[i].move();
