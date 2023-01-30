@@ -115,59 +115,43 @@
                                 </div>
                         </div>
                     </div>
-                    <div id="game-wrapper" class="character-wrapper">
+                    <div id="game-wrapper" class="character-wrapper hiddenElement">
                         <div id="defaultCanvas0" >
                         
                         </div>
                     </div>
 
+                   <div id="textInput"> Buchstaben: <input type="text" id="characterInput" value=""></div>
 
-                    <div class="game-buttons" id="game-buttons">
-                        <div class="game-button selected-text"  id="button-letter"><div class="button-game-icon selected-icon" id="icon-glyphs-light"></div>Text</div>
-                        <div class="game-button selected-text"  id="button-grid"><div class="button-game-icon" id="icon-grid-light"></div>Raster</div>
+                    <div class="game-buttons hiddenElement" id="game-buttons">
+                        
+                        <div class="game-button selected-text"  id="button-grid"><div class="button-game-icon selected-icon" id="icon-grid-light"></div>Raster</div>
                         <div class="game-button"  id="button-rotation"><div class="button-game-icon" id="icon-glyph-rotation-light"></div>Drehung</div>
                          <div class="game-button" id="button-thikness"><div class="button-game-icon" id="icon-grid-distance-light"></div>Dicke</div>
                          <div class="game-button" id="button-size"><div class="button-game-icon" id="icon-glyphs-light"></div>Größe</div>
+                         <div class="game-button "  id="button-letter"><div class="button-game-icon " id="icon-glyphs-light"></div>Farbe</div>
                          <!--<div class="game-button"><div class="button-icon" id="icon-colour-light"></div>Farbe</div>
                          <div class="game-button"><div class="button-icon" id="icon-mirror-light"></div>Spiegeln</div> --> 
                     </div> 
 
-                    <div class="game-functions">
+                    <div class="game-functions hiddenElement"  id="game-functions">
                         <div class="functions-container" id="functions-container">
 
-                            <div class="function " id="function-letter">
-                                Initialien: <input type="text" id="characterInput" value="">
-                                <div class="game-checkboxes" style="display: flex; justify-content: space-around;">
-
-                                    
-                                    
-
-                                    <div class="example full">
-                                        <p>Hintergrund</p>
-                                        <input type="color" id="backgroundInput" name="head" value="#ffffff">
-                                       <!-- <input type="text" data-coloris id="backgroundInput" value="#ffcc00">-->
-                                      </div>
-                                      <div class="example full">
-                                        <p>Textfarbe</p>
-                                         <input type="color" id="textColotInput" name="head" value="#ffffff">
-                                       <!--<input type="text" data-coloris id="textColotInput" value="#000000">-->
-                                      </div>
-                                </div>
-                                
-                            </div>
+                            
 
 
-                            <div class="function dont-show" id="function-grid">
-                                <input type="range" min="2" max="8" value="4" class="range-slider slider-progress" id="gridSlider">
+                            <div class="function " id="function-grid">
+                                <input type="range" min="1" max="8" value="3" class="range-slider slider-progress" id="gridSlider">
                                 
                             </div>
 
                             <div class="function dont-show" id="function-rotation">
                                 <input type="range" min="0" max="360" value="0" class="range-slider slider-progress" id="rotationSlider">
+                                <div class="hint">Tippe einzelne Buchstaben an, um diese zu drehen.</div>
                                 
                             </div>
                             <div class="function dont-show" id="function-thikness">
-                                <input type="range" min="50" max="1200" value="200" class="range-slider slider-progress" id="thiknessSlider">
+                                <input type="range" min="50" max="1200" value="400" class="range-slider slider-progress" id="thiknessSlider">
                                 
                             </div>
 
@@ -194,6 +178,24 @@
                         </label>  -->
 
 
+                            </div>
+
+                            <div class="function dont-show" id="function-letter">
+                               
+
+                                <div class="game-checkboxes" style="display: flex; justify-content: space-around;">
+                                    <div class="example full">
+                                        <p>Hintergrund</p>
+                                        <input type="color" id="backgroundInput" name="head" value="#f2ece7">
+                                       <!-- <input type="text" data-coloris id="backgroundInput" value="#ffcc00">-->
+                                      </div>
+                                      <div class="example full">
+                                        <p>Textfarbe</p>
+                                         <input type="color" id="textColotInput" name="head" value="#000000">
+                                       <!--<input type="text" data-coloris id="textColotInput" value="#000000">-->
+                                      </div>
+                                </div>
+                                
                             </div>
                         </div >
                         
@@ -291,36 +293,22 @@
 
        <!-- <div id="overlay-layer"></div>-->
 
+       <script>
+        HTMLCanvasElement.prototype.getContext = function(origFn) {
+          return function(type, attribs) {
+            attribs = attribs || {};
+            attribs.preserveDrawingBuffer = true;
+            return origFn.call(this, type, attribs);
+          };
+        }(HTMLCanvasElement.prototype.getContext);
+        </script>
 
       <!--Game Specific-->
       <script src="spiele/range-input.js"></script>
-      <script type="text/javascript" src="spiele/coloris.js"></script>
+
       <script src="spiele/buchstaben-script.js"></script>
       <script src="spiele/functions-all-games.js"></script>       
-        <script>
-            Coloris({
-      parent: '#overlay-layer',
-      el: '.coloris',
-      swatches: [
-        '#264653',
-        '#2a9d8f',
-        '#e9c46a',
-        '#f4a261',
-        '#e76f51',
-        '#d62828',
-        '#023e8a',
-        '#0077b6',
-        '#0096c7',
-        '#00b4d8',
-        '#48cae4'
-      ]
-    });
-Coloris.setInstance('.instance3', {
-      theme: 'polaroid',
-      swatchesOnly: true
-    });
-
-        </script>
+       
     </body>
 
 </html>

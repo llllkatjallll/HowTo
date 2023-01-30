@@ -505,6 +505,8 @@ a:link, a:visited {
     width: calc(100% - 1em);
     overflow: scroll;
     justify-content:flex-start;
+    transition: all 0.7s ease-in-out;
+    
 }
 
 .game-button{

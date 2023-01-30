@@ -6,7 +6,7 @@ $(document).ready(function (){
     document.documentElement.style.setProperty('--vh', `${vh}px`);
 
     $('.section-wrapper').on('scroll', function() {
-        console.log( $(this).scrollTop() );
+       // console.log( $(this).scrollTop() );
     });
 
     // Redirect
