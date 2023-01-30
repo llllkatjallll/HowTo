@@ -123,8 +123,8 @@
 
 
                     <div class="game-buttons" id="game-buttons">
-                        
-                        <div class="game-button selected-text"  id="button-grid"><div class="button-game-icon selected-icon" id="icon-grid-light"></div>Raster</div>
+                        <div class="game-button selected-text"  id="button-letter"><div class="button-game-icon selected-icon" id="icon-glyphs-light"></div>Text</div>
+                        <div class="game-button selected-text"  id="button-grid"><div class="button-game-icon" id="icon-grid-light"></div>Raster</div>
                         <div class="game-button"  id="button-rotation"><div class="button-game-icon" id="icon-glyph-rotation-light"></div>Drehung</div>
                          <div class="game-button" id="button-thikness"><div class="button-game-icon" id="icon-grid-distance-light"></div>Dicke</div>
                          <div class="game-button" id="button-size"><div class="button-game-icon" id="icon-glyphs-light"></div>Größe</div>
@@ -134,13 +134,36 @@
 
                     <div class="game-functions">
                         <div class="functions-container" id="functions-container">
-                            <div class="function " id="function-grid">
+
+                            <div class="function " id="function-letter">
+                                Initialien: <input type="text" id="characterInput" value="">
+                                <div class="game-checkboxes" style="display: flex; justify-content: space-around;">
+
+                                    
+                                    
+
+                                    <div class="example full">
+                                        <p>Hintergrund</p>
+                                        <input type="color" id="backgroundInput" name="head" value="#ffffff">
+                                       <!-- <input type="text" data-coloris id="backgroundInput" value="#ffcc00">-->
+                                      </div>
+                                      <div class="example full">
+                                        <p>Textfarbe</p>
+                                         <input type="color" id="textColotInput" name="head" value="#ffffff">
+                                       <!--<input type="text" data-coloris id="textColotInput" value="#000000">-->
+                                      </div>
+                                </div>
+                                
+                            </div>
+
+
+                            <div class="function dont-show" id="function-grid">
                                 <input type="range" min="2" max="8" value="4" class="range-slider slider-progress" id="gridSlider">
                                 
                             </div>
 
                             <div class="function dont-show" id="function-rotation">
-                                <input type="range" min="0" max="360" value="180" class="range-slider slider-progress" id="rotationSlider">
+                                <input type="range" min="0" max="360" value="0" class="range-slider slider-progress" id="rotationSlider">
                                 
                             </div>
                             <div class="function dont-show" id="function-thikness">
@@ -178,18 +201,7 @@
                         
                     </div>
 
-                    <div class="game-checkboxes" style="display: flex; justify-content: space-around;">
-                        <div class="example full">
-                            <p>Hintergrund</p>
-                            <input type="color" id="backgroundInput" name="head" value="#ffffff">
-                           <!-- <input type="text" data-coloris id="backgroundInput" value="#ffcc00">-->
-                          </div>
-                          <div class="example full">
-                            <p>Textfarbe</p>
-                             <input type="color" id="textColotInput" name="head" value="#ffffff">
-                           <!--<input type="text" data-coloris id="textColotInput" value="#000000">-->
-                          </div>
-                    </div>
+                   
 
                     <div class="text-buttons">
                         <div class="text-button dark" id="button-neu"><div class="text-button-icon" id="icon-new-dark"></div>neu</div>

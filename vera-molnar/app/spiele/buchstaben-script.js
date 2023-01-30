@@ -28,6 +28,7 @@ var spans = document.getElementById("defaultCanvas0").getElementsByTagName("span
 
 //230123
 //funtions UI zum ein/ausblenden
+var buttonLetter = document.getElementById("button-letter");
 var buttonGrid = document.getElementById("button-grid");
 var buttonThikness = document.getElementById("button-thikness");
 var buttonSize = document.getElementById("button-size");
@@ -82,18 +83,12 @@ function calculateGrid() {
   }
 }
 
-// loop through the unicode values and push each character into letterArray
 
-function populateLetters() {
-  for (var i = charCodeRange.start; i <= charCodeRange.end; i++) {
-    if (inBool) {
-      letterArray.push(lettersInitialien[0]);
-    } else {
-      letterArray.push(lettersInitialien[1]);
-    }
-    inBool = !inBool;
-  }
-  console.log('letterArray: ' + letterArray, '\nletterArray.length: ' + letterArray.length);
+
+function populateLetters() { 
+    for (i=0;i < lettersInitialien.length;i++) {
+      letterArray.push(lettersInitialien[i]);
+    } 
 }
 
 function deleteLetters() {
@@ -164,6 +159,21 @@ function init() {
    buttonRotation.addEventListener('click', (event) => { showSelectedFunction(buttonRotation) });
    buttonSize.addEventListener('click', (event) => { showSelectedFunction(buttonSize) });
    buttonGrid.addEventListener('click', (event) => { showSelectedFunction(buttonGrid);  });
+   buttonLetter.addEventListener('click', (event) => { showSelectedFunction(buttonLetter);  });
+   characterInput.addEventListener('input', (event) => { readText();  });
+   //document.getElementById("overlay-layer").addEventListener('click', (event) => { console.log("log"); event.stopPropagation(); });
+   //restartButton.addEventListener('click', (event) => { p.restart() });
+
+}
+
+function redraw() {
+  populateLetters();
+  getDimensions();
+  getTotalLetters();
+  drawLetters(totalLetters);
+  getCurrentLetters();
+  calculateGrid();
+
 
    //document.getElementById("overlay-layer").addEventListener('click', (event) => { console.log("log"); event.stopPropagation(); });
    //restartButton.addEventListener('click', (event) => { p.restart() });
@@ -267,14 +277,14 @@ function collectInputData(){
 }
 
 function rotateLetter(thisSpan){
-  thisSpan.style.transform += "rotate(" + 30 + "deg)";
+  thisSpan.style.transform += "rotate(" + 90 + "deg)";
 }
 
 function updateEverything(){
   collectInputData();
   for (i = 0; i < spans.length; i++) {
-    spans[i].style.transform = "scale(" + sizeValue + ")";
-    spans[i].style.transform += "rotate(" + rotationValue+ "deg)";
+    spans[i].style.fontSize =  sizeValue*20 + "px";
+    spans[i].style.transform = "rotate(" + rotationValue+ "deg)";
   }
 }
 
@@ -305,20 +315,26 @@ colorLetter.oninput = function () {
 
 //is it being used?
 function readText() {
-  let input = document.getElementById("initialien").value;
-  lettersInitialien[0] = input[0];
-  lettersInitialien[1] = input[1];
-  console.log("lettersInitialien" + lettersInitialien);
+  console.log("read text");
+  let input = document.getElementById("characterInput").value;
+  lettersInitialien = [];
+  for (i=0;i < input.length;i++) {
+    lettersInitialien[i]=input[i];
+  }
 
-
-  const myNode = document.getElementById("game-content");
+  if(input.length == 0){
+    lettersInitialien[0]=".";
+  }
+ 
+  
+  const myNode = document.getElementById("defaultCanvas0");
   while (myNode.firstChild) {
     myNode.removeChild(myNode.lastChild);
   }
 
   if (!myNode.firstChild) {
     letterArray = [];
-    init();
+    redraw();
   }
 
   updateEverything();
