@@ -9,7 +9,8 @@
 }
 
 .scroll-snap{
-  scroll-snap-type: y mandatory;
+/* scroll-snap-type: y mandatory; */
+/* scroll-snap-type: y proximity; */
 }
 
 section{
@@ -153,6 +154,11 @@ section{
   height: calc(96% - 6em);
 }
 
+.hiddenElement{
+  opacity: 0;
+  pointer-events: none;
+}
+
 #game-wrapper{
     flex: 1;
     aspect-ratio : 1 / 1;
@@ -214,6 +220,7 @@ section{
 
 .character-wrapper{
   display: inline-block!important;
+
  
 }
 
@@ -227,19 +234,19 @@ section{
   text-transform: uppercase;
   transition: background-color .75s, color .75s, opacity .75s, transform .5s;
   user-select: none;
-  
+  font-size: 100px;
   width: 10px;
   height: 10px;
   text-align: center;
   vertical-align: middle;
   line-height: 90px; 
-  translate: scale(2);
   font-family: 'LeagueSpartanVariable', Courier, monospace;
- 
+ font-weight: 400;
 }
 
 #defaultCanvas0{
   overflow: hidden;
+
 }
 
 @font-face {
