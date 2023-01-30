@@ -57,9 +57,22 @@ var charCodeRange = {
 
 function getDimensions() {
   var gridRect = grid.getBoundingClientRect();
-  grid.style.height=gridRect.width + "px";
-  gridWidth = gridRect.width;
-  gridHeight = gridRect.width;
+  grid.style.height=gridSize + "px";
+  grid.style.width=gridSize + "px";
+  gridWidth = gameWrapper.clientWidth;
+  gridHeight = gameWrapper.clientHeight;
+ console.log(gridWidth, gridHeight);
+  if (gridWidth >= gridHeight) {
+    gridWidth = gridHeight;
+    gridWidth = gridHeight;
+    gridSize =gridHeight;
+
+  } else {
+    gridWidth = gridWidth;
+    gridHeight = gridWidth;
+    gridSize =gridWidth;
+  }
+
 }
 
 // get the total possible letters needed to fill the grid

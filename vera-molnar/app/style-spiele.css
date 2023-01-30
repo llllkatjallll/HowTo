@@ -219,7 +219,7 @@ section{
 }
 
 .character-wrapper{
-  display: inline-block!important;
+  /* display: inline-block!important; */
 
  
 }
