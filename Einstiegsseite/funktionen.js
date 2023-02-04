@@ -37,10 +37,10 @@ $(document).ready(function(){
             ]
         });
 
-        $('.wrapper--app').mouseenter(function(){
+        $('.wrapper--app:not(#vera--molnar)').mouseenter(function(){
           $(this).removeClass('grayscale');
         });
-        $('.wrapper--app').mouseleave(function(){
+        $('.wrapper--app:not(#vera--molnar)').mouseleave(function(){
           $(this).addClass('grayscale');
         });
 
@@ -56,9 +56,46 @@ $(document).ready(function(){
           var sliderImgHeight = sliderImgWidth * 2.163;
           $('.slick-slide > div > img').height(sliderImgHeight);
 
+        //Overlay forwarding
 
-/*          var tableCellWidth = $('table:first-child > tbody > tr:first-child > td:first-child').width();
-          $('.date').width(tableCellWidth);*/
+        $('.wrapper--app.je').click(function(){
+          if ($(window).width() < 1199) {
+            $('#overlay--wrapper--je').removeClass('inactive');
+            setTimeout(
+              function() 
+              {
+                $('#overlay--wrapper--je').removeClass('invisible');
+              }, 100);
+          }
+          else {
+              window.location.href = 'jo_enzweiler.html';
+        }
+      });
 
+        $('.wrapper--app.mvb').click(function(){
+          if ($(window).width() < 1199) {
+            $('#overlay--wrapper--mvb').removeClass('inactive');
+            setTimeout(function() {
+                $('#overlay--wrapper--mvb').removeClass('invisible');
+              }, 100);
+          }
+          else {
+              window.location.href = 'monika_von_boch.html';
+          }
+        });
 
+        $('#overlay--close').click(function(){
+          $('#overlay--wrapper--mvb').addClass('invisible');
+          setTimeout(function() {
+              $('#overlay--wrapper--mvb').addClass('inactive');
+            }, 300);
+        });
+
+        $('#overlay--close').click(function(){
+          $('#overlay--wrapper--je').addClass('invisible');
+          setTimeout(function() {
+              $('#overlay--wrapper--je').addClass('inactive');
+            }, 300);
+        });
+          
 })
