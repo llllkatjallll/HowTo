@@ -16,6 +16,7 @@ var sliderSize = document.getElementById("gridSize");
 var sliderDensity = document.getElementById("densitySize");
 var sliderSpacing = document.getElementById("spacingDensity");
 var gameButtons = document.getElementById("game-buttons");
+let svgButton = document.getElementById("button-speichern");
 var canvas;
 let quads = [];
 let amount = 2;
@@ -39,33 +40,49 @@ let sketch = function (p) {
     gameHeight = gameCanvas.clientHeight;
 
     if (gameWidth >= gameHeight) {
-      canvas = p.createCanvas(gameHeight, gameHeight);
+      canvas = p.createCanvas(gameHeight, gameHeight, p.SVG);
+    
       canvasSize = gameHeight;
     } else {
-      canvas = p.createCanvas(gameWidth, gameWidth);
+      canvas = p.createCanvas(gameWidth, gameWidth, p.SVG);
+      
       canvasSize = gameWidth;
     }
     gameCanvas.setAttribute("style", "height:100px!important");
+    p.background(	242,236,231);
+    p.noFill();
 
-    p.drawGrid();
+   
+
+    
+    
+     p.drawGrid();
     // colorToggle.addEventListener('change', (event) => { p.inputEvent() });
-    rotationToggle.addEventListener('change', (event) => { p.inputEvent() });
-    strokeToggle.addEventListener('change', (event) => { p.inputEvent() });
+   // rotationToggle.addEventListener('change', (event) => { p.inputEvent() });
+    //strokeToggle.addEventListener('change', (event) => { p.inputEvent() });
 
 
 
     //add listeners for showing/hiding sliders and other ui
     buttonGrid.addEventListener('click', (event) => { p.showSelectedFunction(buttonGrid) });
+    buttonGrid.addEventListener('click', (event) => { p.showSelectedFunction(buttonGrid) });
     buttonCount.addEventListener('click', (event) => { p.showSelectedFunction(buttonCount) });
     buttonDensity.addEventListener('click', (event) => { p.showSelectedFunction(buttonDensity) });
     buttonRandom.addEventListener('click', (event) => { p.showSelectedFunction(buttonRandom) });
     restartButton.addEventListener('click', (event) => { p.restart() });
-    p.restart();
+    svgButton.addEventListener('click', (event) => {  p.saveMySVG() });
+    
+    //p.restart();
   }
 
 
   p.draw = function () {
+ 
+   
+  }
 
+  p.saveMySVG = function () {
+    p.save("how-to-desordres.svg");
 
   }
 
@@ -90,8 +107,8 @@ let sketch = function (p) {
     exceptionSlider.value = 1;
     exceptionAmount = 30;
     exceptionSlider.style.setProperty('--value', 1);
-    document.getElementById("strokeToggle").checked = false;
-    document.getElementById("rotationToggle").checked = false;
+/*     document.getElementById("strokeToggle").checked = false;
+    document.getElementById("rotationToggle").checked = false; */
 
     p.drawGrid();
   }
@@ -157,23 +174,28 @@ let sketch = function (p) {
   }
 
   sliderSize.oninput = function () {
+    p.clear();
     amount = sliderSize.value;
     p.inputEvent();
   }
 
   exceptionSlider.oninput = function () {
+    p.clear();
     exceptionAmount = 32 - exceptionSlider.value;
     p.inputEvent();
   }
 
   sliderSpacing.oninput = function () {
+    p.clear();
     quadSpacing = sliderSpacing.value;
     p.inputEvent();
   }
 
   sliderDensity.oninput = function () {
+    p.clear();
     density = sliderDensity.value;
     p.inputEvent();
+    
   }
 
 
@@ -246,12 +268,12 @@ let sketch = function (p) {
 
           let lineRandomness2 = p.int(p.random(1, exceptionAmount));
           if (lineRandomness2 == 1 && lineRandomness !== 0 ) {
-            if (rotationToggle.checked == true) {
+/*             if (rotationToggle.checked == true) {
               p.rotate(p.radians(p.int(p.random(-15, 15))));
-            }
-            if (strokeToggle.checked == true) {
+            } */
+/*             if (strokeToggle.checked == true) {
               p.strokeWeight(p.int(p.random(1, 5)));
-            }
+            } */
           }
 
           /* if (colorToggle.checked == true) {

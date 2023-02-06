@@ -217,6 +217,8 @@ function redraw() {
 }
 
 function restart(){
+
+  startTextInput();
   //reset color
   colorBackgroundInput.value = "#f2ece7";
   colorCharacterInput.value = "#000000";
@@ -230,7 +232,7 @@ function restart(){
   //reset rotation
   sliderRotation.value = "0";
  
-
+  redraw();
  /*  colorBackgroundValue = document.getElementById("backgroundInput").value;
   document.getElementById("defaultCanvas0").style.backgroundColor = colorBackgroundValue;
 
@@ -453,6 +455,16 @@ function readText() {
 
   updateEverything();
 }
+}
+
+function startTextInput(){
+
+      //make functions visible
+      gameFunctions.classList.add("hiddenElement");
+      gameButtons.classList.add("hiddenElement");
+      gameWrapper.classList.add("hiddenElement");
+      document.getElementById("textInput").classList.remove("hiddenElement");
+      document.getElementById("characterInput").value="";
 }
 
 

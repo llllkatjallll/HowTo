@@ -1,6 +1,7 @@
 var gameCanvas = document.getElementById("game-wrapper");
 var restartButton = document.getElementById("button-neu");
 var iosButton = document.getElementById("button-ios");
+let svgButton = document.getElementById("button-speichern");
 var canvas;
 let currentGameId = "red";
 let balls = [];
@@ -26,10 +27,10 @@ let sketch = function (p) {
       gameHeight = gameCanvas.clientHeight;
       
       if(gameWidth >= gameHeight){
-        canvas = p.createCanvas(gameHeight, gameHeight);
+        canvas = p.createCanvas(gameHeight, gameHeight, p.SVG);
         canvasSize = gameHeight;
       } else {
-        canvas = p.createCanvas(gameWidth, gameWidth);
+        canvas = p.createCanvas(gameWidth, gameWidth, p.SVG);
         canvasSize = gameWidth;
       }
       gameCanvas.setAttribute("style","height:100px!important");
@@ -47,7 +48,7 @@ let sketch = function (p) {
            var posY = length * j + midLength + spacing;
           balls.push(new Ball(posX, posY));
         }
-
+        svgButton.addEventListener('click', (event) => {  p.saveMySVG() });
         restartButton.addEventListener('click', function () { 
           console.log("Restart");
           p.restart();
@@ -96,7 +97,7 @@ let sketch = function (p) {
     }
 
     p.draw = function () {
-       
+      p.clear();
       p.background(	242,236,231);
 
         for (let i = 0; i < balls.length; i++) {
@@ -106,6 +107,11 @@ let sketch = function (p) {
         
         p.checkForShake(); 
       
+    }
+
+    p.saveMySVG = function () {
+      p.save("how-to-zufall.svg");
+  
     }
 
     p.restart = function () {

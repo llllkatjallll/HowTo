@@ -17,8 +17,8 @@ let sketch = function (p) {
   
     p.setup = function () {
         console.log(gameCanvas);
-        gameWidth = gameCanvas.clientWidth;
-        gameHeight = gameCanvas.clientHeight;
+        gameWidth = gameCanvas.clientWidth, SVG;
+        gameHeight = gameCanvas.clientHeight,SVG;
         canvas = p.createCanvas(gameWidth, gameWidth+50);
         p.background(255);
         p.rectMode(p.CENTER);
@@ -52,6 +52,7 @@ let sketch = function (p) {
             permissionGranted = true;
         }
           
+        svgButton.addEventListener('click', (event) => {  p.saveMySVG() });
     }
 
     p.draw = function () {
@@ -64,6 +65,11 @@ let sketch = function (p) {
         }
         
         p.checkForShake();  
+    }
+
+    p.saveMySVG = function () {
+      p.save("how-to-desordres.svg");
+  
     }
 
     p.checkForShake = function () {

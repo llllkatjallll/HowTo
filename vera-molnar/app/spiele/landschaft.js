@@ -1,6 +1,7 @@
 var gameCanvas = document.getElementById("game-wrapper");
 var restartButton = document.getElementById("button-neu");
 var holdButton = document.getElementById("button-stop");
+let svgButton = document.getElementById("button-speichern");
 
 var sectionWrapper = document.getElementById("section-wrapper-touch");
 var placeholderWrapper = document.getElementById("body-wrapper");
@@ -13,7 +14,11 @@ let stop = false;
 let currentGameId = "landschaft";
 let timer = 0;
 
-
+var x = 0,
+    y = 0,
+    px = 0,
+    py = 0,
+    easing = 0.3;
 
 let sketch = function (p) {
 
@@ -26,17 +31,18 @@ let sketch = function (p) {
         
       gameWidth = gameCanvas.clientWidth;
       gameHeight = gameCanvas.clientHeight;
-      canvas = p.createCanvas(gameWidth, gameWidth);
+      canvas = p.createCanvas(gameWidth, gameWidth, p.SVG);
       p.background(	242,236,231);
 
       gameCanvas.addEventListener('touchstart', p.process_touchstart, false);
       gameCanvas.addEventListener('touchmove', p.process_touchmove, false);
       gameCanvas.addEventListener('touchend', p.process_touchend, false);
+      svgButton.addEventListener('click', (event) => {  p.saveMySVG() });
 
 
       restartButton.addEventListener('click', function () { 
         console.log("Restart");
-        p.restart();
+        p.neu();
       });
 
       holdButton.addEventListener('click', function () { 
@@ -52,41 +58,63 @@ let sketch = function (p) {
 
 
     p.draw = function () {
+     
+   /*    p.noFill();
+      p.strokeWeight(4);
+      p.beginShape();
+      p.vertex(20, 20);
+      p.quadraticVertex(80, 20, 50, 50);
+      p.quadraticVertex(20, 80, 80, 80);
+      p.vertex(80, 60);
+      p.endShape(); */
+  
       if (startMode) {
         p.drawLine();
       } else {
         if(!stop){
+          
         p.createArt();
           }
-      }
+      } 
           
     }
 
-
+    p.saveMySVG = function () {
+      p.save("how-to-desordres.svg");
+  
+    }
 
     p.process_touchstart = function () {
+      console.log("process_touchstart");
+      
+    
       sectionWrapper.classList.add("hideOverflow");
       placeholderWrapper.classList.add("hideOverflow");
-      p.restart();
+
+
+      //p.restart();
       if(startMode){
+       
         let newPos = p.createVector(p.mouseX, p.mouseY);
         p.append(shapePoints, newPos);
-        }
+        }  
+        
     }
 
     p.process_touchmove = function () {
-      if (p.frameCount % 5 == 0){
+      console.log("process_touchmove");
+        if (p.frameCount % 5 == 0){
         if(startMode){
        let newPos = p.createVector(p.mouseX, p.mouseY);
        p.append(shapePoints, newPos);
-       }
-    }
-  }
-
+       }  
+  } 
+}
     p.process_touchend = function () {
-     sectionWrapper.classList.remove("hideOverflow");
-     placeholderWrapper.classList.remove("hideOverflow");
-      startMode = !startMode;
+   sectionWrapper.classList.remove("hideOverflow");
+    placeholderWrapper.classList.remove("hideOverflow");
+    startMode = !startMode;  
+    console.log(shapePoints);
     }
 
     p.keyPressed = function () {
@@ -100,6 +128,7 @@ let sketch = function (p) {
       p.noFill();
       p.strokeWeight(0.7);
       p.beginShape();
+      
       for (let i = 1; i < shapePoints.length; i++) {
         p.vertex(shapePoints[i].x, shapePoints[i].y);
       }
@@ -109,11 +138,12 @@ let sketch = function (p) {
 
 let k = 1;
     p.createArt = function () {
-    
+    console.log("art");
       if (p.frameCount%6 == 0) {
         k = k+1;
       
         p.beginShape();
+        
       for (let i = 1; i < shapePoints.length; i++) {
         p.vertex(
           shapePoints[i].x + 0,
@@ -133,11 +163,22 @@ let k = 1;
     }
 
     p.restart = function () {
-      startMode = true;
+   
+       startMode = true;
+      stop = !true;
+    shapePoints = [];
+      //
+       k=0; 
+      holdButton.innerHTML="Anhalten";
+    }
+
+    p.neu = function () {
+      p.background(242,236,231);
+       startMode = true;
       stop = !true;
       shapePoints = [];
-      p.background(	242,236,231);
-      k=0;
+      //
+       k=0; 
       holdButton.innerHTML="Anhalten";
     }
 
