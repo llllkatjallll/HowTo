@@ -14,7 +14,7 @@ window.onload = function(){displayImagesfromStorage(currentGameId);
 
 
 function setItem(gameKey, itemValue) {
-    //console.log("CLICK");
+    console.log("setItem");
     try {
         let now = new Date();
         let jsonData = JSON.stringify({time: now, data: itemValue});
@@ -109,6 +109,10 @@ function displayImagesfromStorage(gameId){
             var element = new Image();
             element.src = getItem(keyName);
             element.classList.add("gallery-image");
+            //checkbox hinzufügen
+            var checkboxElement = document.createElement("div");
+            checkboxElement.classList.add("checkbox");
+            element.appendChild(checkboxElement);
             containerGallery.appendChild(element);
         }
       }
@@ -122,25 +126,53 @@ function displayImagesfromStorage(gameId){
     saveImage();
   } */
   //Save Image
+  let pngURL = undefined;
+  
   function saveImage(event) {
    // let wrapper = document.getElementById("section-wrapper-touch");
-    //wrapper.classList.remove("scroll-snap");
-    html2canvas(document.querySelector("#defaultCanvas0")).then(canvas => {
+    //wrapper.classList.remove("scroll-snap"); 
+
+    let svgElement = undefined;
+   let SVGsize = 1600; 
+   svgElement = document.getElementById("defaultCanvas0").children[0];
+   let clonedSvgElement = svgElement.cloneNode(true);
+   let outerHTML = clonedSvgElement.outerHTML,
+   blob = new Blob([outerHTML],{type:'image/svg+xml;charset=utf-8'});
+   let URL = window.URL || window.webkitURL || window;
+   let blobURL = URL.createObjectURL(blob);
+   let image = new Image();
+
+    image.onload = () => {
+      let canvas = document.createElement('canvas');
+      canvas.width = SVGsize;
+      canvas.height = SVGsize;
+      let context = canvas.getContext('2d');
+      // draw image in canvas starting left-0 , top - 0  
+      context.drawImage(image, 0, 0, SVGsize, SVGsize);
+      
+      pngURL = canvas.toDataURL(); // default png
+      
+     
+      
+      setItem(currentGameId, pngURL);
+      displayImagesfromStorage(currentGameId);
+  
+      //download(pngURL, "image.png");
+    };
+
+    image.src = blobURL;
+/*     html2canvas(document.querySelector("#defaultCanvas0")).then(canvas => {
       canvas.classList.add("gallery-image");
 
       //containerGallery.appendChild(canvas);
-      /*let div = document.createElement('div');
-      div.classList.add('checkbox');
-       canvas.appendChild(div);*/
+
       //containerGallery.insertBefore(canvas, containerGallery.firstChild);
       let dataUrl = canvas.toDataURL("image/png");
       setItem(currentGameId, dataUrl);
      displayImagesfromStorage(currentGameId);
       //DOWNLOAD IMAGE
-      /*canvas.toBlob(function(blob) {
-        window.saveAs(blob, 'my_image.jpg');
-      }); */
-  });
+
+  }); */
 
  
   }

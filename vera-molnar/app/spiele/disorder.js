@@ -81,10 +81,46 @@ let sketch = function (p) {
    
   }
 
-  p.saveMySVG = function () {
-    p.save("how-to-desordres.svg");
 
+
+  p.saveMySVG = function () {
+   // p.save("how-to-desordres.svg");
+   /* let svgElement = undefined;
+   let SVGsize = 1600; 
+   svgElement = document.getElementById("defaultCanvas0").children[0];
+   let clonedSvgElement = svgElement.cloneNode(true);
+   let outerHTML = clonedSvgElement.outerHTML,
+   blob = new Blob([outerHTML],{type:'image/svg+xml;charset=utf-8'});
+   let URL = window.URL || window.webkitURL || window;
+   let blobURL = URL.createObjectURL(blob);
+   let image = new Image();
+
+    image.onload = () => {
+      let canvas = document.createElement('canvas');
+      canvas.width = SVGsize;
+      canvas.height = SVGsize;
+      console.log(canvas);
+      let context = canvas.getContext('2d');
+      // draw image in canvas starting left-0 , top - 0  
+      context.drawImage(image, 0, 0, SVGsize, SVGsize);
+      
+      let png = canvas.toDataURL(); // default png
+      //download(png, "image.png");
+    };
+
+    image.src = blobURL; */
   }
+
+  var download = function(href, name){
+    var link = document.createElement('a');
+    link.download = name;
+    link.style.opacity = "0";
+   // document.append(link);
+    link.href = href;
+    link.click();
+    link.remove();
+  }
+
 
   p.restart = function () {
 
