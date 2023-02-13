@@ -473,11 +473,12 @@ function startTextInput(){
 
 
 function saveMyImage(){
-  var node = document.getElementById('defaultCanvas0');
-  domtoimage.toBlob(document.getElementById('defaultCanvas0'), { width: 1600, height: 1600, })
+/*   var node = document.getElementById('defaultCanvas0');
+  domtoimage.toBlob(document.getElementById('defaultCanvas0'),)
       .then(function (blob) {
           window.saveAs(blob, 'my-node.png');
-  });
+      }); */
+  
 }
 
 
