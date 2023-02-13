@@ -2,11 +2,14 @@
 var containerGallery = document.getElementById("gallery-wrapper");
 
 let saveButton = document.getElementById("button-speichern");
+let downloadButton = document.getElementById("button-download");
 
 saveButton.addEventListener("click", saveImage);
 
 
-window.onload = function(){displayImagesfromStorage(currentGameId);
+window.onload = function(){
+    displayImagesfromStorage(currentGameId);
+    downloadButton.addEventListener('click', (event) => { downloadImages()});
 
 }
 
@@ -109,17 +112,68 @@ function displayImagesfromStorage(gameId){
             var element = new Image();
             element.src = getItem(keyName);
             element.classList.add("gallery-image");
+            //imageContainer hinzufügen
+            var imageContainer = document.createElement("div");
+            imageContainer.classList.add("gallery-image-container");
+
             //checkbox hinzufügen
             var checkboxElement = document.createElement("div");
             checkboxElement.classList.add("checkbox");
-            element.appendChild(checkboxElement);
-            containerGallery.appendChild(element);
+            imageContainer.appendChild(element);
+            imageContainer.appendChild(checkboxElement);
+            containerGallery.appendChild(imageContainer);
         }
       }
+      addListenerToImages();
       
 }
 
+function addListenerToImages(){
+   for (const child of containerGallery.children) {
+    child.addEventListener('click', (event) => { imageClickedRegistration(child)});
+  }
+}
 
+function imageClickedRegistration(obj){
+    let selectedCheckbox = obj.querySelector('.checkbox');
+
+    if(obj.classList.contains("selected")){
+        obj.classList.remove("selected");
+    } else {
+        obj.classList.add("selected");
+    }
+
+    if(selectedCheckbox.classList.contains("checkbox-active")){
+        selectedCheckbox.classList.remove("checkbox-active");
+    } else {
+        selectedCheckbox.classList.add("checkbox-active");
+    }
+}
+
+function downloadImages(){
+    for (const child of containerGallery.children) {
+        if(child.classList.contains("selected")){
+            downloadImage(child.querySelector('.gallery-image').src);
+            //download(child.querySelector('.gallery-image').src, "image.png"); 
+        }
+      }
+}
+
+function downloadImage(url) {
+    fetch(url, {
+      mode : 'no-cors',
+    })
+      .then(response => response.blob())
+      .then(blob => {
+      let blobUrl = window.URL.createObjectURL(blob);
+      let a = document.createElement('a');
+      a.download ="image";
+      a.href = blobUrl;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    })
+  }
 
 /*saveButton.onclick = function () {
 

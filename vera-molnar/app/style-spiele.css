@@ -328,7 +328,7 @@ section{
   z-index: 100;
 }*/
 
-.gallery-image{
+.gallery-image-container{
     position: relative;
     width: calc(50% - 0.5em)!important;
     aspect-ratio: 1 / 1;   
@@ -341,20 +341,31 @@ section{
     z-index: 24;
 }
 
+.gallery-image{
+  width:100%;
+}
+
 .selected{
   opacity: 0.5 !important;
 }
 
-.checkbox{
-    position: relative;
-    top:20px;
+ .checkbox{
+    position: absolute;
+    top:0px;
     height: 1.5em;
     width: 1.5em;
     margin: 0.75em;
 
     border-radius: 0.75em;
     border: white solid 0.09em;
+} 
+ 
+
+.checkbox-active{
+  background-color: white;
+  background-image: url('svg/icon-check-light.svg');
 }
+
 
 .checkbox:active{
     background-color: white;
