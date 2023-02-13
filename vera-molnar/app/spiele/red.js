@@ -48,7 +48,7 @@ let sketch = function (p) {
            var posY = length * j + midLength + spacing;
           balls.push(new Ball(posX, posY));
         }
-        svgButton.addEventListener('click', (event) => {  p.saveMySVG() });
+        //svgButton.addEventListener('click', (event) => {  p.saveMySVG() });
         restartButton.addEventListener('click', function () { 
           console.log("Restart");
           p.restart();

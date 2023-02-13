@@ -37,7 +37,7 @@ let sketch = function (p) {
       gameCanvas.addEventListener('touchstart', p.process_touchstart, false);
       gameCanvas.addEventListener('touchmove', p.process_touchmove, false);
       gameCanvas.addEventListener('touchend', p.process_touchend, false);
-      svgButton.addEventListener('click', (event) => {  p.saveMySVG() });
+      //svgButton.addEventListener('click', (event) => {  p.saveMySVG() });
 
 
       restartButton.addEventListener('click', function () { 
