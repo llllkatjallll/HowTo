@@ -53,6 +53,8 @@ var charCodeRange = {
   end: 90
 };
 
+let svgButton = document.getElementById("button-speichern");
+
 // get the grid's width and height
 
 function getDimensions() {
@@ -192,6 +194,8 @@ function init() {
       event.target.blur();
       readText();
     }
+
+    svgButton.addEventListener('click', (event) => {  saveMyImage() });
   });
    //document.getElementById("overlay-layer").addEventListener('click', (event) => { console.log("log"); event.stopPropagation(); });
    buttonRestart.addEventListener('click', (event) => { restart() });
@@ -467,5 +471,13 @@ function startTextInput(){
       document.getElementById("characterInput").value="";
 }
 
+
+function saveMyImage(){
+  var node = document.getElementById('defaultCanvas0');
+  domtoimage.toBlob(document.getElementById('defaultCanvas0'), { width: 1600, height: 1600, })
+      .then(function (blob) {
+          window.saveAs(blob, 'my-node.png');
+  });
+}
 
 
