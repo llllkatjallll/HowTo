@@ -139,9 +139,14 @@ section{
    margin-bottom:40px;
 }
 
+.workaround-margin{
+  margin-right: 1em;
+}
 .section-content-game{
-  width: calc(100% - 4em);
-  padding: 2em 2em 4em 2em;
+/*   width: calc(100% - 4em);
+  padding: 2em 2em 4em 2em; */
+  width: calc(100% - 2em);
+  padding: 2em 1em 4em 1em;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -184,8 +189,33 @@ section{
 
 .game-functions{
     width: 80%;
-    margin-bottom: 2em;
+    margin-bottom: 0em;
 }
+
+.functions-container{
+  display: grid;
+  margin-bottom: 1em;
+
+}
+
+.function{
+  
+  grid-column: 1;
+  grid-row: 1;
+  opacity: 1;
+  transition: opacity 0.3s ease-in;
+
+}
+
+.transparent{
+  opacity: 0;
+}
+
+.noPointerEvents{
+  pointer-events: none;
+}
+
+
 
 .selected-text{
     color: #e86960 !important;
@@ -210,12 +240,22 @@ section{
 }
 
 .game-checkboxes{
-    margin-top: 0.5em;
+    
 }
 
 .hint{
-  margin: 1em 0 1em 1em;
+  width: 100%;
+  margin: 1em 1em 1em 1em;
   color: #730d0d;
+}
+
+#textInput{
+  position: absolute;
+  top:40%;
+}
+
+#characterInput{
+  margin-top: 2em;
 }
 
 .character-wrapper{

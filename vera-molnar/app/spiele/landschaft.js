@@ -51,7 +51,7 @@ let sketch = function (p) {
         if(stop){
           holdButton.innerHTML="Weiter";
         } else{
-          holdButton.innerHTML="Anhalten";
+          holdButton.innerHTML="Stop";
         }
       });
     }
@@ -169,7 +169,7 @@ let k = 1;
     shapePoints = [];
       //
        k=0; 
-      holdButton.innerHTML="Anhalten";
+      holdButton.innerHTML="Stop";
     }
 
     p.neu = function () {
@@ -179,7 +179,7 @@ let k = 1;
       shapePoints = [];
       //
        k=0; 
-      holdButton.innerHTML="Anhalten";
+      holdButton.innerHTML="Stop";
     }
 
 

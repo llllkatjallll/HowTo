@@ -28,6 +28,7 @@ let exeption = 10;
 let quadSpacing = 12;
 let currentGameId = "desordres";
 let exceptionAmount = 0;
+let versatzAmount = 0;
 let sketch = function (p) {
   let canvasSize = 0;
   // p.preload = function () {
@@ -176,37 +177,14 @@ let sketch = function (p) {
     var children = containerFunctions.children;
     for (var i = 0; i < children.length; i++) {
       var functionChild = children[i];
-      functionChild.classList.add("dont-show");
+      functionChild.classList.add("noPointerEvents");
+      functionChild.classList.add("transparent");
+
       if (functionName == functionChild.id.substring(9)) {
-        functionChild.classList.remove("dont-show");
+        functionChild.classList.remove("transparent");
+        functionChild.classList.remove("noPointerEvents");
       }
-      // klasse hinzufühen, die sichtbarkeit ausschaltet
     }
-
-    switch (functionName) {
-      case 'grid':
-        console.log('grid');
-        //vorherige objekte ausschalten
-
-        //objekt mit dem gleichen namen einblenden
-        break;
-
-      case 'count':
-        console.log('count');
-        break;
-
-      case 'density':
-        console.log('density');
-        // expected output: "Mangoes and papayas are $2.79 a pound."
-        break;
-      case 'random':
-        console.log('random');
-        break;
-      default:
-        console.log(`Kein Button mit passender ID!`);
-    }
-
-
   }
 
   sliderSize.oninput = function () {
@@ -223,7 +201,8 @@ let sketch = function (p) {
 
   sliderSpacing.oninput = function () {
     p.clear();
-    quadSpacing = sliderSpacing.value;
+    versatzAmount = (sliderSpacing.value)/10;
+    console.log()
     p.inputEvent();
   }
 
@@ -257,6 +236,7 @@ let sketch = function (p) {
 
   }
 
+
   class Quad {
     constructor(x, y, lineChangeProbability) {
       // this.quadChangeProbability = quadChangeProbability;
@@ -282,7 +262,7 @@ let sketch = function (p) {
       this.lineChangeProbability = exceptionAmount;
 
       let quadSize = midLength - spacing;
-
+      quadSpacing = quadSize / density;
       p.noFill();
       for (let i = 0; i < density; i++) {
         let lineRandomness = 0;
@@ -300,7 +280,19 @@ let sketch = function (p) {
             quadHalf = 0;
           }
           p.push();
-          p.translate(this.pos.x, this.pos.y);
+          if (i % 4 == 0) {
+            p.translate(this.pos.x +versatzAmount*i, this.pos.y);
+          }
+          if (i % 4 == 1) {
+            p.translate(this.pos.x , this.pos.y-versatzAmount*i);
+          }
+          if (i % 4 == 2) {
+            p.translate(this.pos.x -versatzAmount*i, this.pos.y);
+          }
+          if (i % 4 == 3) {
+            p.translate(this.pos.x , this.pos.y+versatzAmount*i);
+          }
+          
 
           let lineRandomness2 = p.int(p.random(1, exceptionAmount));
           if (lineRandomness2 == 1 && lineRandomness !== 0 ) {

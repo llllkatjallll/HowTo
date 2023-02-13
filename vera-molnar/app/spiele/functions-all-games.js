@@ -193,34 +193,60 @@ function saveImage(event) {
 
     // check if svg comes from p5 canvas or html
     if (currentGameId == "buchstaben") {
+
+        return;
         // if html element
         var node = document.getElementById('defaultCanvas0');
         domtoimage.toSvg(document.getElementById('defaultCanvas0'),)
             .then(function (dataUrl) {
-               
-                var blob = dataURLtoBlob(dataUrl);
-                let URL = window.URL || window.webkitURL || window;
+                console.log(dataUrl);
 
-                blobURL = URL.createObjectURL(blob);
+                var svgElement = document.createElement('a');
+                svgElement.download = 'actual.svg';
+                svgElement.href = dataUrl;
+                console.log(svgElement);
+                //link.click();
+                let clonedSvgElement = svgElement.cloneNode(true);
 
+                let outerHTML = clonedSvgElement.outerHTML,
+                blob = new Blob([outerHTML], { type: 'image/svg+xml;charset=utf-8' });
+        
+        
+            let URL = window.URL || window.webkitURL || window;
+        
+            blobURL = URL.createObjectURL(blob);
+            console.log("It is blob  " + blobURL);
+            let image = new Image();
+        
+            image.onload = () => {
+                let canvas = document.createElement('canvas');
+                canvas.width = SVGsize;
+                canvas.height = SVGsize;
+                let context = canvas.getContext('2d');
+                // draw image in canvas starting left-0 , top - 0  
+                context.drawImage(image, 0, 0, SVGsize, SVGsize);
+        
+                pngURL = canvas.toDataURL(); // default png
+        
+                setItem(currentGameId, pngURL);
+                displayImagesfromStorage(currentGameId);
+            };
+        
+            image.src = blobURL;
             });
 
     } else { //if p5 
         svgElement = document.getElementById("defaultCanvas0").children[0];
-        
+        console.log(svgElement);
         let clonedSvgElement = svgElement.cloneNode(true);
+
         let outerHTML = clonedSvgElement.outerHTML,
         blob = new Blob([outerHTML], { type: 'image/svg+xml;charset=utf-8' });
 
-       
+
     let URL = window.URL || window.webkitURL || window;
 
-     blobURL = URL.createObjectURL(blob);
-
-    }
-
-    
-
+    blobURL = URL.createObjectURL(blob);
     console.log("It is blob  " + blobURL);
     let image = new Image();
 
@@ -236,23 +262,12 @@ function saveImage(event) {
 
         setItem(currentGameId, pngURL);
         displayImagesfromStorage(currentGameId);
-
-        //download(pngURL, "image.png");
     };
 
     image.src = blobURL;
-    /*     html2canvas(document.querySelector("#defaultCanvas0")).then(canvas => {
-          canvas.classList.add("gallery-image");
-    
-          //containerGallery.appendChild(canvas);
-    
-          //containerGallery.insertBefore(canvas, containerGallery.firstChild);
-          let dataUrl = canvas.toDataURL("image/png");
-          setItem(currentGameId, dataUrl);
-         displayImagesfromStorage(currentGameId);
-          //DOWNLOAD IMAGE
-    
-      }); */
+
+    }
+
 
 
 }

@@ -294,11 +294,13 @@ showSelectedFunction = function (pressedButton) {
   var children = containerFunctions.children;
   for (var i = 0; i < children.length; i++) {
     var functionChild = children[i];
-    functionChild.classList.add("dont-show");
+    functionChild.classList.add("noPointerEvents");
+    functionChild.classList.add("transparent");
+
     if (functionName == functionChild.id.substring(9)) {
-      functionChild.classList.remove("dont-show");
+      functionChild.classList.remove("transparent");
+      functionChild.classList.remove("noPointerEvents");
     }
-    
   }
 }
 
@@ -436,6 +438,8 @@ function readText() {
     gameButtons.classList.remove("hiddenElement");
     gameWrapper.classList.remove("hiddenElement");
     document.getElementById("textInput").classList.add("hiddenElement");
+    document.getElementById("textInput").classList.add("dont-show");
+    document.getElementById("game-text-buttons").classList.remove("hiddenElement");
 
   lettersInitialien = [];
   for (i=0;i < input.length;i++) {
@@ -469,15 +473,25 @@ function startTextInput(){
       gameWrapper.classList.add("hiddenElement");
       document.getElementById("textInput").classList.remove("hiddenElement");
       document.getElementById("characterInput").value="";
+      document.getElementById("textInput").classList.remove("dont-show");
+      document.getElementById("game-text-buttons").classList.add("hiddenElement");
+      
 }
 
 
 function saveMyImage(){
-/*   var node = document.getElementById('defaultCanvas0');
-  domtoimage.toBlob(document.getElementById('defaultCanvas0'),)
+/*   var scale = 1;
+   var node = document.getElementById('game-wrapper');
+  domtoimage.toBlob(node, {
+    width: node.clientWidth * scale,
+    height: node.clientHeight * scale,
+    style: {
+     transform: 'scale('+scale+')',
+     transformOrigin: 'top left'
+   }})
       .then(function (blob) {
           window.saveAs(blob, 'my-node.png');
-      }); */
+      });  */
   
 }
 
