@@ -111,7 +111,7 @@
                     <div class="header">
                         <div class="button-icon">
                             </div>
-                        <div class="dropdown-menu">
+                        <div class="dropdown-menu workaround-margin">
                             <div class="button-icon" id="icon-menu-light">
                                 </div>
                         </div>
@@ -160,7 +160,7 @@
                             <div class="function transparent noPointerEvents" id="function-size">
 
                                 <div class="function " >
-                                    <input type="range" min="1" max="10" value="5" class="range-slider slider-progress" id="sizeSlider">
+                                    <input type="range" min="1" max="12" value="5" class="range-slider slider-progress" id="sizeSlider">
                                    <!-- <div class="label"> Raster</div>-->
                                 </div> 
                             
@@ -186,15 +186,17 @@
                                
 
                                 <div class="game-checkboxes" style="display: flex; justify-content: space-around;">
-                                    <div class="example full">
-                                        <p>Hintergrund</p>
-                                        <input type="color" id="backgroundInput" name="head" value="#f2ece7">
-                                       <!-- <input type="text" data-coloris id="backgroundInput" value="#ffcc00">-->
-                                      </div>
+                                    
                                       <div class="example full">
-                                        <p>Textfarbe</p>
-                                         <input type="color" id="textColotInput" name="head" value="#000000">
+                                        
+                                         <input type="color" class="color-field" id="textColotInput" name="head" value="#000000">
                                        <!--<input type="text" data-coloris id="textColotInput" value="#000000">-->
+                                      </div>
+
+                                      <div class="example full">
+                                        
+                                        <input type="color" class="color-field" id="backgroundInput" name="head" value="#f2ece7">
+                                       <!-- <input type="text" data-coloris id="backgroundInput" value="#ffcc00">-->
                                       </div>
                                 </div>
                                 

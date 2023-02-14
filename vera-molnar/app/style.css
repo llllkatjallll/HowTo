@@ -504,7 +504,7 @@ a:link, a:visited {
     flex-direction: row;
     width: calc(100% - 1em);
     overflow: scroll;
-    justify-content:flex-start;
+    justify-content:space-between;
     transition: all 0.7s ease-in-out;
     
 }

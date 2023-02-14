@@ -136,9 +136,9 @@ let sketch = function (p) {
     sliderDensity.style.setProperty('--value', 4);
 
     // reset dichte
-    sliderSpacing.value = 5;
-    quadSpacing = 5;
-    sliderSpacing.style.setProperty('--value', 5);
+    sliderSpacing.value = 0;
+    versatzAmount = 0;
+    sliderSpacing.style.setProperty('--value', 0);
 
     //reset zufall
     exceptionSlider.value = 1;

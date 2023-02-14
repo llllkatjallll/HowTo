@@ -256,6 +256,30 @@ section{
 
 #characterInput{
   margin-top: 2em;
+  border: 1px solid #60132d;
+  height: 2.5em;
+  border-radius:8px;
+}
+
+
+
+.color-field {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.color-field::-webkit-color-swatch {
+  border-radius: 15px;
+  border: none;
+}
+.color-field::-moz-color-swatch {
+  border-radius: 15px;
+  border: none;
 }
 
 .character-wrapper{
