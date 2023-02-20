@@ -198,7 +198,7 @@ function init() {
       readText();
     }
 
-    svgButton.addEventListener('click', (event) => {  saveMyImage() });
+    //svgButton.addEventListener('click', (event) => {  saveMyImage() });
   });
    //document.getElementById("overlay-layer").addEventListener('click', (event) => { console.log("log"); event.stopPropagation(); });
    buttonRestart.addEventListener('click', (event) => { restart() });
