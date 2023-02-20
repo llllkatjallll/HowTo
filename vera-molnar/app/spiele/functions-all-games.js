@@ -189,7 +189,7 @@ function saveImage(event) {
     //wrapper.classList.remove("scroll-snap"); 
 
     let svgElement = undefined;
-    let SVGsize = 1600;
+    let SVGsize = 1000;
 
     // check if svg comes from p5 canvas or html
     if (currentGameId == "buchstaben") {

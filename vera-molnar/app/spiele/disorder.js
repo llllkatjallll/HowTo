@@ -55,8 +55,6 @@ let sketch = function (p) {
 
    
 
-    
-    
      p.drawGrid();
     // colorToggle.addEventListener('change', (event) => { p.inputEvent() });
    // rotationToggle.addEventListener('change', (event) => { p.inputEvent() });

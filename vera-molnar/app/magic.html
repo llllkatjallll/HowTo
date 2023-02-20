@@ -20,8 +20,10 @@
      <!--Game Specific-->
      <script src="spiele/html2canvas.min.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
+       
      <!--p5 -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+         <script src="https://unpkg.com/p5@1.4.1/lib/p5.js"></script>
+         <script src="https://unpkg.com/p5.js-svg@1.3.3"></script>
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,9 +34,9 @@
 
 </head>
    
-    <body>    
+    <body id="body-wrapper" tabindex="-1">    
         
-        <div class="section-wrapper">
+        <div class="section-wrapper" id="section-wrapper-touch">
 
             <!-- Question -->
 
@@ -56,7 +58,7 @@
             </section>    
 
 
-            <!-- Quote -->
+            <!-- Quote  -->
 
             <section id="quote-section" style="background-color: #f37d9c; z-index:61">
                 <div class="section-content section-dark">
@@ -78,7 +80,7 @@
             </section>       
             
 
-            <!-- Introduction -->
+            <!-- Introduction  -->  
 
             <section id="introduction-section" style="background-color: #fee6ec; z-index:62;">
                 <div class="section-content section-light">
@@ -92,11 +94,11 @@
                     </div>
                     <div class="content-wrapper">
                         <p>SPIELANLEITUNG</p>
-                        <div class="quote">Zeichne mit dem Finger eine Zickzack-Linie von links nach rechts und speichere dir die Ergebnisse. Du kannst ein Bild auch während des Prozess speichern.</div>
+                        <div class="quote">Verbinde alle Zahlen miteinander, indem du sie in von dir überlegten Reihenfolge anklickst.</div>
                     </div>
                 </div>
                 <div class="bar light"></div>
-            </section>                      
+            </section>                   
 
 
             <!-- Game -->
@@ -217,6 +219,10 @@
                         <div class="bar light"></div>
                     </section>
         </div>
+
+      <!--Game Specific-->
+     <script src="spiele/magic.js"></script>
+     <script src="spiele/functions-all-games.js"></script>
 
     </body>
 
