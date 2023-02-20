@@ -1,0 +1,10 @@
+{
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"typescript.preferences.importModuleSpecifierEnding": "js",
+	"search.exclude": {
+		"lib": true,
+		"*.har": true,
+		"**/snapshots/**": true,
+		"**/recordings/**": true,
+	},
+}

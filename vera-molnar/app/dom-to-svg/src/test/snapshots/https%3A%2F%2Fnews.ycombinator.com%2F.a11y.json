@@ -1,0 +1,1774 @@
+{
+  "role": "WebArea",
+  "name": "",
+  "children": [
+    {
+      "role": "link",
+      "name": "RSS"
+    },
+    {
+      "role": "link",
+      "name": ""
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "link",
+      "name": "Hacker News"
+    },
+    {
+      "role": "link",
+      "name": "new"
+    },
+    {
+      "role": "link",
+      "name": "past"
+    },
+    {
+      "role": "link",
+      "name": "comments"
+    },
+    {
+      "role": "link",
+      "name": "ask"
+    },
+    {
+      "role": "link",
+      "name": "show"
+    },
+    {
+      "role": "link",
+      "name": "jobs"
+    },
+    {
+      "role": "link",
+      "name": "submit"
+    },
+    {
+      "role": "link",
+      "name": "login"
+    },
+    {
+      "role": "text",
+      "name": "1."
+    },
+    {
+      "role": "link",
+      "name": "upvote"
+    },
+    {
+      "role": "link",
+      "name": "Quake's 3-D Engine: The Big Picture by Michael Abrash (2000)"
+    },
+    {
+      "role": "text",
+      "name": "("
+    },
+    {
+      "role": "text",
+      "name": ")"
+    },
+    {
+      "role": "link",
+      "name": "bluesnews.com"
+    },
+    {
+      "role": "text",
+      "name": "by"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "75 points"
+    },
+    {
+      "role": "link",
+      "name": "jdmoreira"
+    },
+    {
+      "role": "link",
+      "name": "2 hours ago"
+    },
+    {
+      "role": "link",
+      "name": "hide"
+    },
+    {
+      "role": "link",
+      "name": "6 comments"
+    },
+    {
+      "role": "text",
+      "name": "2."
+    },
+    {
+      "role": "link",
+      "name": "upvote"
+    },
+    {
+      "role": "link",
+      "name": "Sleep duration is associated with brain structure and cognitive performance"
+    },
+    {
+      "role": "text",
+      "name": "("
+    },
+    {
+      "role": "text",
+      "name": ")"
+    },
+    {
+      "role": "link",
+      "name": "wiley.com"
+    },
+    {
+      "role": "text",
+      "name": "by"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "219 points"
+    },
+    {
+      "role": "link",
+      "name": "mcguire"
+    },
+    {
+      "role": "link",
+      "name": "5 hours ago"
+    },
+    {
+      "role": "link",
+      "name": "hide"
+    },
+    {
+      "role": "link",
+      "name": "120 comments"
+    },
+    {
+      "role": "text",
+      "name": "3."
+    },
+    {
+      "role": "link",
+      "name": "upvote"
+    },
+    {
+      "role": "link",
+      "name": "Show HN: I Rebuilt MySpace from 2007"
+    },
+    {
+      "role": "text",
+      "name": "("
+    },
+    {
+      "role": "text",
+      "name": ")"
+    },
+    {
+      "role": "link",
+      "name": "spacehey.com"
+    },
+    {
+      "role": "text",
+      "name": "by"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "462 points"
+    },
+    {
+      "role": "link",
+      "name": "partyguy"
+    },
+    {
+      "role": "link",
+      "name": "6 hours ago"
+    },
+    {
+      "role": "link",
+      "name": "hide"
+    },
+    {
+      "role": "link",
+      "name": "139 comments"
+    },
+    {
+      "role": "text",
+      "name": "4."
+    },
+    {
+      "role": "link",
+      "name": "upvote"
+    },
+    {
+      "role": "link",
+      "name": "DwarFS: A fast high compression read-only file system"
+    },
+    {
+      "role": "text",
+      "name": "("
+    },
+    {
+      "role": "text",
+      "name": ")"
+    },
+    {
+      "role": "link",
+      "name": "github.com/mhx"
+    },
+    {
+      "role": "text",
+      "name": "by"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "168 points"
+    },
+    {
+      "role": "link",
+      "name": "daantje"
+    },
+    {
+      "role": "link",
+      "name": "6 hours ago"
+    },
+    {
+      "role": "link",
+      "name": "hide"
+    },
+    {
+      "role": "link",
+      "name": "64 comments"
+    },
+    {
+      "role": "text",
+      "name": "5."
+    },
+    {
+      "role": "link",
+      "name": "upvote"
+    },
+    {
+      "role": "link",
+      "name": "An Introduction to Geometric Algebra (2012)"
+    },
+    {
+      "role": "text",
+      "name": "("
+    },
+    {
+      "role": "text",
+      "name": ")"
+    },
+    {
+      "role": "link",
+      "name": "arxiv.org"
+    },
+    {
+      "role": "text",
+      "name": "by"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "18 points"
+    },
+    {
+      "role": "link",
+      "name": "fanf2"
+    },
+    {
+      "role": "link",
+      "name": "1 hour ago"
+    },
+    {
+      "role": "link",
+      "name": "hide"
+    },
+    {
+      "role": "link",
+      "name": "3 comments"
+    },
+    {
+      "role": "text",
+      "name": "6."
+    },
+    {
+      "role": "link",
+      "name": "upvote"
+    },
+    {
+      "role": "link",
+      "name": "Gallery-dl – download images from several image hosting sites"
+    },
+    {
+      "role": "text",
+      "name": "("
+    },
+    {
+      "role": "text",
+      "name": ")"
+    },
+    {
+      "role": "link",
+      "name": "github.com/mikf"
+    },
+    {
+      "role": "text",
+      "name": "by"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "300 points"
+    },
+    {
+      "role": "link",
+      "name": "pabs3"
+    },
+    {
+      "role": "link",
+      "name": "10 hours ago"
+    },
+    {
+      "role": "link",
+      "name": "hide"
+    },
+    {
+      "role": "link",
+      "name": "45 comments"
+    },
+    {
+      "role": "text",
+      "name": "7."
+    },
+    {
+      "role": "link",
+      "name": "upvote"
+    },
+    {
+      "role": "link",
+      "name": "Watercooling a Canon R5 to enable unlimited 8K recording"
+    },
+    {
+      "role": "text",
+      "name": "("
+    },
+    {
+      "role": "text",
+      "name": ")"
+    },
+    {
+      "role": "link",
+      "name": "petapixel.com"
+    },
+    {
+      "role": "text",
+      "name": "by"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "279 points"
+    },
+    {
+      "role": "link",
+      "name": "giuliomagnifico"
+    },
+    {
+      "role": "link",
+      "name": "10 hours ago"
+    },
+    {
+      "role": "link",
+      "name": "hide"
+    },
+    {
+      "role": "link",
+      "name": "120 comments"
+    },
+    {
+      "role": "text",
+      "name": "8."
+    },
+    {
+      "role": "link",
+      "name": "upvote"
+    },
+    {
+      "role": "link",
+      "name": "Little Things That Made Amiga Great"
+    },
+    {
+      "role": "text",
+      "name": "("
+    },
+    {
+      "role": "text",
+      "name": ")"
+    },
+    {
+      "role": "link",
+      "name": "datagubbe.se"
+    },
+    {
+      "role": "text",
+      "name": "by"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "165 points"
+    },
+    {
+      "role": "link",
+      "name": "eitland"
+    },
+    {
+      "role": "link",
+      "name": "8 hours ago"
+    },
+    {
+      "role": "link",
+      "name": "hide"
+    },
+    {
+      "role": "link",
+      "name": "119 comments"
+    },
+    {
+      "role": "text",
+      "name": "9."
+    },
+    {
+      "role": "link",
+      "name": "Repl.it (YC W18) Is Hiring a Site Reliability Engineer"
+    },
+    {
+      "role": "text",
+      "name": "("
+    },
+    {
+      "role": "text",
+      "name": ")"
+    },
+    {
+      "role": "link",
+      "name": "lever.co"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "link",
+      "name": "1 hour ago"
+    },
+    {
+      "role": "link",
+      "name": "hide"
+    },
+    {
+      "role": "text",
+      "name": "10."
+    },
+    {
+      "role": "link",
+      "name": "upvote"
+    },
+    {
+      "role": "link",
+      "name": "GPG and Me (2015)"
+    },
+    {
+      "role": "text",
+      "name": "("
+    },
+    {
+      "role": "text",
+      "name": ")"
+    },
+    {
+      "role": "link",
+      "name": "moxie.org"
+    },
+    {
+      "role": "text",
+      "name": "by"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "33 points"
+    },
+    {
+      "role": "link",
+      "name": "todsacerdoti"
+    },
+    {
+      "role": "link",
+      "name": "3 hours ago"
+    },
+    {
+      "role": "link",
+      "name": "hide"
+    },
+    {
+      "role": "link",
+      "name": "25 comments"
+    },
+    {
+      "role": "text",
+      "name": "11."
+    },
+    {
+      "role": "link",
+      "name": "upvote"
+    },
+    {
+      "role": "link",
+      "name": "Show HN: I made a relaxing Mahjong browser game"
+    },
+    {
+      "role": "text",
+      "name": "("
+    },
+    {
+      "role": "text",
+      "name": ")"
+    },
+    {
+      "role": "link",
+      "name": "jongmah.com"
+    },
+    {
+      "role": "text",
+      "name": "by"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "115 points"
+    },
+    {
+      "role": "link",
+      "name": "jessym"
+    },
+    {
+      "role": "link",
+      "name": "5 hours ago"
+    },
+    {
+      "role": "link",
+      "name": "hide"
+    },
+    {
+      "role": "link",
+      "name": "43 comments"
+    },
+    {
+      "role": "text",
+      "name": "12."
+    },
+    {
+      "role": "link",
+      "name": "upvote"
+    },
+    {
+      "role": "link",
+      "name": "Stupid Light Software"
+    },
+    {
+      "role": "text",
+      "name": "("
+    },
+    {
+      "role": "text",
+      "name": ")"
+    },
+    {
+      "role": "link",
+      "name": "arp242.net"
+    },
+    {
+      "role": "text",
+      "name": "by"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "36 points"
+    },
+    {
+      "role": "link",
+      "name": "pcr910303"
+    },
+    {
+      "role": "link",
+      "name": "4 hours ago"
+    },
+    {
+      "role": "link",
+      "name": "hide"
+    },
+    {
+      "role": "link",
+      "name": "7 comments"
+    },
+    {
+      "role": "text",
+      "name": "13."
+    },
+    {
+      "role": "link",
+      "name": "upvote"
+    },
+    {
+      "role": "link",
+      "name": "Would you be willing to fund a Linux port to Apple Silicon"
+    },
+    {
+      "role": "text",
+      "name": "("
+    },
+    {
+      "role": "text",
+      "name": ")"
+    },
+    {
+      "role": "link",
+      "name": "twitter.com/marcan42"
+    },
+    {
+      "role": "text",
+      "name": "by"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "149 points"
+    },
+    {
+      "role": "link",
+      "name": "huhhuh"
+    },
+    {
+      "role": "link",
+      "name": "2 hours ago"
+    },
+    {
+      "role": "link",
+      "name": "hide"
+    },
+    {
+      "role": "link",
+      "name": "87 comments"
+    },
+    {
+      "role": "text",
+      "name": "14."
+    },
+    {
+      "role": "link",
+      "name": "upvote"
+    },
+    {
+      "role": "link",
+      "name": "Standalone Nashorn 15.0 is out"
+    },
+    {
+      "role": "text",
+      "name": "("
+    },
+    {
+      "role": "text",
+      "name": ")"
+    },
+    {
+      "role": "link",
+      "name": "java.net"
+    },
+    {
+      "role": "text",
+      "name": "by"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "36 points"
+    },
+    {
+      "role": "link",
+      "name": "pjmlp"
+    },
+    {
+      "role": "link",
+      "name": "5 hours ago"
+    },
+    {
+      "role": "link",
+      "name": "hide"
+    },
+    {
+      "role": "link",
+      "name": "21 comments"
+    },
+    {
+      "role": "text",
+      "name": "15."
+    },
+    {
+      "role": "link",
+      "name": "upvote"
+    },
+    {
+      "role": "link",
+      "name": "Simple Password Management with GPG"
+    },
+    {
+      "role": "text",
+      "name": "("
+    },
+    {
+      "role": "text",
+      "name": ")"
+    },
+    {
+      "role": "link",
+      "name": "tylerlmz1.github.io"
+    },
+    {
+      "role": "text",
+      "name": "by"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "12 points"
+    },
+    {
+      "role": "link",
+      "name": "todsacerdoti"
+    },
+    {
+      "role": "link",
+      "name": "3 hours ago"
+    },
+    {
+      "role": "link",
+      "name": "hide"
+    },
+    {
+      "role": "link",
+      "name": "13 comments"
+    },
+    {
+      "role": "text",
+      "name": "16."
+    },
+    {
+      "role": "link",
+      "name": "upvote"
+    },
+    {
+      "role": "link",
+      "name": "Software and Hardware for General Robots"
+    },
+    {
+      "role": "text",
+      "name": "("
+    },
+    {
+      "role": "text",
+      "name": ")"
+    },
+    {
+      "role": "link",
+      "name": "evjang.com"
+    },
+    {
+      "role": "text",
+      "name": "by"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "19 points"
+    },
+    {
+      "role": "link",
+      "name": "ericjang"
+    },
+    {
+      "role": "link",
+      "name": "2 hours ago"
+    },
+    {
+      "role": "link",
+      "name": "hide"
+    },
+    {
+      "role": "link",
+      "name": "15 comments"
+    },
+    {
+      "role": "text",
+      "name": "17."
+    },
+    {
+      "role": "link",
+      "name": "upvote"
+    },
+    {
+      "role": "link",
+      "name": "OCaml User Survey 2020 Results"
+    },
+    {
+      "role": "text",
+      "name": "("
+    },
+    {
+      "role": "text",
+      "name": ")"
+    },
+    {
+      "role": "link",
+      "name": "dropbox.com"
+    },
+    {
+      "role": "text",
+      "name": "by"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "56 points"
+    },
+    {
+      "role": "link",
+      "name": "testcross"
+    },
+    {
+      "role": "link",
+      "name": "7 hours ago"
+    },
+    {
+      "role": "link",
+      "name": "hide"
+    },
+    {
+      "role": "link",
+      "name": "9 comments"
+    },
+    {
+      "role": "text",
+      "name": "18."
+    },
+    {
+      "role": "link",
+      "name": "upvote"
+    },
+    {
+      "role": "link",
+      "name": "3D engine implemented in DNA code"
+    },
+    {
+      "role": "text",
+      "name": "("
+    },
+    {
+      "role": "text",
+      "name": ")"
+    },
+    {
+      "role": "link",
+      "name": "github.com/pallada-92"
+    },
+    {
+      "role": "text",
+      "name": "by"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "118 points"
+    },
+    {
+      "role": "link",
+      "name": "pallada92"
+    },
+    {
+      "role": "link",
+      "name": "10 hours ago"
+    },
+    {
+      "role": "link",
+      "name": "hide"
+    },
+    {
+      "role": "link",
+      "name": "23 comments"
+    },
+    {
+      "role": "text",
+      "name": "19."
+    },
+    {
+      "role": "link",
+      "name": "upvote"
+    },
+    {
+      "role": "link",
+      "name": "Students create device to capture car tyre microplastic debris"
+    },
+    {
+      "role": "text",
+      "name": "("
+    },
+    {
+      "role": "text",
+      "name": ")"
+    },
+    {
+      "role": "link",
+      "name": "bbc.co.uk"
+    },
+    {
+      "role": "text",
+      "name": "by"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "18 points"
+    },
+    {
+      "role": "link",
+      "name": "jfk13"
+    },
+    {
+      "role": "link",
+      "name": "4 hours ago"
+    },
+    {
+      "role": "link",
+      "name": "hide"
+    },
+    {
+      "role": "link",
+      "name": "10 comments"
+    },
+    {
+      "role": "text",
+      "name": "20."
+    },
+    {
+      "role": "link",
+      "name": "upvote"
+    },
+    {
+      "role": "link",
+      "name": "Microsoft is working on an Android subsystem for Windows 10"
+    },
+    {
+      "role": "text",
+      "name": "("
+    },
+    {
+      "role": "text",
+      "name": ")"
+    },
+    {
+      "role": "link",
+      "name": "bleepingcomputer.com"
+    },
+    {
+      "role": "text",
+      "name": "by"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "259 points"
+    },
+    {
+      "role": "link",
+      "name": "freedomben"
+    },
+    {
+      "role": "link",
+      "name": "7 hours ago"
+    },
+    {
+      "role": "link",
+      "name": "hide"
+    },
+    {
+      "role": "link",
+      "name": "187 comments"
+    },
+    {
+      "role": "text",
+      "name": "21."
+    },
+    {
+      "role": "link",
+      "name": "upvote"
+    },
+    {
+      "role": "link",
+      "name": "Remote control truck with remote control gun, self destructed after attack"
+    },
+    {
+      "role": "text",
+      "name": "("
+    },
+    {
+      "role": "text",
+      "name": ")"
+    },
+    {
+      "role": "link",
+      "name": "twitter.com/l4stewar"
+    },
+    {
+      "role": "text",
+      "name": "by"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "57 points"
+    },
+    {
+      "role": "link",
+      "name": "vinnyglennon"
+    },
+    {
+      "role": "link",
+      "name": "2 hours ago"
+    },
+    {
+      "role": "link",
+      "name": "hide"
+    },
+    {
+      "role": "link",
+      "name": "19 comments"
+    },
+    {
+      "role": "text",
+      "name": "22."
+    },
+    {
+      "role": "link",
+      "name": "upvote"
+    },
+    {
+      "role": "link",
+      "name": "ASCII – Origins"
+    },
+    {
+      "role": "text",
+      "name": "("
+    },
+    {
+      "role": "text",
+      "name": ")"
+    },
+    {
+      "role": "link",
+      "name": "ethw.org"
+    },
+    {
+      "role": "text",
+      "name": "by"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "14 points"
+    },
+    {
+      "role": "link",
+      "name": "cmroanirgo"
+    },
+    {
+      "role": "link",
+      "name": "3 hours ago"
+    },
+    {
+      "role": "link",
+      "name": "hide"
+    },
+    {
+      "role": "link",
+      "name": "6 comments"
+    },
+    {
+      "role": "text",
+      "name": "23."
+    },
+    {
+      "role": "link",
+      "name": "upvote"
+    },
+    {
+      "role": "link",
+      "name": "Psychology of Intelligence Analysis (2007)"
+    },
+    {
+      "role": "text",
+      "name": "("
+    },
+    {
+      "role": "text",
+      "name": ")"
+    },
+    {
+      "role": "link",
+      "name": "cia.gov"
+    },
+    {
+      "role": "text",
+      "name": "by"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "63 points"
+    },
+    {
+      "role": "link",
+      "name": "lbblack"
+    },
+    {
+      "role": "link",
+      "name": "9 hours ago"
+    },
+    {
+      "role": "link",
+      "name": "hide"
+    },
+    {
+      "role": "link",
+      "name": "15 comments"
+    },
+    {
+      "role": "text",
+      "name": "24."
+    },
+    {
+      "role": "link",
+      "name": "upvote"
+    },
+    {
+      "role": "link",
+      "name": "Ask HN: Top Coursera Courses?"
+    },
+    {
+      "role": "text",
+      "name": "by"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "298 points"
+    },
+    {
+      "role": "link",
+      "name": "joshlk"
+    },
+    {
+      "role": "link",
+      "name": "8 hours ago"
+    },
+    {
+      "role": "link",
+      "name": "hide"
+    },
+    {
+      "role": "link",
+      "name": "109 comments"
+    },
+    {
+      "role": "text",
+      "name": "25."
+    },
+    {
+      "role": "link",
+      "name": "upvote"
+    },
+    {
+      "role": "link",
+      "name": "Exactly how much physical memory is installed?"
+    },
+    {
+      "role": "text",
+      "name": "("
+    },
+    {
+      "role": "text",
+      "name": ")"
+    },
+    {
+      "role": "link",
+      "name": "toroid.org"
+    },
+    {
+      "role": "text",
+      "name": "by"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "67 points"
+    },
+    {
+      "role": "link",
+      "name": "todsacerdoti"
+    },
+    {
+      "role": "link",
+      "name": "10 hours ago"
+    },
+    {
+      "role": "link",
+      "name": "hide"
+    },
+    {
+      "role": "link",
+      "name": "29 comments"
+    },
+    {
+      "role": "text",
+      "name": "26."
+    },
+    {
+      "role": "link",
+      "name": "upvote"
+    },
+    {
+      "role": "link",
+      "name": "Microsoft patents tech to score meetings with body language, facial expressions"
+    },
+    {
+      "role": "text",
+      "name": "("
+    },
+    {
+      "role": "text",
+      "name": ")"
+    },
+    {
+      "role": "link",
+      "name": "geekwire.com"
+    },
+    {
+      "role": "text",
+      "name": "by"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "20 points"
+    },
+    {
+      "role": "link",
+      "name": "_gtly"
+    },
+    {
+      "role": "link",
+      "name": "1 hour ago"
+    },
+    {
+      "role": "link",
+      "name": "hide"
+    },
+    {
+      "role": "link",
+      "name": "21 comments"
+    },
+    {
+      "role": "text",
+      "name": "27."
+    },
+    {
+      "role": "link",
+      "name": "upvote"
+    },
+    {
+      "role": "link",
+      "name": "Ask HN: Programming 101 online course recommendations?"
+    },
+    {
+      "role": "text",
+      "name": "by"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "35 points"
+    },
+    {
+      "role": "link",
+      "name": "brittpart_"
+    },
+    {
+      "role": "link",
+      "name": "4 hours ago"
+    },
+    {
+      "role": "link",
+      "name": "hide"
+    },
+    {
+      "role": "link",
+      "name": "16 comments"
+    },
+    {
+      "role": "text",
+      "name": "28."
+    },
+    {
+      "role": "link",
+      "name": "upvote"
+    },
+    {
+      "role": "link",
+      "name": "When Rubber Hits the Road, and Washes Away"
+    },
+    {
+      "role": "text",
+      "name": "("
+    },
+    {
+      "role": "text",
+      "name": ")"
+    },
+    {
+      "role": "link",
+      "name": "hakaimagazine.com"
+    },
+    {
+      "role": "text",
+      "name": "by"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "63 points"
+    },
+    {
+      "role": "link",
+      "name": "adrian_mrd"
+    },
+    {
+      "role": "link",
+      "name": "8 hours ago"
+    },
+    {
+      "role": "link",
+      "name": "hide"
+    },
+    {
+      "role": "link",
+      "name": "58 comments"
+    },
+    {
+      "role": "text",
+      "name": "29."
+    },
+    {
+      "role": "link",
+      "name": "upvote"
+    },
+    {
+      "role": "link",
+      "name": "Only distributed fact-checking can keep up with democratized distribution"
+    },
+    {
+      "role": "text",
+      "name": "("
+    },
+    {
+      "role": "text",
+      "name": ")"
+    },
+    {
+      "role": "link",
+      "name": "abe-winter.github.io"
+    },
+    {
+      "role": "text",
+      "name": "by"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "84 points"
+    },
+    {
+      "role": "link",
+      "name": "awinter-py"
+    },
+    {
+      "role": "link",
+      "name": "4 hours ago"
+    },
+    {
+      "role": "link",
+      "name": "hide"
+    },
+    {
+      "role": "link",
+      "name": "110 comments"
+    },
+    {
+      "role": "text",
+      "name": "30."
+    },
+    {
+      "role": "link",
+      "name": "upvote"
+    },
+    {
+      "role": "link",
+      "name": "The Generalized f-Mean"
+    },
+    {
+      "role": "text",
+      "name": "("
+    },
+    {
+      "role": "text",
+      "name": ")"
+    },
+    {
+      "role": "link",
+      "name": "churchofthought.org"
+    },
+    {
+      "role": "text",
+      "name": "by"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "57 points"
+    },
+    {
+      "role": "link",
+      "name": "goldenkey"
+    },
+    {
+      "role": "link",
+      "name": "12 hours ago"
+    },
+    {
+      "role": "link",
+      "name": "hide"
+    },
+    {
+      "role": "link",
+      "name": "14 comments"
+    },
+    {
+      "role": "link",
+      "name": "More"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "text",
+      "name": "|"
+    },
+    {
+      "role": "link",
+      "name": "Guidelines"
+    },
+    {
+      "role": "link",
+      "name": "FAQ"
+    },
+    {
+      "role": "link",
+      "name": "Lists"
+    },
+    {
+      "role": "link",
+      "name": "API"
+    },
+    {
+      "role": "link",
+      "name": "Security"
+    },
+    {
+      "role": "link",
+      "name": "Legal"
+    },
+    {
+      "role": "link",
+      "name": "Apply to YC"
+    },
+    {
+      "role": "link",
+      "name": "Contact"
+    },
+    {
+      "role": "text",
+      "name": "Search:"
+    }
+  ]
+}

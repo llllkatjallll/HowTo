@@ -1,0 +1,183 @@
+{
+  "role": "WebArea",
+  "name": "",
+  "children": [
+    {
+      "role": "link",
+      "name": "About"
+    },
+    {
+      "role": "link",
+      "name": "Store"
+    },
+    {
+      "role": "link",
+      "name": "Gmail"
+    },
+    {
+      "role": "link",
+      "name": "Images"
+    },
+    {
+      "role": "button",
+      "name": "Google apps"
+    },
+    {
+      "role": "link",
+      "name": "Sign in"
+    },
+    {
+      "role": "combobox",
+      "name": "Search"
+    },
+    {
+      "role": "button",
+      "name": "Clear",
+      "children": [
+        {
+          "role": "generic",
+          "name": "Clear"
+        }
+      ]
+    },
+    {
+      "role": "button",
+      "name": "Search by voice"
+    },
+    {
+      "role": "listbox",
+      "name": ""
+    },
+    {
+      "role": "option",
+      "name": ""
+    },
+    {
+      "role": "button",
+      "name": "Google Search"
+    },
+    {
+      "role": "button",
+      "name": "I'm Feeling Lucky"
+    },
+    {
+      "role": "link",
+      "name": ""
+    },
+    {
+      "role": "link",
+      "name": ""
+    },
+    {
+      "role": "button",
+      "name": "Google Search"
+    },
+    {
+      "role": "button",
+      "name": "I'm Feeling Lucky"
+    },
+    {
+      "role": "button",
+      "name": ""
+    },
+    {
+      "role": "button",
+      "name": "close"
+    },
+    {
+      "role": "img",
+      "name": "Google"
+    },
+    {
+      "role": "text",
+      "name": "Google offered in:"
+    },
+    {
+      "role": "link",
+      "name": "Deutsch"
+    },
+    {
+      "role": "text",
+      "name": "Germany"
+    },
+    {
+      "role": "link",
+      "name": "Privacy"
+    },
+    {
+      "role": "link",
+      "name": "Terms"
+    },
+    {
+      "role": "combobox",
+      "name": "Settings",
+      "haspopup": "menu"
+    },
+    {
+      "role": "menu",
+      "name": "Settings",
+      "children": [
+        {
+          "role": "menuitem",
+          "name": ""
+        },
+        {
+          "role": "menuitem",
+          "name": ""
+        },
+        {
+          "role": "menuitem",
+          "name": ""
+        },
+        {
+          "role": "menuitem",
+          "name": ""
+        },
+        {
+          "role": "menuitem",
+          "name": ""
+        },
+        {
+          "role": "menuitem",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "role": "link",
+      "name": "Advertising"
+    },
+    {
+      "role": "link",
+      "name": "Business"
+    },
+    {
+      "role": "link",
+      "name": "How Search works"
+    },
+    {
+      "role": "text",
+      "name": "Google uses cookies to deliver its services, to personalise ads and to analyse traffic. You can adjust your privacy controls at any time in your"
+    },
+    {
+      "role": "text",
+      "name": "."
+    },
+    {
+      "role": "link",
+      "name": "Google settings"
+    },
+    {
+      "role": "link",
+      "name": "Learn more"
+    },
+    {
+      "role": "button",
+      "name": "Got it"
+    },
+    {
+      "role": "textbox",
+      "name": ""
+    }
+  ]
+}

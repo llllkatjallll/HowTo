@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+		"target": "ES2019",
+		"module": "ES2020",
+		"moduleResolution": "node",
+		"outDir": "lib",
+		"rootDir": "src",
+		"sourceMap": true,
+		"inlineSources": true,
+		"declaration": true,
+		"declarationMap": true,
+		"esModuleInterop": true,
+		"strict": true,
+		"noUnusedLocals": true,
+		"skipLibCheck": true,
+		"skipDefaultLibCheck": true,
+		"noUncheckedIndexedAccess": true,
+		"paths": {
+			"*": ["./src/types/*", "./*"],
+		},
+	},
+	"include": ["src/**/*"],
+}

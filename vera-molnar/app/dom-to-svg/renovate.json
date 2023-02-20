@@ -1,0 +1,14 @@
+{
+	"extends": ["config:base"],
+	"semanticCommits": true,
+	"rangeStrategy": "bump",
+	"prCreation": "not-pending",
+	"masterIssue": true,
+	"prHourlyLimit": 0,
+	"packageRules": [
+		{
+			"packagePatterns": ["^@types/"],
+			"automerge": true
+		}
+	]
+}

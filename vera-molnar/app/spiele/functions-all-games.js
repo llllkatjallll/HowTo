@@ -195,45 +195,53 @@ function saveImage(event) {
     if (currentGameId == "buchstaben") {
 
         return;
+
         // if html element
-        var node = document.getElementById('defaultCanvas0');
-        domtoimage.toSvg(document.getElementById('defaultCanvas0'),)
-            .then(function (dataUrl) {
-                console.log(dataUrl);
+        var scale = 1;
+        var node = document.getElementById('game-wrapper');
+       domtoimage.toSvg(node, {
+         width: node.clientWidth * scale,
+         height: node.clientHeight * scale,
+         style: {
+          transform: 'scale('+scale+')',
+          transformOrigin: 'top left'
+        }})
+        .then(dataURL => {
+         var image2 = new Image();
+         image2.src = dataURL;
+         console.log(dataURL.slice(33));
+         
+         //let clonedSvgElement = svgElement.cloneNode(true);
 
-                var svgElement = document.createElement('a');
-                svgElement.download = 'actual.svg';
-                svgElement.href = dataUrl;
-                console.log(svgElement);
-                //link.click();
-                let clonedSvgElement = svgElement.cloneNode(true);
+        //let outerHTML = clonedSvgElement.outerHTML,
+        blob = new Blob([dataURL.slice(33)], { type: 'image/svg+xml;charset=utf-8' });
 
-                let outerHTML = clonedSvgElement.outerHTML,
-                blob = new Blob([outerHTML], { type: 'image/svg+xml;charset=utf-8' });
-        
-        
-            let URL = window.URL || window.webkitURL || window;
-        
-            blobURL = URL.createObjectURL(blob);
-            console.log("It is blob  " + blobURL);
-            let image = new Image();
-        
-            image.onload = () => {
-                let canvas = document.createElement('canvas');
-                canvas.width = SVGsize;
-                canvas.height = SVGsize;
-                let context = canvas.getContext('2d');
-                // draw image in canvas starting left-0 , top - 0  
-                context.drawImage(image, 0, 0, SVGsize, SVGsize);
-        
-                pngURL = canvas.toDataURL(); // default png
-        
-                setItem(currentGameId, pngURL);
-                displayImagesfromStorage(currentGameId);
-            };
-        
-            image.src = blobURL;
-            });
+
+    let URL = window.URL || window.webkitURL || window;
+
+    blobURL = URL.createObjectURL(blob);
+    console.log("It is blob  " + blobURL);
+    let image = new Image();
+
+   
+    image.onload = () => {
+        let canvas = document.createElement('canvas');
+        canvas.width = SVGsize;
+        canvas.height = SVGsize;
+        canvas.setAttribute('crossorigin', 'anonymous');
+        let context = canvas.getContext('2d');
+        // draw image in canvas starting left-0 , top - 0  
+        context.drawImage(image, 0, 0, SVGsize, SVGsize);
+
+        pngURL = canvas.toDataURL(); // default png
+
+        setItem(currentGameId, pngURL);
+        displayImagesfromStorage(currentGameId);
+    };
+
+    image.src = blobURL;
+         //document.body.appendChild(image);
+     });  
 
     } else { //if p5 
         svgElement = document.getElementById("defaultCanvas0").children[0];

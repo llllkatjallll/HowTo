@@ -1,3 +1,5 @@
+
+
 // setup
 var gameWrapper = document.getElementById("game-wrapper");
 var grid = document.getElementById("defaultCanvas0");
@@ -173,6 +175,7 @@ function getCurrentLetters() {
 }
 
 function init() {
+
   populateLetters();
   getDimensions();
   getTotalLetters();
@@ -492,6 +495,41 @@ function saveMyImage(){
       .then(function (blob) {
           window.saveAs(blob, 'my-node.png');
       });  */
+
+
+      /*   var scale = 1;
+   var node = document.getElementById('game-wrapper');
+  domtoimage.toBlob(node, {
+    width: node.clientWidth * scale,
+    height: node.clientHeight * scale,
+    style: {
+     transform: 'scale('+scale+')',
+     transformOrigin: 'top left'
+   }})
+      .then(function (blob) {
+          window.saveAs(blob, 'my-node.png');
+      });  */
+
+   var endSize = 1600;
+   var scale = 2;
+   
+   var node = document.getElementById('game-wrapper');
+   scale = endSize / node.clientHeight ;
+   var a = endSize/scale;
+   console.log(scale + "  " + a);
+   domtoimage.toPng(node, {
+    width: endSize,
+    height: endSize,
+    style: {
+     transform: 'scale('+scale+') translate(-'+600 +'px,-'+ 0+ 'px )',
+     transformOrigin: 'top left',
+     
+   }})
+   .then(dataURL => {
+    var image = new Image();
+    image.src = dataURL;
+    document.body.appendChild(image);
+});   
   
 }
 
