@@ -155,6 +155,8 @@ let sketch = function (p) {
     
     p.drawLine();
     resultReady = true;
+    sectionWrapper.classList.remove("hideOverflow");
+    placeholderWrapper.classList.remove("hideOverflow");
   }
 
   p.drawLine = function () {
