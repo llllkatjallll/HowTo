@@ -8,17 +8,12 @@
   transition: 1s ease-in-out;
 }
 
-.scroll-snap{
-/* scroll-snap-type: y mandatory; */
-/* scroll-snap-type: y proximity; */
-}
-
 section{
   position: sticky;
   overflow: scroll;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
   transition: none !important;
+  top: 0;
+  margin-top: -1.5em;
 }
 
 /* Question -> mehr unter style.css, da bereits Anzeige in menu.html*/
@@ -27,57 +22,57 @@ section{
 
 @media only screen and (max-width: 480px) {
   #question-section{
-    top: 1.5em;
+    transform: translate(0,1.5em);
   }
   
   #quote-section{
-    top: 2.3em;
+    transform: translate(0,2.3em);
   }
   
   #introduction-section{
-    top: 3.1em;
+    transform: translate(0,3.1em);
   }
   
   #game-section{
-    top: 3.9em;
-  }
-  
-  #information-section{
-    scroll-margin-top: 5.5em !important;
-    top: 5.5em;
+    transform: translate(0,3.9em);
   }
   
   #gallery-section{
-    top: 4.7em;
+    transform: translate(0,4.7em);
   }
+
+  #information-section{
+    transform: translate(0,5.5em);
+  }
+  
 }
 
 @media only screen and (min-width: 481px) {
+
   #question-section{
-    top: 3em;
+    transform: translate(0,3em);
   }
   
   #quote-section{
-    top: 3.8em;
+    transform: translate(0,3.8em);
   }
   
   #introduction-section{
-    top: 4.6em;
+    transform: translate(0,4.6em);
   }
   
   #game-section{
-    top: 5.4em;
+    transform: translate(0,5.4em);
   }
   
   #gallery-section{
-    top: 6.2em;
+    transform: translate(0,6.2em);
   }
 
   #information-section{
-    scroll-margin-top: 7em !important;
-    top: 7em;
+    transform: translate(0,7em);
   }
-  
+
 }
 
 
@@ -439,8 +434,6 @@ section{
 /* Information */
 
 #information-section{
-    margin: 0 0 1.5em 0;
-
     justify-content: flex-start !important;
     background-color: white;
     color: black !important;

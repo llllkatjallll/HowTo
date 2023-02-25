@@ -54,6 +54,54 @@ body{
     }
 }
 
+/* Forwarding from desktop to mobile */
+
+@media (pointer: fine) {
+    
+    section, div{
+        display: none;
+    }
+
+    #desktop{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        background-color: var(--color1);
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    #desktop > p{
+        font-size: 1.3em;
+        padding: 2em;
+    }
+
+    #desktop > div{
+        padding:10px;
+        background: url(img/qrcode_vera_molnar.png);
+        background-size: cover;
+    }
+
+    #desktop > div{
+        display: block !important;
+        transition: 1s;
+    }
+
+    .opacity-zero{
+        opacity: 0;    
+    }
+
+}
+
+@media (pointer: coarse) {   
+
+#desktop{
+    display: none;
+}
+}
+
 
 /* Launchscreen */
 
@@ -74,7 +122,7 @@ body{
     z-index: 3;
     color: white; 
 }
-  
+
 #logo{
     font-size: 3.6em;
     line-height: 1;
@@ -260,8 +308,6 @@ section{
     align-items: center;
     gap: 1em;
 }
-
-
 
 .content-wrapper{
     width: 100%;
@@ -467,7 +513,7 @@ a:link, a:visited {
     margin: 0 1em 0 1.5em;
     background-repeat: no-repeat;
     background-size: cover;
-    z-index: 99999;
+    z-index: 110;
     transition: 300ms;
 }
 
@@ -539,6 +585,26 @@ a:link, a:visited {
     text-transform: uppercase;
     letter-spacing: 0.03em;
     border-radius: 2em;
+}
+
+.button-clicked{
+    animation-name: click-transform;
+    animation-duration: 600ms;
+}
+
+@keyframes click-transform {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(0.9);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+#button-play, #button-pause{
     transition: 300ms;
 }
 
@@ -563,9 +629,13 @@ a:link, a:visited {
     border: solid white 0.09em;
 }
 
-.text-button:active{
-    opacity: 0;
+.transform-button{
+    transform: scale(0.9) !important;
 }
+
+/*.text-button:active{
+    opacity: 0;
+}*/
 
 .text-button-icon{
     height: 1.3em;
@@ -578,7 +648,7 @@ a:link, a:visited {
     width: 2.6em;
     background-repeat: no-repeat;
     background-size: cover;
-    z-index: 9999999;
+    z-index: 120;
 }
 
 .button-game-icon{
@@ -586,7 +656,7 @@ a:link, a:visited {
     width: 2.6em;
     background-repeat: no-repeat;
     background-size: cover;
-    z-index: 9999999;
+    z-index: 120;
     background-color: rgba(0, 0, 0, 0.8);
     transition: all 0.5s;
 }

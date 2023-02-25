@@ -9,6 +9,16 @@ $(document).ready(function (){
        // console.log( $(this).scrollTop() );
     });
 
+
+// Button-Transition
+
+    $('.text-button').click(function(){
+        $(this).addClass('button-clicked');
+        setTimeout(function(){
+            $('.text-button').removeClass('button-clicked');
+        }, 600);       
+    });
+
     // Redirect
 
     $('.dropdown-menu').click(function (){

@@ -5,6 +5,14 @@ $(document).ready(function (){
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
     
+    // Button-Transition
+
+    $('.text-button').click(function(){
+        $(this).addClass('button-clicked');
+        setTimeout(function(){
+            $('.text-button').removeClass('button-clicked');
+        }, 600);       
+    });
     
     // Transition Start
     $('.section-first').removeClass('hidden');
