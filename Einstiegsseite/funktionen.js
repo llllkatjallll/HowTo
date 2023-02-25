@@ -58,7 +58,7 @@ $(document).ready(function(){
 
         //Overlay forwarding
 
-        $('.wrapper--app.je').click(function(){
+        $('.link--je').click(function(){
           if ($(window).width() < 1199) {
             $('#overlay--wrapper--je').removeClass('inactive');
             setTimeout(
@@ -72,7 +72,7 @@ $(document).ready(function(){
         }
       });
 
-        $('.wrapper--app.mvb').click(function(){
+        $('.link--mvb').click(function(){
           if ($(window).width() < 1199) {
             $('#overlay--wrapper--mvb').removeClass('inactive');
             setTimeout(function() {
@@ -84,18 +84,36 @@ $(document).ready(function(){
           }
         });
 
-        $('#overlay--close').click(function(){
+        $('.link--vm').click(function(){
+          if ($(window).width() < 1199) {
+            $('#overlay--wrapper--vm').removeClass('inactive');
+            setTimeout(function() {
+                $('#overlay--wrapper--vm').removeClass('invisible');
+              }, 100);
+          }
+          else {
+              window.location.href = 'vera_molnar.html';
+          }
+        });
+
+        $('#overlay--close--mvb').click(function(){
           $('#overlay--wrapper--mvb').addClass('invisible');
           setTimeout(function() {
               $('#overlay--wrapper--mvb').addClass('inactive');
             }, 300);
         });
 
-        $('#overlay--close').click(function(){
+        $('#overlay--close--je').click(function(){
           $('#overlay--wrapper--je').addClass('invisible');
           setTimeout(function() {
               $('#overlay--wrapper--je').addClass('inactive');
             }, 300);
         });
           
+        $('#overlay--close--vm').click(function(){
+          $('#overlay--wrapper--vm').addClass('invisible');
+          setTimeout(function() {
+              $('#overlay--wrapper--vm').addClass('inactive');
+            }, 300);
+        });
 })

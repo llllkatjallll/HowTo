@@ -120,6 +120,11 @@ h3{
     font-family: NeueHaas;
     font-weight: initial;
     margin: 0;
+    transition: 250ms;
+}
+
+h3 > a{
+    text-decoration: none;
 }
 
 h4{
@@ -441,7 +446,7 @@ li > a, .main-menu > a, li > a:visited, .main-menu > a:visited{
     transition: 250ms;
 }
 
-li > a:hover, .main-menu > a:hover{
+li > a:hover, .main-menu > a:hover, h3:hover{
     color: grey;
 }
 
@@ -890,6 +895,7 @@ li > a:hover, .main-menu > a:hover{
 
 .invisible{
     opacity: 0;
+    transition: 300ms;
 }
 
 .overlay{
@@ -917,7 +923,7 @@ li > a:hover, .main-menu > a:hover{
     border-radius: calc((var(--distance--m) +  2 * var(--distance--s)) / 2);
 }
 
-#overlay--close{
+.overlay--close{
     width: auto;
     border: black 1px solid;
     padding: var(--distance--s) var(--distance--m);
@@ -926,8 +932,15 @@ li > a:hover, .main-menu > a:hover{
     border-radius: calc((var(--distance--m) +  2 * var(--distance--s)) / 2);
 }
 
-#impressum > a{
+#impressum > div > a{
     color: black !important;
+}
+
+.buttons{
+    display: flex; 
+    flex-direction: row; 
+    gap: var(--distance--s); 
+    padding-bottom: var(--distance--s);
 }
 
 #kontakt{
@@ -1133,6 +1146,7 @@ li > a:hover, .main-menu > a:hover{
     .logos > img{
         width: calc(100% - var(--distance--l)) !important; 
         padding: 0 var(--distance--l) var(--distance--l) 0 !important;
+        object-fit: contain;
     }    
 
     .overlay{
@@ -1342,6 +1356,7 @@ li > a:hover, .main-menu > a:hover{
     .logos > img{
         width: calc(100% / 2 - var(--distance--l)) !important; 
         padding: 0 var(--distance--l) var(--distance--l) 0 !important;
+        object-fit: contain;
     }    
 
     .overlay{
@@ -1561,6 +1576,7 @@ li > a:hover, .main-menu > a:hover{
 
     .logos > img{
         width: calc(100% / 2 - var(--distance--l)) !important; 
+        object-fit: contain;
         padding: 0 var(--distance--l) var(--distance--l) 0 !important;
     }    
 
