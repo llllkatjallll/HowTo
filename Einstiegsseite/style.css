@@ -30,7 +30,7 @@
 :root{
     --color--mvb: #7822F0;
     --color--je: #6232FB;
-    --color--vm: #ea4949;
+    --color--vm: #ea2626;
     --color--black--10: #ededed;
     --color--black--20: #dadada;
     --color--black--30: #c6c6c6;
@@ -703,6 +703,52 @@ li > a:hover, .main-menu > a:hover{
 
 #image--qr-code--mvb{
     background-image: url(img/2_0_qrcode.png);
+}
+
+#image--header--vm{
+    background-image: url(img/3_0_header.png);
+}
+
+#image--spiel--spur{
+    background-image: url(img/3_1_rendering.png);
+}
+
+#image--spiel--buchstaben{
+    background-image: url(img/3_2_rendering.png);
+}
+
+#image--spiel--zufall{
+    background-image: url(img/3_3_rendering.png);
+}
+
+#image--spiel--unordnung{
+    background-image: url(img/3_4_rendering.png);
+}
+
+#image--spiel--magie{
+    background-image: url(img/3_5_rendering.png);
+}
+
+#image--werk--spur{
+    background-image: url(img/3_1_werk.jpg);
+    background-position: left;
+}
+
+#image--werk--buchstaben{
+    background-image: url(img/3_2_werk.jpg);
+}
+
+#image--werk--zufall{
+    background-image: url(img/3_3_werk.jpg);
+    background-position: left;
+}
+
+#image--werk--unordnung{
+    background-image: url(img/3_4_werk.jpg);
+}
+
+#image--werk--magie{
+    background-image: url(img/3_5_werk.jpg);
 }
 
 #image--header--je{
