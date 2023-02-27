@@ -281,7 +281,8 @@ function saveImage(event) {
 
 
         var node = document.getElementById('game-wrapper');
-        scale = endSize / node.clientWidth;
+        var actualNode = document.getElementById('defaultCanvas0');
+        scale = endSize / actualNode.clientWidth;
 
         domtoimage.toPng(node, {
             width: endSize,

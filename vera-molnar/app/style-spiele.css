@@ -310,7 +310,7 @@ section{
 
 @font-face {
   font-family: 'League Spartan Variable';
-  src: url('/spiele/assets/LeagueSpartan-VF.woff2') format('woff2-variations');
+  src: url('./spiele/assets/LeagueSpartan-VF.ttf');
   font-weight: 200 900;
 }
 .full{
