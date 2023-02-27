@@ -197,9 +197,8 @@ function init() {
       event.target.blur();
       readText();
     }
-
-    //svgButton.addEventListener('click', (event) => {  saveMyImage() });
   });
+  //svgButton.addEventListener('click', (event) => {  saveMyImage() });
    //document.getElementById("overlay-layer").addEventListener('click', (event) => { console.log("log"); event.stopPropagation(); });
    buttonRestart.addEventListener('click', (event) => { restart() });
 
@@ -482,55 +481,31 @@ function startTextInput(){
 }
 
 
-function saveMyImage(){
-/*   var scale = 1;
-   var node = document.getElementById('game-wrapper');
-  domtoimage.toBlob(node, {
-    width: node.clientWidth * scale,
-    height: node.clientHeight * scale,
-    style: {
-     transform: 'scale('+scale+')',
-     transformOrigin: 'top left'
-   }})
-      .then(function (blob) {
-          window.saveAs(blob, 'my-node.png');
-      });  */
+function saveMyImage() {
+ 
+  var endSize = 1000;
+  var scale = 2;
 
 
-      /*   var scale = 1;
-   var node = document.getElementById('game-wrapper');
-  domtoimage.toBlob(node, {
-    width: node.clientWidth * scale,
-    height: node.clientHeight * scale,
-    style: {
-     transform: 'scale('+scale+')',
-     transformOrigin: 'top left'
-   }})
-      .then(function (blob) {
-          window.saveAs(blob, 'my-node.png');
-      });  */
+  var node = document.getElementById('game-wrapper');
+  scale = endSize / node.clientHeight;
 
-   var endSize = 1600;
-   var scale = 2;
-   
-   var node = document.getElementById('game-wrapper');
-   scale = endSize / node.clientHeight ;
-   var a = endSize/scale;
-   console.log(scale + "  " + a);
-   domtoimage.toPng(node, {
+  domtoimage.toPng(node, {
     width: endSize,
     height: endSize,
+    //width: node.clientWidth,
+    //height: node.clientHeight,
     style: {
-     transform: 'scale('+scale+') translate(-'+600 +'px,-'+ 0+ 'px )',
-     transformOrigin: 'top left',
-     
-   }})
-   .then(dataURL => {
-    var image = new Image();
-    image.src = dataURL;
-    document.body.appendChild(image);
-});   
-  
+      transform: 'scale(' + scale + ') translate(-' + 0 + 'px,-' + 0 + 'px )',
+      transformOrigin: 'top center',
+
+    }
+  })
+    .then(dataURL => {
+      var image = new Image();
+      image.src = dataURL;
+      document.body.appendChild(image);
+    }); 
 }
 
 
