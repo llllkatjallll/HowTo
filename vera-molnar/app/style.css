@@ -766,12 +766,25 @@ div > img{
 }
 
 #icon-colour-light{
-    background-image: url(svg/icon-colour-light.svg);
+    -webkit-mask-image: url(svg/icon-colour-light.svg);
+    mask-image: url(svg/icon-colour-light.svg);
 }
 
 #icon-contour-light{
-    background-image: url(svg/icon-contour-light.svg);
+ -webkit-mask-image: url(svg/icon-contour-light.svg);
+    mask-image: url(svg/icon-contour-light.svg);
 }
+
+
+#icon-grid-offset-light{
+    -webkit-mask-image: url(svg/icon-grid-offset-light.svg);
+       mask-image: url(svg/icon-grid-offset-light.svg);
+   }
+
+#icon-glyphs-size{
+    -webkit-mask-image: url(svg/icon-glyphs-size.svg);
+       mask-image: url(svg/icon-glyphs-size.svg);
+   }
 
 #icon-cross-dark{
     background-image: url(svg/icon-cross-dark.svg);

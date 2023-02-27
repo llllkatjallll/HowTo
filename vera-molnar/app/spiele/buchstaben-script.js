@@ -29,7 +29,7 @@ var colorBackgroundInput = document.getElementById("backgroundInput");
 var colorCharacterValue = "#000000";
 var colorBackgroundValue = "#f2ece7";
 var spans = document.getElementById("defaultCanvas0").getElementsByTagName("span");
-
+var firstTime = true;
 
 
 //230123
@@ -60,12 +60,13 @@ let svgButton = document.getElementById("button-speichern");
 // get the grid's width and height
 
 function getDimensions() {
+  console.log("getDimensions");
   var gridRect = grid.getBoundingClientRect();
   grid.style.height=gridSize + "px";
   grid.style.width=gridSize + "px";
   gridWidth = gameWrapper.clientWidth;
   gridHeight = gameWrapper.clientHeight;
- console.log(gridWidth, gridHeight);
+  //console.log(gridWidth, gridHeight);
   if (gridWidth >= gridHeight) {
     gridWidth = gridHeight;
     gridWidth = gridHeight;
@@ -121,7 +122,6 @@ function populateLetters() {
 
 function deleteLetters() {
   letterArray = [];
-  console.log('letterArray: ' + letterArray, '\nletterArray.length: ' + letterArray.length);
 }
 
 
@@ -184,23 +184,26 @@ function init() {
   calculateGrid();
   //restart();
 
-   //add listeners for showing/hiding sliders and other ui
-   buttonThikness.addEventListener('click', (event) => { showSelectedFunction(buttonThikness) });
-   buttonRotation.addEventListener('click', (event) => { showSelectedFunction(buttonRotation) });
-   buttonSize.addEventListener('click', (event) => { showSelectedFunction(buttonSize) });
-   buttonGrid.addEventListener('click', (event) => { showSelectedFunction(buttonGrid);  });
-   buttonLetter.addEventListener('click', (event) => { showSelectedFunction(buttonLetter);  });
-   characterInput.addEventListener('focusout', (event) => { readText();  });
-
-   characterInput.addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-      event.target.blur();
-      readText();
-    }
-  });
+  //add listeners for showing/hiding sliders and other ui
+  if (firstTime) {
+    buttonThikness.addEventListener('click', (event) => { showSelectedFunction(buttonThikness) });
+    buttonRotation.addEventListener('click', (event) => { showSelectedFunction(buttonRotation) });
+    buttonSize.addEventListener('click', (event) => { showSelectedFunction(buttonSize) });
+    buttonGrid.addEventListener('click', (event) => { showSelectedFunction(buttonGrid); });
+    buttonRestart.addEventListener('click', (event) => { restart() });
+    buttonLetter.addEventListener('click', (event) => { showSelectedFunction(buttonLetter); });
+    characterInput.addEventListener('focusout', (event) => { readText(); });
+    characterInput.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        event.target.blur();
+        readText();
+      }
+    });
+    firstTime=false;
+  }
   //svgButton.addEventListener('click', (event) => {  saveMyImage() });
-   //document.getElementById("overlay-layer").addEventListener('click', (event) => { console.log("log"); event.stopPropagation(); });
-   buttonRestart.addEventListener('click', (event) => { restart() });
+  //document.getElementById("overlay-layer").addEventListener('click', (event) => { console.log("log"); event.stopPropagation(); });
+
 
 }
 
@@ -232,11 +235,22 @@ function restart(){
   //reset grid
   sliderGrid.value = 3;
   updateGrid(3);
+  sliderGrid.style.setProperty('--value', 3);
+
   //reset thikness
   sliderThikness.value = 400;
   updateThikness(sliderThikness.value);
+  sliderThikness.style.setProperty('--value', 400);
+
   //reset rotation
   sliderRotation.value = "0";
+  sliderRotation.style.setProperty('--value', 0);
+
+
+  sliderSize.value = 5;
+  sliderSize.style.setProperty('--value', 5);
+
+  //updateEverything();
  
   redraw();
  /*  colorBackgroundValue = document.getElementById("backgroundInput").value;

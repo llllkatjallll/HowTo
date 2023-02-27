@@ -21,41 +21,43 @@ let sketch = function (p) {
    // p.preload = function () {
 
    // }
-  
-    p.setup = function () {
-      gameWidth = gameCanvas.clientWidth;
-      gameHeight = gameCanvas.clientHeight;
-      
-      if(gameWidth >= gameHeight){
-        canvas = p.createCanvas(gameHeight, gameHeight, p.SVG);
-        canvasSize = gameHeight;
-      } else {
-        canvas = p.createCanvas(gameWidth, gameWidth, p.SVG);
-        canvasSize = gameWidth;
+
+  p.setup = function () {
+    gameWidth = gameCanvas.clientWidth;
+    gameHeight = gameCanvas.clientHeight;
+
+    if (gameWidth >= gameHeight) {
+      canvas = p.createCanvas(gameHeight, gameHeight, p.SVG);
+      canvasSize = gameHeight;
+    } else {
+      canvas = p.createCanvas(gameWidth, gameWidth, p.SVG);
+      canvasSize = gameWidth;
+    }
+    gameCanvas.setAttribute("style", "height:100px!important");
+
+
+    p.background(242, 236, 231);
+    p.rectMode(p.CENTER);
+
+    length = (canvasSize - 2 * spacing) / amount;
+    midLength = length / 2;
+    //quad size
+    size = length-spacing/4;
+
+    for (let i = 0; i < amount; i++) {
+      for (let j = 0; j < amount; j++) {
+        var posX = length * i + midLength + spacing;
+        var posY = length * j + midLength + spacing;
+        balls.push(new Ball(posX, posY));
       }
-      gameCanvas.setAttribute("style","height:100px!important");
-
-      //quad size
-      size  = gameCanvas.clientWidth/4;
-      p.background(	242,236,231);
-        p.rectMode(p.CENTER);
-
-        length = (canvasSize - 2 * spacing) / amount;
-        midLength = length / 2;
-        for (let i = 0; i < amount; i++) {
-          for (let j = 0; j < amount; j++) {
-           var posX = length * i + midLength + spacing;
-           var posY = length * j + midLength + spacing;
-          balls.push(new Ball(posX, posY));
-        }
-        //svgButton.addEventListener('click', (event) => {  p.saveMySVG() });
-        restartButton.addEventListener('click', function () { 
-          console.log("Restart");
-          p.restart();
-        });
-
+      //svgButton.addEventListener('click', (event) => {  p.saveMySVG() });
+      restartButton.addEventListener('click', function () {
+        console.log("Restart");
         p.restart();
-      }
+      });
+
+      p.restart();
+    }
 
         //IOS GYRO
         // DeviceOrientationEvent, DeviceMotionEvent
