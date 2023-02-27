@@ -396,7 +396,6 @@ function updateEverything(){
     //rotationData[i]=rotationValue;
   }
 
-
 }
 
 //Slider Letter size
@@ -462,8 +461,9 @@ function readText() {
     letterArray = [];
     redraw();
   }
-
+  
   updateEverything();
+  updateGrid(sliderGrid.value);
 }
 }
 
@@ -477,6 +477,7 @@ function startTextInput(){
       document.getElementById("characterInput").value="";
       document.getElementById("textInput").classList.remove("dont-show");
       document.getElementById("game-text-buttons").classList.add("hiddenElement");
+      updateGrid(sliderGrid.value);
       
 }
 
