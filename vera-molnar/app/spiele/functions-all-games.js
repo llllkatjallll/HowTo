@@ -175,6 +175,19 @@ function downloadImages() {
             //download(child.querySelector('.gallery-image').src, "image.png"); 
         }
     }
+
+    //deselect all images
+    let allCheckedBoxes = document.getElementsByClassName("checkbox");
+    for (let i =0;i<allCheckedBoxes.length;i++) {
+        allCheckedBoxes[i].classList.remove("checkbox-active");
+    }
+
+    let allCheckedContainer = document.getElementsByClassName("gallery-image-container");
+    for (let i =0;i<allCheckedContainer.length;i++) {
+        allCheckedContainer[i].classList.remove("selected");
+    }
+
+
 }
 
 function downloadImage(url,number) {
