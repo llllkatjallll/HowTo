@@ -299,7 +299,7 @@ section{
   text-align: center;
   vertical-align: middle;
   line-height: 90px; 
-  font-family: 'LeagueSpartanVariable', Courier, monospace;
+  font-family: 'LeagueSpartanVariable', Arial, Helvetica, sans-serif;
  font-weight: 400;
 }
 
@@ -310,7 +310,7 @@ section{
 
 @font-face {
   font-family: "LeagueSpartanVariable";
-  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2101521/LeagueSpartanVariable.ttf");
+  src: url("/spiele/assets/LeagueSpartan[wght].ttf");
   font-weight: 200 900;
 }
 .full{
