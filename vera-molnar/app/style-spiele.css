@@ -349,8 +349,8 @@ section{
 
 #gallery-wrapper{
     width: 100%;
-    aspect-ratio: 1 / 1.25;
-    -webkit-aspect-ratio: 1 / 1.25;
+    /*aspect-ratio: 1 / 1.25;
+    -webkit-aspect-ratio: 1 / 1.25;*/
     margin-bottom: 1em;
     height: auto !important;
     padding: 0 0.5em;

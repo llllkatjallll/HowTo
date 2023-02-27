@@ -144,6 +144,12 @@ function displayImagesfromStorage(gameId) {
 
     addListenerToImages();
 
+    //if gallery has images-remove no images message
+    if(containerGallery.children.length>0){
+       document.getElementById("emptyGalleryMessage").style.display="none";
+    }
+
+
 }
 
 function addListenerToImages() {
@@ -215,6 +221,8 @@ let pngURL = undefined;
 let blobURL = undefined;
 
 function saveImage(event) {
+
+    
     // let wrapper = document.getElementById("section-wrapper-touch");
     //wrapper.classList.remove("scroll-snap"); 
 
