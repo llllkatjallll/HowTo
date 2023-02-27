@@ -3,7 +3,7 @@ var restartButton = document.getElementById("button-neu");
 var iosButton = document.getElementById("button-ios");
 let svgButton = document.getElementById("button-speichern");
 var canvas;
-let currentGameId = "red";
+let currentGameId = "Zufall";
 let balls = [];
 
 let threshold = 5;

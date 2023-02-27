@@ -4,7 +4,7 @@ var restartButton = document.getElementById("button-neu");
 var sectionWrapper = document.getElementById("section-wrapper-touch");
 var placeholderWrapper = document.getElementById("body-wrapper");
 
-let currentGameId = "magic";
+let currentGameId = "Magie";
 let points = [];
 let amount = 4;
 let length = undefined;

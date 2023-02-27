@@ -11,7 +11,7 @@ let balls = [];
 let shapePoints = [];
 let startMode = true;
 let stop = false;
-let currentGameId = "landschaft";
+let currentGameId = "Spur";
 let timer = 0;
 
 var x = 0,

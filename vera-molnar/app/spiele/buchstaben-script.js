@@ -15,7 +15,7 @@ var currentLetters = 0;
 var resizeCount = 0;
 var lettersInitialien = ["V", "M"];
 var inBool = true;
-let currentGameId = "buchstaben";
+let currentGameId = "Buchstaben";
 
 var sliderThikness = document.getElementById("thiknessSlider");
 var sliderRotation = document.getElementById("rotationSlider");
