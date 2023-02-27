@@ -46,7 +46,7 @@ let sketch = function (p) {
       });
 
       holdButton.addEventListener('click', function () { 
-        saveMySVG
+        
         stop=!stop;
         if(stop){
           holdButton.innerHTML="Weiter";
