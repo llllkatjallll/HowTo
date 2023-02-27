@@ -299,8 +299,8 @@ section{
   text-align: center;
   vertical-align: middle;
   line-height: 90px; 
-  font-family: 'LeagueSpartanVariable', Arial, Helvetica, sans-serif;
- font-weight: 400;
+  font-family: 'League Spartan Variable', Arial, Helvetica, sans-serif;
+  font-weight: 400;
 }
 
 #defaultCanvas0{
@@ -309,8 +309,8 @@ section{
 }
 
 @font-face {
-  font-family: "LeagueSpartanVariable";
-  src: url("/spiele/assets/LeagueSpartan[wght].ttf");
+  font-family: 'League Spartan Variable';
+  src: url('/spiele/assets/LeagueSpartan-VF.woff2') format('woff2-variations');
   font-weight: 200 900;
 }
 .full{

@@ -106,7 +106,7 @@ function calculateGrid() {
 
     grid.children[i].style.width = letterWidth + "px";
     grid.children[i].style.height = letterWidth + "px";
-    grid.children[i].style.lineHeight = letterWidth + "px";
+    grid.children[i].style.lineHeight = letterWidth +letterWidth*0.21+ "px";
     rotationData[i]= sliderRotation.value;
   }
 
@@ -331,6 +331,7 @@ sliderThikness.oninput = function () {
 function updateThikness(value){
   for (let i = 0; i < allLetters.length; i++) {
     allLetters[i].style.fontWeight = value;
+    console.log("updated Thikness " +value)
   }
 }
 
@@ -405,10 +406,12 @@ function updateEverything(){
   for (i = 0; i < spans.length; i++) {
     spans[i].style.fontSize =  sizeValue*20 + "px";
     spans[i].style.transform = "rotate(" + rotationData[i]+ "deg)";
-    allLetters[i].style.fontWeight = thiknessValue;
-
+    //allLetters[i].style.fontWeight = thiknessValue;
+    
+    console.log("thiknessValue" + thiknessValue);
     //rotationData[i]=rotationValue;
   }
+  updateThikness(thiknessValue);
 
 }
 
