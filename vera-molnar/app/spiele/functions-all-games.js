@@ -23,7 +23,7 @@ function setItem(gameKey, itemValue) {
         let jsonData = JSON.stringify({ time: now, data: itemValue });
         let timestamp = Date.now() / 1000 | 0;
         let itemKey = gameKey + "-" + timestamp;
-        //console.log(itemKey);
+        console.log(itemKey);
         window.localStorage.setItem(itemKey, jsonData);
         let totalStorageItems = window.localStorage.length;
         // console.log(itemValue);
@@ -38,6 +38,7 @@ function setItem(gameKey, itemValue) {
 
         return true;
     } catch (e) {
+        console.log("Storage is FULL");
         return false;
     }
 }
@@ -104,8 +105,22 @@ function displayImagesfromStorage(gameId) {
         containerGallery.removeChild(containerGallery.firstChild);
     }
 
-    for (var i = 0, len = localStorage.length; i < len; ++i) {
-        let keyName = localStorage.key(i);
+    // Get all keys from localStorage
+    const keys = Object.keys(localStorage);
+
+    // Create a new array for sorted key-value pairs
+    const sortedItems = [];
+
+    // Sort the keys based on timestamp in the key ID
+    keys.sort((a, b) => {
+        const timestampA = a.split("-")[1];
+        const timestampB = b.split("-")[1];
+
+        return timestampB - timestampA; // Descending order
+    });
+
+      for (const key of keys) {
+        let keyName = key;
         //console.log("lokStorage Key:  " + keyName + "   GameID:  " + gameId);
         if (gameId.substring(0, 3) == keyName.substring(0, 3)) {
             //place to the gallery
@@ -113,6 +128,7 @@ function displayImagesfromStorage(gameId) {
             var element = new Image();
             element.src = getItem(keyName);
             element.classList.add("gallery-image");
+            element.dataset.numberId = keyName.split("-")[1];
             //imageContainer hinzufügen
             var imageContainer = document.createElement("div");
             imageContainer.classList.add("gallery-image-container");
@@ -125,6 +141,7 @@ function displayImagesfromStorage(gameId) {
             containerGallery.appendChild(imageContainer);
         }
     }
+
     addListenerToImages();
 
 }
@@ -154,13 +171,13 @@ function imageClickedRegistration(obj) {
 function downloadImages() {
     for (const child of containerGallery.children) {
         if (child.classList.contains("selected")) {
-            downloadImage(child.querySelector('.gallery-image').src);
+            downloadImage(child.querySelector('.gallery-image').src,child.querySelector('.gallery-image').dataset.numberId);
             //download(child.querySelector('.gallery-image').src, "image.png"); 
         }
     }
 }
 
-function downloadImage(url) {
+function downloadImage(url,number) {
     fetch(url, {
         mode: 'no-cors',
     })
@@ -168,7 +185,7 @@ function downloadImage(url) {
         .then(blob => {
             let blobUrl = window.URL.createObjectURL(blob);
             let a = document.createElement('a');
-            a.download = "image";
+            a.download = currentGameId + "-" + number;
             a.href = blobUrl;
             document.body.appendChild(a);
             a.click();
@@ -225,7 +242,7 @@ function saveImage(event) {
 
     } else { //if p5 
         svgElement = document.getElementById("defaultCanvas0").children[0];
-        console.log(svgElement);
+       
         let clonedSvgElement = svgElement.cloneNode(true);
 
         let outerHTML = clonedSvgElement.outerHTML,
@@ -247,7 +264,7 @@ function saveImage(event) {
             context.drawImage(image, 0, 0, SVGsize, SVGsize);
 
             pngURL = canvas.toDataURL(); // default png
-            console.log("It is pngURL  " + pngURL);
+            
             setItem(currentGameId, pngURL);
             displayImagesfromStorage(currentGameId);
         };
