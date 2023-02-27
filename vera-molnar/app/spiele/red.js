@@ -42,7 +42,7 @@ let sketch = function (p) {
     length = (canvasSize - 2 * spacing) / amount;
     midLength = length / 2;
     //quad size
-    size = length-spacing/4;
+    size = length-spacing/8;
 
     for (let i = 0; i < amount; i++) {
       for (let j = 0; j < amount; j++) {
