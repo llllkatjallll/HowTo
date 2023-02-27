@@ -39,7 +39,47 @@ function setItem(gameKey, itemValue) {
         return true;
     } catch (e) {
         console.log("Storage is FULL");
-        return false;
+        //delete first 20%
+        // Get all keys from localStorage
+        const keys = Object.keys(localStorage);
+
+        // Create a new array for sorted key-value pairs
+        const sortedItems = [];
+
+        // Sort the keys based on timestamp in the key ID
+        keys.sort((a, b) => {
+            const timestampA = a.split("-")[1];
+            const timestampB = b.split("-")[1];
+
+            return timestampB - timestampA; // Descending order
+        });
+
+        for (let k = keys.length-1; k > keys.length - ((keys.length) * 0.5); k--) {
+            window.localStorage.removeItem(keys[k]);
+            console.log("deleted " + keys[k]);
+        }
+        try {
+            let now = new Date();
+            let jsonData = JSON.stringify({ time: now, data: itemValue });
+            let timestamp = Date.now() / 1000 | 0;
+            let itemKey = gameKey + "-" + timestamp;
+            console.log(itemKey);
+            window.localStorage.setItem(itemKey, jsonData);
+            let totalStorageItems = window.localStorage.length;
+            // console.log(itemValue);
+    
+            //check local storage memory
+            var _lsTotal = 0, _xLen, _x;
+            for (_x in localStorage) {
+                if (!localStorage.hasOwnProperty(_x)) { continue; } _xLen = ((localStorage[_x].length + _x.length) * 2); _lsTotal += _xLen;
+                //console.log(_x.substr(0, 50) + " = " + (_xLen / 1024).toFixed(2) + " KB") 
+            };
+            console.log("Total = " + (_lsTotal / 1024).toFixed(2) + " KB");
+    
+            
+        } catch (e) {
+            return false;
+        }
     }
 }
 
@@ -72,6 +112,7 @@ function expireOldCacheItems() {
                 window.localStorage.removeItem(itemKey);
             }
         } catch (e) {
+
             return null;
         }
     }
@@ -227,15 +268,15 @@ function saveImage(event) {
     //wrapper.classList.remove("scroll-snap"); 
 
     let svgElement = undefined;
-    let SVGsize = 1000;
+    let SVGsize = 1080;
 
     // check if svg comes from p5 canvas or html
-    if (currentGameId == "buchstaben") {
+    if (currentGameId == "Buchstaben") {
 
        // return;
 
         // if html element
-        var endSize = 1000;
+        var endSize =1080;
         var scale = undefined;
 
 
@@ -273,7 +314,7 @@ function saveImage(event) {
         let URL = window.URL || window.webkitURL || window;
 
         blobURL = URL.createObjectURL(blob);
-        console.log("It is blob  " + blobURL);
+      
         let image = new Image();
 
         image.onload = () => {
