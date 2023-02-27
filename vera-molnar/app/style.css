@@ -548,9 +548,9 @@ a:link, a:visited {
 .game-buttons{
     display: flex;
     flex-direction: row;
-    width: calc(100% - 1em);
+    width: calc(100% - 0.5em);
     overflow: scroll;
-    justify-content:space-between;
+    justify-content:space-around;
     transition: all 0.7s ease-in-out;
     
 }
@@ -560,9 +560,10 @@ a:link, a:visited {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0.5em;
+    /*padding: 0.5em;*/
     font-size: 0.9em;
     transition: all 0.5s;
+    transform: scale(0.8);
 }
 
 .text-buttons{
