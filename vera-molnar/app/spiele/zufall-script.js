@@ -53,6 +53,12 @@ let sketch = function (p) {
         }
           
         svgButton.addEventListener('click', (event) => {  p.saveMySVG() });
+
+        if (window.DeviceMotionEvent) {
+          window.ondevicemotion = function(event) {
+            event.preventDefault();
+          }
+        }
     }
 
     p.draw = function () {

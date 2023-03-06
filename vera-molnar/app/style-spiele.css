@@ -148,6 +148,7 @@ section{
   justify-content:flex-start;
   align-items: center;
   gap: 0.5em;
+  user-select:none;
 }
 
 #game-section > .section-content-game{
@@ -254,6 +255,7 @@ section{
   border: 1px solid #60132d;
   height: 2.5em;
   border-radius:8px;
+  font-size: 16px;
 }
 
 
@@ -291,7 +293,7 @@ section{
   float: left;
   opacity: 1;
   text-transform: uppercase;
-  transition: background-color .75s, color .75s, opacity .75s, transform .5s;
+  transition: background-color .75s, color .75s, opacity .75s, transform .2s;
   user-select: none;
   font-size: 100px;
   width: 10px;

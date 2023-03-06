@@ -33,6 +33,8 @@ let sketch = function (p) {
       gameHeight = gameCanvas.clientHeight;
       canvas = p.createCanvas(gameWidth, gameWidth, p.SVG);
       p.background(	242,236,231);
+      p.noFill();
+      p.strokeWeight(0.7);
 
       gameCanvas.addEventListener('touchstart', p.process_touchstart, false);
       gameCanvas.addEventListener('touchmove', p.process_touchmove, false);
@@ -41,7 +43,7 @@ let sketch = function (p) {
 
 
       restartButton.addEventListener('click', function () { 
-        console.log("Restart");
+        //console.log("Restart");
         p.neu();
       });
 
@@ -59,15 +61,6 @@ let sketch = function (p) {
 
     p.draw = function () {
      
-   /*    p.noFill();
-      p.strokeWeight(4);
-      p.beginShape();
-      p.vertex(20, 20);
-      p.quadraticVertex(80, 20, 50, 50);
-      p.quadraticVertex(20, 80, 80, 80);
-      p.vertex(80, 60);
-      p.endShape(); */
-  
       if (startMode) {
         p.drawLine();
       } else {
@@ -85,9 +78,9 @@ let sketch = function (p) {
     }
 
     p.process_touchstart = function () {
-      console.log("process_touchstart");
-      
-    
+      //console.log("process_touchstart");
+
+      p.restart();
       sectionWrapper.classList.add("hideOverflow");
       placeholderWrapper.classList.add("hideOverflow");
 
@@ -102,7 +95,7 @@ let sketch = function (p) {
     }
 
     p.process_touchmove = function () {
-      console.log("process_touchmove");
+      //console.log("process_touchmove");
         if (p.frameCount % 5 == 0){
         if(startMode){
        let newPos = p.createVector(p.mouseX, p.mouseY);
@@ -114,7 +107,7 @@ let sketch = function (p) {
    sectionWrapper.classList.remove("hideOverflow");
     placeholderWrapper.classList.remove("hideOverflow");
     startMode = !startMode;  
-    console.log(shapePoints);
+    //console.log(shapePoints);
     }
 
     p.keyPressed = function () {
@@ -122,23 +115,30 @@ let sketch = function (p) {
 
     }
 
+    let capturedPoints = 0;
+
     p.drawLine = function () {
 
      // p.background(235);
-      p.noFill();
-      p.strokeWeight(0.7);
+
+      //if there are new points, draw again
+      if(capturedPoints < shapePoints.length ){
+
       p.beginShape();
       
       for (let i = 1; i < shapePoints.length; i++) {
         p.vertex(shapePoints[i].x, shapePoints[i].y);
       }
         p.endShape();
+        capturedPoints = shapePoints.length;
+      }
 
     }
 
-let k = 1;
+    let k = 1;
+
     p.createArt = function () {
-    console.log("art");
+    //console.log("art");
       if (p.frameCount%6 == 0) {
         k = k+1;
       
@@ -167,6 +167,7 @@ let k = 1;
        startMode = true;
       stop = !true;
     shapePoints = [];
+    capturedPoints = 0;
       //
        k=0; 
       holdButton.innerHTML="Stop";
@@ -177,6 +178,7 @@ let k = 1;
        startMode = true;
       stop = !true;
       shapePoints = [];
+      capturedPoints = 0;
       //
        k=0; 
       holdButton.innerHTML="Stop";
