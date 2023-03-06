@@ -121,6 +121,7 @@ section{
 #game-section{
     background-color: white !important;
     color: black;
+    overflow: hidden;
 }
 
 #game-section > .section-content{
@@ -155,12 +156,33 @@ section{
   height: calc(96% - 6em);
 }
 
+.saved-image-transition{
+  top:20vh;
+position: absolute;
+width: 70%;
+aspect-ratio : 1 / 1;
+
+background-color: #afafaf00;
+
+z-index: 1000!important;
+}
+
+.moved-image{
+  background-color: #c2c0c078;
+  top:100vh;
+  width: 35%;
+ aspect-ratio : 1 / 1;
+ transition: all 1.5s;
+ 
+}
+
 .hiddenElement{
   opacity: 0;
   pointer-events: none;
 }
 
 #game-wrapper{
+  position: relative;
     flex: 1;
     aspect-ratio : 1 / 1;
     /* The above is shorthand for:

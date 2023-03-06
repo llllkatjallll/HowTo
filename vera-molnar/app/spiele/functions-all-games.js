@@ -262,8 +262,12 @@ let pngURL = undefined;
 let blobURL = undefined;
 
 function saveImage(event) {
-
     
+    document.getElementsByClassName('saved-image-transition')[0].classList.add("moved-image");
+
+    setTimeout(() => {
+        document.getElementsByClassName('saved-image-transition')[0].classList.remove("moved-image");
+      }, "1000");
     // let wrapper = document.getElementById("section-wrapper-touch");
     //wrapper.classList.remove("scroll-snap"); 
 
