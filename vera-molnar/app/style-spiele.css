@@ -161,10 +161,9 @@ section{
 position: absolute;
 width: 70%;
 aspect-ratio : 1 / 1;
-
 background-color: #afafaf00;
-
 z-index: 1000!important;
+pointer-events: none;
 }
 
 .moved-image{
