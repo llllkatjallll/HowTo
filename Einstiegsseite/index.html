@@ -21,251 +21,199 @@
     <meta name="description" content="How to: Spiele zur Kunst">
     <meta name="keywords" content="Kunstvermittlung App Digitalisierung Museum">
     <meta name="author" content="Institut für Aktuelle Kunst, Saarbrücken">
+
+</head>
+
+<body>   
+
+
+<nav>
+
+    <div class="nav--mobile">
+        <div class="nav--button link--start inactive invisible"><div>Home</div></div>
+        <div class="nav--button link--je inactive invisible"><div>Jo Enzweiler</div></div>
+        <div class="nav--button link--mvb inactive invisible"><div>Monika von Boch</div></div>
+        <div class="nav--button link--vm inactive invisible"><div>Vera Molnar</div></div>
+        <div class="nav--button inactive invisible" id="close--menu"><img src="icons/icon-cross-dark.svg"><div>Schließen</div></div>
+        <div class="nav--button" id="menu"><img src="icons/icon-hamburger-menu-dark.svg"><div>Menü</div></div>
+    </div>
+
+    <div class="nav--desktop">
+        <div class="nav--button active link--start"><img src="icons/icon-home-light_1.svg" style="width: var(--distance--s)"><div>Home</div></div>
+        <div class="nav--button link--je"><div>Jo Enzweiler</div></div>
+        <div class="nav--button link--mvb"><div>Monika von Boch</div></div>
+        <div class="nav--button link--vm"><div>Vera Molnar</div></div>
+        <!--<div class="nav--button qr"><img src="icons/icon-qr-code-dark.svg" style="width: var(--distance--s)"><div>QR-Code</div></div>-->
+    </div>
+
+</nav>   
     
-    </head>
-
-<body>    
-
-    <nav>
-        <div id="icon--hamburger-menu">
-                <svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56">
-                    <defs><style>.cls-1{fill:#140c2e;stroke:white;stroke-linecap:round;stroke-miterlimit:10;stroke-width:3px;}</style></defs>
-                    <rect width="56" height="56" style="fill:black"/>
-                    <line class="cls-1" x1="15.75" y1="16" x2="41" y2="16"/>
-                    <line class="cls-1" x1="15.75" y1="28" x2="41" y2="28"/>
-                    <line class="cls-1" x1="15.75" y1="40" x2="41" y2="40"/>
-                </svg>        
-        </div>
-        <div id="curtain-menu" class="curtain-menu--hidden">
-            <div id="icon--close-menu">
-                <svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56">
-                    <defs><style>.cls-1{fill:#140c2e;stroke:white;stroke-linecap:round;stroke-miterlimit:10;stroke-width:3px;}</style></defs>
-                    <rect width="56" height="56" style="fill:transparent"/>
-                    <line class="cls-1" x1="15.75" y1="16" x2="41" y2="40"/>
-                    <line class="cls-1" x1="15.75" y1="40" x2="41" y2="16"/>
-                </svg>        
-            </div>
-            <div class="main-menu" style="padding-top: 0">
-                <a href="index.html">Über How to</a><br>
-                <a class="link--je">Jo Enzweiler</a><br>
-                <a class="link--mvb">Monika v. Boch</a><br>
-                <a class="link--vm">Vera Molnar</a><br>
-            </div>
-        </div>
-    </nav>  
 
 <main>
-
     <div class="wrapper--rows">
 
-        <div class="row header">
-            <div class="wrapper--content--header">
-                <div class="column column--1-3 space-around text--m text--white padding--xl" style="background-color: #140c2e; text-align: center;">
-                    <div class="index--intro">
-                        <div>
-                            <h0>how to:<br> spiele zur kunst</h0>        
-                        </div>
-                        <div id="claim" style="text-align: center;">
-                            Die App, mit der<br>Kinder und Kunstliebhaber<br>in die Arbeit und Gedanken<br>von Künstler*innen eintauchen.
-                        </div>    
-                    </div>
-                </div>
-                <div class="column column--2-3">
-                    <div class="image" id="image--header--how-to"></div>
-                </div>
-            </div>    
+        <div class="row app--header--row">
+            <h1 class="transition">how to:
+                <div class="gradient app--header--gradient"></div>
+            </h1>        
+            <div class="app--header--image transition" id="app--header--image--start">
+            </div>
+            <div class="reflection--wrapper">
+                <div class="reflection app--header--reflection"></div>
+            </div>
         </div>
 
-        <div class="row">
-            <div class="wrapper--content">
-                <h2>apps</h2>
-                <div class="wrapper--column black--10">
-                    <div class="column column--mockup">
-                        <div id="jo--enzweiler" class="wrapper--app grayscale je link--je" href="jo_enzweiler.html" target="_blank">
-                            <h5>Bildhauer</h5>
-                            <h3>Jo Enzweiler</h3>
-                            <div class="wrapper--mockup">
-                                <img src="img/1_0_launchscreen.png">
-                                <img src="img/1_0_main_menu.png">
-                            </div>
-                        </div>
-                    </div>  
-                    <div class="column column--mockup">
-                        <div id="monika--von--boch" class="wrapper--app grayscale mvb link--mvb" href="monika_von_boch.html" target="_blank">
-                            <h5>Fotografin</h5>
-                            <h3 class="">Monika v. Boch</h3>
-                            <div class="wrapper--mockup">
-                                <img src="img/2_0_launchscreen.png">
-                                <img src="img/2_0_main_menu.png">
+        <div class="row full--height">
+                <h2>
+                    <div class="gradient"></div>
+                    apps
+                </h2>
+                    <div id="games" class="wrapper--column full--height--wrapper">
+                        <div class="column column--mockup">
+                            <div id="jo--enzweiler" class="wrapper--app grayscale je link--je" href="jo_enzweiler.html" target="_blank">
+                                <h5>Bildhauer</h5>
+                                <h3>Jo Enzweiler</h3>
+                                <div class="wrapper--mockup">
+                                    <img src="img/1_0_launchscreen.png">
+                                    <img src="img/1_0_main_menu.png">
+                                </div>
+                                <div class="button invert" id="mockup--jo-enzweiler">mehr</div>
                             </div>
                         </div>  
-                    </div>  
-                    <div class="column column--mockup">
-                        <div id="vera--molnar" class="wrapper--app grayscale vm link--vm" href="" style="color: #3c3c3b">
-                            <h5>Computerkünstlerin</h5>
-                            <h3 class="vm">Vera Molnar</h3>
-                            <div class="wrapper--mockup">
-                                <img src="img/3_0_launchscreen.png">
-                                <img src="img/3_0_main_menu.png">
+                        <div class="column column--mockup">
+                            <div id="monika--von--boch" class="wrapper--app grayscale mvb link--mvb" href="monika_von_boch.html" target="_blank">
+                                <h5>Fotografin</h5>
+                                <h3 class="">Monika von Boch</h3>
+                                <div class="wrapper--mockup">
+                                    <img src="img/2_0_launchscreen.png">
+                                    <img src="img/2_0_main_menu.png">
+                                </div>
+                                <div class="button invert" id="mockup--monika-von-boch">mehr</div>
+                            </div>  
+                        </div>  
+                        <div class="column column--mockup">
+                            <div id="vera--molnar" class="wrapper--app grayscale vm link--vm" href="vera_molnar.html" target="_blank">
+                                <h5>Computerkünstlerin</h5>
+                                <h3 class="vm">Vera Molnar</h3>
+                                <div class="wrapper--mockup">
+                                    <img src="img/3_0_launchscreen.png">
+                                    <img src="img/3_0_main_menu.png">
+                                </div>
+                                <div class="button invert" id="mockup--vera-molnar">mehr</div>
                             </div>
-                        </div>
-                    </div> 
-                </div>     
-            </div>    
+                        </div> 
+                     
+                </div>    
         </div>
-              
-        <div class="row">
-            <div class="wrapper--content">
-                <h2>loslegen</h2>
-                <div id="loslegen" class="wrapper--column black--80 text--white padding--m">
-                    <div class="column column--1-4 padding--m" style="text-align: center">
-                        <h3 class="padding-bottom--s" style="text-align: center !important;">Einfach<br> loslegen</h3>
-                        <div class="text--s text--black--30" style=" font-size: calc(var(--font-size--s) * 1.15); line-height: calc(var(--line-height--s) * 1.15)"><i>how to:</i> bringt Kunst nahe - einfach mit Smartphone oder Tablet auf den Link klicken.</div>
+
+        <div class="row full--height">
+            <h2>
+                <div class="gradient"></div>
+                spielen
+            </h2>
+            <div class="content--wrapper full--height--wrapper" style="width: 100vw; display:flex; align-items: center;">
+                <div id="benefit" style=" width: 100vw;">
+                    <div class="column column--1-4">
+                        <h3>Einfach<br> loslegen</h3>
+                        <div><i>how to:</i> bringt Kunst nahe – Mit dem Smartphone oder Tablet einfach eine der Apps oben auswählen und im Browser spielen.</div>
                     </div>
-                    <div class="column column--1-4 padding--m">
-                        <h3 class="padding-bottom--s" style="text-align: center !important">Kunst<br> verstehen</h3>
-                        <div class="text--black--30" style="text-align: center !important; font-size: calc(var(--font-size--s) * 1.15); line-height: calc(var(--line-height--s) * 1.15);"><i>how to:</i> fragt, wie Künstler*innen denken, wie Kunstwerke entstehen und welche Ideen darin sichtbar werden.</div>
+                    <div class="column column--1-4">
+                        <h3>Kunst<br> verstehen</h3>
+                        <div><i>how to:</i> fragt, wie Künstler*innen denken, wie Kunstwerke entstehen und welche Ideen darin sichtbar werden.</div>
                     </div>
-                    <div class="column column--1-4 padding--m">
-                        <h3 class="padding-bottom--s" style="text-align: center !important">Kunst<br> spielen</h3>
-                        <div class="text--s text--black--30" style="text-align: center !important; font-size: calc(var(--font-size--s) * 1.15); line-height: calc(var(--line-height--s) * 1.15)"><i>how to:</i> lädt dazu ein, selbst zu experimentieren, die Umgebung neu zu entdecken und eigene Bilder zu schaffen.</div>
+                    <div class="column column--1-4">
+                        <h3>Kunst<br> spielen</h3>
+                        <div><i>how to:</i> lädt dazu ein, selbst zu experimentieren, die Umgebung neu zu entdecken und eigene Bilder zu schaffen.</div>
                     </div>
-                    <div class="column column--1-4 padding--m">
-                        <h3 class="padding-bottom--s" style="text-align: center !important">Künstler*innen<br> kennenlernen</h3>
-                        <div class="text--s text--black--30" style="text-align: center !important; font-size: calc(var(--font-size--s) * 1.15); line-height: calc(var(--line-height--s) * 1.15)"><i>how to:</i> stellt den konkreten Künstler Jo Enzweiler, die Fotografin Monika von Boch und die Computerkünstlerin Vera Molnar vor.</div>
+                    <div class="column column--1-4">
+                        <h3>Künstler*innen<br> kennenlernen</h3>
+                        <div><i>how to:</i> stellt den konkreten Künstler Jo Enzweiler, die Fotografin Monika von Boch und die Computerkünstlerin Vera Molnar vor.</div>
                     </div>
                 </div>
-            </div>        
-        </div>    
+            </div>
+        </div>   
 
         <div class="row">
-            <div class="wrapper--content">
-                <h2>termine</h2>
+            <h2>
+                <div class="gradient"></div>
+                testen
+            </h2>
                 <div class="wrapper--column">
-                    <div class="column column--1-3">
-                        <div class="image" id="image--events">
+                    <div id="vermittlung" class="column column--2-3 column--text" style="align-self: center;">
+                        <div class="text--m">
+                            how to: Spiele zur Kunst ist eine Web-App, mit der Kinder und Kunstbegeisterte spielerisch in die Arbeits- und Gedankenwelt von Künstler*innen eintauchen können. Die Spiele reflektieren künstlerische Prozesse, in dem sie dazu einladen, integrierte Funktionen eines Smartphones oder Tablets, wie Touchscreen oder Kamera, auf ungewohnte Art zu nutzen. Je nach Spiel kann die Umgebung oder die Eigenschaften von Material entdeckt werden.
+                            <br><br>
+                            Die Nutzer*innen erfahren, welche Fragen sich Künstler*innen stellen und welche Techniken sie einsetzen, um sich ihnen anzunähern. Sie erleben, wieviel Spaß es macht, wenn Idee und Zufall, Wissen und Experiment aufeinandertreffen und wie sie einander bereichern können. Wie viel Intuition und Imagination braucht es, damit aus Bildern Kunst entsteht? Oder vielmehr: Was hat Kunst überhaupt mit Spielen zu tun?
+                            <br><br>
+                            Sie sind in der Kunstvermittlung an Museen oder Schulen tätig und daran interessiert, unsere App in Ihr Angebot aufzunehmen, schreiben Sie uns. Wir unterstützen Sie gerne mit Workshops und weiterführenden Materialien.
+                        </div>  
+                        <div class="buttons">
+                            <a class="button" href="mailto:info@institut-aktuelle-kunst.de" target="_blank">
+                                <div>Kontakt</div>
+                            </a>
+                            <a class="button" href="https://institut-aktuelle-kunst.de/kunstvermittlung" target="_blank">
+                                <div>Termine</div>
+                            </a>
                         </div>
                     </div>
-                    <div class="column column--2-3 black--80 text--white padding--xl" style="overflow:scroll">
-                        <table>
-                            <tr><td class="date"><h4>13.01.–<br>04.03.</h4></td><td><h4 class="padding-bottom--s">AUSSTELLUNG<br>»In der Natur suche ich die Ordnung«<br>Monika von Boch</h4></td></tr>
-                            <tr class="text--black--30 text--m" ><td></td><td class="padding-bottom--l">
-                                Saarländische Galerie – Europäisches Kunstforum, Berlin<br>
-                                Charlottenstraße 3<br>
-                                10969 Berlin<br>
-                                Öffnungszeiten<br>
-                                Dienstag bis Samstag, 14 – 18 h<br>
-                                Kontakt<br>
-                                info@saarlaendische-galerie.eu<br>
-                                +49 160 96281473<br>
-                                <a href="https://www.saarlaendische-galerie.eu/veranstaltung/monika-von-boch/" target="_blank">Mehr Infos</a>                           
-                                </td></tr>
-                            <tr><td class="date"><h4>13.01.<br>19:00</h4></td><td><h4 class="padding-bottom--s">ERÖFFNUNG<br>»In der Natur suche ich die Ordnung«<br>Monika von Boch</h4></td></tr>
-                            <tr class="text--black--30 text--m"><td></td><td>Einführung<br>
-                                Dr. Andreas Bayer, Direktor des Instituts für aktuelle Kunst/Forschungszentrum für Künstlernachlässe                         
-                                </td></tr>
-                        </table><!--
-                        <div class="distance--s"></div>
-                        <table>
-                            <tr><td class="date"><h4>So, 22.05.<br>14:00 Uhr</h4></td><td><h4 class="padding-bottom--s">PUBLIKUMSTAG<br>öffentlich für alle Interessierte bis 18:00 Uhr</h4></td></tr>
-                        </table>
-                        <div class="distance--s"></div>
-                        <table>
-                            <tr><td class="date"><h4>Mo, 23.05.<br>15:30 Uhr</h4></td><td><h4 class="padding-bottom--s">WORKSHOP<br>zum Einsatz der Apps im musealen Kontext</h4></td></tr>
-                            <tr class="text--black--30 text--m"><td></td><td>Anwendungsvertiefung und Praxisbeispiele zum Ausprobieren und Experimentieren in Zusammenarbeit 
-                                mit dem Landesinstitut für Pädagogik und Medien des Saarlandes. Der Eintritt ist frei. Die Teilnehmer*innenzahl ist auf 15 Personen begrenzt. | Dauer: zwei Stunden |                                
-                                <a style="color: inherit" href="mailto:info@how-to-app.de">Anmeldung</a></td></tr>
-                        </table>-->
-                    </div>
                 </div>
-            </div>    
-        </div>    
+        </div>
 
+   
         <div class="row row--footer">
-            <div class="wrapper--content">
-                <div class="wrapper--footer text--white black--90">
-                        <div id="footer" class="wrapper--column padding--m" style="min-height: auto">
-                            <div class="column column--1-4 padding--m">
-                                <h3 class="padding-bottom--s"><a href="index.html">How to – App</a></h3>
-                                <div class="text--m text--black--30">
-                                    <ul>   
-                                        <li><a href="vermittlung.html">Vermittlung</a></li>
-                                        <li><a href="impressum.html">Impressum</a></li>
-                                    </ul>    
-                                </div>
-                            </div>
-                            <div class="column column--1-4 padding--m">
-                                <h3 class="padding-bottom--s link--je">Jo Enzweiler</a></h3>
-                                <div class="text--m text--black--30">
-                                <ul>   
-                                    <li><a href="rhythmus.html">Rhythmus</a></li>
-                                    <li><a href="interaktion.html">Interaktion</a></li>
-                                    <li><a href="stadt_raum.html">Stadt & Raum</a></li>
-                                    <li><a href="komposition.html">Komposition</a></li>
-                                    <li><a href="raum.html">Raum</a></li>
-                                </ul>                    
-                            </div>
-                            </div>
-                            <div class="column column--1-4 padding--m">
-                                <h3 class="padding-bottom--s link--mvb">Monika v. Boch</a></h3>
-                                <div class="text--m text--black--30">
-                                    <ul>
-                                        <li><a href="natur.html">Natur</a></li>
-                                        <li><a href="licht.html">Licht</a></li>
-                                        <li><a href="ordnung.html">Ordnung</a></li>
-                                        <li><a href="experiment.html">Experiment</a></li>
-                                    </ul> 
-                                </div>
-                            </div>
-                            <div class="column column--1-4 padding--m">
-                                <h3 class="padding-bottom--s link--vm">Vera Molnar</h3>
-                                <div class="text--m text--black--30">
-                                    <ul>
-                                        <li><a href="spur.html">Spur</a></li>
-                                        <li><a href="buchstaben.html">Buchstaben</a></li>
-                                        <li><a href="zufall.html">Zufall</a></li>
-                                        <li><a href="unordnung.html">(Un)Ordnung</a></li>
-                                        <li><a href="magie.html">Magie</a></li>
-                                    </ul> 
-                                </div>
-                            </div>
-                        </div>                
-                    </div>  
-                <div class="column--footer--last column--1 text--s white" style="text-align: center">
-                    © Institut für Aktuelle Kunst, 2023 
+            <div class="wrapper--content"> 
+                <div class="column--footer column--1-2 text--s">
+                    © 2023 Institut für Aktuelle Kunst
+                </div>
+                <div class="column--footer column--1-2 text--s" id="footer--colophone">
+                    <a href="impressum.html">Impressum</a><br>
+                    <a href="mailto:info@institut-aktuelle-kunst.de">Kontakt</a>
                 </div>
             </div>    
         </div>
+
+
+    </div>
+
 
 </main>
 
 <div id="overlay--wrapper--je" class="overlay--wrapper inactive invisible">
     <div id="overlay--je" class="overlay">
-        <div class="text--m" style="padding-bottom: var(--distance--l)">
-            Möchten Sie in die App wechseln oder mehr über die App auf unserer Website erfahren?
+        <div class="text--m">
+            Möchten Sie in die App »Jo Enzweiler« wechseln oder mehr über die App auf unserer Website erfahren?
         </div>
-        <div class="buttons"><a href="jo_enzweiler.html">Website</a><a href="https://how-to-app.de/jo-enzweiler/">App</a></div>
-        <div class="overlay--close" id="overlay--close--je">Schließen</div>
+        <div class="buttons">
+            <a class="button invert" href="jo_enzweiler.html">Website</a>
+            <a class="button invert" href="https://how-to-app.de/jo-enzweiler/" target="_blank">App</a>
+        </div>
+        <div class="button" id="overlay--close--je"><div>Schließen</div></div>
 </div>
 </div>
 
 <div id="overlay--wrapper--mvb" class="overlay--wrapper inactive invisible">
     <div id="overlay--mvb" class="overlay">
-        <div class="text--m" style="padding-bottom: var(--distance--l)">
-            Möchten Sie in die App wechseln oder mehr über die App auf unserer Website erfahren?
+        <div class="text--m">
+            Möchten Sie in die App »Monika von Boch« wechseln oder mehr über die App auf unserer Website erfahren?
         </div>
-        <div class="buttons"><a href="monika_von_boch.html">Website</a><a href="https://how-to-app.de/monika-von-boch/">App</a></div>
-        <div class="overlay--close" id="overlay--close--mvb">Schließen</div>
+        <div class="buttons">
+            <a class="button invert" href="monika_von_boch.html">Website</a>
+            <a class="button invert" href="https://how-to-app.de/monika-von-boch/" target="_blank">App</a>
+        </div>
+        <div class="button" id="overlay--close--mvb"><div>Schließen</div></div>
     </div>
 </div>
 
 <div id="overlay--wrapper--vm" class="overlay--wrapper inactive invisible">
     <div id="overlay--vm" class="overlay">
-        <div class="text--m" style="padding-bottom: var(--distance--l)">
-            Möchten Sie in die App wechseln oder mehr über die App auf unserer Website erfahren?
+        <div class="text--m">
+            Möchten Sie in die App »Vera Molnar« wechseln oder mehr über die App auf unserer Website erfahren?
         </div>
-        <div class="buttons"><a href="vera_molnar.html">Website</a><a href="https://how-to-app.de/vera-molnar/">App</a></div>
-        <div class="overlay--close" id="overlay--close--vm">Schließen</div>
+        <div class="buttons">
+            <a class="button invert" href="vera_molnar.html">Website</a>
+            <a class="button invert" href="https://how-to-app.de/vera-molnar/" target="_blank">App</a>
+        </div>
+        <div class="button" id="overlay--close--vm"><div>Schließen</div></div>
     </div>
 </div>
 

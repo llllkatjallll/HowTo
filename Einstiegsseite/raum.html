@@ -2,7 +2,7 @@
 <html lang="de">
 
 <head>
-    <title>How to: Spiele zur Kunst – Spiel EXPERIMENT</title>
+    <title>How to: Spiele zur Kunst – Spiel RAUM</title>
     <link rel="icon" type="image/png" href="Favicon.png">
     <meta charset="UTF-8">
     <meta http-equiv="cache-control" content="no-cache">
@@ -27,248 +27,204 @@
 <body>    
 
     <nav>
-        <div id="icon--hamburger-menu">
-                <svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56">
-                    <defs><style>.cls-1{fill:#140c2e;stroke:white;stroke-linecap:round;stroke-miterlimit:10;stroke-width:3px;}</style></defs>
-                    <rect width="56" height="56" style="fill:black"/>
-                    <line class="cls-1" x1="15.75" y1="16" x2="41" y2="16"/>
-                    <line class="cls-1" x1="15.75" y1="28" x2="41" y2="28"/>
-                    <line class="cls-1" x1="15.75" y1="40" x2="41" y2="40"/>
-                </svg>        
+        
+        <div class="nav--mobile">
+            <div class="nav--button link--start inactive invisible"><div>Home</div></div>
+            <div class="nav--button link--je inactive invisible"><div>Jo Enzweiler</div></div>
+            <div class="nav--button link--mvb inactive invisible"><div>Monika von Boch</div></div>
+            <div class="nav--button link--vm inactive invisible"><div>Vera Molnar</div></div>
+            <div class="nav--button inactive invisible" id="close--menu"><img src="icons/icon-cross-dark.svg"><div>Schließen</div></div>
+            <div class="nav--button" id="menu"><img src="icons/icon-hamburger-menu-dark.svg"><div>Menü</div></div>
         </div>
-        <div id="curtain-menu" class="curtain-menu--hidden">
-            <div id="icon--close-menu">
-                <svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56">
-                    <defs><style>.cls-1{fill:#140c2e;stroke:white;stroke-linecap:round;stroke-miterlimit:10;stroke-width:3px;}</style></defs>
-                    <rect width="56" height="56" style="fill:transparent"/>
-                    <line class="cls-1" x1="15.75" y1="16" x2="41" y2="40"/>
-                    <line class="cls-1" x1="15.75" y1="40" x2="41" y2="16"/>
-                </svg>        
-            </div>
-            <div class="main-menu" style="padding-top: 0">
-                <a href="index.html">Über How to</a><br>
-                <a class="link--je">Jo Enzweiler</a><br>
-                <a class="link--mvb">Monika v. Boch</a><br>
-                <a class="link--vm">Vera Molnar</a><br>
-            </div>
+
+        <div class="nav--desktop">
+            <div class="nav--button link--start"><img src="icons/icon-home-dark_1.svg" style="width: var(--distance--s)"><div>Home</div></div>
+            <div class="nav--button part--of link--je"><div>Jo Enzweiler</div></div>
+            <div class="nav--button link--mvb"><div>Monika von Boch</div></div>
+            <div class="nav--button link--vm"><div>Vera Molnar</div></div>
+            <div class="nav--button link--qr qr"><img src="icons/icon-qr-code-dark.svg" style="width: var(--distance--s)"><div>QR-Code</div></div>
         </div>
-    </nav>        
+
+    </nav>    
 
 <main>
     <div class="wrapper--rows">
-        <div class="row header">
-            <div class="wrapper--content--header">
-                <div id="column--game" class="column column--1-2 black--100 space-between">
-                    <div class="text--white padding--xl">
-                        <h0>raum</h0>        
-                    </div>
-                    <div class="wrapper--game">
-                        <div class="column question je">
-                            <div class="text">ist denken eine bewegung ?</div>
+
+        <div class="row game--header--row full--height">
+            <h1 class="je">
+                <div class="gradient game--header--gradient"></div>
+                raum
+            </h1>
+            <div class="wrapper--column game--header--wrapper--column">
+                <div class="column column--mockup" style="align-self: center;">
+                    <div class="wrapper--app screenshot">
+                        <div class="wrapper--mockup">
+                            <img src="img/1_5_mockup_game_1.png">
+                            <img src="img/1_5_mockup_art.png">
                         </div>
-                        <div class="column quote je">
-                            <div class="text" style="padding: var(--distance--s) !important"><i>»Was bedeutet der uns als Menschen umgebende Raum? Raum als Umgebungshülle, als Bezugsgröße zu Bewegung, aber auch als Medium für Fühlen und Denken.«</i><br><br>Jo Enzweiler</div>
-                        </div>
                     </div>
-                </div>
-                <div class="column column--1-2 black--10">
-                    <div class="wrapper--mockup">
-                        <img id="mockup--spiel" src="img/1_5_mockup_game_1.png">
-                    </div>
-                </div>
-            </div>    
-        </div>
-        
-        <div class="row">
-            <div class="wrapper--content">
-                <h1 class="je">das spiel</h1>
-                <div id="spiel" class="wrapper--column">
-                    <div class="column column--1-3 text--m black--10 padding--xl">
-                        Das Spiel RAUM denkt über Bewegung und räumliche Begrenzungen nach. Woraus setzt sich eine Wand im 
+                </div>  
+                <div class="column--1-2 column--text text--m text--black padding--xl">
+                        Das Spiel &nbsp;r a u m&nbsp; denkt über Bewegung und räumliche Begrenzungen nach. Woraus setzt sich eine Wand im 
                         Einzelnen zusammen? Wie kann sie unsere Bewegungen aufnehmen, lenken und anregen? Wie stark tritt 
                         ein Relief aus einer Wandfläche hervor? Und was hat das mit Licht, Perspektive und Abstand zu tun? 
                         Was ist Davor? Was ist Dahinter? Können Wände einen Raum choreografieren? Was lässt uns und unsere 
                         Sinne tanzen? 
+                </div>
+            </div>
+            <div class="reflection--wrapper">
+                <div class="reflection game--header--reflection"></div>
+            </div>
+    </div>  
+
+        <div class="row">
+            <h2 class="je">
+                <div class="gradient"></div>
+                werk
+            </h2>
+            <div class="wrapper--content">
+                <div class="wrapper--column">
+                    <div class="column--1-2 column--text" style="order: 2">
+                        <div class="text--m text--black">
+                            Wenn du das Gebäude betrittst, stößt du rechterhand unmittelbar auf das Backsteinrelief. Es ist an der 
+                            Außenwand des großen Musiksaals angebracht und markiert das Herzstück der Hochschule.
+                            Gehst Du daran vorüber, begleitet das Relief aus weißen Steinen deine Bewegungen. Aus der Fläche erheben 
+                            sich durch das Vor- und Zurückstehen der Steine, über die gesamte Wandhöhe, diagonale Formen. Sie 
+                            scheinen sich aufeinander zu zu bewegen und dann wieder voneinander weg. Das Relief fordert Dich 
+                            geradezu auf, den pfeilartig angeordneten Formvariationen zu folgen. Diese Bewegung wirkt besonders 
+                            plastisch, weil die einzelnen Steine zusammen eine Struktur erzeugen, die ganz stark mit Schattenwirkungen 
+                            spielt. Je nach Lichteinfall und Perspektive kommt das Relief hervor oder es tritt zurück. Du kannst 
+                            diesen Formen, ihren tänzerischen Bewegungen und ihrem Zusammenspiel im Vorbeigehen folgen wie einer 
+                            Komposition. Er sagt:
+                            <br><br>
+                            »Der Backstein wurde für mich zum ›Ton‹, den ich visuell zum Klingen bringen musste. Das regelmäßig 
+                            definierte, stereometrische Element des Steins wurde durch serielle und kompositorische Anwendung 
+                            Grundelement der Gesamtgestaltung. Auch hier sind für die Gesamtlösung zwei wichtige Entscheidungen 
+                            getroffen worden: einmal die Bezugnahme auf die räumliche Situation und zum anderen die rhythmisierende 
+                            Gliederung. Darüber hinaus war wichtig, dass durch Bewegung des Betrachters die Wand sich insgesamt 
+                            erschließt. Vor die Grundfläche der Wand, die geometrisch streng mit senkrechten und waagerechten 
+                            Fugen gemauert ist, lagern sich die kompositionsbestimmenden Diagonalteile, wiederum in verschiedenen 
+                            Ebenen ausgeführt und bestimmt durch eine komplexe zentrale Form, die sich nach den Seiten hin in 
+                            ihrer Komplexität vereinfachend auflöst.«
+                            <br>
+                            (Jo Enzweiler)</p>
+                        </div>
                     </div>
-                    <div class="column column--2-3">
-                        <div class="image" id="image--spiel--raum"></div>
+                    <div class="column--1-2 column--image sticky" style="order: 1">
+                        <div class="image--wrapper">
+                            <div class="sticky--wrapper">
+                                <img src="img/1_5_werk.jpg">
+                                <figcaption class="text--s"><i>Wandgestaltung</i> 1970, Relief, geweißte Hüttensteine, 3,50 × 20,00 m, Großer Musiksaal, Hochschule für Musik Saar, Saarbrücken (Foto: Monika Zorn)</figcaption>   
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>    
-        </div>   
+            </div>  
+        </div>  
+
 
         <div class="row">
             <div class="wrapper--content">
-                <h1 class="je">das werk</h1>
-                <div id="werk" class="wrapper--column">
-                    <div class="wrapper--werk column column--2-3 text--m text--black black--10 padding--xl" style="overflow:scroll">
-                        Wenn du das Gebäude betrittst, stößt du rechterhand unmittelbar auf das Backsteinrelief. Es ist an der 
-                        Außenwand des großen Musiksaals angebracht und markiert das Herzstück der Hochschule.
-                        Gehst Du daran vorüber, begleitet das Relief aus weißen Steinen deine Bewegungen. Aus der Fläche erheben 
-                        sich durch das Vor- und Zurückstehen der Steine, über die gesamte Wandhöhe, diagonale Formen. Sie 
-                        scheinen sich aufeinander zu zu bewegen und dann wieder voneinander weg. Das Relief fordert Dich 
-                        geradezu auf, den pfeilartig angeordneten Formvariationen zu folgen. Diese Bewegung wirkt besonders 
-                        plastisch, weil die einzelnen Steine zusammen eine Struktur erzeugen, die ganz stark mit Schattenwirkungen 
-                        spielt. Je nach Lichteinfall und Perspektive kommt das Relief hervor oder es tritt zurück. Du kannst 
-                        diesen Formen, ihren tänzerischen Bewegungen und ihrem Zusammenspiel im Vorbeigehen folgen wie einer 
-                        Komposition. Er sagt:<br><br>
-                        <i>»Der Backstein wurde für mich zum ‘Ton’, den ich visuell zum Klingen bringen musste. Das regelmäßig 
-                        definierte, stereometrische Element des Steins wurde durch serielle und kompositorische Anwendung 
-                        Grundelement der Gesamtgestaltung. Auch hier sind für die Gesamtlösung zwei wichtige Entscheidungen 
-                        getroffen worden: einmal die Bezugnahme auf die räumliche Situation und zum anderen die rhythmisierende 
-                        Gliederung. Darüber hinaus war wichtig, dass durch Bewegung des Betrachters die Wand sich insgesamt 
-                        erschließt. Vor die Grundfläche der Wand, die geometrisch streng mit senkrechten und waagerechten 
-                        Fugen gemauert ist, lagern sich die kompositionsbestimmenden Diagonalteile, wiederum in verschiedenen 
-                        Ebenen ausgeführt und bestimmt durch eine komplexe zentrale Form, die sich nach den Seiten hin in 
-                        ihrer Komplexität vereinfachend auflöst.«</i> (Jo Enzweiler)
-                        <p class="text--s"><br>(Wandgestaltung 1970, Relief, geweßte Hüttensteine, 3,50 x 20,00 m, Großer 
-                            Musiksaal, Hochschule für Musik Saar, Saarbrücken, Foto: Monika Zorn)</p>
-                    </div>
-                    <div class="column column--1-3">
-                        <div class="image" id="image--werk--raum"></div>
+                <h2 class="je">
+                    <div class="gradient"></div>
+                    galerie
+                </h2>
+                <div class="wrapper--slider">
+                    <div class="slider">
+                        <div>
+                            <div class="wrapper--slider--content"><img src="img/1_5_mockup_game_gallery_1.png"></div>
+                        </div>
+                        <div>
+                            <div class="wrapper--slider--content"><img src="img/1_5_mockup_game_gallery_2.png"></div>
+                        </div>
+                        <div>
+                            <div class="wrapper--slider--content"><img src="img/1_5_mockup_game_gallery_3.png"></div>
+                        </div>
+                        <div>
+                            <div class="wrapper--slider--content"><img src="img/1_5_mockup_game_gallery_4.png"></div>
+                        </div>
+                        <div>
+                            <div class="wrapper--slider--content"><img src="img/1_5_mockup_game_gallery_5.png"></div>
+                        </div>
+                        <div>
+                            <div class="wrapper--slider--content"><img src="img/1_5_mockup_game_gallery_6.png"></div>
+                        </div>
+                        <div>
+                            <div class="wrapper--slider--content"><img src="img/1_5_mockup_game_gallery_7.png"></div>
+                        </div>
+                        <div>
+                            <div class="wrapper--slider--content"><img src="img/1_5_mockup_game_gallery_7.png"></div>
+                        </div>
                     </div>
                 </div>
-            </div>    
-        </div>           
-              
-        <div class="row">
-            <div class="wrapper--content">
-                <h2 class="je">eure bilder</h2>
-                <div class="wrapper--slider black--10">
-                        <div class="slider">
-                            <div>
-                                <div class="wrapper--slider--content">
-                                    <img src="img/1_5_mockup_game_gallery_1.png">
-                                </div>
-                            </div>
-                            <div>
-                                <div class="wrapper--slider--content">
-                                    <img src="img/1_5_mockup_game_gallery_2.png">
-                                </div>
-                            </div>
-                            <div>
-                                <div class="wrapper--slider--content">
-                                    <img src="img/1_5_mockup_game_gallery_3.png">
-                                </div>
-                            </div>
-                            <div>
-                                <div class="wrapper--slider--content">
-                                    <img src="img/1_5_mockup_game_gallery_4.png">
-                                </div>
-                            </div>
-                            <div>
-                                <div class="wrapper--slider--content">
-                                    <img src="img/1_5_mockup_game_gallery_5.png">
-                                </div>
-                            </div>
-                            <div>
-                                <div class="wrapper--slider--content">
-                                    <img src="img/1_5_mockup_game_gallery_6.png">
-                                </div>
-                            </div>
-                            <div>
-                                <div class="wrapper--slider--content">
-                                    <img src="img/1_5_mockup_game_gallery_7.png">
-                                </div>
-                            </div>
-                            <div>
-                                <div class="wrapper--slider--content">
-                                    <img src="img/1_5_mockup_game_gallery_8.png">
-                                </div>
-                            </div>
-                        </div>
-                </div>      
             </div>    
         </div>       
 
+
         <div class="row row--footer">
-            <div class="wrapper--content">
-                <div class="wrapper--footer text--white black--90">
-                        <div id="footer" class="wrapper--column padding--m" style="min-height: auto">
-                            <div class="column column--1-4 padding--m">
-                                <h3 class="padding-bottom--s">How to – App</h3>
-                                <div class="text--m text--black--30">
-                                    <ul>   
-                                        <li><a href="vermittlung.html">Vermittlung</a></li>
-                                        <li><a href="impressum.html">Impressum</a></li>
-                                    </ul>    
-                                </div>
-                            </div>
-                            <div class="column column--1-4 padding--m">
-                                <h3 class="padding-bottom--s">Jo Enzweiler</h3>
-                                <div class="text--m text--black--30">
-                                <ul>   
-                                    <li><a href="jo_enzweiler.html">Über die App</a></li>
-                                    <li><a href="rhythmus.html">Rhythmus</a></li>
-                                    <li><a href="interaktion.html">Interaktion</a></li>
-                                    <li><a href="stadt_raum.html">Stadt & Raum</a></li>
-                                    <li><a href="komposition.html">Komposition</a></li>
-                                    <li><a href="raum.html">Raum</a></li>
-                                </ul>                    
-                            </div>
-                            </div>
-                            <div class="column column--1-4 padding--m">
-                                <h3 class="padding-bottom--s">Monika v. Boch</h3>
-                                <div class="text--m text--black--30">
-                                    <ul>
-                                        <li><a href="monika_von_boch.html">Über die App</a></li>
-                                        <li><a href="natur.html">Natur</a></li>
-                                        <li><a href="licht.html">Licht</a></li>
-                                        <li><a href="ordnung.html">Ordnung</a></li>
-                                        <li><a href="experiment.html">Experiment</a></li>
-                                    </ul> 
-                                </div>
-                            </div>
-                            <div class="column column--1-4 padding--m">
-                                <h3 class="padding-bottom--s">Vera Molnar</h3>
-                                <div class="text--m text--black--30">
-                                    <ul>
-                                        <li><a href="vera_molnar.html">Über die App</a></li>
-                                        <li><a href="spur.html">Spur</a></li>
-                                        <li><a href="buchstaben.html">Buchstaben</a></li>
-                                        <li><a href="zufall.html">Zufall</a></li>
-                                        <li><a href="unordnung.html">(Un)Ordnung</a></li>
-                                        <li><a href="magie.html">Magie</a></li>
-                                    </ul> 
-                                </div>
-                            </div>
-                        </div>                
-                    </div>  
-                <div class="column--footer--last column--1 text--s white" style="text-align: center">
-                    © Institut für Aktuelle Kunst, 2023 
+            <div class="wrapper--content"> 
+                <div class="column--footer column--1-2 text--s">
+                    © 2023 Institut für Aktuelle Kunst
+                </div>
+                <div class="column--footer column--1-2 text--s" id="footer--colophone">
+                    <a href="impressum.html">Impressum</a><br>
+                    <a href="mailto:info@institut-aktuelle-kunst.de">Kontakt</a>
                 </div>
             </div>    
         </div>
+
+    </div>
         
 </main>
 
 <div id="overlay--wrapper--je" class="overlay--wrapper inactive invisible">
     <div id="overlay--je" class="overlay">
-        <div class="text--m" style="padding-bottom: var(--distance--l)">
-            Möchten Sie in die App wechseln oder mehr über die App auf unserer Website erfahren?
+        <div class="text--m">
+            Möchten Sie in die App »Jo Enzweiler« wechseln oder mehr über die App auf unserer Website erfahren?
         </div>
-        <div class="buttons"><a href="jo_enzweiler.html">Website</a><a href="https://how-to-app.de/jo-enzweiler/">App</a></div>
-        <div class="overlay--close" id="overlay--close--je">Schließen</div>
+        <div class="buttons">
+            <a class="button invert" href="jo_enzweiler.html">Website</a>
+            <a class="button invert" href="https://how-to-app.de/jo-enzweiler/" target="_blank">App</a>
+        </div>
+        <div class="button" id="overlay--close--je"><div>Schließen</div></div>
 </div>
 </div>
 
 <div id="overlay--wrapper--mvb" class="overlay--wrapper inactive invisible">
     <div id="overlay--mvb" class="overlay">
-        <div class="text--m" style="padding-bottom: var(--distance--l)">
-            Möchten Sie in die App wechseln oder mehr über die App auf unserer Website erfahren?
+        <div class="text--m">
+            Möchten Sie in die App »Monika von Boch« wechseln oder mehr über die App auf unserer Website erfahren?
         </div>
-        <div class="buttons"><a href="monika_von_boch.html">Website</a><a href="https://how-to-app.de/monika-von-boch/">App</a></div>
-        <div class="overlay--close" id="overlay--close--mvb">Schließen</div>
+        <div class="buttons">
+            <a class="button invert" href="monika_von_boch.html">Website</a>
+            <a class="button invert" href="https://how-to-app.de/monika-von-boch/" target="_blank">App</a>
+        </div>
+        <div class="button" id="overlay--close--mvb"><div>Schließen</div></div>
     </div>
 </div>
 
 <div id="overlay--wrapper--vm" class="overlay--wrapper inactive invisible">
     <div id="overlay--vm" class="overlay">
-        <div class="text--m" style="padding-bottom: var(--distance--l)">
-            Möchten Sie in die App wechseln oder mehr über die App auf unserer Website erfahren?
+        <div class="text--m">
+            Möchten Sie in die App »Vera Molnar« wechseln oder mehr über die App auf unserer Website erfahren?
         </div>
-        <div class="buttons"><a href="vera_molnar.html">Website</a><a href="https://how-to-app.de/vera-molnar/">App</a></div>
-        <div class="overlay--close" id="overlay--close--vm">Schließen</div>
+        <div class="buttons">
+            <a class="button invert" href="vera_molnar.html">Website</a>
+            <a class="button invert" href="https://how-to-app.de/vera-molnar/" target="_blank">App</a>
+        </div>
+        <div class="button" id="overlay--close--vm"><div>Schließen</div></div>
+    </div>
+</div>
+
+<div id="overlay--wrapper--qr" class="overlay--wrapper inactive invisible">
+    <div id="overlay--qr" class="overlay">
+        <div class="text--m">
+            Scannen Sie den QR-Code mit einem Smartphone oder Tablet und laden Sie die App <i>How to – Jo Enzweiler</i> direkt im Browser.
+        </div>
+        <img src="img/1_0_qrcode.png" style="width: 33%; margin: var(--distance--m)">
+        <div class="buttons" style="margin: 0">
+            <div class="button" id="overlay--close--qr"><div>Schließen</div></div>
+        </div>        
     </div>
 </div>
 

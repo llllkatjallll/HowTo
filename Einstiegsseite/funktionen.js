@@ -5,6 +5,21 @@ $(document).ready(function(){
         // Then we set the value in the --vh custom property to the root of the document
         document.documentElement.style.setProperty('--vh', `${vh}px`);
 
+
+        // Loading transition
+
+        //$('body').removeClass('fade');
+
+        $('h1').removeClass('transition');
+        setTimeout(function() {
+          $('.app--header--image').removeClass('transition');
+        }, 500);
+        setTimeout(function() {
+          $('.app--header--text').removeClass('transition');
+        }, 1000);
+
+
+
         // Slick slider
         $('.slider').slick({
             arrows: true,
@@ -37,10 +52,10 @@ $(document).ready(function(){
             ]
         });
 
-        $('.wrapper--app:not(#vera--molnar)').mouseenter(function(){
+        $('.wrapper--app:not(.screenshot)').mouseenter(function(){
           $(this).removeClass('grayscale');
         });
-        $('.wrapper--app:not(#vera--molnar)').mouseleave(function(){
+        $('.wrapper--app:not(.screenshot)').mouseleave(function(){
           $(this).addClass('grayscale');
         });
 
@@ -57,6 +72,20 @@ $(document).ready(function(){
           $('.slick-slide > div > img').height(sliderImgHeight);
 
         //Overlay forwarding
+
+        $('.link--start').click(function(){
+              window.location.href = 'index.html';
+        }
+      );
+
+      $('.link--qr').click(function(){
+          $('#overlay--wrapper--qr').removeClass('inactive');
+          setTimeout(
+            function() 
+            {
+              $('#overlay--wrapper--qr').removeClass('invisible');
+            }, 100);
+    });
 
         $('.link--je').click(function(){
           if ($(window).width() < 1199) {
@@ -116,4 +145,27 @@ $(document).ready(function(){
               $('#overlay--wrapper--vm').addClass('inactive');
             }, 300);
         });
+
+        $('#overlay--close--qr').click(function(){
+          $('#overlay--wrapper--qr').addClass('invisible');
+          setTimeout(function() {
+              $('#overlay--wrapper--qr').addClass('inactive');
+            }, 300);
+        });
+
+        $('#menu').click(function(){
+          $('.nav--button').removeClass('inactive');
+          setTimeout(function(){
+              $('.nav--button').removeClass('invisible');
+          }, 300)
+        });
+
+        $('#close--menu').click(function(){
+          $('.nav--button:not(#menu)').addClass('invisible');
+          setTimeout(function(){
+              $('.nav--button:not(#menu)').addClass('inactive');
+          }, 300)
+        });
+
+
 })

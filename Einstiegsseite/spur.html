@@ -2,7 +2,7 @@
 <html lang="de">
 
 <head>
-    <title>How to: Spiele zur Kunst – Spiel EXPERIMENT</title>
+    <title>How to: Spiele zur Kunst – Spiel ZUFALL</title>
     <link rel="icon" type="image/png" href="Favicon.png">
     <meta charset="UTF-8">
     <meta http-equiv="cache-control" content="no-cache">
@@ -27,185 +27,184 @@
 <body>    
 
     <nav>
-        <div id="icon--hamburger-menu">
-                <svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56">
-                    <defs><style>.cls-1{fill:#140c2e;stroke:white;stroke-linecap:round;stroke-miterlimit:10;stroke-width:3px;}</style></defs>
-                    <rect width="56" height="56" style="fill:black"/>
-                    <line class="cls-1" x1="15.75" y1="16" x2="41" y2="16"/>
-                    <line class="cls-1" x1="15.75" y1="28" x2="41" y2="28"/>
-                    <line class="cls-1" x1="15.75" y1="40" x2="41" y2="40"/>
-                </svg>        
+        
+        <div class="nav--mobile">
+            <div class="nav--button link--start inactive invisible"><div>Home</div></div>
+            <div class="nav--button link--je inactive invisible"><div>Jo Enzweiler</div></div>
+            <div class="nav--button link--mvb inactive invisible"><div>Monika von Boch</div></div>
+            <div class="nav--button link--vm inactive invisible"><div>Vera Molnar</div></div>
+            <div class="nav--button inactive invisible" id="close--menu"><img src="icons/icon-cross-dark.svg"><div>Schließen</div></div>
+            <div class="nav--button" id="menu"><img src="icons/icon-hamburger-menu-dark.svg"><div>Menü</div></div>
         </div>
-        <div id="curtain-menu" class="curtain-menu--hidden">
-            <div id="icon--close-menu">
-                <svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56">
-                    <defs><style>.cls-1{fill:#140c2e;stroke:white;stroke-linecap:round;stroke-miterlimit:10;stroke-width:3px;}</style></defs>
-                    <rect width="56" height="56" style="fill:transparent"/>
-                    <line class="cls-1" x1="15.75" y1="16" x2="41" y2="40"/>
-                    <line class="cls-1" x1="15.75" y1="40" x2="41" y2="16"/>
-                </svg>        
-            </div>
-            <div class="main-menu" style="padding-top: 0">
-                <a href="index.html">Über How to</a><br>
-                <a class="link--je">Jo Enzweiler</a><br>
-                <a class="link--mvb">Monika v. Boch</a><br>
-                <a class="link--vm">Vera Molnar</a><br>
-            </div>
-        </div>
-    </nav>  
 
-    
+        <div class="nav--desktop">
+            <div class="nav--button link--start"><img src="icons/icon-home-dark_1.svg" style="width: var(--distance--s)"><div>Home</div></div>
+            <div class="nav--button link--je"><div>Jo Enzweiler</div></div>
+            <div class="nav--button link--mvb"><div>Monika von Boch</div></div>
+            <div class="nav--button part--of link--vm"><div>Vera Molnar</div></div>
+            <div class="nav--button link--qr qr"><img src="icons/icon-qr-code-dark.svg" style="width: var(--distance--s)"><div>QR-Code</div></div>
+        </div>
+
+    </nav>    
+
 <main>
     <div class="wrapper--rows">
-        <div class="row header">
-            <div class="wrapper--content--header">
-                <div id="column--game" class="column column--1-2 black--100" style="justify-content:flex-end">
-                    <div class="text--white padding--xl">
-                        <h0>spur</h0>        
-                    </div>
-                    <div class="wrapper--game">
-                        <div class="column question" style="color: #ea2626;">
-                            <div class="text">was siehst<br>du ?</div>
+
+        <div class="row game--header--row full--height">
+            <h1 class="vm">
+                <div class="gradient game--header--gradient"></div>
+                spur
+            </h1>
+            <div class="wrapper--column game--header--wrapper--column">
+                <div class="column column--mockup" style="align-self: center;">
+                    <div class="wrapper--app screenshot">
+                        <div class="wrapper--mockup">
+                            <img src="img/3_1_mockup_game_1.png">
+                            <img src="img/3_1_mockup_art.png">
                         </div>
-                        <div class="column quote" style="background-color: #ea2626;">
-                            <div class="text" style="color: white; padding: var(--distance--s) !important"><i>»Eine Linie wie ein Lebenslauf.«</i><br><br>Vera Molnar</div>
-                        </div>
                     </div>
+                </div>  
+                <div class="column--1-2 column--text text--m text--black padding--xl">
+                    Im Spiel &nbsp;s p u r&nbsp; geht es darum, welche Dimension eine Linie annehmen kann. Was beschreibt sie? Was passiert mit ihr, wenn sie sich verdichtet? Eine Linie kann so Vieles sein, Aufzeichnung, Umriss, Verbindung, Spur.
                 </div>
-                <div class="column column--1-2 black--10">
-                    <div class="wrapper--mockup">
-                        <img id="mockup--spiel" src="img/3_1_mockup_game_1.png">
-                    </div>
-                </div>
-            </div>    
-        </div>
-        
+            </div>
+            <div class="reflection--wrapper">
+                <div class="reflection game--header--reflection"></div>
+            </div>
+    </div>  
+
         <div class="row">
+            <h2 class="vm">
+                <div class="gradient"></div>
+                werk
+            </h2>
             <div class="wrapper--content">
-                <h1 class="vm">das spiel</h1>
-                <div id="spiel" class="wrapper--column">
-                    <div class="column column--1-3 text--m black--10 padding--xl">
-                        Im Spiel SPUR geht es darum, welche Dimension eine Linie annehmen kann. Was beschreibt sie? Was passiert mit ihr, wenn sie sich verdichtet? Eine Linie kann so Vieles sein, Aufzeichnung, Umriss, Verbindung, Spur.  
+                <div class="wrapper--column">
+                    <div class="column--1-2 column--text" style="order: 2">
+                        <div class="text--m text--black">
+                            »Das erste Mal, dass ich einen Mont Sainte-Victoire von Cézanne sah, war es auf einer Reproduktion in Budapest. Viel später, in den Vereinigten Staaten entdeckte ich in einem Buch die Kurve, die von Gauß, dem berühmten Mathematiker, beschrieben worden war. Ich machte ganz viele Zeichnungen davon, die mir gestohlen wurden. Ich war empört. Ich wollte nichts mehr von Gauß wissen. 10 oder 15 Jahre später war ich eines Morgens in Aix und was sah ich, als ich aus dem Fenster blickte? Die Kurve von Gauß: Es war der Mont Sainte-Victoire.«<br><br>
+                            Der Maler Paul Cézanne (1839-1906), von dem Vera Molnar hier spricht, stammte aus Aix en Provence und malte den Mont Sainte Victoire über viele Jahre hinweg immer wieder.  In der Wiederholung des immer gleichen Motivs versucht er der »Logik des Sehens«, die für ihn in der Gleichzeitigkeit von Sinneseindruck, Empfindung und Gedanken begründet liegt, auf die Spur zu kommen. Vera Molnar zitiert Cézanne, der viel über seine Malerei nachgedacht und geschrieben hat und über den sie als Studentin ihre Abschlussarbeit schreibt, gern mit dem Satz »Der Künstler ist kein Dummkopf«. Auch für sie ist das Sehen eine Form des Denkens, das seiner eigenen Logik folgt. Und obwohl die Kurve von Gauß (Carl Friedrich Gauß 1777-1855) und der Mont Sainte-Victoire eigentlich nichts miteinander zu tun haben, sind sie über das Sehen, ihre formale Ähnlichkeit miteinander verknüpft. 
+                            <br><br>
+                            Der Maler Paul Cézanne (1839-1906), von dem Vera Molnar hier spricht, stammte aus Aix en Provence und malte den Mont Sainte Victoire über viele Jahre hinweg immer wieder. In der Wiederholung des immer gleichen Motivs versucht er, der Logik des Sehens auf die Spur zu kommen, die für ihn in der Gleichzeitigkeit von Sinneseindruck, Empfindung und Gedanken begründet liegt. Vera Molnar zitiert Cézanne, über den sie als Studentin ihre Abschlussarbeit schreibt, gern mit dem Satz „Der Künstler ist kein Dummkopf“. Auch für sie ist das Sehen eine Form des Denkens, das seiner eigenen Logik folgt. Und obwohl die Kurve von Carl Friedrich Gauß (1777-1855) und der Mont Sainte-Victoire eigentlich nichts miteinander zu tun haben, sind sie über das Sehen, ihre visuelle Ähnlichkeit miteinander verknüpft. 
+                            <br><br>Der Mont Sainte-Victoire erscheint Vera Molnar an diesem Morgen wie die Kurve von Gauß, aber mit Einsprengseln von Unordnung. Weil sie keinen Bleistift zur Hand hat, reißt sie ein Stück Papier, um die Form festzuhalten. „Ich habe den Mont Sainte-Victoire auf alle möglichen Arten gemacht, gerissen, geschnitten, mit allen möglichen Sorten von Papier.“ Sie hat ihn auch gezeichnet, gefaltet und gestickt. Besonders interessant ist eine Serie von Computerzeichnungen, die den Bezug zu Gauß unmittelbar herstellt. Ein Graph in der Mathematik wird durch Koordinaten bestimmt. Dabei ist jedem Punkt auf einer Linie ein bestimmter Wert zugeordnet. Auch die Silhouette des Mont Sainte-Victoire, die Vera Molnar nach ihrem Erlebnis in Aix mit dem Computer umsetzt, wird durch die Koordinaten von 28 einzeln festgelegten Punkten erzeugt, die durch Linien miteinander verbunden sind. Blatt für Blatt variiert sie die Lage der Punkte zunächst nur ganz leicht, dann nach dem Zufallsprinzip immer stärker nach unten. Aus unzähligen sich überlagernden Linien entsteht schließlich eine undurchdringliche schwarze Fläche, eine Anhäufung aus Linien und Punkten, ein Berg, ein Massiv. Für eine Linie gibt es in der Sprache Vera Molnars viele Wörter, wie etwa Zug, Riss oder Spur – eine Spur, die jemand oder etwas hinterlässt, die auf etwas hinführt oder hinweist oder einfach nur sie selbst ist. Vera Molnar sagt auf ihre unvergleichlich humorvolle Art, sie könne nicht wissen, was andere Leute sehen, sie sehe den Mont Sainte-Victoire überall. Was siehst Du?
+                            <br><br>
+                            <p class="text--s">VERWENDETE UND ZITIERTE LITERATUR
+                            <br><br>
+                            Vera Molnar: <i>Solo d’un trait noir</i>. 1994<br>
+                            Maurice Merleau-Ponty: In: <i>Das Auge und der Geist. Philosophische Essays</i>, Hamburg 2003, S. 3-27.<br>
+                            Vera Molnar: <i>Un moment éphémère de certitude</i>. o.O. 1980 <a href="http://www.veramolnar.com/blog/wp-content/uploads/VM1980_moment.pdf" target="_blank">(Quelle)</a><br>
+                            Vera Molnár. <i>Entretien avec Vincent Baby</i>. Paris 2022
+                            </p>
+                            </div>
                     </div>
-                    <div class="column column--2-3">
-                        <div class="image" id="image--spiel--spur"></div>
+                    <div class="column--1-2 column--image sticky" style="order: 1">
+                        <div class="image--wrapper">
+                            <div class="sticky--wrapper">
+                                <img src="img/3_1_werk.jpg">
+                                <figcaption class="text--s">Vera Molnar, <i>Serie Mont Sainte-Victoire</i>, Laserdruck, Edition 7, 1989-96, Courtesy the artist and DAM.org</figcaption>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>    
-        </div>   
+            </div>  
+        </div>  
+        
 
         <div class="row">
             <div class="wrapper--content">
-                <h1 class="vm">das werk</h1>
-                <div id="werk" class="wrapper--column">
-                    <div class="wrapper--werk column column--2-3 text--m text--black black--10 padding--xl" style="overflow:scroll">
-                        »Das erste Mal, dass ich einen Mont Sainte-Victoire von Cézanne sah, war es auf einer Reproduktion in Budapest. Viel später, in den Vereinigten Staaten entdeckte ich in einem Buch die Kurve, die von Gauß, dem berühmten Mathematiker, beschrieben worden war. Ich machte ganz viele Zeichnungen davon, die mir gestohlen wurden. Ich war empört. Ich wollte nichts mehr von Gauß wissen. 10 oder 15 Jahre später war ich eines Morgens in Aix und was sah ich, als ich aus dem Fenster blickte? Die Kurve von Gauß: Es war der Mont Sainte-Victoire.«<br><br>
-                        Der Maler Paul Cézanne (1839-1906), von dem Vera Molnar hier spricht, stammte aus Aix en Provence und malte den Mont Sainte Victoire über viele Jahre hinweg immer wieder.  In der Wiederholung des immer gleichen Motivs versucht er der »Logik des Sehens«, die für ihn in der Gleichzeitigkeit von Sinneseindruck, Empfindung und Gedanken begründet liegt, auf die Spur zu kommen. Vera Molnar zitiert Cézanne, der viel über seine Malerei nachgedacht und geschrieben hat und über den sie als Studentin ihre Abschlussarbeit schreibt, gern mit dem Satz »Der Künstler ist kein Dummkopf«. Auch für sie ist das Sehen eine Form des Denkens, das seiner eigenen Logik folgt. Und obwohl die Kurve von Gauß (Carl Friedrich Gauß 1777-1855) und der Mont Sainte-Victoire eigentlich nichts miteinander zu tun haben, sind sie über das Sehen, ihre formale Ähnlichkeit miteinander verknüpft. 
-                                        <br><br>
-                                        Der Maler Paul Cézanne (1839-1906), von dem Vera Molnar hier spricht, stammte aus Aix en Provence und malte den Mont Sainte Victoire über viele Jahre hinweg immer wieder. In der Wiederholung des immer gleichen Motivs versucht er, der Logik des Sehens auf die Spur zu kommen, die für ihn in der Gleichzeitigkeit von Sinneseindruck, Empfindung und Gedanken begründet liegt. Vera Molnar zitiert Cézanne, über den sie als Studentin ihre Abschlussarbeit schreibt, gern mit dem Satz „Der Künstler ist kein Dummkopf“. Auch für sie ist das Sehen eine Form des Denkens, das seiner eigenen Logik folgt. Und obwohl die Kurve von Carl Friedrich Gauß (1777-1855) und der Mont Sainte-Victoire eigentlich nichts miteinander zu tun haben, sind sie über das Sehen, ihre visuelle Ähnlichkeit miteinander verknüpft. 
-                                        <br><br>Der Mont Sainte-Victoire erscheint Vera Molnar an diesem Morgen wie die Kurve von Gauß, aber mit Einsprengseln von Unordnung. Weil sie keinen Bleistift zur Hand hat, reißt sie ein Stück Papier, um die Form festzuhalten. „Ich habe den Mont Sainte-Victoire auf alle möglichen Arten gemacht, gerissen, geschnitten, mit allen möglichen Sorten von Papier.“ Sie hat ihn auch gezeichnet, gefaltet und gestickt. Besonders interessant ist eine Serie von Computerzeichnungen, die den Bezug zu Gauß unmittelbar herstellt. Ein Graph in der Mathematik wird durch Koordinaten bestimmt. Dabei ist jedem Punkt auf einer Linie ein bestimmter Wert zugeordnet. Auch die Silhouette des Mont Sainte-Victoire, die Vera Molnar nach ihrem Erlebnis in Aix mit dem Computer umsetzt, wird durch die Koordinaten von 28 einzeln festgelegten Punkten erzeugt, die durch Linien miteinander verbunden sind. Blatt für Blatt variiert sie die Lage der Punkte zunächst nur ganz leicht, dann nach dem Zufallsprinzip immer stärker nach unten. Aus unzähligen sich überlagernden Linien entsteht schließlich eine undurchdringliche schwarze Fläche, eine Anhäufung aus Linien und Punkten, ein Berg, ein Massiv. Für eine Linie gibt es in der Sprache Vera Molnars viele Wörter, wie etwa Zug, Riss oder Spur – eine Spur, die jemand oder etwas hinterlässt, die auf etwas hinführt oder hinweist oder einfach nur sie selbst ist. Vera Molnar sagt auf ihre unvergleichlich humorvolle Art, sie könne nicht wissen, was andere Leute sehen, sie sehe den Mont Sainte-Victoire überall. Was siehst Du?
-                                        <br><br>
-                                        VERWENDETE UND ZITIERTE LITERATUR<br>
-                                        Vera Molnar: Solo d’un trait noir. 1994<br>
-                                        Maurice Merleau-Ponty: In: Das Auge und der Geist. Philosophische Essays, Hamburg 2003, S. 3-27.<br>
-                                        Vera Molnar: Un moment éphémère de certitude. o.O. 1980 <a href="http://www.veramolnar.com/blog/wp-content/uploads/VM1980_moment.pdf" target="_blank">(Quelle)</a><br>
-                                        Vera Molnár. Entretien avec Vincent Baby. Paris 2022</p>
-                    </div>
-                    <div class="column column--1-3">
-                        <div class="image" id="image--werk--spur"></div>
+                <h2 class="vm">
+                    <div class="gradient"></div>
+                    galerie
+                </h2>
+                <div class="wrapper--slider">
+                    <div class="slider">
+                        <div>
+                            <div class="wrapper--slider--content"><img src="img/3_1_mockup_game_gallery_1.png"></div>
+                        </div>
+                        <div>
+                            <div class="wrapper--slider--content"><img src="img/3_1_mockup_game_gallery_2.png"></div>
+                        </div>
+                        <div>
+                            <div class="wrapper--slider--content"><img src="img/3_1_mockup_game_gallery_3.png"></div>
+                        </div>
+                        <div>
+                            <div class="wrapper--slider--content"><img src="img/3_1_mockup_game_gallery_4.png"></div>
+                        </div>
+                        <div>
+                            <div class="wrapper--slider--content"><img src="img/3_1_mockup_game_gallery_5.png"></div>
+                        </div>
+                        <div>
+                            <div class="wrapper--slider--content"><img src="img/3_1_mockup_game_gallery_6.png"></div>
+                        </div>
                     </div>
                 </div>
             </div>    
-        </div>           
+        </div>              
 
         <div class="row row--footer">
-            <div class="wrapper--content">
-                <div class="wrapper--footer text--white black--90">
-                        <div id="footer" class="wrapper--column padding--m" style="min-height: auto">
-                            <div class="column column--1-4 padding--m">
-                                <h3 class="padding-bottom--s">How to – App</h3>
-                                <div class="text--m text--black--30">
-                                    <ul>   
-                                        <li><a href="vermittlung.html">Vermittlung</a></li>
-                                        <li><a href="impressum.html">Impressum</a></li>
-                                    </ul>    
-                                </div>
-                            </div>
-                            <div class="column column--1-4 padding--m">
-                                <h3 class="padding-bottom--s">Jo Enzweiler</h3>
-                                <div class="text--m text--black--30">
-                                <ul>   
-                                    <li><a href="jo_enzweiler.html">Über die App</a></li>
-                                    <li><a href="rhythmus.html">Rhythmus</a></li>
-                                    <li><a href="interaktion.html">Interaktion</a></li>
-                                    <li><a href="stadt_raum.html">Stadt & Raum</a></li>
-                                    <li><a href="komposition.html">Komposition</a></li>
-                                    <li><a href="raum.html">Raum</a></li>
-                                </ul>                    
-                            </div>
-                            </div>
-                            <div class="column column--1-4 padding--m">
-                                <h3 class="padding-bottom--s">Monika v. Boch</h3>
-                                <div class="text--m text--black--30">
-                                    <ul>
-                                        <li><a href="monika_von_boch.html">Über die App</a></li>
-                                        <li><a href="natur.html">Natur</a></li>
-                                        <li><a href="licht.html">Licht</a></li>
-                                        <li><a href="ordnung.html">Ordnung</a></li>
-                                        <li><a href="experiment.html">Experiment</a></li>
-                                    </ul> 
-                                </div>
-                            </div>
-                            <div class="column column--1-4 padding--m">
-                                <h3 class="padding-bottom--s">Vera Molnar</h3>
-                                <div class="text--m text--black--30">
-                                    <ul>                                        
-                                        <li><a href="vera_molnar.html">Über die App</a></li>
-                                        <li><a href="spur.html">Spur</a></li>
-                                        <li><a href="buchstaben.html">Buchstaben</a></li>
-                                        <li><a href="zufall.html">Zufall</a></li>
-                                        <li><a href="unordnung.html">(Un)Ordnung</a></li>
-                                        <li><a href="magie.html">Magie</a></li>
-                                    </ul> 
-                                </div>
-                            </div>
-                        </div>                
-                    </div>  
-                <div class="column--footer--last column--1 text--s white" style="text-align: center">
-                    © Institut für Aktuelle Kunst, 2023 
+            <div class="wrapper--content"> 
+                <div class="column--footer column--1-2 text--s">
+                    © 2023 Institut für Aktuelle Kunst
+                </div>
+                <div class="column--footer column--1-2 text--s" id="footer--colophone">
+                    <a href="impressum.html">Impressum</a><br>
+                    <a href="mailto:info@institut-aktuelle-kunst.de">Kontakt</a>
                 </div>
             </div>    
         </div>
+
+    </div>
         
 </main>
 
 <div id="overlay--wrapper--je" class="overlay--wrapper inactive invisible">
     <div id="overlay--je" class="overlay">
-        <div class="text--m" style="padding-bottom: var(--distance--l)">
-            Möchten Sie in die App wechseln oder mehr über die App auf unserer Website erfahren?
+        <div class="text--m">
+            Möchten Sie in die App »Jo Enzweiler« wechseln oder mehr über die App auf unserer Website erfahren?
         </div>
-        <div class="buttons"><a href="jo_enzweiler.html">Website</a><a href="https://how-to-app.de/jo-enzweiler/">App</a></div>
-        <div class="overlay--close" id="overlay--close--je">Schließen</div>
+        <div class="buttons">
+            <a class="button invert" href="jo_enzweiler.html">Website</a>
+            <a class="button invert" href="https://how-to-app.de/jo-enzweiler/" target="_blank">App</a>
+        </div>
+        <div class="button" id="overlay--close--je"><div>Schließen</div></div>
 </div>
 </div>
 
 <div id="overlay--wrapper--mvb" class="overlay--wrapper inactive invisible">
     <div id="overlay--mvb" class="overlay">
-        <div class="text--m" style="padding-bottom: var(--distance--l)">
-            Möchten Sie in die App wechseln oder mehr über die App auf unserer Website erfahren?
+        <div class="text--m">
+            Möchten Sie in die App »Monika von Boch« wechseln oder mehr über die App auf unserer Website erfahren?
         </div>
-        <div class="buttons"><a href="monika_von_boch.html">Website</a><a href="https://how-to-app.de/monika-von-boch/">App</a></div>
-        <div class="overlay--close" id="overlay--close--mvb">Schließen</div>
+        <div class="buttons">
+            <a class="button invert" href="monika_von_boch.html">Website</a>
+            <a class="button invert" href="https://how-to-app.de/monika-von-boch/" target="_blank">App</a>
+        </div>
+        <div class="button" id="overlay--close--mvb"><div>Schließen</div></div>
     </div>
 </div>
 
 <div id="overlay--wrapper--vm" class="overlay--wrapper inactive invisible">
     <div id="overlay--vm" class="overlay">
-        <div class="text--m" style="padding-bottom: var(--distance--l)">
-            Möchten Sie in die App wechseln oder mehr über die App auf unserer Website erfahren?
+        <div class="text--m">
+            Möchten Sie in die App »Vera Molnar« wechseln oder mehr über die App auf unserer Website erfahren?
         </div>
-        <div class="buttons"><a href="vera_molnar.html">Website</a><a href="https://how-to-app.de/vera-molnar/">App</a></div>
-        <div class="overlay--close" id="overlay--close--vm">Schließen</div>
+        <div class="buttons">
+            <a class="button invert" href="vera_molnar.html">Website</a>
+            <a class="button invert" href="https://how-to-app.de/vera-molnar/" target="_blank">App</a>
+        </div>
+        <div class="button" id="overlay--close--vm"><div>Schließen</div></div>
+    </div>
+</div>
+
+<div id="overlay--wrapper--qr" class="overlay--wrapper inactive invisible">
+    <div id="overlay--vm" class="overlay">
+        <div class="text--m">
+            Scannen Sie den QR-Code mit einem Smartphone oder Tablet und laden die App <i>How to – Vera Molnar</i> direkt im Browser.
+        </div>
+        <img src="img/3_0_qrcode.png" style="width: 33%; margin: var(--distance--m)">
+        <div class="buttons" style="margin: 0">
+            <div class="button" id="overlay--close--qr"><div>Schließen</div></div>
+        </div>        
     </div>
 </div>
 
