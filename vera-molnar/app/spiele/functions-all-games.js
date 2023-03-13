@@ -13,75 +13,6 @@ window.onload = function () {
 }
 
 
-// SAVE GAME RESULTS IN LOCAL STORAGE
-
-/* function setItem(gameKey, itemValue) {
-    console.log("setItem");
-    try {
-        let now = new Date();
-        let jsonData = JSON.stringify({ time: now, data: itemValue });
-        let timestamp = Date.now() / 1000 | 0;
-        let itemKey = gameKey + "-" + timestamp;
-        console.log(itemKey);
-        window.localStorage.setItem(itemKey, jsonData);
-        let totalStorageItems = window.localStorage.length;
-        // console.log(itemValue);
-
-        //check local storage memory
-        var _lsTotal = 0, _xLen, _x;
-        for (_x in localStorage) {
-            if (!localStorage.hasOwnProperty(_x)) { continue; } _xLen = ((localStorage[_x].length + _x.length) * 2); _lsTotal += _xLen;
-            //console.log(_x.substr(0, 50) + " = " + (_xLen / 1024).toFixed(2) + " KB") 
-        };
-        console.log("Total = " + (_lsTotal / 1024).toFixed(2) + " KB");
-
-        return true;
-    } catch (e) {
-        console.log("Storage is FULL");
-        //delete first 20%
-        // Get all keys from localStorage
-        const keys = Object.keys(localStorage);
-
-        // Create a new array for sorted key-value pairs
-        const sortedItems = [];
-
-        // Sort the keys based on timestamp in the key ID
-        keys.sort((a, b) => {
-            const timestampA = a.split("-")[1];
-            const timestampB = b.split("-")[1];
-
-            return timestampB - timestampA; // Descending order
-        });
-
-        for (let k = keys.length-1; k > keys.length - ((keys.length) * 0.5); k--) {
-            window.localStorage.removeItem(keys[k]);
-            console.log("deleted " + keys[k]);
-        }
-        try {
-            let now = new Date();
-            let jsonData = JSON.stringify({ time: now, data: itemValue });
-            let timestamp = Date.now() / 1000 | 0;
-            let itemKey = gameKey + "-" + timestamp;
-            console.log(itemKey);
-            window.localStorage.setItem(itemKey, jsonData);
-            let totalStorageItems = window.localStorage.length;
-            // console.log(itemValue);
-    
-            //check local storage memory
-            var _lsTotal = 0, _xLen, _x;
-            for (_x in localStorage) {
-                if (!localStorage.hasOwnProperty(_x)) { continue; } _xLen = ((localStorage[_x].length + _x.length) * 2); _lsTotal += _xLen;
-                //console.log(_x.substr(0, 50) + " = " + (_xLen / 1024).toFixed(2) + " KB") 
-            };
-            console.log("Total = " + (_lsTotal / 1024).toFixed(2) + " KB");
-    
-            
-        } catch (e) {
-            return false;
-        }
-    }
-} */
-
 // SAVE GAME RESULTS WITH INDEXED DB
 
 function setItem(gameKey, itemValue) {
@@ -94,7 +25,7 @@ function setItem(gameKey, itemValue) {
         let timestamp = Date.now() / 1000 | 0;
         let itemKey = gameKey + "-" + timestamp;
 
-        
+
 
         // save image data in local storage 
         localforage.setItem(itemKey, jsonData).then(function (value) {
@@ -115,59 +46,9 @@ function setItem(gameKey, itemValue) {
             console.log(err);
         });
 
-
-        //check local storage memory
-        /*   var _lsTotal = 0, _xLen, _x;
-          for (_x in localStorage) {
-              if (!localStorage.hasOwnProperty(_x)) { continue; } _xLen = ((localStorage[_x].length + _x.length) * 2); _lsTotal += _xLen;
-              //console.log(_x.substr(0, 50) + " = " + (_xLen / 1024).toFixed(2) + " KB") 
-          };
-          console.log("Total = " + (_lsTotal / 1024).toFixed(2) + " KB"); */
-
         return true;
     } catch (e) {
-        /* console.log("Storage is FULL");
-        //delete first 20%
-        // Get all keys from localStorage
-        const keys = Object.keys(localStorage);
 
-        // Create a new array for sorted key-value pairs
-        const sortedItems = [];
-
-        // Sort the keys based on timestamp in the key ID
-        keys.sort((a, b) => {
-            const timestampA = a.split("-")[1];
-            const timestampB = b.split("-")[1];
-
-            return timestampB - timestampA; // Descending order
-        });
-
-        for (let k = keys.length-1; k > keys.length - ((keys.length) * 0.5); k--) {
-            window.localStorage.removeItem(keys[k]);
-            console.log("deleted " + keys[k]);
-        }
-        try {
-            let now = new Date();
-            let jsonData = JSON.stringify({ time: now, data: itemValue });
-            let timestamp = Date.now() / 1000 | 0;
-            let itemKey = gameKey + "-" + timestamp;
-            console.log(itemKey);
-            window.localStorage.setItem(itemKey, jsonData);
-            let totalStorageItems = window.localStorage.length;
-            // console.log(itemValue);
-    
-            //check local storage memory
-            var _lsTotal = 0, _xLen, _x;
-            for (_x in localStorage) {
-                if (!localStorage.hasOwnProperty(_x)) { continue; } _xLen = ((localStorage[_x].length + _x.length) * 2); _lsTotal += _xLen;
-                //console.log(_x.substr(0, 50) + " = " + (_xLen / 1024).toFixed(2) + " KB") 
-            };
-            console.log("Total = " + (_lsTotal / 1024).toFixed(2) + " KB");
-    
-            
-        } catch (e) {
-            return false;
-        }  */
     }
 }
 
@@ -243,10 +124,6 @@ function displayImagesfromStorage(gameId) {
     }
 
     localforage.iterate(function (value, key, iterationNumber) {
-        // Resulting key/value pair -- this callback
-        // will be executed for every item in the
-        // database.
-        // console.log([key, value]);
 
         if (gameId.substring(0, 3) == key.substring(0, 3)) {
             //place to the gallery
@@ -255,7 +132,7 @@ function displayImagesfromStorage(gameId) {
             //console.log(value.data);
             let jsonObjectString = value;
             let parsedData = JSON.parse(jsonObjectString);
-           
+
 
             element.src = parsedData.data;
             element.classList.add("gallery-image");
@@ -270,13 +147,11 @@ function displayImagesfromStorage(gameId) {
             imageContainer.appendChild(element);
             imageContainer.appendChild(checkboxElement);
             console.log(iterationNumber);
-            if(iterationNumber==1){
+            if (iterationNumber == 1) {
                 containerGallery.appendChild(imageContainer);
-            } else{
+            } else {
                 containerGallery.insertBefore(imageContainer, containerGallery.firstChild);
             }
-            //containerGallery.insertBefore(imageContainer, containerGallery.firstChild);
-            //containerGallery.appendChild(imageContainer);
         }
 
 
@@ -286,29 +161,23 @@ function displayImagesfromStorage(gameId) {
         addListenerToImages();
 
         //if gallery has images-remove no images message
-        
+
         if (containerGallery.children.length > 0) {
             document.getElementById("emptyGalleryMessage").style.display = "none";
         }
-    
+
         console.log('Iteration has completed');
     }).catch(function (err) {
         // This code runs if there were any errors
         console.log(err);
     });
-
-
-    
-
-
-
 }
 
 function addListenerToImages() {
-    
+
     for (const child of containerGallery.children) {
         child.addEventListener('click', (event) => { imageClickedRegistration(child) });
-        
+
     }
 }
 
@@ -366,10 +235,7 @@ function downloadImage(url, number) {
         })
 }
 
-/*saveButton.onclick = function () {
 
-    saveImage();
-  } */
 //Save Image
 let pngURL = undefined;
 let blobURL = undefined;
@@ -416,7 +282,7 @@ function saveImage(event) {
                 // image.src = dataURL;
 
                 setItem(currentGameId, dataURL);
-                
+
                 // document.body.appendChild(image);
             });
 
@@ -452,9 +318,6 @@ function saveImage(event) {
         image.src = blobURL;
 
     }
-
-
-
 }
 
 //**dataURL to blob**
