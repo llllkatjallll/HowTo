@@ -204,7 +204,7 @@ function downloadImages() {
         if (child.classList.contains("selected")) {
              downloadImage(child.querySelector('.gallery-image').src, child.querySelector('.gallery-image').dataset.numberId);
             //download(child.querySelector('.gallery-image').src, "image.png"); 
-            console.log(child.querySelector('.gallery-image').src);
+            //console.log(child.querySelector('.gallery-image').src);
             
             imagesString = imagesString + child.querySelector('.gallery-image').src + " ";
         }
