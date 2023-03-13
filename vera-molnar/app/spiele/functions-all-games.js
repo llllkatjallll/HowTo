@@ -1,4 +1,4 @@
-
+import multiDownload from '/multipleDownload.js';
 var containerGallery = document.getElementById("gallery-wrapper");
 
 let saveButton = document.getElementById("button-speichern");
@@ -197,12 +197,20 @@ function imageClickedRegistration(obj) {
     }
 }
 
+let imagesString = undefined;
+
 function downloadImages() {
     for (const child of containerGallery.children) {
         if (child.classList.contains("selected")) {
-            downloadImage(child.querySelector('.gallery-image').src, child.querySelector('.gallery-image').dataset.numberId);
+             downloadImage(child.querySelector('.gallery-image').src, child.querySelector('.gallery-image').dataset.numberId);
             //download(child.querySelector('.gallery-image').src, "image.png"); 
+            console.log(child.querySelector('.gallery-image').src);
+            
+            imagesString = imagesString + child.querySelector('.gallery-image').src + " ";
         }
+       // const files = imagesString.split(' ');
+       // multiDownload(files);
+       // imagesString = undefined;
     }
 
     //deselect all images
