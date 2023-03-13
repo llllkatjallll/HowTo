@@ -10,13 +10,12 @@ saveButton.addEventListener("click", saveImage);
 window.onload = function () {
     displayImagesfromStorage(currentGameId);
     downloadButton.addEventListener('click', (event) => { downloadImages() });
-
 }
 
 
+// SAVE GAME RESULTS IN LOCAL STORAGE
 
-
-function setItem(gameKey, itemValue) {
+/* function setItem(gameKey, itemValue) {
     console.log("setItem");
     try {
         let now = new Date();
@@ -81,14 +80,111 @@ function setItem(gameKey, itemValue) {
             return false;
         }
     }
+} */
+
+// SAVE GAME RESULTS WITH INDEXED DB
+
+function setItem(gameKey, itemValue) {
+    console.log("setItem");
+    try {
+
+        //prepare item key name
+        let now = new Date();
+        let jsonData = JSON.stringify({ time: now, data: itemValue });
+        let timestamp = Date.now() / 1000 | 0;
+        let itemKey = gameKey + "-" + timestamp;
+
+        
+
+        // save image data in local storage 
+        localforage.setItem(itemKey, jsonData).then(function (value) {
+            // Do other things once the value has been saved.
+            displayImagesfromStorage(currentGameId);
+        }).catch(function (err) {
+
+            console.log(err);
+        });
+
+        //get total number of saved items
+
+        localforage.length().then(function (numberOfKeys) {
+            // Outputs the length of the database.
+            console.log("numberOfKeys " + numberOfKeys);
+            let totalStorageItems = numberOfKeys;
+        }).catch(function (err) {
+            console.log(err);
+        });
+
+
+        //check local storage memory
+        /*   var _lsTotal = 0, _xLen, _x;
+          for (_x in localStorage) {
+              if (!localStorage.hasOwnProperty(_x)) { continue; } _xLen = ((localStorage[_x].length + _x.length) * 2); _lsTotal += _xLen;
+              //console.log(_x.substr(0, 50) + " = " + (_xLen / 1024).toFixed(2) + " KB") 
+          };
+          console.log("Total = " + (_lsTotal / 1024).toFixed(2) + " KB"); */
+
+        return true;
+    } catch (e) {
+        /* console.log("Storage is FULL");
+        //delete first 20%
+        // Get all keys from localStorage
+        const keys = Object.keys(localStorage);
+
+        // Create a new array for sorted key-value pairs
+        const sortedItems = [];
+
+        // Sort the keys based on timestamp in the key ID
+        keys.sort((a, b) => {
+            const timestampA = a.split("-")[1];
+            const timestampB = b.split("-")[1];
+
+            return timestampB - timestampA; // Descending order
+        });
+
+        for (let k = keys.length-1; k > keys.length - ((keys.length) * 0.5); k--) {
+            window.localStorage.removeItem(keys[k]);
+            console.log("deleted " + keys[k]);
+        }
+        try {
+            let now = new Date();
+            let jsonData = JSON.stringify({ time: now, data: itemValue });
+            let timestamp = Date.now() / 1000 | 0;
+            let itemKey = gameKey + "-" + timestamp;
+            console.log(itemKey);
+            window.localStorage.setItem(itemKey, jsonData);
+            let totalStorageItems = window.localStorage.length;
+            // console.log(itemValue);
+    
+            //check local storage memory
+            var _lsTotal = 0, _xLen, _x;
+            for (_x in localStorage) {
+                if (!localStorage.hasOwnProperty(_x)) { continue; } _xLen = ((localStorage[_x].length + _x.length) * 2); _lsTotal += _xLen;
+                //console.log(_x.substr(0, 50) + " = " + (_xLen / 1024).toFixed(2) + " KB") 
+            };
+            console.log("Total = " + (_lsTotal / 1024).toFixed(2) + " KB");
+    
+            
+        } catch (e) {
+            return false;
+        }  */
+    }
 }
 
 function getItem(itemKey) {
     try {
-        let jsonObjectString = window.localStorage.getItem(itemKey);
-        let parsedData = JSON.parse(jsonObjectString);
-        //console.log("getItem: " + itemKey + ": " + parsedData.data);
-        return parsedData.data;
+
+        localforage.getItem('itemKey').then(function (value) {
+            let jsonObjectString = value;
+            let parsedData = JSON.parse(jsonObjectString);
+            console.log("PARSED DATA" + parsedData.data);
+            return parsedData.data;
+        }).catch(function (err) {
+            // This code runs if there were any errors
+            console.log(err);
+            return null;
+        });
+
     } catch (e) {
         return null;
     }
@@ -138,7 +234,7 @@ function countImagesGame(gameName) {
     return itemsCount;
 
 }
-
+let gameKeys = undefined;
 
 function displayImagesfromStorage(gameId) {
 
@@ -146,30 +242,24 @@ function displayImagesfromStorage(gameId) {
         containerGallery.removeChild(containerGallery.firstChild);
     }
 
-    // Get all keys from localStorage
-    const keys = Object.keys(localStorage);
+    localforage.iterate(function (value, key, iterationNumber) {
+        // Resulting key/value pair -- this callback
+        // will be executed for every item in the
+        // database.
+        // console.log([key, value]);
 
-    // Create a new array for sorted key-value pairs
-    const sortedItems = [];
-
-    // Sort the keys based on timestamp in the key ID
-    keys.sort((a, b) => {
-        const timestampA = a.split("-")[1];
-        const timestampB = b.split("-")[1];
-
-        return timestampB - timestampA; // Descending order
-    });
-
-      for (const key of keys) {
-        let keyName = key;
-        //console.log("lokStorage Key:  " + keyName + "   GameID:  " + gameId);
-        if (gameId.substring(0, 3) == keyName.substring(0, 3)) {
+        if (gameId.substring(0, 3) == key.substring(0, 3)) {
             //place to the gallery
 
             var element = new Image();
-            element.src = getItem(keyName);
+            //console.log(value.data);
+            let jsonObjectString = value;
+            let parsedData = JSON.parse(jsonObjectString);
+           
+
+            element.src = parsedData.data;
             element.classList.add("gallery-image");
-            element.dataset.numberId = keyName.split("-")[1];
+            element.dataset.numberId = key.split("-")[1];
             //imageContainer hinzufügen
             var imageContainer = document.createElement("div");
             imageContainer.classList.add("gallery-image-container");
@@ -179,23 +269,46 @@ function displayImagesfromStorage(gameId) {
             checkboxElement.classList.add("checkbox");
             imageContainer.appendChild(element);
             imageContainer.appendChild(checkboxElement);
-            containerGallery.appendChild(imageContainer);
+            console.log(iterationNumber);
+            if(iterationNumber==1){
+                containerGallery.appendChild(imageContainer);
+            } else{
+                containerGallery.insertBefore(imageContainer, containerGallery.firstChild);
+            }
+            //containerGallery.insertBefore(imageContainer, containerGallery.firstChild);
+            //containerGallery.appendChild(imageContainer);
         }
-    }
 
-    addListenerToImages();
 
-    //if gallery has images-remove no images message
-    if(containerGallery.children.length>0){
-       document.getElementById("emptyGalleryMessage").style.display="none";
-    }
+
+    }).then(function () {
+
+        addListenerToImages();
+
+        //if gallery has images-remove no images message
+        
+        if (containerGallery.children.length > 0) {
+            document.getElementById("emptyGalleryMessage").style.display = "none";
+        }
+    
+        console.log('Iteration has completed');
+    }).catch(function (err) {
+        // This code runs if there were any errors
+        console.log(err);
+    });
+
+
+    
+
 
 
 }
 
 function addListenerToImages() {
+    
     for (const child of containerGallery.children) {
         child.addEventListener('click', (event) => { imageClickedRegistration(child) });
+        
     }
 }
 
@@ -218,26 +331,26 @@ function imageClickedRegistration(obj) {
 function downloadImages() {
     for (const child of containerGallery.children) {
         if (child.classList.contains("selected")) {
-            downloadImage(child.querySelector('.gallery-image').src,child.querySelector('.gallery-image').dataset.numberId);
+            downloadImage(child.querySelector('.gallery-image').src, child.querySelector('.gallery-image').dataset.numberId);
             //download(child.querySelector('.gallery-image').src, "image.png"); 
         }
     }
 
     //deselect all images
     let allCheckedBoxes = document.getElementsByClassName("checkbox");
-    for (let i =0;i<allCheckedBoxes.length;i++) {
+    for (let i = 0; i < allCheckedBoxes.length; i++) {
         allCheckedBoxes[i].classList.remove("checkbox-active");
     }
 
     let allCheckedContainer = document.getElementsByClassName("gallery-image-container");
-    for (let i =0;i<allCheckedContainer.length;i++) {
+    for (let i = 0; i < allCheckedContainer.length; i++) {
         allCheckedContainer[i].classList.remove("selected");
     }
 
 
 }
 
-function downloadImage(url,number) {
+function downloadImage(url, number) {
     fetch(url, {
         mode: 'no-cors',
     })
@@ -262,12 +375,12 @@ let pngURL = undefined;
 let blobURL = undefined;
 
 function saveImage(event) {
-    
+
     document.getElementsByClassName('saved-image-transition')[0].classList.add("moved-image");
 
     setTimeout(() => {
         document.getElementsByClassName('saved-image-transition')[0].classList.remove("moved-image");
-      }, "1000");
+    }, "1000");
     // let wrapper = document.getElementById("section-wrapper-touch");
     //wrapper.classList.remove("scroll-snap"); 
 
@@ -277,10 +390,10 @@ function saveImage(event) {
     // check if svg comes from p5 canvas or html
     if (currentGameId == "Buchstaben") {
 
-       // return;
+        // return;
 
         // if html element
-        var endSize =1080;
+        var endSize = 1080;
         var scale = undefined;
 
 
@@ -300,16 +413,16 @@ function saveImage(event) {
         })
             .then(dataURL => {
                 //var image = new Image();
-               // image.src = dataURL;
+                // image.src = dataURL;
 
                 setItem(currentGameId, dataURL);
-               displayImagesfromStorage(currentGameId);
-               // document.body.appendChild(image);
-            }); 
+                
+                // document.body.appendChild(image);
+            });
 
     } else { //if p5 
         svgElement = document.getElementById("defaultCanvas0").children[0];
-       
+
         let clonedSvgElement = svgElement.cloneNode(true);
 
         let outerHTML = clonedSvgElement.outerHTML,
@@ -319,7 +432,7 @@ function saveImage(event) {
         let URL = window.URL || window.webkitURL || window;
 
         blobURL = URL.createObjectURL(blob);
-      
+
         let image = new Image();
 
         image.onload = () => {
@@ -331,7 +444,7 @@ function saveImage(event) {
             context.drawImage(image, 0, 0, SVGsize, SVGsize);
 
             pngURL = canvas.toDataURL(); // default png
-            
+
             setItem(currentGameId, pngURL);
             displayImagesfromStorage(currentGameId);
         };
@@ -348,16 +461,16 @@ function saveImage(event) {
 function dataURLtoBlob(dataurl) {
     var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
         bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
-    while(n--){
+    while (n--) {
         u8arr[n] = bstr.charCodeAt(n);
     }
-    return new Blob([u8arr], {type:mime});
+    return new Blob([u8arr], { type: mime });
 }
 
 //**blob to dataURL**
 function blobToDataURL(blob, callback) {
     var a = new FileReader();
-    a.onload = function(e) {callback(e.target.result);}
+    a.onload = function (e) { callback(e.target.result); }
     a.readAsDataURL(blob);
 }
 
