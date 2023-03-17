@@ -1,4 +1,4 @@
-import multiDownload from '/multipleDownload.js';
+
 var containerGallery = document.getElementById("gallery-wrapper");
 
 let saveButton = document.getElementById("button-speichern");
