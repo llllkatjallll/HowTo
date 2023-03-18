@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <title>How to: Spiele zur Kunst</title>
+    <link rel="icon" type="image/png" href="favicons/favicon-96x96_start.ico">
+    <meta charset="UTF-8">
+    <meta http-equiv="cache-control" content="no-cache">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <!-- New slick-theme.css for default styling -->
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script type="text/javascript" src="funktionen.js"></script> 
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="How to: Spiele zur Kunst">
+    <meta name="keywords" content="Kunstvermittlung App Digitalisierung Museum">
+    <meta name="author" content="Institut für Aktuelle Kunst, Saarbrücken">
+
+    <meta property="og:title" content="How to: Spiele zur Kunst" />
+    <meta property="og:description" content="App-Serie, mit der Kinder und Kunstliebhaber*innen in die Arbeit und Gedankenwelt von Künstler*innen eintauchen können" />
+    <meta property="og:url" content="https://www.imdb.com/title/tt0117500/" />
+    <meta
+      property="og:image"
+      content="https://ia.media-imdb.com/images/rock.jpg"
+    />
+
+</head>
+
+<body>   
+
+
+<nav>
+
+    <div class="nav--mobile">
+        <div class="nav--button link--start inactive invisible"><img src="img/icons/icon-home-dark_1.svg"><div>Home</div></div>
+        <div class="nav--button link--je inactive invisible"><div>Jo Enzweiler</div></div>
+        <div class="nav--button link--mvb inactive invisible"><div>Monika von Boch</div></div>
+        <div class="nav--button link--vm inactive invisible"><div>Vera Molnar</div></div>
+        <div class="nav--button inactive invisible" id="close--menu"><img src="img/icons/icon-cross-dark.svg"><div>Schließen</div></div>
+        <div class="nav--button" id="menu"><img src="img/icons/icon-hamburger-menu-dark.svg"><div>Menü</div></div>
+    </div>
+
+    <div class="nav--desktop">
+        <div class="nav--button active link--start"><img src="img/icons/icon-home-light_1.svg"><div>Home</div></div>
+        <div class="nav--button link--je"><div>Jo Enzweiler</div></div>
+        <div class="nav--button link--mvb"><div>Monika von Boch</div></div>
+        <div class="nav--button link--vm"><div>Vera Molnar</div></div>
+        <!--<div class="nav--button qr"><img src="img/icons/icon-qr-code-dark.svg"><div>QR-Code</div></div>-->
+    </div>
+
+</nav>   
+    
+
+<main>
+    <div class="wrapper--rows">
+
+        <div class="row app--header--row transition header--start">
+            <h1 class="transition" style="color: white">how to:
+                </h1>        
+        </div>
+
+        <div class="row full--height">
+                <h2>
+                    <div class="gradient"></div>
+                    apps
+                </h2>
+                    <div id="games" class="wrapper--column full--height--wrapper">
+                        <div class="column column--mockup">
+                            <div id="jo--enzweiler" class="wrapper--app grayscale je link--je" href="jo_enzweiler.html" target="_blank">
+                                <h5>Bildhauer</h5>
+                                <h3>Jo Enzweiler</h3>
+                                <div class="wrapper--mockup">
+                                    <img src="img/1_0_launchscreen.png">
+                                    <img src="img/1_0_main_menu.png">
+                                </div>
+                                <div class="button invert" id="mockup--jo-enzweiler">mehr</div>
+                            </div>
+                        </div>  
+                        <div class="column column--mockup">
+                            <div id="monika--von--boch" class="wrapper--app grayscale mvb link--mvb" href="monika_von_boch.html" target="_blank">
+                                <h5>Fotografin</h5>
+                                <h3>Monika von Boch</h3>
+                                <div class="wrapper--mockup">
+                                    <img src="img/2_0_launchscreen.png">
+                                    <img src="img/2_0_main_menu.png">
+                                </div>
+                                <div class="button invert" id="mockup--monika-von-boch">mehr</div>
+                            </div>  
+                        </div>  
+                        <div class="column column--mockup">
+                            <div id="vera--molnar" class="wrapper--app grayscale vm link--vm" href="vera_molnar.html" target="_blank">
+                                <h5>Computerkünstlerin</h5>
+                                <h3>Vera Molnar</h3>
+                                <div class="wrapper--mockup">
+                                    <img src="img/3_0_launchscreen.png">
+                                    <img src="img/3_0_main_menu.png">
+                                </div>
+                                <div class="button invert" id="mockup--vera-molnar">mehr</div>
+                            </div>
+                        </div> 
+                     
+                </div>    
+        </div>
+
+        <div class="row full--height">
+            <h2>
+                <div class="gradient"></div>
+                spielen
+            </h2>
+            <div class="content--wrapper full--height--wrapper" style="width: 100vw; display:flex; align-items: center; justify-content: center;">
+                <div id="benefit">
+                    <div class="column column--1-4">
+                        <h3>Einfach<br> loslegen</h3>
+                        <div><i>how to:</i> bringt Kunst nahe – Mit dem Smartphone oder Tablet einfach eine der Apps oben auswählen und im Browser spielen.</div>
+                    </div>
+                    <div class="column column--1-4">
+                        <h3>Kunst<br> verstehen</h3>
+                        <div><i>how to:</i> fragt, wie Künstler*innen denken, wie Kunstwerke entstehen und welche Ideen darin sichtbar werden.</div>
+                    </div>
+                    <div class="column column--1-4">
+                        <h3>Kunst<br> spielen</h3>
+                        <div><i>how to:</i> lädt dazu ein, selbst zu experimentieren, die Umgebung neu zu entdecken und eigene Bilder zu schaffen.</div>
+                    </div>
+                    <div class="column column--1-4">
+                        <h3>Künstler*innen<br> kennenlernen</h3>
+                        <div><i>how to:</i> stellt den konkreten Künstler Jo Enzweiler, die Fotografin Monika von Boch und die Computerkünstlerin Vera Molnar vor.</div>
+                    </div>
+                </div>
+            </div>
+        </div>   
+
+        <div class="row">
+            <h2>
+                <div class="gradient"></div>
+                zeigen
+            </h2>
+                <div class="wrapper--column">
+                    <div id="vermittlung" class="column column--2-3 column--text" style="align-self: center;">
+                        <div class="text--m">
+                            <i>how to: Spiele zur Kunst</i> ist eine Web-App, mit der Kinder und Kunstbegeisterte spielerisch in die Arbeits- und Gedankenwelt von Künstler*innen eintauchen können. Die Spiele reflektieren künstlerische Prozesse, in dem sie dazu einladen, integrierte Funktionen eines Smartphones oder Tablets, wie Touchscreen oder Kamera, auf ungewohnte Art zu nutzen. Je nach Spiel kann die Umgebung oder die Eigenschaften von Material entdeckt werden.
+                            <br><br>
+                            Die Nutzer*innen erfahren, welche Fragen sich Künstler*innen stellen und welche Techniken sie einsetzen, um sich ihnen anzunähern. Sie erleben, wieviel Spaß es macht, wenn Idee und Zufall, Wissen und Experiment aufeinandertreffen und wie sie einander bereichern können. Wie viel Intuition und Imagination braucht es, damit aus Bildern Kunst entsteht? Oder vielmehr: Was hat Kunst überhaupt mit Spielen zu tun?
+                            <br><br>
+                            Sie sind in der Kunstvermittlung an Museen oder Schulen tätig und daran interessiert, unsere App in Ihr Angebot aufzunehmen, schreiben Sie uns. Wir unterstützen Sie gerne mit Workshops und weiterführenden Materialien.
+                        </div>  
+                        <div class="buttons">
+                            <a class="button" href="mailto:info@institut-aktuelle-kunst.de" target="_blank">
+                                <div>Kontakt</div>
+                            </a>
+                            <a class="button" href="https://institut-aktuelle-kunst.de/kunstvermittlung" target="_blank">
+                                <div>Termine</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+   
+        <div class="row row--footer">
+            <div class="wrapper--content"> 
+                <div class="column--footer column--1-2 text--s">
+                    © 2023 Institut für Aktuelle Kunst
+                </div>
+                <div class="column--footer column--1-2 text--s" id="footer--colophone">
+                    <a href="impressum.html">Impressum</a><br>
+                    <a href="mailto:info@institut-aktuelle-kunst.de">Kontakt</a>
+                </div>
+            </div>    
+        </div>
+
+
+    </div>
+
+
+</main>
+
+<div id="overlay--wrapper--je" class="overlay--wrapper inactive invisible">
+    <div id="overlay--je" class="overlay">
+        <div class="text--m">
+            Möchten Sie in die App <i>How to – Jo Enzweiler</i> wechseln oder mehr über die App auf unserer Website erfahren?
+        </div>
+        <div class="buttons">
+            <a class="button invert" href="jo_enzweiler.html">Website</a>
+            <a class="button invert" href="https://how-to-app.de/jo-enzweiler/" target="_blank">App</a>
+        </div>
+        <div class="button" id="overlay--close--je"><img src="img/icons/icon-cross-dark.svg"><div>Schließen</div></div>
+</div>
+</div>
+
+<div id="overlay--wrapper--mvb" class="overlay--wrapper inactive invisible">
+    <div id="overlay--mvb" class="overlay">
+        <div class="text--m">
+            Möchten Sie in die App <i>How to – Monika von Boch</i> wechseln oder mehr über die App auf unserer Website erfahren?
+        </div>
+        <div class="buttons">
+            <a class="button invert" href="monika_von_boch.html">Website</a>
+            <a class="button invert" href="https://how-to-app.de/monika-von-boch/" target="_blank">App</a>
+        </div>
+        <div class="button" id="overlay--close--mvb"><img src="img/icons/icon-cross-dark.svg"><div>Schließen</div></div>
+    </div>
+</div>
+
+<div id="overlay--wrapper--vm" class="overlay--wrapper inactive invisible">
+    <div id="overlay--vm" class="overlay">
+        <div class="text--m">
+            Möchten Sie in die App <i>How to – Vera Molnar</i> wechseln oder mehr über die App auf unserer Website erfahren?
+        </div>
+        <div class="buttons">
+            <a class="button invert" href="vera_molnar.html">Website</a>
+            <a class="button invert" href="https://how-to-app.de/vera-molnar/" target="_blank">App</a>
+        </div>
+        <div class="button" id="overlay--close--vm"><img src="img/icons/icon-cross-dark.svg"><div>Schließen</div></div>
+    </div>
+</div>
+
+</body>
+
+</html>
