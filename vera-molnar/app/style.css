@@ -42,6 +42,10 @@ body{
     transition: 600ms;
 }
 
+.opacity-zero{
+    opacity: 0 !important;    
+}
+
 @media only screen and (max-width: 480px) {
     body {
         font-size: calc(1.5vw + 1.2vh);
@@ -89,10 +93,6 @@ body{
         transition: 1s;
     }
 
-    .opacity-zero{
-        opacity: 0;    
-    }
-
 }
 
 @media (pointer: coarse) {   
@@ -100,6 +100,38 @@ body{
 #desktop{
     display: none;
 }
+}
+
+/* Invite to turn device into portrait orientation */
+
+@media (orientation: landscape) {
+    
+    section, div{
+        display: none;
+    }
+
+    #landscape{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        background-color: var(--color1);
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    #landscape > p{
+        font-size: 1.3em;
+        padding: 2em;
+    }
+
+}
+
+@media (orientation: portrait) {
+    #landscape{
+        display: none;
+    }
 }
 
 
@@ -121,7 +153,6 @@ body{
 
     z-index: 3;
     color: white; 
-    mix-blend-mode:screen;
 }
 
 #logo{
@@ -389,6 +420,34 @@ figcaption > p{
     line-height: 1.25;
 }
 
+#quote-section{
+    transition: 0 !important;
+    transform: translateY(0em);
+    animation: scroll-animation 1s ease-in-out;
+    animation-delay: 2000ms;
+    animation-duration: 1000ms;
+    animation-iteration-count: 1;
+
+}
+
+@keyframes scroll-animation{
+    0%{
+        transform: translateY(2.3em);
+    }
+    25%{
+        transform: translateY(1em);
+    }
+    50%{
+        transform: translateY(2.3em);
+    }
+    75%{
+        transform: translateY(1em);
+    }
+    100%{
+        transform: translateY(2.3em);
+    }
+}
+
 a{
     text-decoration: underline !important;
 }
@@ -494,6 +553,10 @@ a:link, a:visited {
 
   li:nth-child(3){
     transition-delay: 100ms;
+}
+
+.dropdown-menu{
+    transition: 400ms;
 }
 
 .display{
@@ -615,9 +678,19 @@ a:link, a:visited {
     border: var(--color2) solid 0.09em;
 }
 
+.text-button.light.neutral{
+    color: black;
+    background-color: white;
+    border: solid white 0.09em;
+}
+
 .text-button.dark{
     color: white;
     background-color: var(--color2);
+}
+
+.text-button.dark.disabled{
+    background-color: #c1a0ae;
 }
 
 .text-button.start{
@@ -917,4 +990,16 @@ div > img{
 
 #icon-menu-light{
     background-image: url(svg/icon-menu-light.svg);
+}
+
+#icon-start-light{
+    background-image: url(svg/icon-start-light.svg);
+}
+
+#icon-start-dark{
+    background-image: url(svg/icon-start-dark.svg);
+}
+
+#icon-scroll-dark{
+    background-image: url(svg/icon-scroll-dark.svg);
 }

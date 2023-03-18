@@ -22,6 +22,9 @@ $(document).ready(function (){
         $('#molnar').addClass('top-position');
         $('.section-first').not('#molnar').addClass('hidden');
         setTimeout(function() {
+            $('.dropdown-menu').addClass('opacity-zero');
+        }, 1100);
+        setTimeout(function() {
             window.location.href = 'molnar.html';
         }, 1200);
     });  
@@ -32,6 +35,9 @@ $(document).ready(function (){
         setTimeout(function() {
             $('#trace-quote').removeClass('hidden');
         }, 300);
+        setTimeout(function() {
+            $('.dropdown-menu').addClass('opacity-zero');
+        }, 1100);
         setTimeout(function() {
             window.location.href = 'trace.html';
         }, 1500);
@@ -44,6 +50,9 @@ $(document).ready(function (){
             $('#character-quote').removeClass('hidden');
         }, 500);
         setTimeout(function() {
+            $('.dropdown-menu').addClass('opacity-zero');
+        }, 1100);
+        setTimeout(function() {
             window.location.href = 'character.html';
         }, 1500);
     });  
@@ -54,6 +63,9 @@ $(document).ready(function (){
         setTimeout(function() {
             $('#coincidence-quote').removeClass('hidden');
         }, 500);
+        setTimeout(function() {
+            $('.dropdown-menu').addClass('opacity-zero');
+        }, 1100);
         setTimeout(function() {
             window.location.href = 'coincidence.html';
         }, 1500);
@@ -66,6 +78,9 @@ $(document).ready(function (){
             $('#disorder-quote').removeClass('hidden');
         }, 500);
         setTimeout(function() {
+            $('.dropdown-menu').addClass('opacity-zero');
+        }, 1100);
+        setTimeout(function() {
             window.location.href = 'disorder.html';
         }, 1500);
     });  
@@ -77,6 +92,9 @@ $(document).ready(function (){
             $('#magic-quote').removeClass('hidden');
         }, 500);
         setTimeout(function() {
+            $('.dropdown-menu').addClass('opacity-zero');
+        }, 1100);
+        setTimeout(function() {
             window.location.href = 'magic.html';
         }, 1500);
     });  
@@ -84,6 +102,9 @@ $(document).ready(function (){
     $('#app').click(function (){   
         $('#app').addClass('top-position');
         $('.section-first').not('#app').addClass('hidden');
+        setTimeout(function() {
+            $('.dropdown-menu').addClass('opacity-zero');
+        }, 1100);
         setTimeout(function() {
             window.location.href = 'app.html';
         }, 1500);

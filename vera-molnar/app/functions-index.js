@@ -33,13 +33,14 @@ $(document).ready(function (){
         $('#square-6').css('transform','rotate(55deg)');
         $('#square-7').animate({top:'100vh', left:'100vw'});
         $('#square-7').css('transform','rotate(37deg)');
-    }, 1600);
+        $('#launchscreen-wrapper').css('color','#FBF6F0');
+    }, 1900);
 
     setTimeout(function(){
             $('#start-info').css('opacity','1');
             $('#start-info').css('z-index','9999999');
             $('#launchscreen-wrapper').css('opacity','0');
-    }, 3400);
+    }, 3500);
 
     $('#button-start').click(function (){ 
         $('#start-info').css('opacity','0');

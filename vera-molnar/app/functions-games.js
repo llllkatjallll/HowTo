@@ -10,7 +10,13 @@ $(document).ready(function (){
     });
 
 
-// Button-Transition
+    // Menü Button einblenden
+
+    setTimeout(function() {
+        $('.dropdown-menu').removeClass('opacity-zero');
+    }, 100);
+
+    // Button-Transition
 
     $('.text-button').click(function(){
         $(this).addClass('button-clicked');
