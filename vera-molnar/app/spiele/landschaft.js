@@ -51,9 +51,9 @@ let sketch = function (p) {
         
         stop=!stop;
         if(stop){
-          holdButton.innerHTML="Weiter";
+          holdButton.innerHTML="<div class="+"text-button-icon "+ "id=" +"icon-play-dark"+"></div>"+"Weiter";
         } else{
-          holdButton.innerHTML="Stop";
+          holdButton.innerHTML="<div class="+"text-button-icon "+ "id=" +"icon-pause-dark"+"></div>"+"Stop";
         }
       });
     }
