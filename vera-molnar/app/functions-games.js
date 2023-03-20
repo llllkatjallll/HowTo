@@ -19,10 +19,13 @@ $(document).ready(function (){
     // Button-Transition
 
     $('.text-button').click(function(){
+        
+        if(!document.getElementById("button-speichern").classList.contains('disabled')){
         $(this).addClass('button-clicked');
         setTimeout(function(){
             $('.text-button').removeClass('button-clicked');
-        }, 600);       
+        }, 600);  
+        }     
     });
 
     // Redirect

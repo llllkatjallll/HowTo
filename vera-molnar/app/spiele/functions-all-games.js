@@ -3,6 +3,7 @@ var containerGallery = document.getElementById("gallery-wrapper");
 
 let saveButton = document.getElementById("button-speichern");
 let downloadButton = document.getElementById("button-download");
+let newChanges = true;
 
 saveButton.addEventListener("click", saveImage);
 
@@ -250,6 +251,11 @@ let blobURL = undefined;
 
 function saveImage(event) {
 
+   
+
+    if(!newChanges){
+        return;
+    } else {
     document.getElementsByClassName('saved-image-transition')[0].classList.add("moved-image");
 
     setTimeout(() => {
@@ -325,6 +331,14 @@ function saveImage(event) {
 
         image.src = blobURL;
 
+    }
+    newChanges = false;
+     // change button state to disabled
+
+     setTimeout(function(){
+        saveButton.classList.add("disabled");
+    }, 100);  
+     
     }
 }
 

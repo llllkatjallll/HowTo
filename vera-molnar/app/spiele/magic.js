@@ -122,7 +122,17 @@ let sketch = function (p) {
     p.checkIfFinished();
     sectionWrapper.classList.remove("hideOverflow");
     placeholderWrapper.classList.remove("hideOverflow");
+    p.enableDownload();
   }
+
+  p.enableDownload = function () {
+
+    //change button state
+    saveButton.classList.remove("disabled");
+    //set boot to show that there are new changes
+    newChanges = true;
+  }
+
 
 
   p.createGrid = function () {

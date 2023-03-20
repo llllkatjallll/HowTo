@@ -16,7 +16,7 @@ var sliderSize = document.getElementById("gridSize");
 var sliderDensity = document.getElementById("densitySize");
 var sliderSpacing = document.getElementById("spacingDensity");
 var gameButtons = document.getElementById("game-buttons");
-let svgButton = document.getElementById("button-speichern");
+
 var canvas;
 let quads = [];
 let amount = 2;
@@ -69,7 +69,7 @@ let sketch = function (p) {
     buttonDensity.addEventListener('click', (event) => { p.showSelectedFunction(buttonDensity) });
     buttonRandom.addEventListener('click', (event) => { p.showSelectedFunction(buttonRandom) });
     restartButton.addEventListener('click', (event) => { p.restart() });
-    svgButton.addEventListener('click', (event) => {  p.saveMySVG() });
+    
     
     //p.restart();
   }
@@ -149,8 +149,18 @@ let sketch = function (p) {
   }
 
   p.inputEvent = function () {
-
+    
     p.drawGrid();
+    p.enableDownload();
+  }
+
+
+  p.enableDownload = function () {
+
+    //change button state
+    saveButton.classList.remove("disabled");
+    //set boot to show that there are new changes
+    newChanges = true;
   }
 
   p.showSelectedFunction = function (pressedButton) {

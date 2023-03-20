@@ -107,12 +107,16 @@ let sketch = function (p) {
    sectionWrapper.classList.remove("hideOverflow");
     placeholderWrapper.classList.remove("hideOverflow");
     startMode = !startMode;  
+    p.enableDownload();
     //console.log(shapePoints);
     }
 
-    p.keyPressed = function () {
-      
+    p.enableDownload = function () {
 
+      //change button state
+      saveButton.classList.remove("disabled");
+      //set boot to show that there are new changes
+      newChanges = true;
     }
 
     let capturedPoints = 0;
@@ -155,6 +159,8 @@ let sketch = function (p) {
 
         if(k>= 400){
           stop = true;
+        } else{
+          p.enableDownload();
         }
     
       }

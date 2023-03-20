@@ -325,6 +325,7 @@ showSelectedFunction = function (pressedButton) {
 sliderThikness.oninput = function () {
   thiknessValue = this.value;
   updateThikness(thiknessValue);
+  enableDownload();
 
 }
 
@@ -354,6 +355,13 @@ function updateGrid(value){
   }
 
   updateEverything();
+}
+
+function enableDownload() {
+  //change button state
+  saveButton.classList.remove("disabled");
+  //set boot to show that there are new changes
+  newChanges = true;
 }
 
 var gridValue = undefined;
@@ -402,6 +410,7 @@ function getCurrentRotation(el){
 
 
 function updateEverything(){
+  enableDownload();
   collectInputData();
   for (i = 0; i < spans.length; i++) {
     spans[i].style.fontSize =  sizeValue*20 + "px";
@@ -431,12 +440,14 @@ sliderRotation.oninput = function () {
 
 // Slider color
 colorBackgroundInput.oninput = function () {
+  enableDownload();
   colorBackgroundValue = document.getElementById("backgroundInput").value;
   document.getElementById("defaultCanvas0").style.backgroundColor = colorBackgroundValue;
 }
 
 //Slider Letter
 colorCharacterInput.oninput = function () {
+  enableDownload();
   colorCharacterValue = colorCharacterInput.value;
   document.getElementById("defaultCanvas0").style.color = colorCharacterValue;
  

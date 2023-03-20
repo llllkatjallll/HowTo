@@ -134,6 +134,7 @@ let sketch = function (p) {
         //console.log("change " + accChangeT);
         // If shake
         if (accChangeT >= threshold) {
+          p.enableDownload();
             for (let i = 0; i < balls.length; i++) {
                 balls[i].shake();
                 balls[i].turn();
@@ -148,6 +149,14 @@ let sketch = function (p) {
             }
         }
 
+    }
+
+    p.enableDownload = function () {
+
+      //change button state
+      saveButton.classList.remove("disabled");
+      //set boot to show that there are new changes
+      newChanges = true;
     }
 
     p.requestAccess = function () {
