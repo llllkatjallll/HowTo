@@ -147,7 +147,7 @@ function displayImagesfromStorage(gameId) {
             checkboxElement.classList.add("checkbox");
             imageContainer.appendChild(element);
             imageContainer.appendChild(checkboxElement);
-            console.log(iterationNumber);
+            //console.log(iterationNumber);
             if (iterationNumber == 1) {
                 containerGallery.appendChild(imageContainer);
             } else {
@@ -181,10 +181,11 @@ function addListenerToImages() {
 
     }
 }
-
+let IsIos = true;
 function imageClickedRegistration(obj) {
     let selectedCheckbox = obj.querySelector('.checkbox');
-
+     IsIos = isItIos();
+    if(!IsIos){
     if (obj.classList.contains("selected")) {
         obj.classList.remove("selected");
     } else {
@@ -196,6 +197,30 @@ function imageClickedRegistration(obj) {
     } else {
         selectedCheckbox.classList.add("checkbox-active");
     }
+  } else {
+    let wasSelected = false;
+
+    if (obj.classList.contains("selected")) {
+        wasSelected = true;
+    }
+
+    //deselect all images
+    let allCheckedBoxes = document.getElementsByClassName("checkbox");
+    for (let i = 0; i < allCheckedBoxes.length; i++) {
+        allCheckedBoxes[i].classList.remove("checkbox-active");
+    }
+
+    let allCheckedContainer = document.getElementsByClassName("gallery-image-container");
+    for (let i = 0; i < allCheckedContainer.length; i++) {
+        allCheckedContainer[i].classList.remove("selected");
+    }
+
+    if (!wasSelected){
+        obj.classList.add("selected");
+        selectedCheckbox.classList.add("checkbox-active");
+    }
+
+  }
 }
 
 let imagesString = undefined;
@@ -358,4 +383,17 @@ function blobToDataURL(blob, callback) {
     a.onload = function (e) { callback(e.target.result); }
     a.readAsDataURL(blob);
 }
+
+const isItIos = () => {
+    if (/Android/i.test(navigator.userAgent)) {
+        //console.log("This is an Android device");
+        return false;
+      } else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        //console.log("This is an iOS device");
+        return true;
+      } else {
+        //console.log("This is neither an Android nor an iOS device");
+        return false;
+      }
+  }
 
