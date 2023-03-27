@@ -83,7 +83,8 @@ let sketch = function (p) {
       p.restart();
       sectionWrapper.classList.add("hideOverflow");
       placeholderWrapper.classList.add("hideOverflow");
-
+      holdButton.classList.remove("disabled");
+      restartButton.classList.remove("disabled");
 
       //p.restart();
       if(startMode){
@@ -176,7 +177,9 @@ let sketch = function (p) {
     capturedPoints = 0;
       //
        k=0; 
-      holdButton.innerHTML="Stop";
+      holdButton.innerHTML="<div class="+"text-button-icon "+ "id=" +"icon-pause-dark"+"></div>"+"Stop";
+      restartButton.classList.add("disabled");
+      svgButton.classList.add("disabled");
     }
 
     p.neu = function () {
@@ -187,7 +190,10 @@ let sketch = function (p) {
       capturedPoints = 0;
       //
        k=0; 
-      holdButton.innerHTML="Stop";
+      holdButton.innerHTML="<div class="+"text-button-icon "+ "id=" +"icon-pause-dark"+"></div>"+"Stop";
+      holdButton.classList.add("disabled");
+      restartButton.classList.add("disabled");
+      svgButton.classList.add("disabled");
     }
 
 
