@@ -15,9 +15,11 @@ $(document).ready(function (){
     });
     
     // Transition Start
+    
     $('.section-first').removeClass('hidden');
 
     //Navigation zu Unterseiten
+
     $('#molnar').click(function (){   
         $('#molnar').addClass('top-position');
         $('.section-first').not('#molnar').addClass('hidden');
@@ -109,6 +111,15 @@ $(document).ready(function (){
             window.location.href = 'app.html';
         }, 1500);
     });  
+
+    // Redirect
+
+    $('.dropdown-menu').click(function (){
+        $('.section-wrapper').animate({top: '120vh'});
+        setTimeout(function() {
+            window.location.href = 'menu.html';
+        }, 1200);
+    });
 
     $('#back-to-menu').click(function (){
         $('.section-wrapper').css('height', '120vh');
