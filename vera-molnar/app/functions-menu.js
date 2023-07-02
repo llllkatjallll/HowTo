@@ -110,4 +110,12 @@ $(document).ready(function (){
         }, 1500);
     });  
 
+    $('#back-to-menu').click(function (){
+        $('.section-wrapper').css('height', '120vh');
+        $('.section-wrapper').animate({top: '-120vh'});
+        setTimeout(function() {
+            window.location.href = 'menu.html';
+        }, 1200);
+    });
+
 });    
