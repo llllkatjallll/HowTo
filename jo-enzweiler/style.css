@@ -283,6 +283,13 @@ nav > ul > li{
     justify-content: center;
 }
 
+.supporter-logos{
+    padding-bottom:1.5em;
+
+  width: auto;
+  height: auto;
+}
+
 #enzweiler{
     top: 0;
 }
